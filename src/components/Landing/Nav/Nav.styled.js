@@ -26,23 +26,64 @@ export const Language = styled.select`
   border: none;
   margin: 2rem;
   padding: 8px;
+  cursor: pointer;
 `;
 
 
 export const ButtonDefault = styled.button`
-  background-color: white;
-  border-radius: 5px;
-  padding: 8px;
-  margin: 5px;
-  width: 80px;
-  transition-duration: 250ms;
+
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
   border: none;
-  box-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  margin: 0 5px 2px;
+  box-sizing:border-box;
   
-  &:hover{
-    background-color: #8265A7;
-    color: white;
+  ::before,::after{
+    position: absolute;
+    content: "";
   }
+
+  & span {         
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    top: 0; left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    transition: 0.3s;
+    box-sizing: border-box;
+  }
+  
+  &::before {
+    background-color: #8265A7;
+    transition: 0.3s ease-out;
+  }
+
+  & span {
+    color: rgb(255,255,255);
+    border: 0.5px solid #8265A7;
+    transition: 0.2s 0.1s;
+  }
+  & span:hover {
+    color: rgb(28, 31, 30);
+
+    transition: 0.2s 0.1s;
+    
+  }
+
+  &::before {
+    top:0; bottom: 0; right: 7px;
+    height: 100%; width: 90%;
+  }
+  &:hover::before {
+    width: 0;
+  }
+  
   
 `;
 

@@ -11,8 +11,8 @@ const Nav = () => {
                     <option value="">🏴󠁥󠁳󠁣󠁴󠁿</option>
                     <option value="">🇬🇧</option>
                 </Language>
-                <ButtonDefault>Login</ButtonDefault>
-                <ButtonDefault>Register</ButtonDefault>
+                <ButtonDefault><span>LogIn</span></ButtonDefault>
+                <ButtonDefault><span>SignIn</span></ButtonDefault>
             </div>
         </Wrapper>
     );
