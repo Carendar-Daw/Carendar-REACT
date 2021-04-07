@@ -71,9 +71,7 @@ export const ButtonDefault = styled.button`
   }
   & span:hover {
     color: rgb(28, 31, 30);
-
     transition: 0.2s 0.1s;
-    
   }
 
   &::before {
@@ -84,9 +82,4 @@ export const ButtonDefault = styled.button`
     width: 0;
   }
   
-  
-`;
-
-export const ButtonDanger = styled(ButtonDefault)`
-  background-color: red;
 `;
