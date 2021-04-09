@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../Devices';
 import { ButtonDefault } from "../../Styles/Style.styled";
 /*
 * Colors
@@ -21,16 +22,26 @@ export const Container = styled.div`
 
 `;
 export const Card = styled.div`
-  
-  padding: 8em;
+  margin: 1em;
+  padding: 4em;
   display: flex;
   flex-direction: column;
+
+
+  @media ${device.laptop}{
+    max-width: 50%;
+  }
+
+  @media ${device.laptopL} {
+    min-width: 20%;
+  }
   
   &>div{
     display: flex;
+
   }
   .icon{
-    font-size: 100px;
+    font-size: 50px;
     
   }
   
