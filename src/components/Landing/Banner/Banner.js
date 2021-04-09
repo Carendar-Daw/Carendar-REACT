@@ -1,11 +1,18 @@
-import { Header,  } from './Banner.styled';
+import { Header, Button } from './Banner.styled';
+
 
 const Banner = () => {
     return (
         <Header>
-            <button>asddsa</button>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus dolorem dolorum eveniet facere fugit illo laborum neque officia repellat.</p>
+            <div>
+                <div>
+                    <h1>Bienvenido a CARENDAR!</h1>
+                    <h2>La plataforma perfecta para tu peluqueria</h2>
+                </div>
+                <Button>Registrate</Button>
+            </div>
         </Header>
+
     );
 };
 
