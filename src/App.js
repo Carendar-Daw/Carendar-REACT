@@ -1,3 +1,4 @@
+import "./components/FontAwesomeIcons";
 import Landing from './containers/Landing/Landing';
 import './App.css';
 
