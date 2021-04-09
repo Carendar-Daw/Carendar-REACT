@@ -1,4 +1,4 @@
-import { Container, Card } from './Main.styled';
+import { Container, Card, Heading, List } from './Main.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Main = () => {
     return (
         <Container>
-            <h3>Title</h3>
+            <Heading>Title</Heading>
             <div>
                 <Card>
                     <div>
@@ -14,8 +14,8 @@ const Main = () => {
                         <h4>Lorem ipsum dolors.</h4>
                     </div>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <List>Lorem ipsum dolor sit amet.</List>
+                        <List>Lorem ipsum dolor sit amet.</List>
                     </ul>
                 </Card>
                 <Card>
@@ -24,8 +24,8 @@ const Main = () => {
                         <h4>Lorem ipsum dolor.</h4>
                     </div>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <List>Lorem ipsum dolor sit amet.</List>
+                        <List>Lorem ipsum dolor sit amet.</List>
                     </ul>
                 </Card>
                 <Card>
@@ -34,8 +34,8 @@ const Main = () => {
                         <h4>Lorem ipsum dolor.</h4>
                     </div>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <List>Lorem ipsum dolor sit amet.</List>
+                        <List>Lorem ipsum dolor sit amet.</List>
                     </ul>
                 </Card>
                 <Card>
@@ -44,8 +44,8 @@ const Main = () => {
                         <h4>Lorem ipsum dolor.</h4>
                     </div>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <List>Lorem ipsum dolor sit amet.</List>
+                        <List>Lorem ipsum dolor sit amet.</List>
                     </ul>
                 </Card>
                 <Card>
@@ -54,8 +54,8 @@ const Main = () => {
                         <h4>Lorem ipsum dolor.</h4>
                     </div>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <List>Lorem ipsum dolor sit amet.</List>
+                        <List>Lorem ipsum dolor sit amet.</List>
                     </ul>
                 </Card>
                 <Card>
@@ -64,8 +64,8 @@ const Main = () => {
                         <h4>Lorem ipsum dolor.</h4>
                     </div>
                     <ul>
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Lorem ipsum dolor sit amet.</li>
+                        <List>Lorem ipsum dolor sit amet.</List>
+                        <List>Lorem ipsum dolor sit amet.</List>
                     </ul>
                 </Card>
             </div>

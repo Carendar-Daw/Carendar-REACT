@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { device } from '../../Devices';
-import { ButtonDefault } from "../../Styles/Style.styled";
+import { device } from '../../Styles/Devices';
+import { ButtonDefault, Heading3, Text } from "../../Styles/Style/Style.styled";
+
 /*
 * Colors
 * FEE995
@@ -21,6 +22,15 @@ export const Container = styled.div`
   }
 
 `;
+
+export const Heading = styled(Heading3)`
+  font-family: ${'BebasNeue-Regular'};
+`;
+
+export const List = styled(Text)`
+  font-family: ${'Montserrat-Regular'};
+`;
+
 export const Card = styled.div`
   margin: 1em;
   padding: 4em;

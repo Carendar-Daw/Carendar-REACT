@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Fonts } from '../Typography';
 
 /*
 * Colors
@@ -24,5 +25,8 @@ export const ButtonDefault = styled.button`
 `;
 
 export const Heading3 = styled.h3`
-
+  ${Fonts.bebasNeue}
+`;
+export const Text = styled.p`
+  ${Fonts.montserrat}
 `;

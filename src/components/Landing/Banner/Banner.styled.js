@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonDefault } from "../../Styles/Style.styled";
+import { ButtonDefault } from "../../Styles/Style/Style.styled";
 /*
 * Colors
 * FEE995
