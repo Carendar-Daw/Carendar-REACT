@@ -12,7 +12,8 @@ module.exports = {
     extensions: [".js", ".jsx"],
     alias: {
         '@Components': path.resolve(__dirname, './src/components/'),
-        '@NewRute': path.resolve(__dirname, './src/components/new/newnew/')
+        '@Landing': path.resolve(__dirname, './src/components/Landing/'),
+        '@Assets': path.resolve(__dirname, './public/assets/'),
       },
   },
   plugins: [
