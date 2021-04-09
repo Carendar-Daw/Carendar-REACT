@@ -60,7 +60,8 @@ export const Wrapper = styled.div`
   height: 5rem;
   justify-content: space-around;
   align-items: center;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1;
   backdrop-filter: blur(4px);
