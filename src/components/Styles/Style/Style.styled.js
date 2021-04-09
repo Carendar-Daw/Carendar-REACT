@@ -22,3 +22,7 @@ export const ButtonDefault = styled.button`
   font-weight: bold;
   
 `;
+
+export const Heading3 = styled.h3`
+
+`;
