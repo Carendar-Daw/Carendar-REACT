@@ -11,27 +11,13 @@ import { ButtonDefault } from "../../Styles/Style/Style.styled";
 
 
 export const Container = styled.div`
+  background-color: rgb(220,220,220);
   
-  &>div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-  }
-
 `;
 export const Card = styled.div`
   
-  padding: 8em;
+  padding: 5em;
   display: flex;
-  flex-direction: column;
-  
-  &>div{
-    display: flex;
-  }
-  .icon{
-    font-size: 100px;
-    
-  }
-  
+  justify-content: space-around;
+  flex-direction: ${props => props.reverse ? 'row-reverse': ''};
 `;
