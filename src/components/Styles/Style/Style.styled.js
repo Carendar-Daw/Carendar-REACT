@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Fonts } from '../Typography';
 
 /*
 * Colors
@@ -21,4 +22,18 @@ export const ButtonDefault = styled.button`
   font-size: 14px;
   font-weight: bold;
   
+`;
+
+export const Heading4 = styled.h4`
+  ${Fonts.poppins}
+  font-family: ${'Poppins-Regular'};
+`;
+
+export const Item = styled.li`
+  ${Fonts.montserrat}
+  font-family: ${'Montserrat-Regular'};
+`;
+
+export const Paragraph = styled.p`
+  ${Fonts.montserrat}
 `;
