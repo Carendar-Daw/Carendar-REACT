@@ -31,6 +31,7 @@ export const Container = styled.div`
 
 export const Heading = styled(Heading4)`
   padding-left: 10px;
+  margin: auto 0;
 `;
 
 export const List = styled(Item)`

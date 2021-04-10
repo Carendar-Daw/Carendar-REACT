@@ -11,27 +11,20 @@ import { ButtonDefault } from "../../Styles/Style/Style.styled";
 
 
 export const Container = styled.div`
-  
-  &>div{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-  }
-
-`;
-export const Card = styled.div`
-  
-  padding: 8em;
   display: flex;
-  flex-direction: column;
-  
-  &>div{
-    display: flex;
-  }
-  .icon{
-    font-size: 100px;
+  justify-content: space-around;
+  padding: 3em;
+  background-color: rgb(64, 64, 64);
+
+  .icon {
+    font-size: 3rem;
+    transition-duration:250ms;
+    cursor:pointer;
     
+    :hover{
+      color: #FEE995;
+    }
   }
+  
   
 `;

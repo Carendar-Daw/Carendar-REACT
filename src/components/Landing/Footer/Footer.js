@@ -1,4 +1,4 @@
-import { Container, Card } from './Footer.styled';
+import { Container } from './Footer.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -6,7 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
     return (
         <Container>
-            This is the footer
+            <FontAwesomeIcon className={'icon'} icon={['fab','facebook']}/>
+            <FontAwesomeIcon className={'icon'} icon={['fab','instagram']}/>
+            <FontAwesomeIcon className={'icon'} icon={['fab','github']}/>
+            <FontAwesomeIcon className={'icon'} icon={['fab','twitter']}/>
+            <FontAwesomeIcon className={'icon'} icon={['fab','pinterest']}/>
         </Container>
 
     );

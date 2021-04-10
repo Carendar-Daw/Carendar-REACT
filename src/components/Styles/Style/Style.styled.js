@@ -28,11 +28,12 @@ export const Heading4 = styled.h4`
   ${Fonts.poppins}
   font-family: ${'Poppins-Regular'};
 `;
+
 export const Item = styled.li`
   ${Fonts.montserrat}
   font-family: ${'Montserrat-Regular'};
-  list-style:none;
 `;
+
 export const Paragraph = styled.p`
   ${Fonts.montserrat}
 `;
