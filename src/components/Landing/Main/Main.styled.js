@@ -47,16 +47,15 @@ export const Card = styled.div`
   padding: 4em;
   display: flex;
   flex-direction: column;
-  max-width: 200px;
 
 
-  @media ${device.laptop}{
-    max-width: 50%;
-  }
+
 
   @media ${device.laptopL} {
-    min-width: 20%;
+    align-items: center;
+    width: 20%;
   }
+
   
   &>div{
     display: flex;
