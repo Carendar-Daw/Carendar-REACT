@@ -1,4 +1,4 @@
-import { Container, Card, Heading, List } from './Main.styled';
+import { Container, Card, Heading, List, UList } from './Main.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -6,67 +6,67 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Main = () => {
     return (
         <Container>
-            <Heading>Title</Heading>
+            <h3>Title</h3>
             <div>
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={'calendar-alt'}/>
-                        <h4>Lorem ipsum dolors.</h4>
+                        <Heading>Lorem ipsum dolors.</Heading>
                     </div>
-                    <ul>
+                    <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
                         <List>Lorem ipsum dolor sit amet.</List>
-                    </ul>
+                    </UList>
                 </Card>
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"cut"}/>
-                        <h4>Lorem ipsum dolor.</h4>
+                        <Heading>Lorem ipsum dolor.</Heading>
                     </div>
-                    <ul>
+                    <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
                         <List>Lorem ipsum dolor sit amet.</List>
-                    </ul>
+                    </UList>
                 </Card>
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"tablet-alt"}/>
-                        <h4>Lorem ipsum dolor.</h4>
+                        <Heading>Lorem ipsum dolor.</Heading>
                     </div>
-                    <ul>
+                    <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
                         <List>Lorem ipsum dolor sit amet.</List>
-                    </ul>
+                    </UList>
                 </Card>
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"database"}/>
-                        <h4>Lorem ipsum dolor.</h4>
+                        <Heading>Lorem ipsum dolor.</Heading>
                     </div>
-                    <ul>
+                    <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
                         <List>Lorem ipsum dolor sit amet.</List>
-                    </ul>
+                    </UList>
                 </Card>
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"clock"}/>
-                        <h4>Lorem ipsum dolor.</h4>
+                        <Heading>Lorem ipsum dolor.</Heading>
                     </div>
-                    <ul>
+                    <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
                         <List>Lorem ipsum dolor sit amet.</List>
-                    </ul>
+                    </UList>
                 </Card>
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"users"}/>
-                        <h4>Lorem ipsum dolor.</h4>
+                        <Heading>Lorem ipsum dolor.</Heading>
                     </div>
-                    <ul>
+                    <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
                         <List>Lorem ipsum dolor sit amet.</List>
-                    </ul>
+                    </UList>
                 </Card>
             </div>
         </Container>

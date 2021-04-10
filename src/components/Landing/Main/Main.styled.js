@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../Styles/Devices';
-import { ButtonDefault, Heading3, Text } from "../../Styles/Style/Style.styled";
+import { ButtonDefault, Heading4, Item } from "../../Styles/Style/Style.styled";
 
 /*
 * Colors
@@ -20,15 +20,25 @@ export const Container = styled.div`
     justify-content: center;
     
   }
+  
+  h3{
+    text-align: center;
+    margin: 2em;
+    font-size: 3rem;
+  }
 
 `;
 
-export const Heading = styled(Heading3)`
-  font-family: ${'BebasNeue-Regular'};
+export const Heading = styled(Heading4)`
+  padding-left: 10px;
 `;
 
-export const List = styled(Text)`
-  font-family: ${'Montserrat-Regular'};
+export const List = styled(Item)`
+  padding-top: 1em;
+`;
+
+export const UList = styled.ul`
+  padding: 0;
 `;
 
 export const Card = styled.div`
@@ -36,6 +46,7 @@ export const Card = styled.div`
   padding: 4em;
   display: flex;
   flex-direction: column;
+  max-width: 200px;
 
 
   @media ${device.laptop}{
@@ -54,5 +65,6 @@ export const Card = styled.div`
     font-size: 50px;
     
   }
+  
   
 `;

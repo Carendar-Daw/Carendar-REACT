@@ -24,9 +24,15 @@ export const ButtonDefault = styled.button`
   
 `;
 
-export const Heading3 = styled.h3`
-  ${Fonts.bebasNeue}
+export const Heading4 = styled.h4`
+  ${Fonts.poppins}
+  font-family: ${'Poppins-Regular'};
 `;
-export const Text = styled.p`
+export const Item = styled.li`
+  ${Fonts.montserrat}
+  font-family: ${'Montserrat-Regular'};
+  list-style:none;
+`;
+export const Paragraph = styled.p`
   ${Fonts.montserrat}
 `;
