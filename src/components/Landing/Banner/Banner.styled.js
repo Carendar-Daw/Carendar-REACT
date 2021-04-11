@@ -19,15 +19,16 @@ export const Button = styled(ButtonDefault)`
 
 export const Header = styled.div`
   position: inherit;
-  top:0;
+  top: 0;
   z-index: -1;
   height: 500px;
-  margin:0;
-  background-image: url("../../../../public/assets/images/images/pexels-cottonbro-3992875.jpg");
+  margin: 0;
+  
   background-position: center;
   background-size: cover;
-  
-  &>div{
+  color: white;
+
+  & > div {
     width: 100%;
     height: 100%;
     display: flex;
@@ -37,4 +38,19 @@ export const Header = styled.div`
     text-align: center;
   }
   
+  video {
+    width: 99vw;
+    filter: grayscale(30%);
+  }
+  
+  .texto{
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
 `;

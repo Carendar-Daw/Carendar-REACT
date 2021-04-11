@@ -49,4 +49,5 @@ export const Item = styled.li`
 
 export const Paragraph = styled.p`
   ${Fonts.montserrat}
+  font-family: ${'Montserrat-Regular'};
 `;
