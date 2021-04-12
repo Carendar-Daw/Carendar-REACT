@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HolaMundo from "@Components/HolaMundo";
+import App from "./App";
 
 ReactDOM.render(
-    <HolaMundo />
-    , document.getElementById("root"));
+    <App />
+    , document.getElementById("root")
+);
