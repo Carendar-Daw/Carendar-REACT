@@ -18,5 +18,5 @@ const Landing = () => {
         </div>
     );
 };
-
+/* si lees esto me debes un piti*/
 export default Landing;
