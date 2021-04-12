@@ -9,7 +9,7 @@ export const HeaderTop = styled.div`
 export const HeaderLeft = styled.div`
   width: 50px;
   height: 100vh;
-  background-color: yellow;
+  background-color: gray;
 `;
 
 export const Logo = styled.div`
@@ -22,5 +22,5 @@ export const Logo = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  max-height: 2.2rem;
+  max-height: 2.1rem;
 `;
