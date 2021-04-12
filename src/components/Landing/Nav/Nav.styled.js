@@ -23,13 +23,13 @@ export const Button = styled(ButtonDefault)`
   span {
     position: relative;
     display: inline-block;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
     top: 0; left: 0;
     width: 100%;
-    padding: 8px 13px;
+    padding: 6px 11px;
     box-sizing: border-box;
     color: rgb(255,255,255);
     border: 0.5px solid #8265A7;
@@ -69,12 +69,12 @@ export const Wrapper = styled.div`
 `;
 
 export const Logo = styled.img`
-  max-height: 4rem;
+  max-height: 3rem;
 `;
 export const Language = styled.select`
   background-color: transparent;
   border: none;
-  margin: 2rem;
+  margin: 1rem;
   padding: 8px;
   cursor: pointer;
 `;

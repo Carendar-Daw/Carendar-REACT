@@ -24,6 +24,19 @@ export const ButtonDefault = styled.button`
   
 `;
 
+export const Link = styled.a`
+  ${Fonts.montserrat}
+  font-family: ${'Montserrat-Regular'};
+
+  text-decoration: none;
+  color: black;
+  transition-duration: 250ms;
+  
+  :hover{
+    color: #FEE995;
+  }
+`;
+
 export const Heading4 = styled.h4`
   ${Fonts.poppins}
   font-family: ${'Poppins-Regular'};
@@ -36,4 +49,5 @@ export const Item = styled.li`
 
 export const Paragraph = styled.p`
   ${Fonts.montserrat}
+  font-family: ${'Montserrat-Regular'};
 `;

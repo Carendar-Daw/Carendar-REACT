@@ -11,7 +11,7 @@ const Main = () => {
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={'calendar-alt'}/>
-                        <Heading>Lorem ipsum dolors.</Heading>
+                        <Heading>Calendar</Heading>
                     </div>
                     <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
@@ -21,7 +21,7 @@ const Main = () => {
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"cut"}/>
-                        <Heading>Lorem ipsum dolor.</Heading>
+                        <Heading>Services</Heading>
                     </div>
                     <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
@@ -31,7 +31,7 @@ const Main = () => {
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"tablet-alt"}/>
-                        <Heading>Lorem ipsum dolor.</Heading>
+                        <Heading>Excellent for tablet</Heading>
                     </div>
                     <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
@@ -41,7 +41,7 @@ const Main = () => {
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"database"}/>
-                        <Heading>Lorem ipsum dolor.</Heading>
+                        <Heading>Control your stock</Heading>
                     </div>
                     <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
@@ -51,7 +51,7 @@ const Main = () => {
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"clock"}/>
-                        <Heading>Lorem ipsum dolor.</Heading>
+                        <Heading>Save time</Heading>
                     </div>
                     <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
@@ -61,7 +61,7 @@ const Main = () => {
                 <Card>
                     <div>
                         <FontAwesomeIcon className={'icon'} icon={"users"}/>
-                        <Heading>Lorem ipsum dolor.</Heading>
+                        <Heading>Save your clients</Heading>
                     </div>
                     <UList>
                         <List>Lorem ipsum dolor sit amet.</List>
