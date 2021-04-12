@@ -20,5 +20,5 @@ const App = () => {
 
     );
 }
-
+/* si lees esto me debes un piti*/
 export default App;
