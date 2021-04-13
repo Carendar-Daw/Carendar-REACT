@@ -6,10 +6,13 @@ const clientID = 'FnCY4ajfPN6rFmUN4dB4GqY8cMuMetMP';
 
 const Auth0 = ({ children }) => {
 
+
     const providerConfig = {
         domain: domain,
         clientId: clientID,
-        redirectUri: window.location.origin + '/header',
+        redirectUri: window.location.origin + '/dashboard',
+        onRedirectCallback: localStorage.setItem('isLoggedIn', true),
+
     };
 
     return (
