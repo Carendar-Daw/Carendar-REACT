@@ -24,9 +24,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
   ],
-  devServer: {
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {

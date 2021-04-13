@@ -4,14 +4,14 @@ export const HeaderTop = styled.div`
   width: 100vw;
   height: 50px;
   background-color: #8265A7;
-  box-shadow: 3px 6px 11px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 6px 11px -6px rgba(0, 0, 0, 0.75);
 `;
 
 export const HeaderLeft = styled.div`
   width: 50px;
   height: 100vh;
   background-color: gray;
-  box-shadow: 3px 6px 11px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 6px 11px -6px rgba(0, 0, 0, 0.75);
 `;
 
 export const Logo = styled.div`

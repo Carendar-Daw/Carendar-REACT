@@ -5,7 +5,7 @@ import "./components/Styles/Typography";
 import Landing from './containers/Landing/Landing';
 import Header from './components/Header-App/Nav';
 import './App.css';
-
+import { NavLink } from "react-router-dom";
 const App = () => {
 
     return (
@@ -20,6 +20,7 @@ const App = () => {
                 }
                 <Route render={() => <h1>Not found</h1>} />
             </Switch>
+            <NavLink to='/header'>Header</NavLink>
         </Router>
     );
 }
