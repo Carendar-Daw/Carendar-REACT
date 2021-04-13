@@ -5,6 +5,7 @@ import "./components/Styles/Typography";
 import Landing from './containers/Landing/Landing';
 import Header from './components/Header-App/Nav';
 import './App.css';
+import Index from './components/Dashboard'
 import ProtectedRoute from './middleware/ProtectedRoute';
 
 const App = () => {
@@ -13,7 +14,12 @@ const App = () => {
         <Router>
             <Switch>
                 <Route path='/' exact component={Landing} />
-                <ProtectedRoute path='/header' exact component={Header} />
+
+
+                <Route path="/dashboard">
+                    <ProtectedRoute path='' component={Header} />
+                    <ProtectedRoute path='' component={Index} />
+                </Route>
                 {/*
                 <Route path='/dashboard' exact component={} />
            
