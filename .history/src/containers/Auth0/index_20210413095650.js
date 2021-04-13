@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const domain = 'carendar-daw.eu.auth0.com';
@@ -9,7 +10,7 @@ const Auth0 = ({ children }) => {
     const providerConfig = {
         domain: domain,
         clientId: clientID,
-        redirectUri: window.location.origin + '/header',
+        redirectUri: window.location.origin + '/Header',
     };
 
     return (
