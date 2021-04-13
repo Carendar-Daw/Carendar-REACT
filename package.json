@@ -8,7 +8,7 @@
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
     "start": "node server.js",
-    "stort": "webpack serve --mode=development --open --port 8080"
+    "serve": "webpack serve --mode=development --open --port 8080"
   },
   "keywords": [],
   "author": "",
