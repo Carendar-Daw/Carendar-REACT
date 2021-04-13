@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "postinstall": "webpack -p",
     "start": "node server.js",
     "stort": "webpack serve --mode=development --open --port 8000"
   },
