@@ -10,7 +10,7 @@ const Auth0 = ({ children }) => {
     const providerConfig = {
         domain: domain,
         clientId: clientID,
-        redirectUri: window.location.origin + '/header',
+        redirectUri: window.location.origin + '/dashboard',
         onRedirectCallback: localStorage.setItem('isLoggedIn', true),
 
     };

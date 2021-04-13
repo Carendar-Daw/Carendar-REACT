@@ -16,10 +16,10 @@ const App = () => {
                 <Route path='/' exact component={Landing} />
 
 
-                <Route path="/dashboard">
+                <ProtectedRoute path="/dashboard">
                     <ProtectedRoute path='' component={Header} />
                     <ProtectedRoute path='' component={Index} />
-                </Route>
+                </ProtectedRoute>
                 {/*
                 <Route path='/dashboard' exact component={} />
            

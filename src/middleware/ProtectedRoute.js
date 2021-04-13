@@ -9,7 +9,7 @@ const ProtectedRoute = ({ component, ...args }) => {
 
     return (
         <Route
-            component={!isAuth ? withAuthenticationRequired(component, {
+            component={isAuth ? withAuthenticationRequired(component, {
                 onRedirecting: () => <SpinnerPage />,
             }) : component}
             {...args}
