@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Content } from '../Styles/Style/Style.styled';
 
 export const HeaderTop = styled.div`
   width: 100vw;
@@ -34,14 +35,5 @@ export const Wrapper = styled.div`
   height: 100vh;
   z-index: 5;
 `;
-export const Content = styled.div`
-    position: absolute;
-    background-color: aquamarine;
-    height: 94.9vh;
-    width: 97.4vw;
-    top: 0;
-    left: 0;
-    margin: 50px 50px;
 
-  
-`;
+export const ContentApp = styled(Content)``;

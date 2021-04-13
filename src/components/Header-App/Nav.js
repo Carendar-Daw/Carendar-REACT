@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderTop, HeaderLeft, Logo, LogoImg, Wrapper, Content } from './Nav.styled';
+import { HeaderTop, HeaderLeft, Logo, LogoImg, Wrapper, ContentApp } from './Nav.styled';
 
 const Nav = () => {
     return (
@@ -11,7 +11,7 @@ const Nav = () => {
             </HeaderTop>
             <HeaderLeft>
             </HeaderLeft>
-            <Content>
+            <ContentApp>
                 <div>
                     <h1>liausdhiuh</h1>
                     <h1>liausdhiuh</h1>
@@ -22,7 +22,7 @@ const Nav = () => {
                     <button>asddsa</button>
                 </div>
 
-            </Content>
+            </ContentApp>
         </Wrapper>
     )
 }

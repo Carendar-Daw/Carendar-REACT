@@ -10,7 +10,15 @@ import { Fonts } from '../Typography';
 * 8265A7
 * */
 
-
+export const Content = styled.div`
+    position: absolute;
+    background-color: aquamarine;
+    height: 94.9vh;
+    width: 97.4vw;
+    top: 0;
+    left: 0;
+    margin: 50px 50px;
+`;
 export const ButtonDefault = styled.button`
 
   position: relative;
