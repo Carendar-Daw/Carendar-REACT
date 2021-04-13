@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
+    "postinstall": "webpack -p",
     "start": "node server.js",
     "stort": "webpack serve --mode=development --open --port 8000"
   },
@@ -23,6 +24,8 @@
     "antd": "^4.12.3",
     "axios": "^0.21.1",
     "css-loader": "^5.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "file-loader": "^6.2.0",
     "react": "^17.0.1",
     "react-big-calendar": "^0.33.2",
