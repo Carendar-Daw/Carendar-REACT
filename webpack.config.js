@@ -59,6 +59,18 @@ module.exports = {
         ],
       },
       {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
+        test: /\.(mov|mp4)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
