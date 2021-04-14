@@ -7,6 +7,7 @@ import Header from './components/Header-App/Nav';
 import './App.css';
 import Index from './components/Dashboard'
 import ProtectedRoute from './middleware/ProtectedRoute';
+import SpinnerPage from "@Components/Spinner/SpinnerPage";
 
 const App = () => {
 
@@ -25,7 +26,7 @@ const App = () => {
            
                 */
                 }
-                <Route render={() => <h1>Not found</h1>} />
+                <Route render={() => <SpinnerPage/>} />
             </Switch>
         </Router>
     );
