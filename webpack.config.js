@@ -51,24 +51,18 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]',
       },
+      // This is required for font-awesome's font files
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
+        test: /\.(svg|ttf|woff2?|eot)(\?.*)?$/,
+        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]',
       },
+      // For video
       {
-        test: /\.(mov|mp4)$/,
-        use: [
-          'file-loader'
-        ]
+        test: /\.(webm|mp4)$/,
+        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]&mimetype=video/mp4',
       },
       {
         test: /\.css$/i,
