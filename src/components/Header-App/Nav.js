@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderTop, HeaderLeft, Logo, LogoImg, Wrapper, ContentApp } from './Nav.styled';
+import { HeaderTop, HeaderLeft, Logo, LogoImg, Wrapper } from './Nav.styled';
 
 const Nav = () => {
     return (
@@ -10,19 +10,9 @@ const Nav = () => {
                 </Logo>
             </HeaderTop>
             <HeaderLeft>
-            </HeaderLeft>
-            <ContentApp>
-                <div>
-                    <h1>liausdhiuh</h1>
-                    <h1>liausdhiuh</h1>
-                    <h1>liausdhiuh</h1>
-                    <h1>liausdhiuh</h1>
-                    <h1>liausdhiuh</h1>
-                    <h1>liausdhiuh</h1>
-                    <button>asddsa</button>
-                </div>
 
-            </ContentApp>
+            </HeaderLeft>
+
         </Wrapper>
     )
 }

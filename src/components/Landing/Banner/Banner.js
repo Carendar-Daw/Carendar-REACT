@@ -1,13 +1,12 @@
 import { Header, Button } from './Banner.styled';
 
-
 const Banner = () => {
     return (
         <Header>
             <div>
                 <div>
                     <video autoPlay muted loop id="myVideo">
-                        <source src="../../../../public/assets/video/test.mp4" type="video/mp4"/>
+                        <source src="../../../../public/assets/video/test.mp4" type="video/mp4" />
                     </video>
                 </div>
                 <div className={'texto'}>

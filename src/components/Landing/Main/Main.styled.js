@@ -40,6 +40,14 @@ export const List = styled(Item)`
 
 export const UList = styled.ul`
   padding: 0;
+  padding-left: 35px;
+`;
+export const ContainerCenter = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
 `;
 
 export const Card = styled.div`
@@ -49,14 +57,10 @@ export const Card = styled.div`
   flex-direction: column;
 
 
-
-
   @media ${device.laptopL} {
-    align-items: center;
     width: 20%;
   }
 
-  
   &>div{
     display: flex;
 

@@ -7,6 +7,7 @@ export const HeaderTop = styled.div`
   background-color: #8265A7;
   box-shadow: 3px 6px 11px -6px rgba(0, 0, 0, 0.75);
   z-index: 5;
+  overflow: hidden;
 `;
 
 export const HeaderLeft = styled.div`
@@ -23,7 +24,7 @@ export const Logo = styled.div`
   background-color: #DAE0FE;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 `;
 
 export const LogoImg = styled.img`
@@ -34,6 +35,14 @@ export const Wrapper = styled.div`
   overflow: hidden;
   height: 100vh;
   z-index: 5;
+`;
+
+export const IteamMenuWrapper = styled.div`
+   width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ContentApp = styled(Content)``;
