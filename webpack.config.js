@@ -52,17 +52,18 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]',
-      },
-      // This is required for font-awesome's font files
-      {
-        test: /\.(svg|ttf|woff2?|eot)(\?.*)?$/,
-        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]',
+        use: {
+          loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]',
+        },
+
       },
       // For video
       {
         test: /\.(webm|mp4)$/,
-        loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]&mimetype=video/mp4',
+        use: {
+          loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]&mimetype=video/mp4',
+        },
+
       },
       {
         test: /\.css$/i,
