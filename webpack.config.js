@@ -51,19 +51,12 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
-        use: {
-          loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]',
-        },
-
-      },
-      // For video
-      {
-        test: /\.(webm|mp4)$/,
-        use: {
-          loader: 'file-loader?name=[name]-[sha512:hash:base64:7].[ext]&mimetype=video/mp4',
-        },
-
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
       {
         test: /\.css$/i,
