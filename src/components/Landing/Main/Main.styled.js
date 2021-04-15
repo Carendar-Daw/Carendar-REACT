@@ -66,7 +66,7 @@ export const Card = styled.div`
 
   }
   .icon{
-    font-size: 50px;
+    font-size: 50px !important;
     
   }
   
