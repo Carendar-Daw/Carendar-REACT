@@ -23,7 +23,6 @@ export const Container = styled.div`
   
   h3{
     text-align: center;
-    margin: 2em;
     font-size: 3rem;
   }
 
@@ -48,6 +47,7 @@ export const ContainerCenter = styled.ul`
   justify-content: center;
   max-width: 1200px;
   margin: auto;
+  padding-inline-start: 0px;
 `;
 
 export const Card = styled.div`

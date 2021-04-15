@@ -1,6 +1,10 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { Header, Button } from './Banner.styled';
 
 const Banner = () => {
+
+    const { loginWithRedirect } = useAuth0();
+
     return (
         <Header>
             <div>
@@ -15,7 +19,7 @@ const Banner = () => {
                         <h2>La plataforma perfecta para tu centro de estética</h2>
                     </div>
 
-                    <Button>Registrate</Button>
+                    <Button onClick={() => loginWithRedirect()}>Registrate</Button>
                 </div>
             </div>
         </Header>

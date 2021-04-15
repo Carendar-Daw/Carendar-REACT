@@ -40,6 +40,7 @@ export const Header = styled.div`
   
   video {
     width: 99vw;
+   
     filter: grayscale(30%);
   }
   

@@ -14,7 +14,7 @@ const Nav = () => {
                     <option value="">🇬🇧</option>
                 </Language>
                 <Button onClick={() => loginWithRedirect()}><span>LogIn</span></Button>
-                <Button onClick={() => logout()}><span>SignIn</span></Button>
+                <Button onClick={() => loginWithRedirect()}><span>SignIn</span></Button>
             </div>
         </Wrapper>
     );
