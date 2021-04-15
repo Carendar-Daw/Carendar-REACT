@@ -62,7 +62,7 @@ export const IteamMenuWrapper = styled.div`
 `;
 
 export const WrapperNavTop = styled.div`
-  max-width: 2000px;
+  max-width: 1500px;
   margin-left: 50px;
   display: flex;
   justify-content: space-between;
@@ -72,21 +72,21 @@ export const WrapperNavTop = styled.div`
 export const Hamburger = styled.div`
     width: 50px;
     height: 50px;
-    margin-left: 20px;
+    margin-left: 15px;
     background-color: orange;
 `;
 
 export const UserData = styled.div`
-    width: 200px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-right: 10px;
 `;
 
-export const UserPicture = styled.div`
-    width: 45px;
-    height: 45px;
+export const UserPicture = styled.img`
+    width: 40px;
+    height: 40px;
     border-radius: 100px;
     background-color: red;
 `;
@@ -94,4 +94,9 @@ export const UserPicture = styled.div`
 export const UserName = styled.div`
     font-weight: bold;
     font-size: 20px;
+    margin-left: 10px;
+`;
+
+export const Logout = styled.a`
+    color: red;
 `;

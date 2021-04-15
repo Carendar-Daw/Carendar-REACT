@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
-import { Tooltip } from 'antd';
+import { Tooltip, Popover, Button } from 'antd';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import {
     HeaderTop,
@@ -15,10 +16,11 @@ import {
     Hamburger,
     UserData,
     UserPicture,
-    UserName
+    UserName,
+    Logout
 } from './Nav.styled';
 
-const text = {
+const textMenu = {
     dashboard: 'Dashboard',
     services: 'Services',
 }
@@ -26,11 +28,13 @@ const text = {
 const color = '#8265A7';
 
 const initialState = {
-    dashboard: false,
+    dashboard: true,
     services: false,
 }
 
 const Nav = () => {
+
+    const { user, isAuthenticated, logout } = useAuth0();
 
     const [background, setBackgorund] = useState(initialState);
 
@@ -41,15 +45,25 @@ const Nav = () => {
         setBackgorund(buildingState);
     }
 
+    const contentSettigns = (
+        <div>
+            <p>Profile</p>
+            <Logout onClick={() => logout({ returnTo: window.location.origin })}>Logout</Logout>
+        </div>
+    );
+
     return (
+        isAuthenticated &&
         <Wrapper>
-            <GlobalStyle></GlobalStyle>
+            <GlobalStyle />
             <HeaderTop>
                 <WrapperNavTop>
                     <Hamburger></Hamburger>
                     <UserData>
-                        <UserPicture></UserPicture>
-                        <UserName>Miquel Lopez</UserName>
+                        <Popover content={contentSettigns} title="Settings">
+                            <UserPicture src={user.picture} />
+                        </Popover>
+                        <UserName>{user.given_name}</UserName>
                     </UserData>
                 </WrapperNavTop>
             </HeaderTop>
@@ -57,14 +71,14 @@ const Nav = () => {
                 <Logo>
                     <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
                 </Logo>
-                <Tooltip placement="right" color={color} title={text.dashboard} >
+                <Tooltip placement="right" color={color} title={textMenu.dashboard} >
                     <NavLink to='/dashboard'>
                         <IteamMenuWrapper background={background.dashboard} onClick={() => setNavBackgroundColor('dashboard')}>
                             <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
                         </IteamMenuWrapper>
                     </NavLink>
                 </Tooltip>
-                <Tooltip placement="right" color={color} title={text.services} >
+                <Tooltip placement="right" color={color} title={textMenu.services} >
                     <NavLink to='/services'>
                         <IteamMenuWrapper background={background.services} onClick={() => setNavBackgroundColor('services')}>
                             <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />

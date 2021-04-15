@@ -25,14 +25,6 @@ const App = () => {
                     <ProtectedRoute component={Header} />
                     <ProtectedRoute render={() => <h1>services</h1>} />
                 </ProtectedRoute>
-                <ProtectedRoute path="/cash">
-                    <ProtectedRoute component={Header} />
-                    <ProtectedRoute render={() => <h1>cash</h1>} />
-                </ProtectedRoute>
-                <ProtectedRoute path="/holaa">
-                    <ProtectedRoute component={Header} />
-                    <ProtectedRoute render={() => <h1>holaa</h1>} />
-                </ProtectedRoute>
                 <Route render={() => <h1>Not found</h1>} />
             </Switch>
         </Router>
