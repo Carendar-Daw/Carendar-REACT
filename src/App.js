@@ -4,8 +4,9 @@ import "./components/FontAwesomeIcons";
 import "./components/Styles/Typography";
 import Landing from './containers/Landing/Landing';
 import Header from './components/Header-App/Nav';
+import 'antd/dist/antd.css';
 import './App.css';
-import Index from './components/Dashboard'
+import Dashboard from './components/Dashboard'
 import ProtectedRoute from './middleware/ProtectedRoute';
 
 const App = () => {
@@ -17,14 +18,21 @@ const App = () => {
 
 
                 <ProtectedRoute path="/dashboard">
-                    <ProtectedRoute path='' component={Header} />
-                    <ProtectedRoute path='' component={Index} />
+                    <ProtectedRoute component={Header} />
+                    <ProtectedRoute component={Dashboard} />
                 </ProtectedRoute>
-                {/*
-                <Route path='/dashboard' exact component={} />
-           
-                */
-                }
+                <ProtectedRoute path="/services">
+                    <ProtectedRoute component={Header} />
+                    <ProtectedRoute render={() => <h1>services</h1>} />
+                </ProtectedRoute>
+                <ProtectedRoute path="/cash">
+                    <ProtectedRoute component={Header} />
+                    <ProtectedRoute render={() => <h1>cash</h1>} />
+                </ProtectedRoute>
+                <ProtectedRoute path="/holaa">
+                    <ProtectedRoute component={Header} />
+                    <ProtectedRoute render={() => <h1>holaa</h1>} />
+                </ProtectedRoute>
                 <Route render={() => <h1>Not found</h1>} />
             </Switch>
         </Router>

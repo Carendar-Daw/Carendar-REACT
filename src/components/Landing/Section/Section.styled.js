@@ -27,12 +27,19 @@ export const SubTitle = styled.div`
   color:#6B74A1;
   font-weight: bold;
   font-size: 25px;
+  @media ${deviceMax.tablet} {
+      text-align: center;
+      padding-top: 3px;
+    }
 `;
 
 export const Text = styled.div` 
    font-size: 15px;
    color: gray;
    margin-bottom:50px;
+   @media ${deviceMax.tablet} {
+      text-align: center;
+    }
 `;
 
 export const Container = styled.div`

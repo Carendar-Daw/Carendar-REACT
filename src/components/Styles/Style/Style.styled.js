@@ -18,6 +18,7 @@ export const Content = styled.div`
     top: 0;
     left: 0;
     margin: 50px 50px;
+    z-index: -1;
 `;
 export const ButtonDefault = styled.button`
 
