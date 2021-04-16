@@ -97,6 +97,23 @@ export const UserName = styled.div`
     margin-left: 10px;
 `;
 
+
+export const Arrow = styled.div`
+    background-color: black;
+    width: 8px;
+    height: 8px;
+    margin-left: 3px;
+    transform: rotate(45deg);
+    background-color: #00000000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+`;
+
+export const ContentPopOver = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
 export const Logout = styled.a`
     color: red;
 `;

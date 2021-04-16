@@ -17,7 +17,9 @@ import {
     UserData,
     UserPicture,
     UserName,
-    Logout
+    Logout,
+    Arrow,
+    ContentPopOver
 } from './Nav.styled';
 
 const textMenu = {
@@ -54,16 +56,21 @@ const Nav = () => {
 
     return (
         isAuthenticated &&
+
         <Wrapper>
+            {console.log(user)}
             <GlobalStyle />
             <HeaderTop>
                 <WrapperNavTop>
                     <Hamburger></Hamburger>
                     <UserData>
-                        <Popover content={contentSettigns} title="Settings">
-                            <UserPicture src={user.picture} />
+                        <Popover content={contentSettigns} title="Settings" trigger="click">
+                            <ContentPopOver>
+                                <UserPicture src={user.picture} />
+                                <Arrow />
+                            </ContentPopOver>
                         </Popover>
-                        <UserName>{user.given_name}</UserName>
+                        <UserName>{user.name}</UserName>
                     </UserData>
                 </WrapperNavTop>
             </HeaderTop>
