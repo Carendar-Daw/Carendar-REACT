@@ -5,13 +5,11 @@ import SpinnerPage from '../components/Spinner/SpinnerPage';
 
 const ProtectedRoute = ({ component, ...args }) => {
 
-    const isAuth = JSON.parse(localStorage.getItem('isLoggedIn'));
-
     return (
         <Route
-            component={isAuth ? withAuthenticationRequired(component, {
+            component={withAuthenticationRequired(component, {
                 onRedirecting: () => <SpinnerPage />,
-            }) : component}
+            })}
             {...args}
         />
     );

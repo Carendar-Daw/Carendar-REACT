@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Fonts } from '../Typography';
-
+import { deviceMax } from '../../Styles/Devices';
 /*
 * Colors
 * FEE995
@@ -12,12 +12,18 @@ import { Fonts } from '../Typography';
 
 export const Content = styled.div`
     position: absolute;
-    background-color: aquamarine;
+    background-color: #dadadae6;
     height: 94.9vh;
     width: 97.4vw;
     top: 0;
     left: 0;
     margin: 50px 50px;
+    z-index: -1;
+
+    @media ${deviceMax.mobileL} {
+     width: 100vw;
+     margin: 0;
+    }
 `;
 export const ButtonDefault = styled.button`
 
@@ -26,7 +32,7 @@ export const ButtonDefault = styled.button`
   border: none;
   cursor: pointer;
   box-sizing:border-box;
-  background-color: #8265A7;
+  background-color: hsla(0,0%,44.3%,.3);
   font-size: 14px;
   font-weight: bold;
   

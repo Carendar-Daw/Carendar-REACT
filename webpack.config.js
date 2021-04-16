@@ -21,6 +21,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "index.html",
+      favicon: "./public/assets/images/logos/logo-carendar.ico",
     }),
     new MiniCssExtractPlugin(),
   ],
@@ -49,6 +50,19 @@ module.exports = {
         use: {
           loader: "file-loader",
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+              publicPath: 'images/'
+            }
+          },
+        ],
       },
       {
         test: /\.css$/i,

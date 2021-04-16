@@ -4,8 +4,10 @@ import { useContext } from "react";
 import { I18nContext } from "../../../config/language";
 
 const Nav = () => {
-    const { loginWithRedirect, logout } = useAuth0();
+
+    const { loginWithRedirect } = useAuth0();
     const { messages, language, setLanguage } = useContext(I18nContext);
+
 
     return (
         <Wrapper>
@@ -16,8 +18,10 @@ const Nav = () => {
                     <option value="ca">🏴󠁥󠁳󠁣󠁴󠁿</option>
                     <option value="en">🇬🇧</option>
                 </Language>
+
                 <Button onClick={() => loginWithRedirect()}><span>{messages[language].LogIn}</span></Button>
-                <Button onClick={() => logout()}><span>{messages[language].SignIn}</span></Button>
+                <Button onClick={() => loginWithRedirect()}><span>{messages[language].SignIn}</span></Button>
+
             </div>
         </Wrapper>
     );

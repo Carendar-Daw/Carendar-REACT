@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link, Paragraph } from "../../Styles/Style/Style.styled";
+import { deviceMax } from '../../Styles/Devices';
 /*
 * Colors
 * FEE995
@@ -26,7 +27,11 @@ export const Container = styled.div`
       color: #FEE995;
     }
   }
-
+   @media ${deviceMax.tablet} {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
 `;
 
@@ -56,4 +61,5 @@ export const Contact = styled.div`
   display: flex;
   flex-direction: column;
   margin: auto 0;
+  margin-top: 20px;
 `;
