@@ -1,9 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header, Button } from './Banner.styled';
+import {useAuth0} from "@auth0/auth0-react";
+import {useContext} from "react";
+import {I18nContext} from "../../../config/language";
+
 
 const Banner = () => {
 
+    const { messages, language } = useContext(I18nContext);
     const { loginWithRedirect } = useAuth0();
+
 
     return (
         <Header>
@@ -15,11 +21,12 @@ const Banner = () => {
                 </div>
                 <div className={'texto'}>
                     <div>
-                        <h1>Bienvenido a CARENDAR!</h1>
-                        <h2>La plataforma perfecta para tu centro de estética</h2>
+                        <h1>{messages[language].Welcome.WelcomeBanner}</h1>
+                        <h2>{messages[language].Welcome.WelcomeSubTitle}</h2>
                     </div>
 
-                    <Button onClick={() => loginWithRedirect()}>Registrate</Button>
+                    <Button onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
+
                 </div>
             </div>
         </Header>
