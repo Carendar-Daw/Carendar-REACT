@@ -70,7 +70,7 @@ const Nav = () => {
                                 <Arrow />
                             </ContentPopOver>
                         </Popover>
-                        <UserName>{user.name}</UserName>
+                        <UserName>{user.nickname}</UserName>
                     </UserData>
                 </WrapperNavTop>
             </HeaderTop>

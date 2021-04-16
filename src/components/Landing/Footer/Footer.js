@@ -1,5 +1,5 @@
-import {Anchor, Contact, Container, Icons, Links, Logo, Text} from './Footer.styled';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Anchor, Contact, Container, Icons, Links, Logo, Text } from './Footer.styled';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
         <Container>
             <div>
                 <div>
-                    <Logo src="../../../../public/assets/images/logos/logo-provisional.png" alt=""/>
+                    <Logo src="../../../../public/assets/images/logos/logo-provisional.png" alt="" />
                 </div>
                 <Links>
                     <Anchor href="#">Contact</Anchor>
@@ -18,10 +18,10 @@ const Footer = () => {
             </div>
             <Contact>
                 <Icons>
-                    <FontAwesomeIcon className={'icon'} icon={['fab', 'facebook']}/>
-                    <FontAwesomeIcon className={'icon'} icon={['fab', 'instagram']}/>
-                    <FontAwesomeIcon className={'icon'} icon={['fab', 'twitter']}/>
-                    <FontAwesomeIcon className={'icon'} icon={['fab', 'pinterest']}/>
+                    <FontAwesomeIcon className={'icon'} icon={['fab', 'facebook']} />
+                    <FontAwesomeIcon className={'icon'} icon={['fab', 'instagram']} />
+                    <FontAwesomeIcon className={'icon'} icon={['fab', 'twitter']} />
+                    <FontAwesomeIcon className={'icon'} icon={['fab', 'pinterest']} />
                 </Icons>
                 <div>
                     <Text>España: <Anchor href="tel:+34605369775">+34 605 36 97 75 </Anchor></Text>

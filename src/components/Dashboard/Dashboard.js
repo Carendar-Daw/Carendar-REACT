@@ -25,6 +25,7 @@ const Dashboard = () => {
                 <IteamMenu>
                     <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
                 </IteamMenu>
+
             </WrapperMenu>
         </Content>
     )

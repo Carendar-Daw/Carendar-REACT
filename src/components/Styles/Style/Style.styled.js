@@ -23,6 +23,7 @@ export const Content = styled.div`
     @media ${deviceMax.mobileL} {
      width: 100vw;
      margin: 0;
+     margin-top: 50px;
     }
 `;
 export const ButtonDefault = styled.button`
