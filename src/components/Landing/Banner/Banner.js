@@ -1,6 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Header, Button } from './Banner.styled';
-import {useAuth0} from "@auth0/auth0-react";
 import {useContext} from "react";
 import {I18nContext} from "../../../config/language";
 

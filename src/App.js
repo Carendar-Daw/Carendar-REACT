@@ -8,7 +8,6 @@ import 'antd/dist/antd.css';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard'
 import ProtectedRoute from './middleware/ProtectedRoute';
-import SpinnerPage from "@Components/Spinner/SpinnerPage";
 import messages, { defaultLanguage, I18nContext } from "./config/language";
 
 
@@ -21,13 +20,9 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={Landing} />
                     <ProtectedRoute path="/dashboard">
-                        <ProtectedRoute path='' component={Header} />
-                        <ProtectedRoute path='' component={Index} />
+                        <ProtectedRoute component={Header} />
+                        <ProtectedRoute component={Dashboard} />
                     </ProtectedRoute>
-                    <ProtectedRoute path="/dashboard">
-                    <ProtectedRoute component={Header} />
-                    <ProtectedRoute component={Dashboard} />
-                </ProtectedRoute>
                 <ProtectedRoute path="/services">
                     <ProtectedRoute component={Header} />
 
