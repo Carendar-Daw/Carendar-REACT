@@ -15,6 +15,8 @@ export const Button = styled(ButtonDefault)`
   color: white;
   letter-spacing: 2px;
   text-transform: uppercase;
+  max-width: 10rem;
+  margin: auto;
 `;
 
 export const Header = styled.div`

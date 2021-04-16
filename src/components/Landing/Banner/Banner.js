@@ -21,9 +21,11 @@ const Banner = () => {
                 </div>
                 <div className={'texto'}>
                     <div>
-                        <h1>{messages[language].Welcome.WelcomeBanner}</h1>
-                        <h2>{messages[language].Welcome.WelcomeSubTitle}</h2>
+
+                        {/*<h1>{messages[language].Welcome.WelcomeBanner}</h1>
+                        <h2>{messages[language].Welcome.WelcomeSubTitle}</h2>*/}
                         <DynamicTitle/>
+
                     </div>
 
                     <Button onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
