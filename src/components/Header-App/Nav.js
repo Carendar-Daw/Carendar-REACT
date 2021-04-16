@@ -56,7 +56,9 @@ const Nav = () => {
 
     return (
         isAuthenticated &&
+
         <Wrapper>
+            {console.log(user)}
             <GlobalStyle />
             <HeaderTop>
                 <WrapperNavTop>

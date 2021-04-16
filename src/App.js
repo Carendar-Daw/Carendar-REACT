@@ -25,7 +25,7 @@ const App = () => {
                 </ProtectedRoute>
                 <ProtectedRoute path="/services">
                     <ProtectedRoute component={Header} />
-                    <ProtectedRoute render={() => <h1>services</h1>} />
+
                 </ProtectedRoute>
                 <Route render={() => (<Redirect path='/' />)} />
             </Switch>
