@@ -11,8 +11,6 @@ const Auth0 = ({ children }) => {
         domain: domain,
         clientId: clientID,
         redirectUri: window.location.origin + '/dashboard',
-        onRedirectCallback: localStorage.setItem('isLoggedIn', true),
-
     };
 
     return (
