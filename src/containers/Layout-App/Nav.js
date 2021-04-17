@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
-import SpinnerPage from '../Spinner/SpinnerPage';
 import { Tooltip, Popover, Button } from 'antd';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Content } from '../Styles/Style/Style.styled';
+import { Content } from '../../components/Styles/Style/Style.styled';
+import SpinnerPage from '../../components/Spinner/SpinnerPage';
 
 import {
     HeaderTop,

@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { deviceMax } from '../Styles/Devices';
+import { deviceMax } from '../../components/Styles/Devices';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {

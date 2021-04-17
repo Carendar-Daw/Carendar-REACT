@@ -3,7 +3,7 @@ import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-d
 import "./components/FontAwesomeIcons";
 import "./components/Styles/Typography";
 import Landing from './containers/Landing/Landing';
-import Header from './components/Header-App/Nav';
+import Header from './containers/Layout-App/Nav';
 import 'antd/dist/antd.css';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard'
