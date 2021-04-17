@@ -1,5 +1,5 @@
 import React from 'react'
-import { WrapperMenu, IteamMenu } from './Dashboard.styled';
+import { WrapperMenu, IteamMenu, Title } from './Dashboard.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Dashboard = () => {
@@ -8,21 +8,23 @@ const Dashboard = () => {
         <WrapperMenu>
             <IteamMenu>
                 <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
+                <Title>Cosas</Title>
             </IteamMenu>
             <IteamMenu>
                 <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-            </IteamMenu>
-            <IteamMenu>
+                <Title>Cosas</Title>
+            </IteamMenu><IteamMenu>
                 <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-            </IteamMenu>
-            <IteamMenu>
+                <Title>Cosas</Title>
+            </IteamMenu><IteamMenu>
                 <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-            </IteamMenu>
-            <IteamMenu>
+                <Title>Cosas</Title>
+            </IteamMenu><IteamMenu>
                 <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-            </IteamMenu>
-            <IteamMenu>
+                <Title>Cosas</Title>
+            </IteamMenu><IteamMenu>
                 <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
+                <Title>Cosas</Title>
             </IteamMenu>
         </WrapperMenu>
     )

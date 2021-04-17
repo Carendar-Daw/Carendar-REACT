@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { deviceMax } from '../Styles/Devices';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -15,14 +16,21 @@ export const HeaderTop = styled.div`
   overflow: hidden;
 `;
 
-export const HeaderLeft = styled.div`
+export const HeaderLeft = styled.aside`
   width: 50px;
   height: 100%;
   background-color: gray;
   box-shadow: 13px 4px 12px -7px rgba(0,0,0,0.75);
-  position: absolute;
-  top:0;
-  z-index: 999;
+  position: fixed;
+`;
+
+export const MainContent = styled.section`
+ margin-left: 50px;
+ height: calc(100% - 50px);
+ @media ${deviceMax.mobileL} {
+      flex-direction: column;
+      margin-left: 0;
+    }
 `;
 
 export const Logo = styled.div`
@@ -61,7 +69,7 @@ export const IteamMenuWrapper = styled.div`
 
 export const WrapperNavTop = styled.div`
   max-width: 1500px;
-  margin-left: 50px;
+  margin-left: 30px;
   display: flex;
   justify-content: space-between;
   height: 50px;
@@ -70,7 +78,6 @@ export const WrapperNavTop = styled.div`
 export const Hamburger = styled.div`
     width: 50px;
     height: 50px;
-    margin-left: 15px;
     background-color: orange;
 `;
 

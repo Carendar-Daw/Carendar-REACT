@@ -22,7 +22,8 @@ import {
     UserName,
     Logout,
     Arrow,
-    ContentPopOver
+    ContentPopOver,
+    MainContent
 } from './Nav.styled';
 
 const textMenu = {
@@ -61,20 +62,6 @@ const Nav = ({ children }) => {
         isAuthenticated &&
         <Wrapper>
             <GlobalStyle />
-            <HeaderTop>
-                <WrapperNavTop>
-                    <Hamburger></Hamburger>
-                    <UserData>
-                        <Popover content={contentSettigns} title="Settings" trigger="click">
-                            <ContentPopOver>
-                                <UserPicture src={user.picture} />
-                                <Arrow />
-                            </ContentPopOver>
-                        </Popover>
-                        <UserName>{user.nickname}</UserName>
-                    </UserData>
-                </WrapperNavTop>
-            </HeaderTop>
             <HeaderLeft>
                 <Logo>
                     <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
@@ -94,9 +81,26 @@ const Nav = ({ children }) => {
                     </NavLink>
                 </Tooltip>
             </HeaderLeft>
-            <Content>
-                {children}
-            </Content>
+            <MainContent>
+                <HeaderTop>
+                    <WrapperNavTop>
+                        <Hamburger></Hamburger>
+                        <UserData>
+                            <Popover content={contentSettigns} title="Settings" trigger="click">
+                                <ContentPopOver>
+                                    <UserPicture src={user.picture} />
+                                    <Arrow />
+                                </ContentPopOver>
+                            </Popover>
+                            <UserName>{user.nickname}</UserName>
+                        </UserData>
+                    </WrapperNavTop>
+                </HeaderTop>
+                <Content>
+                    {children}
+                </Content>
+            </MainContent>
+
         </Wrapper>
     )
 }

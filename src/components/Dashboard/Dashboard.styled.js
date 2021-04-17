@@ -5,7 +5,6 @@ export const WrapperMenu = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: blue;
     height: 100%;
     width: 100%; 
 `;
@@ -17,8 +16,11 @@ export const IteamMenu = styled.div`
     width: 100%;
     margin: 30px;
     box-sizing: border-box;
-    background-color: red;
-    
+    cursor: pointer;
+    &:hover {
+      background-color: gray;
+      transition: 0.5s all ease-in-out;
+    }
     @media ${device.tablet} {
       width: 40%;
     }
@@ -27,6 +29,12 @@ export const IteamMenu = styled.div`
       width: 30%;
     }
 
+`;
+
+export const Title = styled.div`
+   text-transform: uppercase;
+   font-size: 20px;
+   text-align: center;
 `;
 
 

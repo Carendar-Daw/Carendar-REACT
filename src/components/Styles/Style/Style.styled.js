@@ -10,21 +10,9 @@ import { deviceMax } from '../../Styles/Devices';
 * 8265A7
 * */
 
-export const Content = styled.div`
-    position: absolute;
+export const Content = styled.main`
     background-color: #dadadae6;
-    height: 94.9vh;
-    width: 97.4vw;
-    top: 0;
-    left: 0;
-    margin: 50px 50px;
-    z-index: -1;
-
-    @media ${deviceMax.laptop} {
-     width: 100vw;
-     margin: 0;
-     margin-top: 50px;
-    }
+    height: 100%;
 `;
 export const ButtonDefault = styled.button`
 
