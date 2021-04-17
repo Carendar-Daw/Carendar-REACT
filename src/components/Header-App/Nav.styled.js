@@ -1,6 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Content } from '../Styles/Style/Style.styled';
-
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -112,6 +110,7 @@ export const Arrow = styled.div`
 export const ContentPopOver = styled.div`
     display: flex;
     align-items: center;
+    cursor: pointer;
 `;
 
 export const Logout = styled.a`

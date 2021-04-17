@@ -1,16 +1,16 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
-import SpinnerPage from '../components/Spinner/SpinnerPage';
 
-const ProtectedRoute = ({ component, ...args }) => {
+const ProtectedRoute = ({ component: Component, layout: Layout }, { ...rest }) => {
 
     return (
         <Route
-            component={withAuthenticationRequired(component, {
-                onRedirecting: () => <SpinnerPage />,
-            })}
-            {...args}
+            render={props => (
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            )}
+            {...rest}
         />
     );
 }

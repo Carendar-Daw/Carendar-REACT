@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import { withAuthenticationRequired } from "@auth0/auth0-react";
+import SpinnerPage from '../Spinner/SpinnerPage';
 import { Tooltip, Popover, Button } from 'antd';
 import { useAuth0 } from "@auth0/auth0-react";
+import { Content } from '../Styles/Style/Style.styled';
 
 import {
     HeaderTop,
@@ -34,7 +37,7 @@ const initialState = {
     services: false,
 }
 
-const Nav = () => {
+const Nav = ({ children }) => {
 
     const { user, isAuthenticated, logout } = useAuth0();
 
@@ -56,9 +59,7 @@ const Nav = () => {
 
     return (
         isAuthenticated &&
-
         <Wrapper>
-            {console.log(user)}
             <GlobalStyle />
             <HeaderTop>
                 <WrapperNavTop>
@@ -93,8 +94,13 @@ const Nav = () => {
                     </NavLink>
                 </Tooltip>
             </HeaderLeft>
+            <Content>
+                {children}
+            </Content>
         </Wrapper>
     )
 }
 
-export default Nav;
+export default withAuthenticationRequired(Nav, {
+    onRedirecting: () => <SpinnerPage />,
+});

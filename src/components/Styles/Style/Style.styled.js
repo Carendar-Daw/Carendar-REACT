@@ -20,7 +20,7 @@ export const Content = styled.div`
     margin: 50px 50px;
     z-index: -1;
 
-    @media ${deviceMax.mobileL} {
+    @media ${deviceMax.laptop} {
      width: 100vw;
      margin: 0;
      margin-top: 50px;

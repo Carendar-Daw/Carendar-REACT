@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom"
 import "./components/FontAwesomeIcons";
 import "./components/Styles/Typography";
@@ -19,16 +19,18 @@ const App = () => {
             <I18nContext.Provider value={{ messages, language, setLanguage }}>
                 <Switch>
                     <Route path='/' exact component={Landing} />
+                    <ProtectedRoute path='/dashboard' component={Dashboard} layout={Header} />
+                    {/*
                     <ProtectedRoute path="/dashboard">
                         <ProtectedRoute component={Header} />
                         <ProtectedRoute component={Dashboard} />
                     </ProtectedRoute>
-                <ProtectedRoute path="/services">
-                    <ProtectedRoute component={Header} />
+                    <ProtectedRoute path="/services">
+                        <ProtectedRoute component={Header} />
 
-                </ProtectedRoute>
-                <Route render={() => (<Redirect path='/' />)} />
-              </Switch>
+                    </ProtectedRoute>*/}
+                    <Route render={() => (<Redirect path='/' />)} />
+                </Switch>
             </I18nContext.Provider>
         </Router>
     );
