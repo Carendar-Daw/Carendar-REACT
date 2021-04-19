@@ -9,7 +9,25 @@ import { deviceMax } from '../../Styles/Devices';
 * DAE0FE
 * 8265A7
 * */
+export const Hamburger = styled.div`
+  width: 50px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
+  span{
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: black;
+  }
+
+  :hover{
+    cursor: pointer;
+  }
+`;
 export const Content = styled.main`
     background-color: #dadadae6;
     height: 100%;

@@ -5,6 +5,10 @@ import { Hamburger } from "../../components/Styles/Style/Style.styled";
 export const GlobalStyle = createGlobalStyle`
   html, body {
     overflow: hidden;
+    
+    @media ${deviceMax.mobileL}{
+      overflow: auto;
+    }
   }
 
 `;
