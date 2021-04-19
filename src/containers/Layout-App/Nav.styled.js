@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { Content } from '../Styles/Style/Style.styled';
-
+import { deviceMax } from '../../components/Styles/Devices';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -17,14 +16,21 @@ export const HeaderTop = styled.div`
   overflow: hidden;
 `;
 
-export const HeaderLeft = styled.div`
+export const HeaderLeft = styled.aside`
   width: 50px;
   height: 100%;
   background-color: gray;
   box-shadow: 13px 4px 12px -7px rgba(0,0,0,0.75);
-  position: absolute;
-  top:0;
-  z-index: 999;
+  position: fixed;
+`;
+
+export const MainContent = styled.section`
+ margin-left: 50px;
+ height: calc(100% - 50px);
+ @media ${deviceMax.mobileL} {
+      flex-direction: column;
+      margin-left: 0;
+    }
 `;
 
 export const Logo = styled.div`
@@ -62,8 +68,8 @@ export const IteamMenuWrapper = styled.div`
 `;
 
 export const WrapperNavTop = styled.div`
-  max-width: 2000px;
-  margin-left: 50px;
+  max-width: 1500px;
+  margin-left: 30px;
   display: flex;
   justify-content: space-between;
   height: 50px;
@@ -72,21 +78,20 @@ export const WrapperNavTop = styled.div`
 export const Hamburger = styled.div`
     width: 50px;
     height: 50px;
-    margin-left: 20px;
     background-color: orange;
 `;
 
 export const UserData = styled.div`
-    width: 200px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-right: 10px;
 `;
 
-export const UserPicture = styled.div`
-    width: 45px;
-    height: 45px;
+export const UserPicture = styled.img`
+    width: 40px;
+    height: 40px;
     border-radius: 100px;
     background-color: red;
 `;
@@ -94,4 +99,27 @@ export const UserPicture = styled.div`
 export const UserName = styled.div`
     font-weight: bold;
     font-size: 20px;
+    margin-left: 10px;
+`;
+
+
+export const Arrow = styled.div`
+    background-color: black;
+    width: 8px;
+    height: 8px;
+    margin-left: 3px;
+    transform: rotate(45deg);
+    background-color: #00000000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+`;
+
+export const ContentPopOver = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+`;
+
+export const Logout = styled.a`
+    color: red;
 `;

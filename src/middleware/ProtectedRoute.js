@@ -1,18 +1,16 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
-import SpinnerPage from '../components/Spinner/SpinnerPage';
 
-const ProtectedRoute = ({ component, ...args }) => {
-
-    const isAuth = JSON.parse(localStorage.getItem('isLoggedIn'));
+const ProtectedRoute = ({ component: Component, layout: Layout }, { ...rest }) => {
 
     return (
         <Route
-            component={!isAuth ? withAuthenticationRequired(component, {
-                onRedirecting: () => <SpinnerPage />,
-            }) : component}
-            {...args}
+            render={props => (
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            )}
+            {...rest}
         />
     );
 }

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
-import { Tooltip } from 'antd';
+import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { Tooltip, Popover, Button } from 'antd';
+import { useAuth0 } from "@auth0/auth0-react";
+import { Content } from '../../components/Styles/Style/Style.styled';
+import SpinnerPage from '../../components/Spinner/SpinnerPage';
 
 import {
     HeaderTop,
@@ -15,10 +19,14 @@ import {
     Hamburger,
     UserData,
     UserPicture,
-    UserName
+    UserName,
+    Logout,
+    Arrow,
+    ContentPopOver,
+    MainContent
 } from './Nav.styled';
 
-const text = {
+const textMenu = {
     dashboard: 'Dashboard',
     services: 'Services',
 }
@@ -26,11 +34,13 @@ const text = {
 const color = '#8265A7';
 
 const initialState = {
-    dashboard: false,
+    dashboard: true,
     services: false,
 }
 
-const Nav = () => {
+const Nav = ({ children }) => {
+
+    const { user, isAuthenticated, logout } = useAuth0();
 
     const [background, setBackgorund] = useState(initialState);
 
@@ -41,30 +51,29 @@ const Nav = () => {
         setBackgorund(buildingState);
     }
 
+    const contentSettigns = (
+        <div>
+            <p>Profile</p>
+            <Logout onClick={() => logout({ returnTo: window.location.origin })}>Logout</Logout>
+        </div>
+    );
+
     return (
+        isAuthenticated &&
         <Wrapper>
-            <GlobalStyle></GlobalStyle>
-            <HeaderTop>
-                <WrapperNavTop>
-                    <Hamburger></Hamburger>
-                    <UserData>
-                        <UserPicture></UserPicture>
-                        <UserName>Miquel Lopez</UserName>
-                    </UserData>
-                </WrapperNavTop>
-            </HeaderTop>
+            <GlobalStyle />
             <HeaderLeft>
                 <Logo>
                     <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
                 </Logo>
-                <Tooltip placement="right" color={color} title={text.dashboard} >
+                <Tooltip placement="right" color={color} title={textMenu.dashboard} >
                     <NavLink to='/dashboard'>
                         <IteamMenuWrapper background={background.dashboard} onClick={() => setNavBackgroundColor('dashboard')}>
                             <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
                         </IteamMenuWrapper>
                     </NavLink>
                 </Tooltip>
-                <Tooltip placement="right" color={color} title={text.services} >
+                <Tooltip placement="right" color={color} title={textMenu.services} >
                     <NavLink to='/services'>
                         <IteamMenuWrapper background={background.services} onClick={() => setNavBackgroundColor('services')}>
                             <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
@@ -72,8 +81,30 @@ const Nav = () => {
                     </NavLink>
                 </Tooltip>
             </HeaderLeft>
+            <MainContent>
+                <HeaderTop>
+                    <WrapperNavTop>
+                        <Hamburger></Hamburger>
+                        <UserData>
+                            <Popover content={contentSettigns} title="Settings" trigger="click">
+                                <ContentPopOver>
+                                    <UserPicture src={user.picture} />
+                                    <Arrow />
+                                </ContentPopOver>
+                            </Popover>
+                            <UserName>{user.nickname}</UserName>
+                        </UserData>
+                    </WrapperNavTop>
+                </HeaderTop>
+                <Content>
+                    {children}
+                </Content>
+            </MainContent>
+
         </Wrapper>
     )
 }
 
-export default Nav;
+export default withAuthenticationRequired(Nav, {
+    onRedirecting: () => <SpinnerPage />,
+});
