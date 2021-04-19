@@ -20,9 +20,7 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={Landing} />
                     <ProtectedRoute path='/dashboard' component={Dashboard} layout={Header} />
-
                     <ProtectedRoute path='/services' component={<h1>holaa</h1>} layout={Header} />
-
                     <Route render={() => (<Redirect path='/' />)} />
                 </Switch>
             </I18nContext.Provider>
