@@ -98,7 +98,7 @@ export const Dropbtn = styled.div`
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 6px 11px;
+  padding: 6px 1px;
   text-decoration: none;
 `;
 
@@ -155,7 +155,7 @@ export const Arrow = styled.div`
 `;
 
 export const Flag = styled.img`
-   width: 20px;
+   width: 25px;
    height: 20px;
    margin-right: 3px;
 `;
