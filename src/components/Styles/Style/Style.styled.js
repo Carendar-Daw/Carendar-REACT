@@ -54,24 +54,3 @@ export const Paragraph = styled.p`
   ${Fonts.montserrat}
   font-family: ${'Montserrat-Regular'};
 `;
-
-export const Hamburger = styled.div`
-    width: 50px;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  
-    span{
-      width: 20px;
-      height: 2px;
-      border-radius: 2px;
-      background-color: black;
-    }
-    
-    :hover{
-      cursor: pointer;
-    }
-  
-`;
