@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Header, Button } from './Banner.styled';
+import { Header, Button, AnimatedText} from './Banner.styled';
 import DynamicTitle from './DynamicTitle/DynamicTitle'
 import {useContext} from "react";
 import {I18nContext} from "../../../config/language";
@@ -24,7 +24,9 @@ const Banner = () => {
 
                         {/*<h1>{messages[language].Welcome.WelcomeBanner}</h1>
                         <h2>{messages[language].Welcome.WelcomeSubTitle}</h2>*/}
+                        <AnimatedText className="hola">
                         <DynamicTitle/>
+                        </AnimatedText>
 
                     </div>
 

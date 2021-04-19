@@ -19,6 +19,14 @@ export const Button = styled(ButtonDefault)`
   margin: auto;
 `;
 
+export const AnimatedText = styled.div`
+& > span > div{
+display:flex;
+flex-direction: column;
+justify-content: center;
+}
+`
+;
 export const Header = styled.div`
   position: inherit;
   top: 0;
