@@ -10,8 +10,6 @@ import Dashboard from './components/Dashboard/Dashboard'
 import ProtectedRoute from './middleware/ProtectedRoute';
 import messages, { defaultLanguage, I18nContext } from "./config/language";
 
-
-
 const App = () => {
     const [language, setLanguage] = useState(defaultLanguage);
     return (

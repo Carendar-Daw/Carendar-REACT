@@ -22,4 +22,5 @@ export const Container = styled.div`
 export const Copy = styled.p`
   font-family: ${'Montserrat-Regular'};;
   color: white;
+  margin-bottom: 0px;
 `;

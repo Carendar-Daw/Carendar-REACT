@@ -1,5 +1,5 @@
 import React from 'react'
-import { WrapperMenu, IteamMenu, Title } from './Dashboard.styled';
+import { WrapperMenu, IteamMenu, Title, Card, ImgCard } from './Dashboard.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Dashboard = () => {
@@ -7,24 +7,36 @@ const Dashboard = () => {
 
         <WrapperMenu>
             <IteamMenu>
-                <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-                <Title>Cosas</Title>
+                <Card>
+                    <ImgCard src='../../../public/assets/images/images/calendar.svg' />
+                    <Title>Calendar</Title>
+                </Card>
             </IteamMenu>
             <IteamMenu>
-                <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-                <Title>Cosas</Title>
+                <Card>
+                    <ImgCard src='../../../public/assets/images/images/calendar.svg' />
+                    <Title>Cosas</Title>
+                </Card>
             </IteamMenu><IteamMenu>
-                <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-                <Title>Cosas</Title>
+                <Card>
+                    <ImgCard src='../../../public/assets/images/images/calendar.svg' />
+                    <Title>Cosas</Title>
+                </Card>
             </IteamMenu><IteamMenu>
-                <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-                <Title>Cosas</Title>
+                <Card>
+                    <ImgCard src='../../../public/assets/images/images/calendar.svg' />
+                    <Title>Cosas</Title>
+                </Card>
             </IteamMenu><IteamMenu>
-                <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-                <Title>Cosas</Title>
+                <Card>
+                    <ImgCard src='../../../public/assets/images/images/calendar.svg' />
+                    <Title>Cosas</Title>
+                </Card>
             </IteamMenu><IteamMenu>
-                <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
-                <Title>Cosas</Title>
+                <Card>
+                    <ImgCard src='../../../public/assets/images/images/calendar.svg' />
+                    <Title>Cosas</Title>
+                </Card>
             </IteamMenu>
         </WrapperMenu>
     )
