@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../Styles/Devices';
-import { ButtonDefault, Heading4, Item } from "../../Styles/Style/Style.styled";
+import { ButtonDefault, Heading4, Item, Paragraph } from "../../Styles/Style/Style.styled";
 
 /*
 * Colors
@@ -58,7 +58,7 @@ export const Card = styled.div`
 
 
   @media ${device.laptopL} {
-    width: 20%;
+    width: 30%;
   }
 
   &>div{

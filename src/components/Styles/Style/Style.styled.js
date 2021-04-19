@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Fonts } from '../Typography';
-import { deviceMax } from '../../Styles/Devices';
 /*
 * Colors
 * FEE995
@@ -42,15 +41,18 @@ export const Link = styled.a`
 
 export const Heading4 = styled.h4`
   ${Fonts.poppins}
-  font-family: ${'Poppins-Regular'};
+  font-family: ${'Poppins-Regular'} !important;
+  font-size: 20px;
+  font-weight: bold;
 `;
 
 export const Item = styled.li`
   ${Fonts.montserrat}
   font-family: ${'Montserrat-Regular'};
+  font-size: 15px !important;
 `;
 
 export const Paragraph = styled.p`
   ${Fonts.montserrat}
-  font-family: ${'Montserrat-Regular'};
+  font-family: ${'Montserrat-Regular'} !important;
 `;

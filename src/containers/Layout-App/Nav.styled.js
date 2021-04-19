@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   html, body {
     overflow: hidden;
   }
+
 `;
 
 export const HeaderTop = styled.div`
