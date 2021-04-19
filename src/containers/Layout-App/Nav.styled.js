@@ -23,11 +23,15 @@ export const HeaderLeft = styled.aside`
   background-color: gray;
   box-shadow: 13px 4px 12px -7px rgba(0, 0, 0, 0.75);
   position: fixed;
-
+  transition-duration: 200ms;
   @media ${deviceMax.mobileL} {
     left: -50px;
     box-shadow: none;
+    
+    ${({hamburger}) =>(hamburger) ? `transform: translateX(0);` : `transform: translateX(50px);`}
   }
+}
+
 `;
 
 export const MainContent = styled.section`
@@ -81,7 +85,7 @@ export const WrapperNavTop = styled.div`
   height: 50px;
   @media ${deviceMax.mobileL} {
     visibility: visible;
-    max-width: 100vw;
+    max-width: 95vw;
 
   }
 `;
@@ -92,6 +96,7 @@ export const Hamb = styled(Hamburger)`
   left: 50px;
   @media ${deviceMax.mobileL} {
     visibility: visible;
+    ${({hamburger}) => (hamburger) ? `margin-left:0px;` : `margin-left:50px;`}
   }
 
 
@@ -111,9 +116,9 @@ export const Hamb = styled(Hamburger)`
         `
       }
     }
-    }
-    :nth-child(2) { ${({hamburger}) => (hamburger) ? `transform: translateY(-8px);` : `transform: rotate(-45deg);` }}
-    :nth-child(1) { ${({hamburger}) => (hamburger) ? `transform: translateY(8px);` : `transform: rotate(-45deg);` }}
+  }
+    :nth-child(1) { ${({hamburger}) => (hamburger) ? `transform: translateY(-8px);` : `transform: rotate(-45deg);` }}
+    :nth-child(2) { ${({hamburger}) => (hamburger) ? `transform: translateY(8px);` : `transform: rotate(-45deg);` }}
 
 `;
 
@@ -135,18 +140,6 @@ export const UserName = styled.div`
   margin-left: 10px;
 `;
 
-
-export const Arrow = styled.div`
-  background-color: black;
-  width: 8px;
-  height: 8px;
-  margin-left: 3px;
-  transform: rotate(45deg);
-  background-color: #00000000;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-`;
-
 export const ContentPopOver = styled.div`
   width: 50px;
   display: flex;
@@ -158,7 +151,6 @@ export const ContentPopOver = styled.div`
   transition-duration: 200ms;
 
   :hover {
-
     background-color: yellow;
   }
 `;

@@ -69,7 +69,7 @@ const Nav = ({ children }) => {
         isAuthenticated &&
         <Wrapper>
             <GlobalStyle />
-            <HeaderLeft hamburger id={'left-nav'}>
+            <HeaderLeft id={'left-nav'} hamburger={hamburger}>
                 <Logo>
                     <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
                 </Logo>
