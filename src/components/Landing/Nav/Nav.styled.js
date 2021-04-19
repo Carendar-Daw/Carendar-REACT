@@ -14,7 +14,7 @@ export const Button = styled(ButtonDefault)`
 
   background-color: transparent;
   margin: 0 5px 2px;
-  
+
   ::before,::after{
     position: absolute;
     content: "";
@@ -68,15 +68,94 @@ export const Wrapper = styled.div`
   background-color: rgba(255, 255, 255, 0.3);
 `;
 
+export const WrapperContentMenu = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+
 export const Logo = styled.img`
   max-height: 3rem;
 `;
-export const Language = styled.select`
-  background-color: transparent;
-  border: none;
-  margin: 1rem;
-  padding: 8px;
-  cursor: pointer;
+
+export const StyledUl = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
 `;
 
+export const StyledLi = styled.li`
+  float: left;
+`;
 
+export const Dropbtn = styled.div`
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 6px 11px;
+  text-decoration: none;
+`;
+
+export const DropDownContent = styled.div`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+`;
+
+export const DropDownLi = styled(StyledLi)`
+  display: inline-block;
+
+  &:hover ${DropDownContent} {
+    display: block;
+  }
+`;
+
+export const StyledA = styled.a`
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  
+  &:hover {
+    background-color: gray;
+  }
+`;
+
+export const SubA = styled.div`
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
+`;
+
+export const Arrow = styled.div`
+    background-color: black;
+    width: 8px;
+    height: 8px;
+    margin-left: 3px;
+    transform: rotate(45deg);
+    background-color: #00000000;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+`;
+
+export const Flag = styled.img`
+   width: 20px;
+   height: 20px;
+   margin-right: 3px;
+`;
