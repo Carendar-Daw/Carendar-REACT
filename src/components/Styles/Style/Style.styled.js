@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Fonts } from '../Typography';
-import { deviceMax } from '../../Styles/Devices';
+import { device } from '../../Styles/Devices';
 /*
 * Colors
 * FEE995
@@ -29,8 +29,15 @@ export const Hamburger = styled.div`
   }
 `;
 export const Content = styled.main`
-    background-color: #dadadae6;
-    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    @media ${device.tablet} {
+    height: 100vh;
+    }
 `;
 export const ButtonDefault = styled.button`
 

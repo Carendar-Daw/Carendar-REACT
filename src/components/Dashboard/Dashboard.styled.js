@@ -5,13 +5,12 @@ export const WrapperMenu = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 80%;
-    width: 80%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-
+    padding-top: 50px;
+    width: 100%;
+    margin: 0 auto;
+    @media ${device.tablet} {
+      width: 80%;
+    }
 `;
 
 export const IteamMenu = styled.div`
@@ -19,7 +18,7 @@ export const IteamMenu = styled.div`
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     margin: 30px;
     box-sizing: border-box;
    
