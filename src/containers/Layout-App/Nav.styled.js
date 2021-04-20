@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 export const HeaderTop = styled.div`
   width: 100vw;
   height: 50px;
+  position: fixed;
   background-color: #8265A7;
   box-shadow: 13px 4px 12px -7px rgba(0, 0, 0, 0.75);
   z-index: 3;
@@ -29,6 +30,7 @@ export const HeaderLeft = styled.aside`
   box-shadow: 13px 4px 12px -7px rgba(0, 0, 0, 0.75);
   position: fixed;
   transition-duration: 200ms;
+  z-index: 4;
   @media ${deviceMax.mobileL} {
     left: -50px;
     box-shadow: none;
@@ -41,7 +43,7 @@ export const HeaderLeft = styled.aside`
 
 export const MainContent = styled.section`
   margin-left: 50px;
-  height: calc(100% - 50px);
+  height: calc(100%);
   @media ${deviceMax.mobileL} {
     flex-direction: column;
     margin-left: 0;
@@ -62,8 +64,7 @@ export const LogoImg = styled.img`
 
 `;
 export const Wrapper = styled.div`
-  overflow: hidden;
-  height: 100vh;
+  height: 150vh;
   z-index: 5;
 `;
 
