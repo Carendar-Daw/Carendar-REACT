@@ -88,6 +88,7 @@ export const StyledUl = styled.ul`
   align-items: center;
   justify-content: center;
   margin-right: 15px;
+  cursor: pointer;
 `;
 
 export const StyledLi = styled.li`
