@@ -33,10 +33,10 @@ const DynamicTitle = () =>{
 
   return (
     <>
-      <h1>
+      <h1 className="titulo">
         {`${title[index].substring(0, subIndex)}`}
       </h1>
-      <h2>
+      <h2 className="subtitulo">
       {`${subtitle[index].substring(0, subIndex)}`}
       </h2>
     </>

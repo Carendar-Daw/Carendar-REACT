@@ -4,5 +4,28 @@
   "Welcome": {
     "WelcomeBanner": "Welcome to Carendar!",
     "WelcomeSubTitle": "The perfect platform for your beauty center"
+  },
+"Main" : {
+  "Title": "Keep growing your business with our management software",
+  "Calendario" : "Calendar",
+  "Cal_Info_1" : "Manage your clients appointments with our intuitive calendar",
+  "Cal_Info_2" : "Very simple and easy to use",
+  "Servicios" : "Services",
+  "Serv_Info" : "Add and edit your services segons according to your business requirements",
+  "Tablet" : "Excellent for mobile devices and tablets",
+  "Tablet_Info" : "Our app design is totally compatible with mobiles and tablets",
+  "Stock" : "Stock",
+  "Stock_Info_1" : "Have the expenses control of your stock",
+  "Stock_Info_2" : "If you have low stock, we warn you",
+  "Tiempo" : "Save time",
+  "Tiempo_Info" : "Forget the tedious appointment book and the stock disorder",
+  "Caja" : "Cash management",
+  "Caja_Info" : "Do not lose time cash closing"
+},
+"Footer" :{
+  "Contact": "Contact",
+  "Privacy": "Privacy politics",
+  "Support": "Support",
+  "Conditions": "Use Conditions" 
   }
 }

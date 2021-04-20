@@ -13,7 +13,11 @@ import { ButtonDefault, Heading4, Item } from "../../Styles/Style/Style.styled";
 
 
 export const Container = styled.div`
-  
+
+& {
+  margin-top: 15vw;
+}
+
   &>div{
     display: flex;
     flex-wrap: wrap;

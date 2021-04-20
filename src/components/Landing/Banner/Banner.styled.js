@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ButtonDefault } from "../../Styles/Style/Style.styled";
+/*import { device } from '../../Styles/Devices';*/
 /*
 * Colors
 * FEE995
@@ -25,7 +26,6 @@ export const Header = styled.div`
   z-index: -1;
   height: 500px;
   margin: 0;
-  
   background-position: center;
   background-size: cover;
   color: white;
@@ -40,7 +40,7 @@ export const Header = styled.div`
     text-align: center;
   }
   
-  img {
+  video {
     width: 99vw;
     filter: grayscale(30%);
   }
@@ -54,7 +54,14 @@ export const Header = styled.div`
     flex-direction: column;
     justify-content: space-around;
   }
-.titulo{
-  color: white;
-}
+  .titulo{
+    color: white;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+  }
+  }
+  .subtitulo{
+    color: white;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+  }
+  }
 `;

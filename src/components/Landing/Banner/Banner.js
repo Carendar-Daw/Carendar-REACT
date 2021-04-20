@@ -15,12 +15,12 @@ const Banner = () => {
         <Header>
             <div>
                 <div>
-                    {/*
+                    
                     <video autoPlay muted loop id="myVideo">
                         <source src="../../../../public/assets/video/test.mp4" type="video/mp4" />
                     </video>
-                    */}
-                    <img src="../../../../public/assets/images/images/test.jpg"/>
+                    
+                   {/* <img src="../../../../public/assets/images/images/test.jpg"/>*/}
                 </div>
                 <div className={'texto'}>
                     <div>                   
