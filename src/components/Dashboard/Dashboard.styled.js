@@ -7,7 +7,7 @@ export const WrapperMenu = styled.div`
     flex-wrap: wrap;
     padding-top: 50px;
     width: 100%;
-    margin: 0 auto;
+   
     @media ${device.tablet} {
       width: 80%;
     }
@@ -27,7 +27,7 @@ export const IteamMenu = styled.div`
       margin:0; 
     }
 
-    @media ${device.laptop} {
+    @media ${device.laptopL} {
       width: 30%;
       margin:0;     
     }
