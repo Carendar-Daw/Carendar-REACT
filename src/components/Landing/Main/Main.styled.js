@@ -15,7 +15,9 @@ import { ButtonDefault, Heading4, Item } from "../../Styles/Style/Style.styled";
 export const Container = styled.div`
 
 & {
-  margin-top: 15vw;
+  margin-top: 10vw;
+  margin-bottom: 15vw;
+  
 }
 
   &>div{
@@ -29,7 +31,9 @@ export const Container = styled.div`
     text-align: center;
     font-size: 3rem;
   }
-
+  @media ${device.laptop} {
+    margin-top: 22vw;
+  }
 `;
 
 export const Heading = styled(Heading4)`
@@ -43,10 +47,11 @@ export const List = styled(Item)`
 
 export const UList = styled.ul`
   padding: 0;
-  padding-left: 35px;
+  padding-left: 1em;
 `;
 export const ContainerCenter = styled.ul`
-  display: flex;
+  
+display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
@@ -62,7 +67,7 @@ export const Card = styled.div`
 
 
   @media ${device.laptopL} {
-    width: 20%;
+    width: 30%;
   }
 
   &>div{
