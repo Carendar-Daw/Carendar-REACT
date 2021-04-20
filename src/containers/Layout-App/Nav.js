@@ -49,7 +49,7 @@ const Nav = ({ children }) => {
     const setNavBackgroundColor = button => {
         const keys = Object.keys(background);
         const buildingState = {};
-        keys.forEach(iteam => iteam === button ? buildingState[iteam] = true : buildingState[iteam] = false);
+        keys.forEach(item => item === button ? buildingState[item] = true : buildingState[item] = false);
         setBackgorund(buildingState);
     }
 

@@ -73,8 +73,12 @@ export const IteamMenuWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-duration: 200ms;
+  background-color: ${(({background}) => background ? '#7759a0' : '')};
 
-  background-color: ${(({background}) => background ? 'red' : '')};
+  :hover {
+    background-color: ${(({background}) => background ? '' : '#575757')}
+  }
 
   .icon {
     color: white;
@@ -161,5 +165,5 @@ export const ContentPopOver = styled.div`
 `;
 
 export const Logout = styled.a`
-  color: red;
+  color: #8265A7;
 `;
