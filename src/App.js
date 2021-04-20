@@ -6,6 +6,7 @@ import "./components/FontAwesomeIcons";
 import "./components/Styles/Typography";
 import axios from '../src/axios';
 import Landing from './containers/Landing/Landing';
+import Calendar from './containers/Calendar/Calendar';
 import Header from './containers/Layout-App/Nav';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard'
@@ -18,22 +19,18 @@ const App = () => {
 
     useEffect(async () => {
 
-        //TODO: Al registrar un usuario llamar a la API y persistirlo.
 
         if (isAuthenticated) {
-            const {nickname,email,sub}=user;
-            console.log(nickname)
-            console.log(email)
-            console.log(sub)
+            const {nickname, email, sub} = user;
             const saloon = {
-                sal_name:nickname,
-                sal_email:email,
-                auth0_id:sub
+                sal_name: nickname,
+                sal_email: email,
+                auth0_id: sub
             }
             const idToken = await getIdTokenClaims();
             console.log(idToken.__raw)
-            axios.defaults.headers.common['Authorization'] ='Bearer ' + idToken.__raw;
-            axios.post('/saloon',saloon).then(res => {
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + idToken.__raw;
+            axios.post('/saloon', saloon).then(res => {
                 console.log(res.data)
             })
             axios.get('/saloon').then(res => {
@@ -49,7 +46,7 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={Landing} />
                     <ProtectedRoute path='/dashboard' component={Dashboard} layout={Header} />
-                    <ProtectedRoute path='/services' component={Dashboard} layout={Header} />
+                    <ProtectedRoute path='/calendar' component={Calendar} layout={Header} />
                     <Route render={() => (<Redirect path='/' />)} />
                 </Switch>
             </I18nContext.Provider>
