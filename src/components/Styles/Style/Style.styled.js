@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Fonts } from '../Typography';
+import { device } from '../../Styles/Devices';
 /*
 * Colors
 * FEE995
@@ -8,10 +9,35 @@ import { Fonts } from '../Typography';
 * DAE0FE
 * 8265A7
 * */
+export const Hamburger = styled.div`
+  width: 50px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
+  span{
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: black;
+  }
+
+  :hover{
+    cursor: pointer;
+  }
+`;
 export const Content = styled.main`
-    background-color: #dadadae6;
-    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    @media ${device.tablet} {
+    height: 100vh;
+    }
 `;
 export const ButtonDefault = styled.button`
 
@@ -41,18 +67,15 @@ export const Link = styled.a`
 
 export const Heading4 = styled.h4`
   ${Fonts.poppins}
-  font-family: ${'Poppins-Regular'} !important;
-  font-size: 20px;
-  font-weight: bold;
+  font-family: ${'Poppins-Regular'};
 `;
 
 export const Item = styled.li`
   ${Fonts.montserrat}
   font-family: ${'Montserrat-Regular'};
-  font-size: 15px !important;
 `;
 
 export const Paragraph = styled.p`
   ${Fonts.montserrat}
-  font-family: ${'Montserrat-Regular'} !important;
+  font-family: ${'Montserrat-Regular'};
 `;

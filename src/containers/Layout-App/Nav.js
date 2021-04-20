@@ -16,7 +16,7 @@ import {
     GlobalStyle,
     IteamMenuWrapper,
     WrapperNavTop,
-    Hamburger,
+    Hamb,
     UserData,
     UserPicture,
     UserName,
@@ -44,10 +44,12 @@ const Nav = ({ children }) => {
 
     const [background, setBackgorund] = useState(initialState);
 
+    const [hamburger, setHamburger] = useState(true);
+
     const setNavBackgroundColor = button => {
         const keys = Object.keys(background);
         const buildingState = {};
-        keys.forEach(iteam => iteam === button ? buildingState[iteam] = true : buildingState[iteam] = false);
+        keys.forEach(item => item === button ? buildingState[item] = true : buildingState[item] = false);
         setBackgorund(buildingState);
     }
 
@@ -58,12 +60,17 @@ const Nav = ({ children }) => {
         </div>
     );
 
+
+    const hamburgerClick = () =>{
+        setHamburger(!hamburger);
+    }
+
     return (
         isAuthenticated &&
 
         <Wrapper>
             <GlobalStyle />
-            <HeaderLeft>
+            <HeaderLeft id={'left-nav'} hamburger={hamburger}>
                 <Logo>
                     <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
                 </Logo>
@@ -82,18 +89,19 @@ const Nav = ({ children }) => {
                     </NavLink>
                 </Tooltip>
             </HeaderLeft>
-            <MainContent>
+            <MainContent id={'main'}>
                 <HeaderTop>
                     <WrapperNavTop>
-                        <Hamburger></Hamburger>
+                        <Hamb onClick={hamburgerClick} id={'hamburger'} hamburger={hamburger}>
+                            <span/><span/><span/>
+                        </Hamb>
                         <UserData>
-                            <Popover content={contentSettigns} title="Settings" trigger="click">
+                            <Popover content={contentSettigns} title="Settings" trigger="click" className={'popover'}>
                                 <ContentPopOver>
                                     <UserPicture src={user.picture} />
-                                    <Arrow />
                                 </ContentPopOver>
                             </Popover>
-                            <UserName>{user.nickname}</UserName>
+                            {/* <UserName>{user.nickname}</UserName>*/}
                         </UserData>
                     </WrapperNavTop>
                 </HeaderTop>

@@ -18,16 +18,14 @@ export const Page = styled.div`
 
 export const Animation = styled.div`
 
-  --size: ${props => props['size'] ? props['size']: '76px'};
+  --size: ${props => props['size'] ? props['size'] : '76px'};
 
   width: var(--size);
   height: var(--size);
 
   border-radius: 50%;
   perspective: 800px;
-  
-  
-    
+   
 `;
 export const Inner = styled.div`
 

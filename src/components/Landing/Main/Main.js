@@ -1,6 +1,6 @@
 import { Container, Card, Heading, List, UList, ContainerCenter } from './Main.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import Spinner from '../../Spinner/SpinnerPage';
 const Main = () => {
     return (
         <Container>

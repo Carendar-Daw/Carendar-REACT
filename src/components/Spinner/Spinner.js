@@ -1,11 +1,11 @@
-import {Animation, InnerOne, InnerTwo,InnerThree} from "./Spinner.styled";
+import { Animation, InnerOne, InnerTwo, InnerThree } from "./Spinner.styled";
 
 const Spinner = () => {
     return (
         <Animation>
-                <InnerOne/>
-                <InnerTwo/>
-                <InnerThree/>
+            <InnerOne />
+            <InnerTwo />
+            <InnerThree />
         </Animation>
     );
 }

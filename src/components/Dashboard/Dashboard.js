@@ -1,6 +1,5 @@
 import React from 'react'
 import { WrapperMenu, IteamMenu, Title, Card, ImgCard } from './Dashboard.styled';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Dashboard = () => {
     return (
