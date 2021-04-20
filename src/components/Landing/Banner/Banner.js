@@ -15,19 +15,16 @@ const Banner = () => {
         <Header>
             <div>
                 <div>
+                    {/*
                     <video autoPlay muted loop id="myVideo">
                         <source src="../../../../public/assets/video/test.mp4" type="video/mp4" />
                     </video>
+                    */}
+                    <img src="../../../../public/assets/images/images/test.jpg"/>
                 </div>
                 <div className={'texto'}>
-                    <div>
-
-                        {/*<h1>{messages[language].Welcome.WelcomeBanner}</h1>
-                        <h2>{messages[language].Welcome.WelcomeSubTitle}</h2>*/}
-                        <AnimatedText className="hola">
-                        <DynamicTitle/>
-                        </AnimatedText>
-
+                    <div>                   
+                        <DynamicTitle className={'titulo'}/>
                     </div>
 
                     <Button onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>

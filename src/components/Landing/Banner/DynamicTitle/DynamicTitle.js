@@ -1,5 +1,4 @@
 import React , { useState, useEffect, useContext} from "react";
-import Typewriter from 'typewriter-effect/dist/core';
 import {I18nContext} from "../../../../config/language";
 
 const DynamicTitle = () =>{

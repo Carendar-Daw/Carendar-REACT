@@ -19,14 +19,6 @@ export const Button = styled(ButtonDefault)`
   margin: auto;
 `;
 
-export const AnimatedText = styled.div`
-& > span > div{
-display:flex;
-flex-direction: column;
-justify-content: center;
-}
-`
-;
 export const Header = styled.div`
   position: inherit;
   top: 0;
@@ -48,20 +40,21 @@ export const Header = styled.div`
     text-align: center;
   }
   
-  video {
+  img {
     width: 99vw;
-   
     filter: grayscale(30%);
   }
   
   .texto{
     position: absolute;
-    top: 30%;
+    top: 40%;
     transform: translateY(-50%);
     height: 35%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
   }
-
+.titulo{
+  color: white;
+}
 `;
