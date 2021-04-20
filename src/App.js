@@ -14,13 +14,33 @@ import messages, { defaultLanguage, I18nContext } from "./config/language";
 
 const App = () => {
     const [language, setLanguage] = useState(defaultLanguage);
-    const { getIdTokenClaims, isAuthenticated } = useAuth0();
+    const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
 
     useEffect(async () => {
+
+        //TODO: Al registrar un usuario llamar a la API y persistirlo.
+
         if (isAuthenticated) {
+            const {nickname,email,sub}=user;
+            console.log(nickname)
+            console.log(email)
+            console.log(sub)
+            const saloon = {
+                sal_name:nickname,
+                sal_email:email,
+                auth0_id:sub
+            }
             const idToken = await getIdTokenClaims();
-            axios.defaults.headers.common['Authorization'] = idToken.__raw;
+            console.log(idToken.__raw)
+            axios.defaults.headers.common['Authorization'] ='Bearer ' + idToken.__raw;
+            axios.post('/saloon',saloon).then(res => {
+                console.log(res.data)
+            })
+            axios.get('/saloon').then(res => {
+                console.log(res.data)
+            })
         }
+
     }, [isAuthenticated]);
 
     return (
@@ -29,7 +49,7 @@ const App = () => {
                 <Switch>
                     <Route path='/' exact component={Landing} />
                     <ProtectedRoute path='/dashboard' component={Dashboard} layout={Header} />
-                    <ProtectedRoute path='/services' component={<h1>holaa</h1>} layout={Header} />
+                    <ProtectedRoute path='/services' component={Dashboard} layout={Header} />
                     <Route render={() => (<Redirect path='/' />)} />
                 </Switch>
             </I18nContext.Provider>
