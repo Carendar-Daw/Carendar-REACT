@@ -74,7 +74,7 @@ const Nav = ({ children }) => {
                     </NavLink>
                 </Tooltip>
                 <Tooltip placement="right" color={color} title={textMenu.calendar} >
-                    <NavLink to='/calendar'>
+                    <NavLink to='/services'>
                         <IteamMenuWrapper background={background.calendar} onClick={() => setNavBackgroundColor('calendar')}>
                             <FontAwesomeIcon className={'icon'} icon={'calendar-alt'} />
                         </IteamMenuWrapper>

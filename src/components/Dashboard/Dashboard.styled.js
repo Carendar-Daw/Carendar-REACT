@@ -7,9 +7,12 @@ export const WrapperMenu = styled.div`
     flex-wrap: wrap;
     padding-top: 50px;
     width: 100%;
-   
+    margin: auto;
+
+
     @media ${device.tablet} {
       width: 80%;
+      padding-top: 100px;
     }
 `;
 

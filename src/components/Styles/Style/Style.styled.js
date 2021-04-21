@@ -28,16 +28,27 @@ export const Hamburger = styled.div`
     cursor: pointer;
   }
 `;
-export const Content = styled.main`
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+export const CardApp = styled.main`
+    background-color: white;
+    border: 3px solid #8265a7;
+    border-top: 7px solid #8265a7;
+    border-radius: 10px;
+    box-shadow: 10px 10px 25px 0px rgba(0,0,0,0.75);
+    width: 90%;
+    margin: auto;
 
     @media ${device.tablet} {
-    height: 100vh;
+      width: 80%;
+      padding-top: 100px;
     }
+`;
+
+export const Content = styled.main`
+
+  padding-top: 50px;
+
+  
 `;
 export const ButtonDefault = styled.button`
 
