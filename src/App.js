@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Route, Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import 'antd/dist/antd.css';
 import "./components/FontAwesomeIcons";
 import "./components/Styles/Typography";
@@ -20,8 +21,9 @@ const App = () => {
     useEffect(async () => {
 
 
+        //TODO: Al registrar un usuario llamar a la API y persistirlo.
         if (isAuthenticated) {
-            const {nickname, email, sub} = user;
+            const { nickname, email, sub } = user;
             const saloon = {
                 sal_name: nickname,
                 sal_email: email,
@@ -29,6 +31,10 @@ const App = () => {
             }
             const idToken = await getIdTokenClaims();
             console.log(idToken.__raw)
+
+
+
+
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + idToken.__raw;
             axios.post('/saloon', saloon).then(res => {
                 console.log(res.data)
@@ -36,6 +42,7 @@ const App = () => {
             axios.get('/saloon').then(res => {
                 console.log(res.data)
             })
+
         }
 
     }, [isAuthenticated]);
