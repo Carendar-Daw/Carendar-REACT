@@ -6,6 +6,7 @@ import { Tooltip, Popover, Button } from 'antd';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Content, LayoutStyled } from '../../components/Styles/Style/Style.styled';
 import SpinnerPage from '../../components/Spinner/SpinnerPage';
+import { textMenu, color, initialState } from './AuxLayout';
 
 import {
     HeaderTop,
@@ -25,18 +26,6 @@ import {
     ContentPopOver,
     MainContent
 } from './Nav.styled';
-
-const textMenu = {
-    dashboard: 'Dashboard',
-    services: 'Services',
-}
-
-const color = '#8265A7';
-
-const initialState = {
-    dashboard: true,
-    services: false,
-}
 
 const Nav = ({ children }) => {
 
@@ -61,7 +50,7 @@ const Nav = ({ children }) => {
     );
 
 
-    const hamburgerClick = () =>{
+    const hamburgerClick = () => {
         setHamburger(!hamburger);
     }
 
@@ -93,7 +82,7 @@ const Nav = ({ children }) => {
                 <HeaderTop>
                     <WrapperNavTop>
                         <Hamb onClick={hamburgerClick} id={'hamburger'} hamburger={hamburger}>
-                            <span/><span/><span/>
+                            <span /><span /><span />
                         </Hamb>
                         <UserData>
                             <Popover content={contentSettigns} title="Settings" trigger="click" className={'popover'}>
@@ -101,7 +90,6 @@ const Nav = ({ children }) => {
                                     <UserPicture src={user.picture} />
                                 </ContentPopOver>
                             </Popover>
-                            {/* <UserName>{user.nickname}</UserName>*/}
                         </UserData>
                     </WrapperNavTop>
                 </HeaderTop>
