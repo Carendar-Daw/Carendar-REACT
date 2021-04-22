@@ -17,39 +17,36 @@ import ProtectedRoute from './middleware/ProtectedRoute';
 import messages, { defaultLanguage, I18nContext } from './config/language';
 
 const App = () => {
-
   const [language, setLanguage] = useState(defaultLanguage);
   const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
 
   useEffect(async () => {
-
     if (isAuthenticated) {
       const { nickname, email, sub } = user;
       const saloon = {
         sal_name: nickname,
         sal_email: email,
-        auth0_id: sub
-      }
+        auth0_id: sub,
+      };
       const idToken = await getIdTokenClaims();
-      axios.defaults.headers.common['Authorization'] = 'Bearer ' + idToken.__raw;
+      axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
       await axios.post('/saloon', saloon);
     }
-
   }, [isAuthenticated]);
 
   return (
     <Router>
       <I18nContext.Provider value={{ messages, language, setLanguage }}>
         <Switch>
-          <Route path='/' exact component={Landing} />
-          <ProtectedRoute path='/dashboard' component={Dashboard} layout={Header} />
-          <ProtectedRoute path='/calendar' component={Calendar} layout={Header} />
-          <ProtectedRoute path='/services' component={Services} layout={Header} />
-          <Route render={() => (<Redirect path='/' />)} />
+          <Route path="/" exact component={Landing} />
+          <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
+          <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
+          <ProtectedRoute path="/services" component={Services} layout={Header} />
+          <Route render={() => (<Redirect path="/" />)} />
         </Switch>
       </I18nContext.Provider>
     </Router>
   );
-}
+};
 
 export default App;

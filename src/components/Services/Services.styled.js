@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../Styles/Devices';
-import { Heading4 } from '../Styles/Style/Style.styled';
-import { CardApp } from '../Styles/Style/Style.styled';
-
+import { Heading4, CardApp } from '../Styles/Style/Style.styled';
 
 export const TitlePage = styled(Heading4)`
     width: 200px;
@@ -28,9 +26,8 @@ export const WrapperServices = styled(CardApp)`
    .buttonAdd{
        font-size: 35px;
    }
+
 `;
-
-
 
 export const WrapperTitle = styled.div`
     display: flex;
@@ -62,4 +59,22 @@ export const ButtonAdd = styled.button`
   position: absolute;
   bottom: 70px;
   right: 90px;
+  box-shadow: 3px 7px 7px 0px rgba(0,0,0,0.75);
+`;
+
+export const ButtonDelete = styled.button`
+  padding: 8px;
+  background-color: red;
+  border-radius: 10px;
+  border: none;
+  cursor:pointer;
+`;
+
+export const ButtonUpdate = styled.button`
+  padding: 5px;
+  background-color: #6a6af1;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 3px 7px 7px 0px rgba(0,0,0,0.75);
+  cursor:pointer;
 `;
