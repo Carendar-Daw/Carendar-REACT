@@ -9,7 +9,6 @@ import { deviceMax } from '../../Styles/Devices';
 * 8265A7
 * */
 
-
 export const Title = styled.div` 
    color:#8265a7;
    font-size: 20px;
@@ -51,7 +50,7 @@ export const Card = styled.div`
   padding: 5em;
   display: flex;
   justify-content: space-around;
-  flex-direction: ${props => props.reverse ? 'row-reverse' : ''};
+  flex-direction: ${(props) => (props.reverse ? 'row-reverse' : '')};
   @media ${deviceMax.tablet} {
     flex-direction: column;
     align-items: center;
