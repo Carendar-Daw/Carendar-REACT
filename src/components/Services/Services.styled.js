@@ -18,7 +18,7 @@ export const WrapperServices = styled(CardApp)`
    
 
     @media ${device.tablet} {
-      width: 60%;
+      
       padding-top: 30px;
       margin-left: 40px;
     }
