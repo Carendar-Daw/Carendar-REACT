@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 import { Tooltip, Popover, Button } from 'antd';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Content, LayoutStyled } from '../../components/Styles/Style/Style.styled';
+import { Content, LayoutStyled } from '@Components/Styles/Style/Style.styled';
 import SpinnerPage from '../../components/Spinner/SpinnerPage';
 import { textMenu, color, initialState } from './AuxLayout';
 
