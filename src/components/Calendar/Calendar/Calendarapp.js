@@ -1,17 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import {
-  Drawer, Form, Button, Col, Row, Input,
+  Drawer, Form, Button, Col, Row, Input, DatePicker, Select,
 } from 'antd';
+import { Option } from 'antd/es/mentions';
 import Container from './Calendarapp.styled';
+import axios from '../../../axios';
+import { getEvents } from './event-utils';
 
 const Calendarapp = () => {
   const [state, setState] = useState(false);
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
+  const test = async () => {
+    const appointment = {
+      sal_id: 1,
+      cus_id: 1,
+      app_date: '2021-04-22 20:00:00',
+      app_state: 'Test front',
+    };
+    // const idToken = await getIdTokenClaims();
+
+    // axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
+    axios.post('/appointment', appointment).then((res) => {
+      console.log(res.data);
+    });
+  };
 
   const showDrawer = (selectInfo) => {
     setState(true);
@@ -26,7 +43,6 @@ const Calendarapp = () => {
   const handleDateSelect = () => {
     const calendarApi = info.view.calendar;
     calendarApi.unselect(); // clear date selection
-
     if (title) {
       calendarApi.addEvent({ // will render immediately. will call handleEventAdd
         title,
@@ -41,6 +57,7 @@ const Calendarapp = () => {
     setTitle(e.target.value);
     handleDateSelect();
     onClose();
+    test();
   };
 
   return (
@@ -53,8 +70,9 @@ const Calendarapp = () => {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay',
           }}
-          initialView="dayGridMonth"
+          initialView="timeGridDay"
           editable={false}
+          initialEvents={getEvents}
           selectable
           selectMirror
           dayMaxEvents
@@ -87,18 +105,56 @@ const Calendarapp = () => {
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
-                name="name"
-                label="Name"
+                name="cus_id"
+                label="Customer ID"
+                rules={[{ required: true, message: 'Please enter user name' }]}
+              >
+                <Select
+                  showSearch
+                  style={{ width: 200 }}
+                  placeholder="Select a person"
+                  optionFilterProp="children"
+                  filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                >
+                  <Option value="jack">Jack</Option>
+                  <Option value="lucy">Lucy</Option>
+                  <Option value="tom">Tom</Option>
+                </Select>
+                {' '}
+
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="app_date"
+                label="Cita date"
+                rules={[{ required: true, message: 'Please enter user name' }]}
+              >
+                <DatePicker
+                  style={{ width: '100%' }}
+                  getPopupContainer={(trigger) => trigger.parentElement}
+                />
+                {' '}
+
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <Form.Item
+                name="app_state"
+                label="Estado"
                 rules={[{ required: true, message: 'Please enter user name' }]}
               >
                 <Input placeholder="Please enter user name" onChange={(e) => setTitle(e.target.value)} />
               </Form.Item>
             </Col>
-
           </Row>
-
         </Form>
       </Drawer>
+      <Button onClick={showDrawer}>+</Button>
     </>
   );
 };

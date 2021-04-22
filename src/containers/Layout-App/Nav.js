@@ -25,6 +25,7 @@ import {
   MainContent,
 } from './Nav.styled';
 
+// eslint-disable-next-line react/prop-types
 const Nav = ({ children }) => {
   const { user, isAuthenticated, logout } = useAuth0();
 
@@ -34,7 +35,7 @@ const Nav = ({ children }) => {
 
   const setNavBackgroundColor = (button) => {
     const keys = Object.keys(background);
-    const buildingState = null;
+    const buildingState = {};
     keys.forEach((item) => (item === button ? buildingState[item] = true : buildingState[item] = false));
     setBackgorund(buildingState);
   };
