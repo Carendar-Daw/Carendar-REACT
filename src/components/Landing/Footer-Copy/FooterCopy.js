@@ -1,15 +1,11 @@
+import React from 'react';
 import { Container, Copy } from './FooterCopy.styled';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const FooterCopy = () => (
+  <Container>
+    <Copy>Carendar © 2019 - 2021</Copy>
+  </Container>
 
-
-const FooterCopy = () => {
-    return (
-        <Container>
-            <Copy>Carendar © 2019 - 2021</Copy>
-        </Container>
-
-    );
-};
+);
 
 export default FooterCopy;

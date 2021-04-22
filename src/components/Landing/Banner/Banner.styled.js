@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonDefault } from "../../Styles/Style/Style.styled";
+import { ButtonDefault } from '../../Styles/Style/Style.styled';
 /*
 * Colors
 * FEE995
@@ -25,8 +25,8 @@ display:flex;
 flex-direction: column;
 justify-content: center;
 }
-`
-;
+`;
+
 export const Header = styled.div`
   position: inherit;
   top: 0;
@@ -63,5 +63,4 @@ export const Header = styled.div`
     flex-direction: column;
     justify-content: space-around;
   }
-
 `;

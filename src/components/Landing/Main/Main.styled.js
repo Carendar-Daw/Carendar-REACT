@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { device } from '../../Styles/Devices';
-import { ButtonDefault, Heading4, Item, Paragraph } from "../../Styles/Style/Style.styled";
+import {
+  Heading4, Item,
+} from '../../Styles/Style/Style.styled';
 
 /*
 * Colors
@@ -10,7 +12,6 @@ import { ButtonDefault, Heading4, Item, Paragraph } from "../../Styles/Style/Sty
 * DAE0FE
 * 8265A7
 * */
-
 
 export const Container = styled.div`
   
