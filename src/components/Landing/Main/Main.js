@@ -67,8 +67,5 @@ const Main = () => {
                 </Card>
             </ContainerCenter>
         </Container>
-
-    );
-};
-
+    )};
 export default Main;

@@ -1,16 +1,17 @@
 import styled from 'styled-components';
-import { device } from '../Styles/Devices';
+import { device } from '@Components/Styles/Devices';
 
 export const WrapperMenu = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-top: 50px;
-    width: 100%;
-   
-    @media ${device.tablet} {
-      width: 80%;
-    }
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
 `;
 
 export const IteamMenu = styled.div`
@@ -18,7 +19,7 @@ export const IteamMenu = styled.div`
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     margin: 30px;
     box-sizing: border-box;
    
@@ -27,7 +28,7 @@ export const IteamMenu = styled.div`
       margin:0; 
     }
 
-    @media ${device.laptopL} {
+    @media ${device.laptop} {
       width: 30%;
       margin:0;     
     }

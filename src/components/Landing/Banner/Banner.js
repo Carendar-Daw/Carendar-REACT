@@ -1,9 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Header, Button, AnimatedText} from './Banner.styled';
-import DynamicTitle from './DynamicTitle/DynamicTitle'
-import {useContext} from "react";
-import {I18nContext} from "../../../config/language";
-
+import React, { useContext } from 'react';
+import { Header, Button, AnimatedText } from './Banner.styled';
+import DynamicTitle from './DynamicTitle/DynamicTitle';
+import { I18nContext } from '../../../config/language';
 
 const Banner = () => {
 

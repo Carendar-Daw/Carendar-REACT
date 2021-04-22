@@ -1,13 +1,14 @@
-import {Animation, InnerOne, InnerTwo,InnerThree} from "./Spinner.styled";
+import React from 'react';
+import {
+  Animation, InnerOne, InnerTwo, InnerThree,
+} from './Spinner.styled';
 
-const Spinner = () => {
-    return (
-        <Animation>
-                <InnerOne/>
-                <InnerTwo/>
-                <InnerThree/>
-        </Animation>
-    );
-}
+const Spinner = () => (
+  <Animation>
+    <InnerOne />
+    <InnerTwo />
+    <InnerThree />
+  </Animation>
+);
 
 export default Spinner;

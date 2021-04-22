@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { ButtonDefault } from "../../Styles/Style/Style.styled";
-/*import { device } from '../../Styles/Devices';*/
+import { ButtonDefault } from '../../Styles/Style/Style.styled';
 /*
 * Colors
 * FEE995
@@ -19,7 +18,6 @@ export const Button = styled(ButtonDefault)`
   max-width: 10rem;
   margin: auto;
 `;
-
 export const Header = styled.div`
   position: inherit;
   top: 0;
@@ -54,14 +52,8 @@ export const Header = styled.div`
     flex-direction: column;
     justify-content: space-around;
   }
-  .titulo{
+  .titulo, .subtitulo{
     color: white;
     text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
-  }
-  }
-  .subtitulo{
-    color: white;
-    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
-  }
   }
 `;

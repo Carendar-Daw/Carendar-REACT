@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 import es from './es.json';
 import en from './en.json';
 import ca from './ca.json';
