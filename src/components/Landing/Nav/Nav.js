@@ -14,7 +14,6 @@ import {
   Flag,
 } from './Nav.styled';
 import { I18nContext } from '../../../config/language';
-import Espana from '../../../../public/assets/images/Language/España.jpg';
 
 const Nav = () => {
   const { loginWithRedirect } = useAuth0();
@@ -26,13 +25,13 @@ const Nav = () => {
 
   let isLenguageSelected = '';
 
-    if (language === 'es') {
-        isLenguageSelected = (<Flag src='../../../../public/assets/images/Language/España.jpg' />);
-    } else if (language === 'ca') {
-        isLenguageSelected = (<Flag src='../../../../public/assets/images/Language/Catalunya.png' />);
-    } else {
-        isLenguageSelected = (<Flag src='../../../../public/assets/images/Language/Eangland.png' />);
-    }
+  if (language === 'es') {
+    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/España.jpg" />);
+  } else if (language === 'ca') {
+    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Catalunya.png" />);
+  } else {
+    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Eangland.png" />);
+  }
 
   return (
     <Wrapper>
