@@ -1,9 +1,10 @@
+/* eslint-disable */
 import React from 'react';
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from '@auth0/auth0-react';
 
 const domain = 'carendar-daw.eu.auth0.com';
 const clientID = 'FnCY4ajfPN6rFmUN4dB4GqY8cMuMetMP';
-//const audience = "http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api";
+// const audience = "http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api";
 
 const Auth0 = ({ children }) => {
 

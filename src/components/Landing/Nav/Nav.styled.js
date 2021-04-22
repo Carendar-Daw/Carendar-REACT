@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonDefault } from "../../Styles/Style/Style.styled";
+import { ButtonDefault } from '../../Styles/Style/Style.styled';
 
 /*
 * Colors
@@ -74,7 +74,6 @@ export const WrapperContentMenu = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
-
 
 export const Logo = styled.img`
   max-height: 3rem;

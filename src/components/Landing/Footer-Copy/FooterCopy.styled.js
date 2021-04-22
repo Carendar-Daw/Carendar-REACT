@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Paragraph } from "../../Styles/Style/Style.styled";
 /*
 * Colors
 * FEE995
@@ -8,7 +7,6 @@ import { Paragraph } from "../../Styles/Style/Style.styled";
 * DAE0FE
 * 8265A7
 * */
-
 
 export const Container = styled.div`
   

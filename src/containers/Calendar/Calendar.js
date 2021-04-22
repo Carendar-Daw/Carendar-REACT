@@ -1,16 +1,13 @@
-import React from 'react'
-import { WrapperMenu} from './Calendar.styled';
-import Cosa from "@Components/Calendar/Cosa/Cosa";
-import Calendarapp from "@Components/Calendar/Calendar/Calendarapp";
+import React from 'react';
+import Cosa from '../../components/Calendar/Cosa/Cosa';
+import Calendarapp from '../../components/Calendar/Calendar/Calendarapp';
+import { WrapperMenu } from './Calendar.styled';
 
-const Calendar = () => {
-    return (
-
-        <WrapperMenu>
-            <Cosa/>
-            <Calendarapp/>
-        </WrapperMenu>
-    )
-}
+const Calendar = () => (
+  <WrapperMenu>
+    <Cosa />
+    <Calendarapp />
+  </WrapperMenu>
+);
 
 export default Calendar;

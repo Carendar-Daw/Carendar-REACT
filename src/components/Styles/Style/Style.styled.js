@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Fonts } from '../Typography';
-import { device } from '../../Styles/Devices';
+import Fonts from '../Typography';
+import { device } from '../Devices';
 /*
 * Colors
 * FEE995

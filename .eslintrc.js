@@ -25,5 +25,7 @@ module.exports = {
   ],
   rules: {
     'react/jsx-filename-extension': toggle.OFF,
+    'import/no-unresolved': toggle.OFF,
+    'no-underscore-dangle': toggle.OFF,
   },
 };

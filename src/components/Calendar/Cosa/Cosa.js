@@ -1,13 +1,8 @@
 import React from 'react';
 
-
-const Cosa = () => {
-    return (
-        <>
-        </>
-    )
-
-}
-
+const Cosa = () => (
+  <>
+  </>
+);
 
 export default Cosa;
