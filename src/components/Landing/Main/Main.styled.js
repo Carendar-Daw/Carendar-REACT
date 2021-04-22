@@ -51,7 +51,7 @@ export const UList = styled.ul`
 `;
 export const ContainerCenter = styled.ul`
   
-display: flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;

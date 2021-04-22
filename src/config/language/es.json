@@ -25,6 +25,12 @@
   "Caja_Info" : "No pierdas tiempo cerrando caja gracias a nuestro software"
 },
 
+"Section": {
+  "Title_Left" : "Tu calendario de citas más sencillo y eficiente que nunca",
+  "Subtitle_Left": "Gestiona tu tiempo de forma eficaz y se adapta a los horarios de tu empresa",
+  "Title_Right": "Gestión de inventario y caja",
+  "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja e inventario" 
+},
 "Footer" :{
 "Contact": "Contacto",
 "Privacy": "Política de privacidad",
