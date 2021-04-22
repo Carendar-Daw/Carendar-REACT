@@ -56,11 +56,12 @@ display: flex;
   justify-content: center;
   max-width: 1200px;
   margin: auto;
+  margin-top: 5rem;
   padding-inline-start: 0px;
 `;
 
 export const Card = styled.div`
-  margin: 1em;
+  margin: 1.4em;
   padding: 4em;
   display: flex;
   flex-direction: column;
