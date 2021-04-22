@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ButtonDefault } from '../../Styles/Style/Style.styled';
-
+import { deviceMax } from '../../Styles/Devices';
 /*
 * Colors
 * FEE995
@@ -14,7 +14,7 @@ export const Button = styled(ButtonDefault)`
 
   background-color: transparent;
   margin: 0 5px 2px;
-
+ 
   ::before,::after{
     position: absolute;
     content: "";
@@ -34,6 +34,11 @@ export const Button = styled(ButtonDefault)`
     color: rgb(255,255,255);
     border: 0.5px solid #8265A7;
     transition: 0.2s 0.1s;
+    @media ${deviceMax.mobileL} {
+  font-size: 10px;
+  padding: 2px 3.5px;
+
+    }
   }
 
   span:hover {
@@ -53,6 +58,7 @@ export const Button = styled(ButtonDefault)`
   :hover::before {
     width: 0;
   }
+
 `;
 
 export const Wrapper = styled.div`
@@ -66,6 +72,9 @@ export const Wrapper = styled.div`
   z-index: 1;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.3);
+  @media ${deviceMax.mobileL} {
+  flex-direction: column;
+  }
 `;
 
 export const WrapperContentMenu = styled.div`
@@ -73,10 +82,17 @@ export const WrapperContentMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @media ${deviceMax.mobileL} {
+  justify-content: center;
+  }
 `;
 
 export const Logo = styled.img`
   max-height: 3rem;
+  @media ${deviceMax.mobileL} {
+  margin-top: 18%;
+  margin-bottom: 8%;
+  }
 `;
 
 export const StyledUl = styled.ul`

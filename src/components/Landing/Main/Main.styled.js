@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { device } from '../../Styles/Devices';
+import { device, deviceMax } from '../../Styles/Devices';
 import {
   Heading4, Item,
 } from '../../Styles/Style/Style.styled';
-
 /*
 * Colors
 * FEE995
@@ -31,10 +30,14 @@ export const Container = styled.div`
   h3{
     text-align: center;
     font-size: 3rem;
+    @media ${deviceMax.mobileL} {
+    display: none;
+  }
   }
   @media ${device.laptop} {
     margin-top: 22vw;
   }
+
 `;
 
 export const Heading = styled(Heading4)`

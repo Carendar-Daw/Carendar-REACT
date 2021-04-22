@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { ButtonDefault } from '../../Styles/Style/Style.styled';
+import { deviceMax } from '../../Styles/Devices';
+
 /*
 * Colors
 * FEE995
@@ -41,6 +43,18 @@ export const Header = styled.div`
   video {
     width: 99vw;
     filter: grayscale(30%);
+    @media ${deviceMax.mobileL} {
+    display: none;
+  }
+  }
+  img{
+    display: none;
+    @media ${deviceMax.mobileL} {
+      display: block;
+      width: 99vw;
+    filter: grayscale(30%);
+    
+  } 
   }
   
   .texto{
