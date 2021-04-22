@@ -10,6 +10,7 @@ import {
   faHome,
   faCog,
   faCashRegister,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -23,4 +24,5 @@ library.add(
   faHome,
   faCog,
   faCashRegister,
+  faTrash,
 );
