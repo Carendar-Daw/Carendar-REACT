@@ -18,7 +18,7 @@ export const Page = styled.div`
 
 export const Animation = styled.div`
 
-  --size: ${props => props['size'] ? props['size'] : '76px'};
+  --size: ${(props) => (props.size ? props.size : '76px')};
 
   width: var(--size);
   height: var(--size);
@@ -86,6 +86,3 @@ export const InnerThree = styled(Inner)`
       transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
 `;
-
-
-

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { deviceMax } from '../../components/Styles/Devices';
-import { Hamburger } from "../../components/Styles/Style/Style.styled";
+import { Hamburger } from '../../components/Styles/Style/Style.styled';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -37,7 +37,7 @@ export const HeaderLeft = styled.aside`
     left: -50px;
     box-shadow: none;
     
-    ${({ hamburger }) => (hamburger) ? `transform: translateX(0);` : `transform: translateX(50px);`}
+    ${({ hamburger }) => ((hamburger) ? 'transform: translateX(0);' : 'transform: translateX(50px);')}
   }
 `;
 
@@ -75,10 +75,10 @@ export const IteamMenuWrapper = styled.div`
   align-items: center;
   justify-content: center;
   transition-duration: 200ms;
-  background-color: ${(({ background }) => background ? '#7759a0' : '')};
+  background-color: ${(({ background }) => (background ? '#7759a0' : ''))};
 
   :hover {
-    background-color: ${(({ background }) => background ? '' : '#575757')}
+    background-color: ${(({ background }) => (background ? '' : '#575757'))}
   }
 
   .icon {
@@ -106,7 +106,7 @@ export const Hamb = styled(Hamburger)`
   left: 50px;
   @media ${deviceMax.mobileL} {
     visibility: visible;
-    ${({ hamburger }) => (hamburger) ? `margin-left:0px;` : `margin-left:50px;`}
+    ${({ hamburger }) => ((hamburger) ? 'margin-left:0px;' : 'margin-left:50px;')}
   }
 
 
@@ -117,18 +117,17 @@ export const Hamb = styled(Hamburger)`
         transition-duration: 200ms;
         position:absolute;
         transform: rotate(0deg); 
-        `
-    } else {
-      return `
+        `;
+    }
+    return `
         transition-duration: 200ms;
         position:absolute;
         transform: rotate(45deg); 
-        `
-    }
+        `;
   }
-  }
-    :nth-child(1) { ${({ hamburger }) => (hamburger) ? `transform: translateY(-8px);` : `transform: rotate(-45deg);`}}
-    :nth-child(2) { ${({ hamburger }) => (hamburger) ? `transform: translateY(8px);` : `transform: rotate(-45deg);`}}
+}
+    :nth-child(1) { ${({ hamburger }) => ((hamburger) ? 'transform: translateY(-8px);' : 'transform: rotate(-45deg);')}}
+    :nth-child(2) { ${({ hamburger }) => ((hamburger) ? 'transform: translateY(8px);' : 'transform: rotate(-45deg);')}}
 
 `;
 

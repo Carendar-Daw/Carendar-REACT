@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link, Paragraph } from "../../Styles/Style/Style.styled";
+import { Link, Paragraph } from '../../Styles/Style/Style.styled';
 import { deviceMax } from '../../Styles/Devices';
 /*
 * Colors
@@ -9,7 +9,6 @@ import { deviceMax } from '../../Styles/Devices';
 * DAE0FE
 * 8265A7
 * */
-
 
 export const Container = styled.div`
   display: flex;
@@ -49,7 +48,6 @@ export const Anchor = styled(Link)`
   line-height: 2em;
 `;
 export const Text = styled(Paragraph)``;
-
 
 export const Icons = styled.div`
   display: flex;
