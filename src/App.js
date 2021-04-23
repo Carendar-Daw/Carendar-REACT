@@ -18,6 +18,7 @@ import messages, { defaultLanguage, I18nContext } from './config/language';
 
 const App = () => {
   const [language, setLanguage] = useState(defaultLanguage);
+  const [ready, setReady] = useState(false);
   const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
 
   useEffect(async () => {
@@ -30,18 +31,22 @@ const App = () => {
       };
       const idToken = await getIdTokenClaims();
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
+      setReady(true);
       await axios.post('/saloon', saloon);
     }
   }, [isAuthenticated]);
 
   return (
+
     <Router>
       <I18nContext.Provider value={{ messages, language, setLanguage }}>
         <Switch>
           <Route path="/" exact component={Landing} />
+          ready && (
           <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
           <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
           <ProtectedRoute path="/services" component={Services} layout={Header} />
+          )
           <Route render={() => (<Redirect path="/" />)} />
         </Switch>
       </I18nContext.Provider>
