@@ -13,6 +13,7 @@ import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersService
 
 const Services = () => {
   const [theService, setService] = useState({
+    ser_id: '',
     ser_price: '',
     ser_description: '',
     ser_time: '',
@@ -70,6 +71,7 @@ const Services = () => {
   };
 
   const showDrawer = () => {
+    setIsUpdating(false);
     setShowDrawer(true);
   };
   const onClose = () => {
