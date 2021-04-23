@@ -3,6 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import React, { useContext, useState } from 'react';
 import {
   Wrapper,
+  Ham,
   Button,
   Logo,
   StyledUl,
@@ -37,13 +38,15 @@ const Nav = () => {
   } else if (language === 'ca') {
     isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Catalunya.png" />);
   } else {
-    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Eangland.png" />);
+    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Uk.png" />);
   }
 
   return (
     <Wrapper>
+     
       <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
       <WrapperContentMenu hamburger={hamburger}>
+      <Ham><span>></span></Ham>
         <StyledUl>
           <DropDownLi>
             <Dropbtn>
@@ -59,10 +62,10 @@ const Nav = () => {
               <SubA onClick={() => changeLanguage('ca')}>
                 <Flag src="../../../../public/assets/images/Language/Catalunya.png" />
                 {' '}
-                Catalan
+                Català
               </SubA>
               <SubA onClick={() => changeLanguage('en')}>
-                <Flag src="../../../../public/assets/images/Language/Eangland.png" />
+                <Flag src="../../../../public/assets/images/Language/Uk.png" />
                 {' '}
                 English
               </SubA>

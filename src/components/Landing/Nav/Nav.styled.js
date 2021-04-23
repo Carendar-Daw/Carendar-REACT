@@ -12,8 +12,7 @@ import { deviceMax } from '../../Styles/Devices';
 * */
 
 export const Button = styled(ButtonDefault)`
-
-  background-color: transparent;
+    background-color: transparent;
   margin: 0 10px 2px;
  
   ::before,::after{
@@ -35,10 +34,12 @@ export const Button = styled(ButtonDefault)`
     color: rgb(255,255,255);
     border: 0.5px solid #8265A7;
     transition: 0.2s 0.1s;
-    @media ${deviceMax.mobileL} {
-  font-size: 10px;
 
     }
+    @media ${deviceMax.mobileL} {
+  font-size: 10px;
+  margin: 0 0 0 0;
+  top: -10px;
   }
 
   span:hover {
@@ -58,6 +59,25 @@ export const Button = styled(ButtonDefault)`
   :hover::before {
     width: 0;
   }
+
+
+`;
+
+export const Ham = styled.div`
+  position: absolute;
+  height: 50px;
+  width: 20px;
+  background-color: #8265A7;
+  left: 0;
+  top: -11px;
+  display: none;
+  @media ${deviceMax.mobileL} {
+  left: -150px;
+  ${({ hamburger }) => ((hamburger) ? 'display: none; ' : 'display: flex; margin-right: 50px;')}
+ 
+;
+
+  } 
 
 `;
 
@@ -82,27 +102,17 @@ export const WrapperContentMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  @media ${deviceMax.mobileL} {
+  @media ${deviceMax.mobileL} { 
   position: absolute;
   top: 20px;
-  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(50px);' : 'transform: translateX(-250px);')}
+  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(70px);' : 'transform: translateX(-300px);')}
   }
 `;
-export const hamArrow = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  @media ${deviceMax.mobileL} {
-  position: absolute;
-  top: 20px;
-  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(50px);' : 'transform: translateX(-250px);')}
-  }
-`;
+
 export const Logo = styled.img`
   max-height: 3rem;
   @media ${deviceMax.mobileL} {
-    transform: ${({ hamburger }) => (hamburger ? 'translateX(-250px);' : 'translateX(50px);')}
+    transform: ${({ hamburger }) => (hamburger ? 'translateX(-250px);' : 'translateX(0px);')}
 
   }
 `;
