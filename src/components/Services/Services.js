@@ -1,15 +1,17 @@
 import React, { useReducer, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Table, Space, Drawer, Form, Button, Col, Row, Input,
 } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { success, error } from '../../commons/MessagesApp/Messages';
+import { success, error } from '@Commons/MessagesApp/Messages';
 import axios from '../../axios';
 import {
   TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, ButtonDelete, ButtonUpdate,
 } from './Services.styled';
 import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersServices';
+import { getSaloonId } from '../../store';
 
 const Services = () => {
   const [theService, setService] = useState({
@@ -21,20 +23,23 @@ const Services = () => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [getDrawer, setShowDrawer] = useState(false);
   const [services, dispatch] = useReducer(reducer, inistialStateReducer);
+  const saloonId = useSelector(getSaloonId);
 
   useEffect(async () => {
-    try {
-      const getServices = await axios.get('services');
-      dispatch({ type: ACTIONS.GET, payload: getServices.data.services });
-    } catch (errors) {
-      error('Error al cargar los servicios');
+    if (saloonId) {
+      try {
+        const getServices = await axios.get(`services/${saloonId}`);
+        dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
+      } catch (errors) {
+        error('Error al cargar los servicios');
+      }
     }
-  }, []);
+  }, [saloonId]);
 
   const deleteService = async (id) => {
     try {
       await axios.delete(`services/${id}`);
-      dispatch({ type: ACTIONS.DELETE, payload: id });
+      dispatch({ type: ACTIONS.DELETE_SERVICES, payload: id });
       success('Servicio eliminada correctamente');
     } catch (errors) {
       error('Error al eliminar un servicio');
@@ -42,30 +47,41 @@ const Services = () => {
   };
 
   const buildService = (field, { target: { value } }) => {
-    setService({ ...theService, [field]: value });
+    setService({ ...theService, [field]: value, sal_id: saloonId });
   };
 
   const createService = async () => {
     try {
       const newService = await axios.post('services', theService);
-      dispatch({ type: ACTIONS.POST, payload: newService.data.services });
+      dispatch({ type: ACTIONS.POST_SERVICES, payload: newService.data.services });
       success('Servicio creado correctamente');
+      setShowDrawer(false);
     } catch (errors) {
-      success('Error al crear servicio');
+      setShowDrawer(false);
+      error('Error al crear servicio');
     }
   };
 
   const updateService = async () => {
     try {
-      const updatedService = await axios.put('services', theService);
-      dispatch({ type: ACTIONS.POST, payload: updatedService.data.services });
+      const updatedService = await axios.put(`services/${theService.ser_id}`, theService);
+      dispatch({ type: ACTIONS.UPDATE_SERVICES, payload: { id: theService.ser_id, updatedService: updatedService.data.services } });
+      setShowDrawer(false);
+      setService({
+        ser_price: '',
+        ser_description: '',
+        ser_time: '',
+        sal_id: saloonId,
+      });
       success('Servicio Modificado correctamente');
     } catch (errors) {
-      success('Error al Modificar servicio');
+      error('Error al Modificar servicio');
     }
   };
 
-  const showDrawerUpdate = () => {
+  const showDrawerUpdate = (id) => {
+    const serviceToUpdate = services.filter((service) => service.ser_id === id)[0];
+    setService({ ...serviceToUpdate });
     setShowDrawer(true);
     setIsUpdating(true);
   };
@@ -168,21 +184,21 @@ const Services = () => {
                 label="Name"
                 rules={[{ required: true, message: 'Please enter user name' }]}
               >
-                <Input placeholder="Please enter user name" value={theService.ser_description} onChange={(event) => buildService('ser_description', event)} />
+                <Input placeholder="Please enter user name" defaultValue={theService.ser_description} onChange={(event) => buildService('ser_description', event)} />
               </Form.Item>
               <Form.Item
                 name="price"
                 label="Price"
                 rules={[{ required: true, message: 'Please enter a price' }]}
               >
-                <Input placeholder="Please enter a price" value={theService.ser_price} onChange={(event) => buildService('ser_price', event)} />
+                <Input placeholder="Please enter a price" defaultValue={theService.ser_price} onChange={(event) => buildService('ser_price', event)} />
               </Form.Item>
               <Form.Item
                 name="time"
                 label="Time"
                 rules={[{ required: true, message: 'Please enter a time' }]}
               >
-                <Input placeholder="Please enter a time" value={theService.ser_time} onChange={(event) => buildService('ser_time', event)} />
+                <Input placeholder="Please enter a time" defaultValue={theService.ser_time} onChange={(event) => buildService('ser_time', event)} />
               </Form.Item>
             </Col>
 

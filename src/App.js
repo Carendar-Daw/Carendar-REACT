@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useDispatch } from 'react-redux';
 import {
   Route, Switch, BrowserRouter as Router, Redirect,
 } from 'react-router-dom';
@@ -7,7 +8,9 @@ import 'antd/dist/antd.css';
 import './commons/FontAwesomeIcons';
 import './commons/Styles/Typography';
 import Spinner from '@Commons/Spinner/Spinner';
+import { error } from '@Commons/MessagesApp/Messages';
 import axios from './axios';
+import { saveSalon } from './store/actions';
 import Landing from './containers/Landing/Landing';
 import Calendar from './containers/Calendar/Calendar';
 import Services from './components/Services/Services';
@@ -19,11 +22,16 @@ import messages, { defaultLanguage, I18nContext } from './config/language';
 
 const App = () => {
   const [language, setLanguage] = useState(defaultLanguage);
+  const [verified, setVerified] = useState(null);
   const [ready, setReady] = useState(false);
   const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
+  const dispatch = useDispatch();
 
   useEffect(async () => {
     if (isAuthenticated) {
+      setVerified(user.email_verified);
+    }
+    if (isAuthenticated && user.email_verified) {
       const { nickname, email, sub } = user;
       const saloon = {
         sal_name: nickname,
@@ -32,8 +40,19 @@ const App = () => {
       };
       const idToken = await getIdTokenClaims();
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
-      setReady(true);
-      await axios.post('/saloon', saloon);
+
+      try {
+        const existingSaloon = await axios.get(`/saloon/${sub}`);
+        if (existingSaloon.data.saloons) {
+          dispatch(saveSalon(existingSaloon.data.saloons));
+        } else {
+          const newSaloon = await axios.post('/saloon', saloon);
+          dispatch(saveSalon(newSaloon.data.saloons));
+        }
+        setReady(true);
+      } catch (errors) {
+        error('Error en la app');
+      }
     }
   }, [isAuthenticated]);
 
@@ -49,7 +68,7 @@ const App = () => {
               <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
               <ProtectedRoute path="/services" component={Services} layout={Header} />
             </Switch>
-          ) : <Spinner />}
+          ) : verified === false ? <h1>verifica tu cuenta keita</h1> : <Spinner />}
 
           <Route render={() => (<Redirect path="/" />)} />
         </Switch>
