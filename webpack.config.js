@@ -17,6 +17,7 @@ module.exports = {
       '@Components': path.resolve(__dirname, './src/components/'),
       '@Landing': path.resolve(__dirname, './src/components/Landing/'),
       '@Assets': path.resolve(__dirname, './public/assets/'),
+      '@Commons': path.resolve(__dirname, './src/commons'),
 
     },
   },
@@ -28,7 +29,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
-
   ],
   devServer: {
     historyApiFallback: true,

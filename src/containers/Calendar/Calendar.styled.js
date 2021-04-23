@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '@Components/Styles/Devices';
+import { device } from '@Commons/Styles/Devices';
 
 export const WrapperMenu = styled.div`
     display: flex;

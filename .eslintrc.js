@@ -30,5 +30,8 @@ module.exports = {
     'no-plusplus': toggle.OFF,
     'jsx-a11y/anchor-is-valid': toggle.OFF,
     'import/prefer-default-export': toggle.OFF,
+    'max-len': toggle.OFF,
+    'no-return-assign': toggle.WARNING,
+    'linebreak-style': toggle.OFF,
   },
 };

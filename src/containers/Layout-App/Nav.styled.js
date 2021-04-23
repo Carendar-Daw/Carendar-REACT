@@ -1,15 +1,14 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { deviceMax } from '../../components/Styles/Devices';
-import { Hamburger } from '../../components/Styles/Style/Style.styled';
+import { deviceMax } from '../../commons/Styles/Devices';
+import { Hamburger } from '../../commons/Styles/Style/Style.styled';
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
-    background-color: #dadadae6;
+    background-color: #ecf0f5;
     
     @media ${deviceMax.mobileL}{
       overflow: auto;
-    
     }
   }
 

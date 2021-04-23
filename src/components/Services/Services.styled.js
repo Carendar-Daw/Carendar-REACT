@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { device } from '../Styles/Devices';
-import { Heading4, CardApp } from '../Styles/Style/Style.styled';
+import { device } from '../../commons/Styles/Devices';
+import { Heading4, CardApp } from '../../commons/Styles/Style/Style.styled';
 
 export const TitlePage = styled(Heading4)`
     width: 200px;

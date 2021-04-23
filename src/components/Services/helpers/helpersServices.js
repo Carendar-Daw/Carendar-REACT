@@ -15,8 +15,9 @@ export const reducer = (currentUsers, action) => {
             return [...currentUsers].filter((service) => service.ser_id !== action.payload);
         case ACTIONS.POST:
             // eslint-disable-next-line no-case-declarations
-            const Array = [...currentUsers].push(action.payload);
-            return Array;
+            console.log(action.payload);
+
+            return [...currentUsers, action.payload];
         default:
             return [...currentUsers];
     }

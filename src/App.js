@@ -4,8 +4,9 @@ import {
   Route, Switch, BrowserRouter as Router, Redirect,
 } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import './components/FontAwesomeIcons';
-import './components/Styles/Typography';
+import './commons/FontAwesomeIcons';
+import './commons/Styles/Typography';
+import Spinner from '@Commons/Spinner/Spinner';
 import axios from './axios';
 import Landing from './containers/Landing/Landing';
 import Calendar from './containers/Calendar/Calendar';
@@ -37,16 +38,19 @@ const App = () => {
   }, [isAuthenticated]);
 
   return (
-
     <Router>
       <I18nContext.Provider value={{ messages, language, setLanguage }}>
         <Switch>
           <Route path="/" exact component={Landing} />
-          ready && (
-          <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
-          <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
-          <ProtectedRoute path="/services" component={Services} layout={Header} />
-          )
+
+          {ready ? (
+            <Switch>
+              <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
+              <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
+              <ProtectedRoute path="/services" component={Services} layout={Header} />
+            </Switch>
+          ) : <Spinner />}
+
           <Route render={() => (<Redirect path="/" />)} />
         </Switch>
       </I18nContext.Provider>

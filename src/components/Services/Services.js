@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { success, error } from '../MessagesApp/Messages';
+import { success, error } from '../../commons/MessagesApp/Messages';
 import axios from '../../axios';
 import {
   TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, ButtonDelete, ButtonUpdate,
@@ -46,8 +46,8 @@ const Services = () => {
 
   const createService = async () => {
     try {
-      // const newService = await axios.post('services', theService);
-      // dispatch({ type: ACTIONS.POST, payload: newService.data.services });
+      const newService = await axios.post('services', theService);
+      dispatch({ type: ACTIONS.POST, payload: newService.data.services });
       success('Servicio creado correctamente');
     } catch (errors) {
       success('Error al crear servicio');
