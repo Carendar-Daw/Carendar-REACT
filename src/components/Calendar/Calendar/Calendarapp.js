@@ -3,10 +3,12 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import listPlugin from '@fullcalendar/list';
 import {
   Drawer, Form, Button, Col, Row, Input, DatePicker, Select,
 } from 'antd';
 import { Option } from 'antd/es/mentions';
+import moment from 'moment';
 import Container from './Calendarapp.styled';
 import axios from '../../../axios';
 
@@ -15,6 +17,7 @@ const Calendarapp = () => {
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
   const [events, setEvents] = useState([]);
+  const [edit, isEdit] = useState(false);
 
   useEffect(async () => {
     const allEvents = [];
@@ -23,8 +26,9 @@ const Calendarapp = () => {
       const event = {
         id: app.app_id,
         title: `Cliente ID:${app.cus_id}\n${app.app_state}`,
+        description: app.app_state,
         start: app.app_date,
-        end: '2021-04-23 21:00:00',
+        end: moment(app.app_date).add(30, 'minutes'),
       };
       allEvents.push(event);
     });
@@ -38,22 +42,29 @@ const Calendarapp = () => {
       sal_id: 1,
       cus_id: 1,
       app_date: `${date} ${time}`,
-      app_state: 'Test front',
+      app_state: title,
     };
     axios.post('/appointment', appointment).then((res) => {
-      // eslint-disable-next-line no-console
       console.log(res.data);
     });
   };
 
   const showDrawer = (selectInfo) => {
-    setState(true);
+    isEdit(false);
     setInfo(selectInfo);
+    setState(true);
   };
 
   const onClose = () => {
     setState(false);
     setTitle('');
+  };
+
+  const updateAppointment = (selectInfo) => {
+    console.log(selectInfo.event.extendedProps);
+    setInfo(selectInfo.event);
+    isEdit(true);
+    setState(true);
   };
 
   const handleDateSelect = () => {
@@ -75,16 +86,22 @@ const Calendarapp = () => {
     onClose();
     test();
   };
+  const editAppointment = (e) => {
+    setTitle(e.target.value);
+    handleDateSelect();
+    onClose();
+    test();
+  };
 
   return (
     <>
       <Container>
         <FullCalendar
-          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           headerToolbar={{
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,list',
           }}
           initialView="timeGridDay"
           editable={false}
@@ -93,6 +110,7 @@ const Calendarapp = () => {
           selectMirror
           dayMaxEvents
           select={showDrawer}
+          eventClick={updateAppointment}
         />
       </Container>
       <Drawer
@@ -111,9 +129,19 @@ const Calendarapp = () => {
             <Button onClick={onClose} style={{ marginRight: 8 }}>
               Cancel
             </Button>
-            <Button onClick={buildCita} type="primary">
-              Submit
-            </Button>
+            {
+              edit
+                ? (
+                  <Button onClick={editAppointment} type="primary">
+                    Edit
+                  </Button>
+                )
+                : (
+                  <Button onClick={buildCita} type="primary">
+                    Submit
+                  </Button>
+                )
+            }
           </div>
                   )}
       >
@@ -146,15 +174,15 @@ const Calendarapp = () => {
               <Form.Item
                 name="app_date"
                 label="Cita date"
-                rules={[{ required: true, message: 'Please enter user name' }]}
+                rules={[{ required: true }]}
               >
                 <DatePicker
+                  defaultValue={moment(info.startStr)}
                   style={{ width: '100%' }}
                   getPopupContainer={(trigger) => trigger.parentElement}
                   showTime
                   format="DD-MM-YY HH:mm"
                 />
-                {' '}
 
               </Form.Item>
             </Col>
@@ -166,7 +194,7 @@ const Calendarapp = () => {
                 label="Estado"
                 rules={[{ required: true, message: 'Please enter user name' }]}
               >
-                <Input placeholder="Please enter user name" onChange={(e) => setTitle(e.target.value)} />
+                <Input placeholder="Please enter user name" defaultValue={info.extendedProps ? info.extendedProps.description : ''} onChange={(e) => setTitle(e.target.value)} />
               </Form.Item>
             </Col>
           </Row>
