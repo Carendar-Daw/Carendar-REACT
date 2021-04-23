@@ -28,5 +28,7 @@ module.exports = {
     'import/no-unresolved': toggle.OFF,
     'no-underscore-dangle': toggle.OFF,
     'no-plusplus': toggle.OFF,
+    'jsx-a11y/anchor-is-valid': toggle.OFF,
+    'import/prefer-default-export': toggle.OFF,
   },
 };

@@ -4,14 +4,14 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const domain = 'carendar-daw.eu.auth0.com';
 const clientID = 'FnCY4ajfPN6rFmUN4dB4GqY8cMuMetMP';
-// const audience = "http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api";
+const audience = "https://carendar-daw.eu.auth0.com/api/v2/";
 
 const Auth0 = ({ children }) => {
 
     const providerConfig = {
         domain: domain,
         clientId: clientID,
-        //       audience: audience,
+        audience: audience,
         redirectUri: window.location.origin + '/dashboard',
     };
 

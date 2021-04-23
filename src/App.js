@@ -9,6 +9,7 @@ import './components/Styles/Typography';
 import axios from './axios';
 import Landing from './containers/Landing/Landing';
 import Calendar from './containers/Calendar/Calendar';
+import Services from './components/Services/Services';
 import Header from './containers/Layout-App/Nav';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -17,6 +18,7 @@ import messages, { defaultLanguage, I18nContext } from './config/language';
 
 const App = () => {
   const [language, setLanguage] = useState(defaultLanguage);
+  const [ready, setReady] = useState(false);
   const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
 
   useEffect(async () => {
@@ -28,25 +30,23 @@ const App = () => {
         auth0_id: sub,
       };
       const idToken = await getIdTokenClaims();
-      console.log(idToken.__raw);
-
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
-      axios.post('/saloon', saloon).then((res) => {
-        console.log(res.data);
-      });
-      axios.get('/saloon').then((res) => {
-        console.log(res.data);
-      });
+      setReady(true);
+      await axios.post('/saloon', saloon);
     }
   }, [isAuthenticated]);
 
   return (
+
     <Router>
       <I18nContext.Provider value={{ messages, language, setLanguage }}>
         <Switch>
           <Route path="/" exact component={Landing} />
+          ready && (
           <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
           <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
+          <ProtectedRoute path="/services" component={Services} layout={Header} />
+          )
           <Route render={() => (<Redirect path="/" />)} />
         </Switch>
       </I18nContext.Provider>

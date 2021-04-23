@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: '/',
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -39,17 +40,6 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
-      },
-      {
         test: /\.html$/,
         use: [
           {
@@ -64,17 +54,14 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: 'images/'
-            }
-          },
-        ],
+        test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+      },
+      {
+        test: /\.(jpg|jpeg|gif|png)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
       },
       {
         test: /\.css$/i,
