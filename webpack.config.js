@@ -18,7 +18,6 @@ module.exports = {
       '@Landing': path.resolve(__dirname, './src/components/Landing/'),
       '@Assets': path.resolve(__dirname, './public/assets/'),
       '@Commons': path.resolve(__dirname, './src/commons'),
-
     },
   },
   plugins: [
