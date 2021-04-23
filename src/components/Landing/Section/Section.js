@@ -4,7 +4,6 @@ import {
 } from './Section.styled';
 import image from '../../../../public/assets/images/logos/logo-carendar.png';
 
-
 const Section = () => (
   <Container>
     <Card>

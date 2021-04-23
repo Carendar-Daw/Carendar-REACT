@@ -3,16 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Anchor, Contact, Container, Icons, Links, Logo, Text,
 } from './Footer.styled';
+import logo from '../../../../public/assets/images/logos/logo-provisional.png';
 
 const Footer = () => (
   <Container>
     <div>
       <div>
-        <Logo src="../../../../public/assets/images/logos/logo-provisional.png" alt="" />
+        <Logo src={logo} alt="" />
       </div>
       <Links>
         <Anchor href="#">Contact</Anchor>
-        <Anchor href="#">Privacy politics</Anchor>
+        <Anchor href="#">Privacy policy</Anchor>
         <Anchor href="#">Support</Anchor>
         <Anchor href="#">Use conditions</Anchor>
       </Links>

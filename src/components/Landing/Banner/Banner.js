@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Header, Button, AnimatedText } from './Banner.styled';
 import DynamicTitle from './DynamicTitle/DynamicTitle';
 import { I18nContext } from '../../../config/language';
+import video from '../../../../public/assets/video/test.mp4';
 
 const Banner = () => {
   const { messages, language } = useContext(I18nContext);
@@ -13,7 +14,7 @@ const Banner = () => {
       <div>
         <div>
           <video autoPlay muted loop id="myVideo">
-            <source src="../../../../public/assets/video/test.mp4" type="video/mp4" />
+            <source src={video} type="video/mp4" />
           </video>
         </div>
         <div className="texto">

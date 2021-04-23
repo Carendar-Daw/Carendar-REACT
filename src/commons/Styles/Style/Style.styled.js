@@ -62,8 +62,8 @@ export const ButtonDefault = styled.button`
 `;
 
 export const Link = styled.a`
+
   ${Fonts.montserrat}
-  font-family: ${'Montserrat-Regular'};
 
   text-decoration: none;
   color: black;
@@ -76,15 +76,12 @@ export const Link = styled.a`
 
 export const Heading4 = styled.h4`
   ${Fonts.poppins}
-  font-family: ${'Poppins-Regular'};
 `;
 
 export const Item = styled.li`
   ${Fonts.montserrat}
-  font-family: ${'Montserrat-Regular'};
 `;
 
 export const Paragraph = styled.p`
   ${Fonts.montserrat}
-  font-family: ${'Montserrat-Regular'};
 `;
