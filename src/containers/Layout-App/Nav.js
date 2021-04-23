@@ -24,6 +24,7 @@ import {
   ContentPopOver,
   MainContent,
 } from './Nav.styled';
+import logo from '../../../public/assets/images/logos/logo-carendar.png';
 
 // eslint-disable-next-line react/prop-types
 const Nav = ({ children }) => {
@@ -58,7 +59,7 @@ const Nav = ({ children }) => {
           <GlobalStyle />
           <HeaderLeft id="left-nav" hamburger={hamburger}>
             <Logo>
-              <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
+              <LogoImg src={logo} alt="" />
             </Logo>
             <Tooltip placement="right" color={color} title={textMenu.dashboard}>
               <NavLink to="/dashboard">
