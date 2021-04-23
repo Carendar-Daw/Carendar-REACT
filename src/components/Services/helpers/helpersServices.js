@@ -4,7 +4,6 @@ export const ACTIONS = {
     POST: 'post',
     DELETE: 'delete',
     UPDATE: 'update',
-
 };
 
 export const reducer = (currentUsers, action) => {
@@ -14,9 +13,9 @@ export const reducer = (currentUsers, action) => {
         case ACTIONS.DELETE:
             return [...currentUsers].filter((service) => service.ser_id !== action.payload);
         case ACTIONS.POST:
-            // eslint-disable-next-line no-case-declarations
-            const Array = [...currentUsers].push(action.payload);
-            return Array;
+            return [...currentUsers, action.payload];
+        case ACTIONS.UPDATE:
+            return [...currentUsers, action.payload];
         default:
             return [...currentUsers];
     }
