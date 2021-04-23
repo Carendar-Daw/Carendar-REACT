@@ -17,7 +17,6 @@ export const Container = styled.div`
 & {
   margin-top: 10vw;
   margin-bottom: 15vw;
-  
 }
 
   &>div{
@@ -31,12 +30,17 @@ export const Container = styled.div`
     text-align: center;
     font-size: 3rem;
     @media ${deviceMax.mobileL} {
-    display: none;
+    font-size: 1rem;
+    margin: 0 2%;
+    font-weight: bold;
   }
   }
   @media ${device.laptop} {
     margin-top: 22vw;
   }
+  @media ${deviceMax.mobileL} {
+    margin-top: 0;
+  }  
 
 `;
 
@@ -62,6 +66,9 @@ export const ContainerCenter = styled.ul`
   margin: auto;
   margin-top: 5rem;
   padding-inline-start: 0px;
+  @media ${deviceMax.mobileL} {
+    margin-top: 0;
+  }  
 `;
 
 export const Card = styled.div`

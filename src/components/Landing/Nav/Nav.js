@@ -1,5 +1,6 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Wrapper,
   Button,
@@ -22,6 +23,12 @@ const Nav = () => {
   const changeLanguage = (lang) => {
     setLanguage(lang);
   };
+  const [hamburger, setHamburger] = useState(true);
+
+  const hamburgerClick = () => {
+    setHamburger(!hamburger);
+    console.log(!hamburger);
+  };
 
   let isLenguageSelected = '';
 
@@ -35,8 +42,8 @@ const Nav = () => {
 
   return (
     <Wrapper>
-      <Logo src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
-      <WrapperContentMenu>
+      <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
+      <WrapperContentMenu hamburger={hamburger}>
         <StyledUl>
           <DropDownLi>
             <Dropbtn>

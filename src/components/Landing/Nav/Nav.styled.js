@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import styled from 'styled-components';
 import { ButtonDefault } from '../../Styles/Style/Style.styled';
 import { deviceMax } from '../../Styles/Devices';
@@ -13,7 +14,7 @@ import { deviceMax } from '../../Styles/Devices';
 export const Button = styled(ButtonDefault)`
 
   background-color: transparent;
-  margin: 0 5px 2px;
+  margin: 0 10px 2px;
  
   ::before,::after{
     position: absolute;
@@ -36,7 +37,6 @@ export const Button = styled(ButtonDefault)`
     transition: 0.2s 0.1s;
     @media ${deviceMax.mobileL} {
   font-size: 10px;
-  padding: 2px 3.5px;
 
     }
   }
@@ -83,15 +83,27 @@ export const WrapperContentMenu = styled.div`
   align-items: center;
   justify-content: flex-end;
   @media ${deviceMax.mobileL} {
-  justify-content: center;
+  position: absolute;
+  top: 20px;
+  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(50px);' : 'transform: translateX(-250px);')}
   }
 `;
-
+export const hamArrow = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media ${deviceMax.mobileL} {
+  position: absolute;
+  top: 20px;
+  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(50px);' : 'transform: translateX(-250px);')}
+  }
+`;
 export const Logo = styled.img`
   max-height: 3rem;
   @media ${deviceMax.mobileL} {
-  margin-top: 18%;
-  margin-bottom: 8%;
+    transform: ${({ hamburger }) => (hamburger ? 'translateX(-250px);' : 'translateX(50px);')}
+
   }
 `;
 

@@ -20,6 +20,7 @@ export const Button = styled(ButtonDefault)`
   max-width: 10rem;
   margin: auto;
 `;
+
 export const Header = styled.div`
   position: inherit;
   top: 0;
@@ -69,5 +70,11 @@ export const Header = styled.div`
   .titulo, .subtitulo{
     color: white;
     text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+   
+  }
+  @media ${deviceMax.mobileL} {
+  #signIn{
+      display: none;
+  }
   }
 `;

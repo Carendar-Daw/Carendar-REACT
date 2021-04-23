@@ -24,7 +24,7 @@ const Banner = () => {
             <DynamicTitle className="titulo" />
           </div>
 
-          <Button onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
+          <Button id="signIn" onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
 
         </div>
       </div>
