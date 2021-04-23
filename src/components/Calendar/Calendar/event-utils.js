@@ -13,18 +13,17 @@ export const getEvents = () => {
   })
     .then(() => {
       response.data.appointments.forEach((app) => {
-          let event = {
-              id: app.app_id,
-              title: app.cus_id,
-              start: app.app_date,
-              end: '2021-04-22 21:00:00'
-          }
-          console.log(event)
+        const event = {
+          id: app.app_id,
+          title: app.cus_id,
+          start: app.app_date,
+          end: '2021-04-22 21:00:00',
+        };
+        console.log(event);
         INITIAL_EVENTS.push(event);
       });
     })
     .catch(console.log('xd'));
 
-    return  INITIAL_EVENTS;
+  return INITIAL_EVENTS;
 };
-
