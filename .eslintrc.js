@@ -33,5 +33,6 @@ module.exports = {
     'max-len': toggle.OFF,
     'no-return-assign': toggle.WARNING,
     'linebreak-style': toggle.OFF,
+    'no-console': toggle.WARNING,
   },
 };

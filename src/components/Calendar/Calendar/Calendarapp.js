@@ -9,23 +9,39 @@ import {
 import { Option } from 'antd/es/mentions';
 import Container from './Calendarapp.styled';
 import axios from '../../../axios';
-import { getEvents } from './event-utils';
 
 const Calendarapp = () => {
   const [state, setState] = useState(false);
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
+  const [events, setEvents] = useState([]);
+
+  useEffect(async () => {
+    const allEvents = [];
+    const response = await axios.get('/appointment/saloon/1');
+    await response.data.data.appointments.forEach((app) => {
+      const event = {
+        id: app.app_id,
+        title: `Cliente ID:${app.cus_id}\n${app.app_state}`,
+        start: app.app_date,
+        end: '2021-04-23 21:00:00',
+      };
+      allEvents.push(event);
+    });
+    setEvents(allEvents);
+  }, []);
   const test = async () => {
+    const d = new Date(info.startStr);
+    const date = d.toISOString().split('T')[0];
+    const time = d.toTimeString().split(' ')[0];
     const appointment = {
       sal_id: 1,
       cus_id: 1,
-      app_date: '2021-04-22 20:00:00',
+      app_date: `${date} ${time}`,
       app_state: 'Test front',
     };
-    // const idToken = await getIdTokenClaims();
-
-    // axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
     axios.post('/appointment', appointment).then((res) => {
+      // eslint-disable-next-line no-console
       console.log(res.data);
     });
   };
@@ -72,7 +88,7 @@ const Calendarapp = () => {
           }}
           initialView="timeGridDay"
           editable={false}
-          initialEvents={getEvents}
+          events={events}
           selectable
           selectMirror
           dayMaxEvents
@@ -80,7 +96,7 @@ const Calendarapp = () => {
         />
       </Container>
       <Drawer
-        title="Create a new account"
+        title="Create a new appointment"
         width={720}
         onClose={onClose}
         visible={state}
@@ -135,6 +151,8 @@ const Calendarapp = () => {
                 <DatePicker
                   style={{ width: '100%' }}
                   getPopupContainer={(trigger) => trigger.parentElement}
+                  showTime
+                  format="DD-MM-YY HH:mm"
                 />
                 {' '}
 
