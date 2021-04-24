@@ -16,11 +16,13 @@ const Calendarapp = () => {
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
   const [events, setEvents] = useState([]);
+  const [customers, setCustomers] = useState([]);
   const [edit, isEdit] = useState(false);
 
   useEffect(async () => {
     const allEvents = [];
     const response = await axios.get('/appointment/saloon/1');
+
     await response.data.data.appointments.forEach((app) => {
       const event = {
         id: app.app_id,
@@ -33,6 +35,7 @@ const Calendarapp = () => {
       allEvents.push(event);
     });
     setEvents(allEvents);
+    setCustomers(response.data.data.customers);
   }, []);
   const postAppointment = async () => {
     const d = new Date(info.startStr);
@@ -60,6 +63,13 @@ const Calendarapp = () => {
   };
   const deleteAppointment = async () => axios.delete(`/appointment/${info.event.id}`);
 
+  const loadCustomers = () => {
+    const options = [];
+    customers.forEach((customer) => {
+      options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
+    });
+    return options;
+  };
   const showDrawer = (selectInfo) => {
     isEdit(false);
     setInfo(selectInfo);
@@ -199,9 +209,7 @@ const Calendarapp = () => {
                   optionFilterProp="children"
                   filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 >
-                  <Select.Option value="jack">Jack</Select.Option>
-                  <Select.Option value="lucy">Lucy</Select.Option>
-                  <Select.Option value="tom">Tom</Select.Option>
+                  {loadCustomers()}
                 </Select>
                 {' '}
 
