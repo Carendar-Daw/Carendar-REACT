@@ -24,14 +24,13 @@ const App = () => {
   const [language, setLanguage] = useState(defaultLanguage);
   const [verified, setVerified] = useState(null);
   const [ready, setReady] = useState(false);
-  const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
+  const { user, getIdTokenClaims, isAuthenticated, logout } = useAuth0();
   const dispatch = useDispatch();
 
   useEffect(async () => {
-    if (isAuthenticated) {
-      setVerified(user.email_verified);
-    }
+    if (isAuthenticated) setVerified(user.email_verified);
     if (isAuthenticated && user.email_verified) {
+
       const { nickname, email, sub } = user;
       const saloon = {
         sal_name: nickname,
@@ -50,7 +49,9 @@ const App = () => {
           dispatch(saveSalon(newSaloon.data.saloons));
         }
         setReady(true);
+        setLoading(false);
       } catch (errors) {
+        setLoading(false);
         error('Error en la app');
       }
     }
@@ -62,15 +63,15 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Landing} />
 
-          {ready ? (
+          {ready && verified ? (
             <Switch>
               <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
               <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
               <ProtectedRoute path="/services" component={Services} layout={Header} />
             </Switch>
-          ) : verified === false ? <h1>verifica tu cuenta keita</h1> : <Spinner />}
+          ) :  <button onClick={() => logout()}>verifica tu cuenta keita</button> }
 
-          <Route render={() => (<Redirect path="/" />)} />
+
         </Switch>
       </I18nContext.Provider>
     </Router>
