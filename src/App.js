@@ -28,6 +28,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(async () => {
+    console.log(user);
     if (isAuthenticated) setVerified(user.email_verified);
     if (isAuthenticated && user.email_verified) {
       const { nickname, email, sub } = user;
@@ -38,12 +39,10 @@ const App = () => {
       };
       const idToken = await getIdTokenClaims();
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
-
+      console.log(idToken.__raw)
       try {
-          const newSaloon = await axios.post('saloon', saloon);
-
-         dispatch(saveSalon(newSaloon.data.saloons));
-
+        const newSaloon = await axios.post('saloon', saloon);
+        dispatch(saveSalon(newSaloon.data.saloons));
         setReady(true);
       } catch (errors) {
         error('Error en la app');
