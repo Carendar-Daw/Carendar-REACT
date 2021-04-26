@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { ButtonDefault } from '../../Styles/Style/Style.styled';
-import { deviceMax } from '../../Styles/Devices';
+import { deviceMax } from '@Commons/Styles/Devices';
+import { ButtonDefault } from '@Commons/Styles/Style/Style.styled';
 
 /*
 * Colors

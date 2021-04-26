@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { device, deviceMax } from '../../Styles/Devices';
+import { device, deviceMax } from '@Commons/Styles/Devices';
 import {
   Heading4, Item,
-} from '../../Styles/Style/Style.styled';
+} from '@Commons/Styles/Style/Style.styled';
 
 /*
 * Colors

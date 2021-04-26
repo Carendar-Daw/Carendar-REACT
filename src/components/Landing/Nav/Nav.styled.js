@@ -1,7 +1,6 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import styled from 'styled-components';
-import { deviceMax } from '../../Styles/Devices';
-import { ButtonDefault } from '../../../commons/Styles/Style/Style.styled';
+import { deviceMax } from '@Commons/Styles/Devices';
+import { ButtonDefault } from '@Commons/Styles/Style/Style.styled';
 
 /*
 * Colors

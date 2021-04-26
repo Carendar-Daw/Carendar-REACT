@@ -4,6 +4,7 @@ import { Header, Button } from './Banner.styled';
 import DynamicTitle from './DynamicTitle/DynamicTitle';
 import { I18nContext } from '../../../config/language';
 import video from '../../../../public/assets/video/test.mp4';
+import ffu from '../../../../public/assets/images/images/test.jpg';
 
 const Banner = () => {
   const { messages, language } = useContext(I18nContext);
@@ -13,20 +14,16 @@ const Banner = () => {
     <Header>
       <div>
         <div>
-
           <video autoPlay muted loop id="myVideo">
             <source src={video} type="video/mp4" />
           </video>
-
-          <img src="../../../../public/assets/images/images/test.jpg" alt="test" />
+          <img src={ffu} alt="test" />
         </div>
         <div className="texto">
           <div>
             <DynamicTitle className="titulo" />
           </div>
-
           <Button id="signIn" onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
-
         </div>
       </div>
     </Header>

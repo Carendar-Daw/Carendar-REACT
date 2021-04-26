@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useContext, useState } from 'react';
 import {
@@ -18,7 +17,7 @@ import {
 import { I18nContext } from '../../../config/language';
 import esp from '../../../../public/assets/images/Language/España.jpg';
 import cat from '../../../../public/assets/images/Language/Catalunya.png';
-import uk from '../../../../public/assets/images/Language/uk.png';
+import uk from '../../../../public/assets/images/Language/Uk.png';
 import logo from '../../../../public/assets/images/logos/logo-carendar.png';
 
 const Nav = () => {
@@ -46,7 +45,7 @@ const Nav = () => {
   }
 
   return (
-    <Wrapper> 
+    <Wrapper>
       <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src={logo} alt="" />
       <WrapperContentMenu hamburger={hamburger}>
       <Ham><span>></span></Ham>
