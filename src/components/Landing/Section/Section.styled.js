@@ -11,9 +11,9 @@ import { deviceMax } from '../../../commons/Styles/Devices';
 
 export const Title = styled.div` 
    color:#8265a7;
-   font-size: 20px;
+   font-size: 25px;
    border-bottom:3px solid #8265a7;
-    max-width:200px;
+    max-width:350px;
     text-align: left;
     @media ${deviceMax.tablet} {
       text-align: center;
@@ -25,7 +25,7 @@ export const Title = styled.div`
 export const SubTitle = styled.div`
   color:#6B74A1;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 15px;
   @media ${deviceMax.tablet} {
       text-align: center;
       padding-top: 3px;

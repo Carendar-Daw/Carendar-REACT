@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { device } from '../../../commons/Styles/Devices';
+import { device, deviceMax } from '../../Styles/Devices';
 import {
   Heading4, Item,
-} from '../../../commons/Styles/Style/Style.styled';
+} from '../../Styles/Style/Style.styled';
 
 /*
 * Colors
@@ -14,7 +14,12 @@ import {
 * */
 
 export const Container = styled.div`
-  
+
+& {
+  margin-top: 10vw;
+  margin-bottom: 15vw;
+}
+
   &>div{
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +30,18 @@ export const Container = styled.div`
   h3{
     text-align: center;
     font-size: 3rem;
+    @media ${deviceMax.mobileL} {
+    font-size: 1rem;
+    margin: 0 2%;
+    font-weight: bold;
   }
+  }
+  @media ${device.laptop} {
+    margin-top: 22vw;
+  }
+  @media ${deviceMax.mobileL} {
+    margin-top: 0;
+  }  
 
 `;
 
@@ -40,19 +56,24 @@ export const List = styled(Item)`
 
 export const UList = styled.ul`
   padding: 0;
-  padding-left: 35px;
+  padding-left: 1em;
 `;
 export const ContainerCenter = styled.ul`
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
   margin: auto;
+  margin-top: 5rem;
   padding-inline-start: 0px;
+  @media ${deviceMax.mobileL} {
+    margin-top: 0;
+  }  
 `;
 
 export const Card = styled.div`
-  margin: 1em;
+  margin: 1.4em;
   padding: 4em;
   display: flex;
   flex-direction: column;

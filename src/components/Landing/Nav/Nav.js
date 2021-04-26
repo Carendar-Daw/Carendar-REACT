@@ -1,7 +1,9 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Wrapper,
+  Ham,
   Button,
   Logo,
   StyledUl,
@@ -16,7 +18,7 @@ import {
 import { I18nContext } from '../../../config/language';
 import esp from '../../../../public/assets/images/Language/España.jpg';
 import cat from '../../../../public/assets/images/Language/Catalunya.png';
-import uk from '../../../../public/assets/images/Language/Eangland.png';
+import uk from '../../../../public/assets/images/Language/uk.png';
 import logo from '../../../../public/assets/images/logos/logo-carendar.png';
 
 const Nav = () => {
@@ -25,6 +27,12 @@ const Nav = () => {
 
   const changeLanguage = (lang) => {
     setLanguage(lang);
+  };
+  const [hamburger, setHamburger] = useState(true);
+
+  const hamburgerClick = () => {
+    setHamburger(!hamburger);
+    console.log(!hamburger);
   };
 
   let isLenguageSelected = '';
@@ -38,9 +46,10 @@ const Nav = () => {
   }
 
   return (
-    <Wrapper>
-      <Logo src={logo} alt="" />
-      <WrapperContentMenu>
+    <Wrapper> 
+      <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src={logo} alt="" />
+      <WrapperContentMenu hamburger={hamburger}>
+      <Ham><span>></span></Ham>
         <StyledUl>
           <DropDownLi>
             <Dropbtn>
@@ -56,7 +65,7 @@ const Nav = () => {
               <SubA onClick={() => changeLanguage('ca')}>
                 <Flag src={cat} />
                 {' '}
-                Catalan
+                Català
               </SubA>
               <SubA onClick={() => changeLanguage('en')}>
                 <Flag src={uk} />
