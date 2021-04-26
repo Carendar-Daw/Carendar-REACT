@@ -5,9 +5,9 @@ import {
   Route, Switch, BrowserRouter as Router, Redirect,
 } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import './commons/FontAwesomeIcons';
-import './commons/Styles/Typography';
-import Spinner from '@Commons/Spinner/Spinner';
+import '@Commons/FontAwesomeIcons';
+import '@Commons/Styles/Typography';
+import Spinner from '@Commons/Spinner/SpinnerPage';
 import { error } from '@Commons/MessagesApp/Messages';
 import axios from './axios';
 import { saveSalon } from './store/actions';
@@ -22,15 +22,16 @@ import messages, { defaultLanguage, I18nContext } from './config/language';
 
 const App = () => {
   const [language, setLanguage] = useState(defaultLanguage);
-  const [verified, setVerified] = useState(null);
+  const [verified, setVerified] = useState(true);
   const [ready, setReady] = useState(false);
-  const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
+  const {
+    user, getIdTokenClaims, isAuthenticated, logout,
+  } = useAuth0();
   const dispatch = useDispatch();
 
   useEffect(async () => {
-    if (isAuthenticated) {
-      setVerified(user.email_verified);
-    }
+    console.log(user);
+    if (isAuthenticated) setVerified(user.email_verified);
     if (isAuthenticated && user.email_verified) {
       const { nickname, email, sub } = user;
       const saloon = {
@@ -40,15 +41,10 @@ const App = () => {
       };
       const idToken = await getIdTokenClaims();
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
-
+      console.log(user);
       try {
-        const existingSaloon = await axios.get(`/saloon/${sub}`);
-        if (existingSaloon.data.saloons) {
-          dispatch(saveSalon(existingSaloon.data.saloons));
-        } else {
-          const newSaloon = await axios.post('/saloon', saloon);
-          dispatch(saveSalon(newSaloon.data.saloons));
-        }
+        const newSaloon = await axios.post('saloon', saloon);
+        dispatch(saveSalon(newSaloon.data.saloons));
         setReady(true);
       } catch (errors) {
         error('Error en la app');
@@ -61,16 +57,13 @@ const App = () => {
       <I18nContext.Provider value={{ messages, language, setLanguage }}>
         <Switch>
           <Route path="/" exact component={Landing} />
-
-          {ready ? (
+          {ready && verified ? (
             <Switch>
               <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
               <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
               <ProtectedRoute path="/services" component={Services} layout={Header} />
             </Switch>
-          ) : verified === false ? <h1>verifica tu cuenta keita</h1> : <Spinner />}
-
-          <Route render={() => (<Redirect path="/" />)} />
+          ) : !verified ? <h1 onClick={() => logout()}>verifica tu cuenta francesc, sino no puedes entrar :v</h1> : <Spinner /> }
         </Switch>
       </I18nContext.Provider>
     </Router>

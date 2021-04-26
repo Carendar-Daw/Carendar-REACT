@@ -28,7 +28,7 @@ const Services = () => {
   useEffect(async () => {
     if (saloonId) {
       try {
-        const getServices = await axios.get(`services/${saloonId}`);
+        const getServices = await axios.get(`services`);
         dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
       } catch (errors) {
         error('Error al cargar los servicios');
