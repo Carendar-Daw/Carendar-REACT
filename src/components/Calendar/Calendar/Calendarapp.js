@@ -7,7 +7,6 @@ import listPlugin from '@fullcalendar/list';
 import {
   Drawer, Form, Button, Col, Row, Input, DatePicker, Select,
 } from 'antd';
-import { Option } from 'antd/es/mentions';
 import moment from 'moment';
 import Container from './Calendarapp.styled';
 import axios from '../../../axios';
@@ -17,24 +16,28 @@ const Calendarapp = () => {
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
   const [events, setEvents] = useState([]);
+  const [customers, setCustomers] = useState([]);
   const [edit, isEdit] = useState(false);
 
   useEffect(async () => {
     const allEvents = [];
     const response = await axios.get('/appointment/saloon/1');
+
     await response.data.data.appointments.forEach((app) => {
       const event = {
         id: app.app_id,
         title: `Cliente ID:${app.cus_id}\n${app.app_state}`,
         description: app.app_state,
+        customer: app.cus_id,
         start: app.app_date,
         end: moment(app.app_date).add(30, 'minutes'),
       };
       allEvents.push(event);
     });
     setEvents(allEvents);
+    setCustomers(response.data.data.customers);
   }, []);
-  const test = async () => {
+  const postAppointment = async () => {
     const d = new Date(info.startStr);
     const date = d.toISOString().split('T')[0];
     const time = d.toTimeString().split(' ')[0];
@@ -44,11 +47,29 @@ const Calendarapp = () => {
       app_date: `${date} ${time}`,
       app_state: title,
     };
-    axios.post('/appointment', appointment).then((res) => {
-      console.log(res.data);
-    });
+    await axios.post('/appointment', appointment);
   };
+  const putAppointment = async () => {
+    const d = new Date(info.event.startStr);
+    const date = d.toISOString().split('T')[0];
+    const time = d.toTimeString().split(' ')[0];
+    const appointment = {
+      sal_id: 1,
+      cus_id: 1,
+      app_date: `${date} ${time}`,
+      app_state: title,
+    };
+    await axios.put(`/appointment/${info.event.id}`, appointment);
+  };
+  const deleteAppointment = async () => axios.delete(`/appointment/${info.event.id}`);
 
+  const loadCustomers = () => {
+    const options = [];
+    customers.forEach((customer) => {
+      options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
+    });
+    return options;
+  };
   const showDrawer = (selectInfo) => {
     isEdit(false);
     setInfo(selectInfo);
@@ -58,13 +79,6 @@ const Calendarapp = () => {
   const onClose = () => {
     setState(false);
     setTitle('');
-  };
-
-  const updateAppointment = (selectInfo) => {
-    console.log(selectInfo.event.extendedProps);
-    setInfo(selectInfo.event);
-    isEdit(true);
-    setState(true);
   };
 
   const handleDateSelect = () => {
@@ -80,17 +94,44 @@ const Calendarapp = () => {
     }
   };
 
-  const buildCita = (e) => {
+  const postEvent = (e) => {
     setTitle(e.target.value);
     handleDateSelect();
     onClose();
-    test();
+    postAppointment();
   };
-  const editAppointment = (e) => {
+  const updateAppointment = (selectInfo) => {
+    setInfo(selectInfo);
+    isEdit(true);
+    setState(true);
+  };
+  const editEvent = (e) => {
+    // console.log(info);
     setTitle(e.target.value);
-    handleDateSelect();
     onClose();
-    test();
+    putAppointment();
+    const calendarApi = info.view.calendar;
+    events.forEach((event) => {
+      if (event.id === parseInt(info.event.id, 10)) {
+        const updatedEvent = { ...event };
+        updatedEvent.description = title;
+        updatedEvent.title = `Cliente ID:${updatedEvent.customer}\n${title}`;
+        calendarApi.getEventById(info.event.id).remove();
+        calendarApi.addEvent(updatedEvent);
+      }
+    });
+  };
+  const deleteEvent = (e) => {
+    console.log(info.event);
+    setTitle(e.target.value);
+    onClose();
+    deleteAppointment();
+    const calendarApi = info.view.calendar;
+    events.forEach((event) => {
+      if (event.id === parseInt(info.event.id, 10)) {
+        calendarApi.getEventById(info.event.id).remove();
+      }
+    });
   };
 
   return (
@@ -114,7 +155,11 @@ const Calendarapp = () => {
         />
       </Container>
       <Drawer
-        title="Create a new appointment"
+        title={
+          edit
+            ? 'Update an appointment'
+            : 'Create a new appointment'
+        }
         width={720}
         onClose={onClose}
         visible={state}
@@ -132,12 +177,17 @@ const Calendarapp = () => {
             {
               edit
                 ? (
-                  <Button onClick={editAppointment} type="primary">
-                    Edit
-                  </Button>
+                  <>
+                    <Button onClick={editEvent} type="primary" style={{ marginRight: 8 }}>
+                      Edit
+                    </Button>
+                    <Button onClick={deleteEvent} type="danger">
+                      Delete
+                    </Button>
+                  </>
                 )
                 : (
-                  <Button onClick={buildCita} type="primary">
+                  <Button onClick={postEvent} type="primary">
                     Submit
                   </Button>
                 )
@@ -149,7 +199,6 @@ const Calendarapp = () => {
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
-                name="cus_id"
                 label="Customer ID"
                 rules={[{ required: true, message: 'Please enter user name' }]}
               >
@@ -160,9 +209,7 @@ const Calendarapp = () => {
                   optionFilterProp="children"
                   filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 >
-                  <Option value="jack">Jack</Option>
-                  <Option value="lucy">Lucy</Option>
-                  <Option value="tom">Tom</Option>
+                  {loadCustomers()}
                 </Select>
                 {' '}
 
@@ -172,12 +219,15 @@ const Calendarapp = () => {
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
-                name="app_date"
                 label="Cita date"
                 rules={[{ required: true }]}
               >
                 <DatePicker
-                  defaultValue={moment(info.startStr)}
+                  defaultValue={
+                  info.event
+                    ? moment(info.event.startStr)
+                    : ''
+                  }
                   style={{ width: '100%' }}
                   getPopupContainer={(trigger) => trigger.parentElement}
                   showTime
@@ -190,17 +240,15 @@ const Calendarapp = () => {
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item
-                name="app_state"
                 label="Estado"
                 rules={[{ required: true, message: 'Please enter user name' }]}
               >
-                <Input placeholder="Please enter user name" defaultValue={info.extendedProps ? info.extendedProps.description : ''} onChange={(e) => setTitle(e.target.value)} />
+                <Input placeholder="Please enter user name" defaultValue={info.event ? info.event.extendedProps.description : ''} onChange={(e) => setTitle(e.target.value)} />
               </Form.Item>
             </Col>
           </Row>
         </Form>
       </Drawer>
-      <Button onClick={showDrawer}>+</Button>
     </>
   );
 };
