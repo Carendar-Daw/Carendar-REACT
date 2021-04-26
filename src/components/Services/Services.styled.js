@@ -59,6 +59,8 @@ export const ButtonAdd = styled.button`
   bottom: 70px;
   right: 90px;
   box-shadow: rgb(0 0 0 / 24%) 0px 6px 6px 0px, rgb(0 0 0 / 12%) 0px 0px 6px 0px;
+  outline: none;
+
 `;
 
 export const ButtonDelete = styled.button`

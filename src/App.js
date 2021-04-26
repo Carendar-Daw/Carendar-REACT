@@ -24,7 +24,9 @@ const App = () => {
   const [language, setLanguage] = useState(defaultLanguage);
   const [verified, setVerified] = useState(true);
   const [ready, setReady] = useState(false);
-  const { user, getIdTokenClaims, isAuthenticated, logout } = useAuth0();
+  const {
+    user, getIdTokenClaims, isAuthenticated, logout,
+  } = useAuth0();
   const dispatch = useDispatch();
 
   useEffect(async () => {
@@ -39,7 +41,7 @@ const App = () => {
       };
       const idToken = await getIdTokenClaims();
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
-      console.log(idToken.__raw)
+      console.log(user);
       try {
         const newSaloon = await axios.post('saloon', saloon);
         dispatch(saveSalon(newSaloon.data.saloons));
@@ -55,16 +57,13 @@ const App = () => {
       <I18nContext.Provider value={{ messages, language, setLanguage }}>
         <Switch>
           <Route path="/" exact component={Landing} />
-
           {ready && verified ? (
             <Switch>
               <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
               <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
               <ProtectedRoute path="/services" component={Services} layout={Header} />
             </Switch>
-          ) :  !verified  ? <h1 onClick={() => logout()}>verifica tu cuenta francesc, sino no puedes entrar :v</h1> : <Spinner /> }
-
-
+          ) : !verified ? <h1 onClick={() => logout()}>verifica tu cuenta francesc, sino no puedes entrar :v</h1> : <Spinner /> }
         </Switch>
       </I18nContext.Provider>
     </Router>
