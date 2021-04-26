@@ -16,6 +16,10 @@ import {
   Flag,
 } from './Nav.styled';
 import { I18nContext } from '../../../config/language';
+import esp from '../../../../public/assets/images/Language/España.jpg';
+import cat from '../../../../public/assets/images/Language/Catalunya.png';
+import uk from '../../../../public/assets/images/Language/uk.png';
+import logo from '../../../../public/assets/images/logos/logo-carendar.png';
 
 const Nav = () => {
   const { loginWithRedirect } = useAuth0();
@@ -34,17 +38,16 @@ const Nav = () => {
   let isLenguageSelected = '';
 
   if (language === 'es') {
-    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/España.jpg" />);
+    isLenguageSelected = (<Flag src={esp} />);
   } else if (language === 'ca') {
-    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Catalunya.png" />);
+    isLenguageSelected = (<Flag src={cat} />);
   } else {
-    isLenguageSelected = (<Flag src="../../../../public/assets/images/Language/Uk.png" />);
+    isLenguageSelected = (<Flag src={uk} />);
   }
 
   return (
-    <Wrapper>
-     
-      <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
+    <Wrapper> 
+      <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src={logo} alt="" />
       <WrapperContentMenu hamburger={hamburger}>
       <Ham><span>></span></Ham>
         <StyledUl>
@@ -55,17 +58,17 @@ const Nav = () => {
             <DropDownContent>
               {' '}
               <SubA onClick={() => changeLanguage('es')}>
-                <Flag src="../../../../public/assets/images/Language/España.jpg" />
+                <Flag src={esp} />
                 {' '}
                 Español
               </SubA>
               <SubA onClick={() => changeLanguage('ca')}>
-                <Flag src="../../../../public/assets/images/Language/Catalunya.png" />
+                <Flag src={cat} />
                 {' '}
                 Català
               </SubA>
               <SubA onClick={() => changeLanguage('en')}>
-                <Flag src="../../../../public/assets/images/Language/Uk.png" />
+                <Flag src={uk} />
                 {' '}
                 English
               </SubA>

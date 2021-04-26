@@ -3,6 +3,7 @@ import { device, deviceMax } from '../../Styles/Devices';
 import {
   Heading4, Item,
 } from '../../Styles/Style/Style.styled';
+
 /*
 * Colors
 * FEE995

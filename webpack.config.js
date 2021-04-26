@@ -2,12 +2,14 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: '/',
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -15,7 +17,7 @@ module.exports = {
       '@Components': path.resolve(__dirname, './src/components/'),
       '@Landing': path.resolve(__dirname, './src/components/Landing/'),
       '@Assets': path.resolve(__dirname, './public/assets/'),
-
+      '@Commons': path.resolve(__dirname, './src/commons'),
     },
   },
   plugins: [
@@ -25,6 +27,7 @@ module.exports = {
       favicon: "./public/assets/images/logos/logo-carendar.ico",
     }),
     new MiniCssExtractPlugin(),
+    new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,
@@ -37,17 +40,6 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
-      },
-      {
-        test: /\.(png|jpg|gif)$/i,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
-        ],
       },
       {
         test: /\.html$/,
@@ -64,17 +56,14 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: 'images/'
-            }
-          },
-        ],
+        test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+      },
+      {
+        test: /\.(jpg|jpeg|gif|png|mp4)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
       },
       {
         test: /\.css$/i,

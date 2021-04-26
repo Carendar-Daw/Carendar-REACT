@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../Styles/Devices';
+import { device } from '../../commons/Styles/Devices';
 
 export const WrapperMenu = styled.div`
     display: flex;
@@ -7,9 +7,12 @@ export const WrapperMenu = styled.div`
     flex-wrap: wrap;
     padding-top: 50px;
     width: 100%;
-   
+    margin: auto;
+
+
     @media ${device.tablet} {
       width: 80%;
+      padding-top: 100px;
     }
 `;
 

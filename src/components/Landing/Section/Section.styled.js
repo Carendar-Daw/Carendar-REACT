@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { deviceMax } from '../../Styles/Devices';
+import { deviceMax } from '../../../commons/Styles/Devices';
 /*
 * Colors
 * FEE995

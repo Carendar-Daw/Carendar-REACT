@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Link, Paragraph } from '../../Styles/Style/Style.styled';
-import { deviceMax } from '../../Styles/Devices';
+import { Link, Paragraph } from '../../../commons/Styles/Style/Style.styled';
+import { deviceMax } from '../../../commons/Styles/Devices';
 /*
 * Colors
 * FEE995

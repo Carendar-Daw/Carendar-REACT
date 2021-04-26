@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { withAuthenticationRequired, useAuth0 } from '@auth0/auth0-react';
 import { Tooltip, Popover } from 'antd';
 
-import { Content } from '@Components/Styles/Style/Style.styled';
-import SpinnerPage from '../../components/Spinner/SpinnerPage';
+import { Content } from '@Commons/Styles/Style/Style.styled';
+import SpinnerPage from '@Commons/Spinner/SpinnerPage';
 import { textMenu, color, initialState } from './AuxLayout';
 
 import {
@@ -24,7 +24,9 @@ import {
   ContentPopOver,
   MainContent,
 } from './Nav.styled';
+import logo from '../../../public/assets/images/logos/logo-carendar.png';
 
+// eslint-disable-next-line react/prop-types
 const Nav = ({ children }) => {
   const { user, isAuthenticated, logout } = useAuth0();
 
@@ -34,7 +36,7 @@ const Nav = ({ children }) => {
 
   const setNavBackgroundColor = (button) => {
     const keys = Object.keys(background);
-    const buildingState = null;
+    const buildingState = {};
     keys.forEach((item) => (item === button ? buildingState[item] = true : buildingState[item] = false));
     setBackgorund(buildingState);
   };
@@ -52,13 +54,12 @@ const Nav = ({ children }) => {
 
   return (
     isAuthenticated
-
         && (
         <Wrapper>
           <GlobalStyle />
           <HeaderLeft id="left-nav" hamburger={hamburger}>
             <Logo>
-              <LogoImg src="../../../../public/assets/images/logos/logo-carendar.png" alt="" />
+              <LogoImg src={logo} alt="" />
             </Logo>
             <Tooltip placement="right" color={color} title={textMenu.dashboard}>
               <NavLink to="/dashboard">
@@ -75,7 +76,7 @@ const Nav = ({ children }) => {
               </NavLink>
             </Tooltip>
             <Tooltip placement="right" color={color} title={textMenu.services}>
-              <NavLink to="/calendar">
+              <NavLink to="/services">
                 <IteamMenuWrapper background={background.services} onClick={() => setNavBackgroundColor('services')}>
                   <FontAwesomeIcon className="icon" icon="cut" />
                 </IteamMenuWrapper>
@@ -117,7 +118,6 @@ const Nav = ({ children }) => {
               {children}
             </Content>
           </MainContent>
-
         </Wrapper>
         )
   );
