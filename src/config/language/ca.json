@@ -23,8 +23,9 @@
     "Caja_Info" : "No perdis temps tancant caixa gràcies al nostre software"
   },
   "Section": {
-    "Title_Left" : "El teu calendari de cites més senzill i eficient que mai",
+    "Title_Left" : "Calendari de cites",
     "Subtitle_Left": "Gestiona el teu temps de forma eficaç i s'adapta als horaris de la teva empresa",
+    "Subtitle_Left_2": "El teu calendari de cites més senzill i eficient que mai",
     "Title_Right": "Gestió d'inventari i caixa",
     "Subtitle_Right": "L'apartat econòmic de la teva empresa estarà sempre sota control gràcies a la nostra gestió de caixa i inventari" 
   },

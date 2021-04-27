@@ -1,16 +1,17 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import {
-  Table, Space, Drawer, Form, Button, Col, Row, Input,
-} from 'antd';
+import { Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/MessagesApp/Messages';
+import Confirm from '@Commons/Modal/Confirm';
 import axios from '../../axios';
 import {
   TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, ButtonDelete, ButtonUpdate,
 } from './Services.styled';
 import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersServices';
+import Drawer from './Drawer';
+import Table from './Table';
 import { getSaloonId } from '../../store';
 
 const Services = () => {
@@ -28,7 +29,7 @@ const Services = () => {
   useEffect(async () => {
     if (saloonId) {
       try {
-        const getServices = await axios.get(`services`);
+        const getServices = await axios.get('services');
         dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
       } catch (errors) {
         error('Error al cargar los servicios');
@@ -44,6 +45,10 @@ const Services = () => {
     } catch (errors) {
       error('Error al eliminar un servicio');
     }
+  };
+
+  const isGoingToDelete = (id) => {
+    deleteService(id);
   };
 
   const buildService = (field, { target: { value } }) => {
@@ -125,9 +130,11 @@ const Services = () => {
           <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
             Editar
           </ButtonUpdate>
-          <ButtonDelete onClick={() => deleteService(record.ser_id)}>
-            <FontAwesomeIcon className="icon" icon="trash" />
-          </ButtonDelete>
+          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.ser_id)}>
+            <ButtonDelete>
+              <FontAwesomeIcon className="icon" icon="trash" />
+            </ButtonDelete>
+          </Confirm>
         </Space>
       ),
     },
@@ -142,70 +149,20 @@ const Services = () => {
         <TitlePage>Servicios</TitlePage>
       </WrapperTitle>
       <WrapperTable>
-        <Table columns={columnsTableFiltered} dataSource={services} />
+        <Table columnsTableFiltered={columnsTableFiltered} services={services} />
       </WrapperTable>
       <ButtonAdd onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
       </ButtonAdd>
       <Drawer
-        title="Create a new account"
-        width={320}
         onClose={onClose}
-        visible={getDrawer}
-        destroyOnClose
-        bodyStyle={{ paddingBottom: 80 }}
-        footer={(
-          <div
-            style={{
-              textAlign: 'right',
-            }}
-          >
-            <Button onClick={onClose} style={{ marginRight: 8 }}>
-              Cancel
-            </Button>
-            {!isUpdating
-              ? (
-                <Button type="primary" onClick={createService}>
-                  Submit
-                </Button>
-              ) : (
-                <Button type="primary" onClick={updateService}>
-                  Update
-                </Button>
-              )}
-          </div>
-        )}
-      >
-        <Form layout="vertical" hideRequiredMark>
-          <Row gutter={16}>
-            <Col span={22}>
-              <Form.Item
-                name="name"
-                label="Name"
-                rules={[{ required: true, message: 'Please enter user name' }]}
-              >
-                <Input placeholder="Please enter user name" defaultValue={theService.ser_description} onChange={(event) => buildService('ser_description', event)} />
-              </Form.Item>
-              <Form.Item
-                name="price"
-                label="Price"
-                rules={[{ required: true, message: 'Please enter a price' }]}
-              >
-                <Input placeholder="Please enter a price" defaultValue={theService.ser_price} onChange={(event) => buildService('ser_price', event)} />
-              </Form.Item>
-              <Form.Item
-                name="time"
-                label="Time"
-                rules={[{ required: true, message: 'Please enter a time' }]}
-              >
-                <Input placeholder="Please enter a time" defaultValue={theService.ser_time} onChange={(event) => buildService('ser_time', event)} />
-              </Form.Item>
-            </Col>
-
-          </Row>
-
-        </Form>
-      </Drawer>
+        getDrawer={getDrawer}
+        createService={createService}
+        updateService={updateService}
+        buildService={buildService}
+        isUpdating={isUpdating}
+        theService={theService}
+      />
     </WrapperServices>
   );
 };

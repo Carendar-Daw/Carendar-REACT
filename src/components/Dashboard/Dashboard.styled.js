@@ -12,7 +12,6 @@ export const WrapperMenu = styled.div`
 
     @media ${device.tablet} {
       width: 80%;
-      padding-top: 100px;
     }
 `;
 

@@ -1,7 +1,6 @@
 {
   "LogIn": "Iniciar sesión",
   "SignIn": "Registrate",
-  
   "Welcome": {
     "WelcomeBanner": "Bienvenido a Carendar!",
     "WelcomeSubTitle": "La plataforma perfecta para tu centro de estetica"
@@ -26,8 +25,9 @@
 },
 
 "Section": {
-  "Title_Left" : "Tu calendario de citas más sencillo y eficiente que nunca",
-  "Subtitle_Left": "Gestiona tu tiempo de forma eficaz y se adapta a los horarios de tu empresa",
+  "Title_Left" : "Calendario de citas",
+  "Subtitle_Left" : "Tu calendario de citas más sencillo y eficiente que nunca",
+  "Subtitle_Left_2": "Gestiona tu tiempo de forma eficaz y se adapta a los horarios de tu empresa",
   "Title_Right": "Gestión de inventario y caja",
   "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
   

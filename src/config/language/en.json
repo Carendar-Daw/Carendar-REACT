@@ -24,8 +24,9 @@
 },
 
 "Section": {
-  "Title_Left" : "Your appointment calendar easier and more efficient than ever before",
-  "Subtitle_Left": "It manages your time effectively and it fits to your business schedule",
+  "Title_Left": "Appointment Calendar",
+  "Subtitle_Left" : "Your appointment calendar easier and more efficient than ever before",
+  "Subtitle_Left_2": "It manages your time effectively and it fits to your business schedule",
   "Title_Right": "Stock & Cash Management",
   "Subtitle_Right": "Your business is always safe with our stock and cash management" 
 },
