@@ -3,14 +3,14 @@ import { device } from '@Commons/Styles/Devices';
 
 export const WrapperMenu = styled.div`
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 80%;
-    width: 80%;
+  
+    height: calc(100vh - 50px);
+    width: calc(100vw - 50px);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 50px;
+    left: 50px;
+  
+    
 
 `;
 
