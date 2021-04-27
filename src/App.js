@@ -14,6 +14,7 @@ import { saveSalon } from './store/actions';
 import Landing from './containers/Landing/Landing';
 import Calendar from './containers/Calendar/Calendar';
 import Services from './components/Services/Services';
+import Clients from './components/Clients/Clients';
 import Header from './containers/Layout-App/Nav';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -60,6 +61,7 @@ const App = () => {
               <ProtectedRoute path="/dashboard" component={Dashboard} layout={Header} />
               <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
               <ProtectedRoute path="/services" component={Services} layout={Header} />
+              <ProtectedRoute path="/clients" component={Clients} layout={Header} />
             </Switch>
           ) : !verified ? <h1 onClick={() => logout()}>verifica tu cuenta, sino no puedes entrar :v</h1> : <Spinner /> }
         </Switch>

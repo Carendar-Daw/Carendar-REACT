@@ -13,32 +13,32 @@ const Dashboard = () => (
     </IteamMenu>
     <IteamMenu>
       <Card>
-        <ImgCard src="../../../public/assets/images/images/calendar.svg" />
-        <Title>Cosas</Title>
+        <ImgCard src="../../../public/assets/images/images/barber.svg" />
+        <Title>Services</Title>
       </Card>
     </IteamMenu>
     <IteamMenu>
       <Card>
-        <ImgCard src="../../../public/assets/images/images/calendar.svg" />
-        <Title>Cosas</Title>
+        <ImgCard src="../../../public/assets/images/images/clients.svg" />
+        <Title>Clients</Title>
       </Card>
     </IteamMenu>
     <IteamMenu>
       <Card>
-        <ImgCard src="../../../public/assets/images/images/calendar.svg" />
-        <Title>Cosas</Title>
+        <ImgCard src="../../../public/assets/images/images/savingMoney.svg" />
+        <Title>Cash</Title>
       </Card>
     </IteamMenu>
     <IteamMenu>
       <Card>
-        <ImgCard src="../../../public/assets/images/images/calendar.svg" />
-        <Title>Cosas</Title>
+        <ImgCard src="../../../public/assets/images/images/personalSettings.svg" />
+        <Title>Settings</Title>
       </Card>
     </IteamMenu>
     <IteamMenu>
       <Card>
-        <ImgCard src="../../../public/assets/images/images/calendar.svg" />
-        <Title>Cosas</Title>
+        <ImgCard src="../../../public/assets/images/images/products.svg" />
+        <Title>Products</Title>
       </Card>
     </IteamMenu>
   </WrapperMenu>
