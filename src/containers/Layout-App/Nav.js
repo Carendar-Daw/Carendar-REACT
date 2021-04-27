@@ -89,7 +89,14 @@ const Nav = ({ children }) => {
                 </IteamMenuWrapper>
               </NavLink>
             </Tooltip>
-            <Tooltip placement="right" color={color} title={textMenu.config}>
+            <Tooltip placement="right" color={color} title={textMenu.clients}>
+              <NavLink to="/clients">
+                <IteamMenuWrapper background={background.clients} onClick={() => setNavBackgroundColor('clients')}>
+                  <FontAwesomeIcon className="icon" icon="users" />
+                </IteamMenuWrapper>
+              </NavLink>
+            </Tooltip>
+            <Tooltip placement="right" color={color} title={textMenu.configuration}>
               <NavLink to="/calendar">
                 <IteamMenuWrapper background={background.configuration} onClick={() => setNavBackgroundColor('configuration')}>
                   <FontAwesomeIcon className="icon" icon="cog" />

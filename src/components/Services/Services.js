@@ -1,18 +1,17 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/MessagesApp/Messages';
-import Confirm from '@Commons/Modal/Confirm';
 import axios from '../../axios';
 import {
-  TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, ButtonDelete, ButtonUpdate,
+  TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd,
 } from './Services.styled';
 import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersServices';
 import Drawer from './Drawer';
 import Table from './Table';
 import { getSaloonId } from '../../store';
+import Spinner from "@Commons/Spinner/Spinner";
 
 const Services = () => {
   const [theService, setService] = useState({
@@ -21,6 +20,8 @@ const Services = () => {
     ser_description: '',
     ser_time: '',
   });
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+  const [loadingSkeleton, setLoadingSkeleton] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [getDrawer, setShowDrawer] = useState(false);
   const [services, dispatch] = useReducer(reducer, inistialStateReducer);
@@ -29,21 +30,29 @@ const Services = () => {
   useEffect(async () => {
     if (saloonId) {
       try {
+        setLoadingSpinner(true);
+        setLoadingSkeleton(true);
         const getServices = await axios.get('services');
         dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
       } catch (errors) {
         error('Error al cargar los servicios');
+      }finally {
+        setLoadingSkeleton(false);
+        setLoadingSpinner(false);
       }
     }
   }, [saloonId]);
 
   const deleteService = async (id) => {
     try {
+      setLoadingSpinner(true);
       await axios.delete(`services/${id}`);
       dispatch({ type: ACTIONS.DELETE_SERVICES, payload: id });
       success('Servicio eliminada correctamente');
     } catch (errors) {
       error('Error al eliminar un servicio');
+    }finally {
+      setLoadingSpinner(false);
     }
   };
 
@@ -57,6 +66,7 @@ const Services = () => {
 
   const createService = async () => {
     try {
+      setLoadingSpinner(true);
       const newService = await axios.post('services', theService);
       dispatch({ type: ACTIONS.POST_SERVICES, payload: newService.data.services });
       success('Servicio creado correctamente');
@@ -64,11 +74,14 @@ const Services = () => {
     } catch (errors) {
       setShowDrawer(false);
       error('Error al crear servicio');
+    }finally {
+      setLoadingSpinner(false);
     }
   };
 
   const updateService = async () => {
     try {
+      setLoadingSpinner(true);
       const updatedService = await axios.put(`services/${theService.ser_id}`, theService);
       dispatch({ type: ACTIONS.UPDATE_SERVICES, payload: { id: theService.ser_id, updatedService: updatedService.data.services } });
       setShowDrawer(false);
@@ -81,6 +94,8 @@ const Services = () => {
       success('Servicio Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar servicio');
+    }finally {
+      setLoadingSpinner(false);
     }
   };
 
@@ -99,57 +114,15 @@ const Services = () => {
     setShowDrawer(false);
   };
 
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'ser_description',
-      key: 'ser_description',
-      render: (text) => <a>{text}</a>,
-    },
-    {
-      title: 'Precio',
-      dataIndex: 'ser_price',
-      key: 'ser_price',
-    },
-    {
-      title: 'Time',
-      dataIndex: 'ser_time',
-      key: 'ser_time',
-      responsive: ['sm'],
-    },
-    {
-      title: 'Id',
-      dataIndex: 'ser_id',
-      key: 'ser_id',
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (record) => (
-        <Space size="middle">
-          <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
-            Editar
-          </ButtonUpdate>
-          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.ser_id)}>
-            <ButtonDelete>
-              <FontAwesomeIcon className="icon" icon="trash" />
-            </ButtonDelete>
-          </Confirm>
-        </Space>
-      ),
-    },
-  ];
-
-  const columnsTableFiltered = columns.filter((col) => col.dataIndex !== 'ser_id');
-
   return (
     <WrapperServices>
+      {loadingSpinner && <Spinner />}
       <WrapperTitle>
         <FontAwesomeIcon className="icon" icon="calendar-alt" />
         <TitlePage>Servicios</TitlePage>
       </WrapperTitle>
       <WrapperTable>
-        <Table columnsTableFiltered={columnsTableFiltered} services={services} />
+        <Table showDrawerUpdate={showDrawerUpdate} isGoingToDelete={isGoingToDelete} services={services} loadingSkeleton={loadingSkeleton}/>
       </WrapperTable>
       <ButtonAdd onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />

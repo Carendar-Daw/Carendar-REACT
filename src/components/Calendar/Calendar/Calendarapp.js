@@ -3,6 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { TwitterPicker } from 'react-color';
 import listPlugin from '@fullcalendar/list';
 import {
   Drawer, Form, Button, Col, Row, Input, DatePicker, Select,
@@ -18,6 +19,8 @@ const Calendarapp = () => {
   const [events, setEvents] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [edit, isEdit] = useState(false);
+  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
+  const [color, setColor] = useState('#7759a0');
 
   useEffect(async () => {
     const allEvents = [];
@@ -30,6 +33,7 @@ const Calendarapp = () => {
         description: app.app_state,
         customer: app.cus_id,
         start: app.app_date,
+        color: '#7759a0',
         end: moment(app.app_date).add(30, 'minutes'),
       };
       allEvents.push(event);
@@ -46,6 +50,7 @@ const Calendarapp = () => {
       cus_id: 1,
       app_date: `${date} ${time}`,
       app_state: title,
+      app_color: info.extendedProps.color,
     };
     await axios.post('/appointment', appointment);
   };
@@ -58,6 +63,7 @@ const Calendarapp = () => {
       cus_id: 1,
       app_date: `${date} ${time}`,
       app_state: title,
+      app_color: info.extendedProps.color,
     };
     await axios.put(`/appointment/${info.event.id}`, appointment);
   };
@@ -90,6 +96,7 @@ const Calendarapp = () => {
         start: info.startStr,
         end: info.endStr,
         allDay: info.allDay,
+        color: info.extendedProps.color,
       }, true); // temporary=true, will get overwritten when reducer gives new events
     }
   };
@@ -106,7 +113,6 @@ const Calendarapp = () => {
     setState(true);
   };
   const editEvent = (e) => {
-    // console.log(info);
     setTitle(e.target.value);
     onClose();
     putAppointment();
@@ -144,6 +150,8 @@ const Calendarapp = () => {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay,list',
           }}
+          eventBackgroundColor="#7759a0"
+          eventBorderColor="#7759a0"
           initialView="timeGridDay"
           editable={false}
           events={events}
@@ -152,6 +160,12 @@ const Calendarapp = () => {
           dayMaxEvents
           select={showDrawer}
           eventClick={updateAppointment}
+          aspectRatio={aspectRatio}
+          windowResize={() => {
+            window.innerWidth > 1336
+              ? setAspectRatio(1.8)
+              : setAspectRatio(1);
+          }}
         />
       </Container>
       <Drawer
@@ -245,6 +259,13 @@ const Calendarapp = () => {
               >
                 <Input placeholder="Please enter user name" defaultValue={info.event ? info.event.extendedProps.description : ''} onChange={(e) => setTitle(e.target.value)} />
               </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            <Col span={12}>
+              <TwitterPicker
+                onChange={(e) => setColor(e.hex)}
+              />
             </Col>
           </Row>
         </Form>

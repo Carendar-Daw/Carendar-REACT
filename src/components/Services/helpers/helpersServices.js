@@ -7,18 +7,18 @@ export const ACTIONS = {
 };
 
 
-export const reducer = (currentUsers, action) => {
+export const reducer = (currentServices, action) => {
     switch (action.type) {
         case ACTIONS.GET_SERVICES:
             return [...action.payload];
         case ACTIONS.DELETE_SERVICES:
-            return [...currentUsers].filter((service) => service.ser_id !== action.payload);
+            return [...currentServices].filter((service) => service.ser_id !== action.payload);
         case ACTIONS.POST_SERVICES:
-            return [...currentUsers, action.payload];
+            return [...currentServices, action.payload];
         case ACTIONS.UPDATE_SERVICES:
-            return [...currentUsers].map((service) => (service.ser_id === action.payload.id ? action.payload.updatedService : service));
+            return [...currentServices].map((service) => (service.ser_id === action.payload.id ? action.payload.updatedService : service));
         default:
-            return [...currentUsers];
+            return [...currentServices];
     }
 };
 
