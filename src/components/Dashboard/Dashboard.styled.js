@@ -5,14 +5,11 @@ export const WrapperMenu = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-top: 50px;
+    padding-top: 10px;
     width: 100%;
     margin: auto;
-
-
-    @media ${device.tablet} {
-      width: 80%;
-    }
+    height: 75vh;
+  
 `;
 
 export const IteamMenu = styled.div`
@@ -20,7 +17,6 @@ export const IteamMenu = styled.div`
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    width: 100%;
     margin: 30px;
     box-sizing: border-box;
    
@@ -49,8 +45,13 @@ export const Card = styled.div`
   justify-content: space-around;
   border-radius: 10px;
   cursor: pointer;
+  padding: 20px;
+  img {
+    height: 220px;
+  }
     &:hover {
-      background-color: gray;
+      background-color: #C8C8C8;
+   
       transition: 0.5s all ease-in-out;
     }
 `;
