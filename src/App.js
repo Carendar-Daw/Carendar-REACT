@@ -30,7 +30,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(async () => {
-    console.log(user);
     if (isAuthenticated) setVerified(user.email_verified);
     if (isAuthenticated && user.email_verified) {
       const { nickname, email, sub } = user;
@@ -41,10 +40,9 @@ const App = () => {
       };
       const idToken = await getIdTokenClaims();
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
-      console.log(user);
       try {
         const newSaloon = await axios.post('saloon', saloon);
-        dispatch(saveSalon(newSaloon.data.saloons));
+        dispatch(saveSalon(newSaloon.data.saloon));
         setReady(true);
       } catch (errors) {
         error('Error en la app');
@@ -63,7 +61,7 @@ const App = () => {
               <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
               <ProtectedRoute path="/services" component={Services} layout={Header} />
             </Switch>
-          ) : !verified ? <h1 onClick={() => logout()}>verifica tu cuenta francesc, sino no puedes entrar :v</h1> : <Spinner /> }
+          ) : !verified ? <h1 onClick={() => logout()}>verifica tu cuenta, sino no puedes entrar :v</h1> : <Spinner /> }
         </Switch>
       </I18nContext.Provider>
     </Router>

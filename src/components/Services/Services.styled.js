@@ -14,11 +14,8 @@ export const TitlePage = styled(Heading4)`
 
 export const WrapperServices = styled(CardApp)`
 
-   margin-top: 30px;
-   
-
+    margin-top: 30px;
     @media ${device.tablet} {
-      
       padding-top: 30px;
       margin-left: 40px;
     }
