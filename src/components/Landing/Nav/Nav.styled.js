@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { ButtonDefault } from '../../../commons/Styles/Style/Style.styled';
+import { deviceMax } from '@Commons/Styles/Devices';
+import { ButtonDefault } from '@Commons/Styles/Style/Style.styled';
 
 /*
 * Colors
@@ -11,10 +12,9 @@ import { ButtonDefault } from '../../../commons/Styles/Style/Style.styled';
 * */
 
 export const Button = styled(ButtonDefault)`
-
-  background-color: transparent;
-  margin: 0 5px 2px;
-
+    background-color: transparent;
+  margin: 0 10px 2px;
+ 
   ::before,::after{
     position: absolute;
     content: "";
@@ -34,6 +34,12 @@ export const Button = styled(ButtonDefault)`
     color: rgb(255,255,255);
     border: 0.5px solid #8265A7;
     transition: 0.2s 0.1s;
+
+    }
+    @media ${deviceMax.mobileL} {
+  font-size: 10px;
+  margin: 0 0 0 0;
+  top: -10px;
   }
 
   span:hover {
@@ -53,6 +59,26 @@ export const Button = styled(ButtonDefault)`
   :hover::before {
     width: 0;
   }
+
+
+`;
+
+export const Ham = styled.div`
+  position: absolute;
+  height: 50px;
+  width: 20px;
+  background-color: #8265A7;
+  left: 0;
+  top: -11px;
+  display: none;
+  @media ${deviceMax.mobileL} {
+  left: -150px;
+  ${({ hamburger }) => ((hamburger) ? 'display: none; ' : 'display: flex; margin-right: 50px;')}
+ 
+;
+
+  } 
+
 `;
 
 export const Wrapper = styled.div`
@@ -66,6 +92,9 @@ export const Wrapper = styled.div`
   z-index: 1;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.3);
+  @media ${deviceMax.mobileL} {
+  flex-direction: column;
+  }
 `;
 
 export const WrapperContentMenu = styled.div`
@@ -73,10 +102,19 @@ export const WrapperContentMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @media ${deviceMax.mobileL} { 
+  position: absolute;
+  top: 20px;
+  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(70px);' : 'transform: translateX(-300px);')}
+  }
 `;
 
 export const Logo = styled.img`
   max-height: 3rem;
+  @media ${deviceMax.mobileL} {
+    transform: ${({ hamburger }) => (hamburger ? 'translateX(-250px);' : 'translateX(0px);')}
+
+  }
 `;
 
 export const StyledUl = styled.ul`

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: process.env.URLAPI,
+  baseURL: 'http://localhost/Carendar-LARAVEL/public/index.php/api/',
 });
 
 export default instance;

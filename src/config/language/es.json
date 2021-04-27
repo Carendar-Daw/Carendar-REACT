@@ -4,5 +4,38 @@
   "Welcome": {
     "WelcomeBanner": "Bienvenido a Carendar!",
     "WelcomeSubTitle": "La plataforma perfecta para tu centro de estetica"
-  }
+  },
+
+  "Main" : {
+  "Title": "Hacemos crecer tu negocio con nuestro software de gestión",
+  "Calendario" : "Calendario",
+  "Cal_Info_1" : "Gestiona las citas de tus clientes con nuestro intuitivo calendario",
+  "Cal_Info_2" : "Muy sencillo y cómodo",
+  "Servicios" : "Servicios",
+  "Serv_Info" : "Añade y modifica servicios según las necesidades de tu negocio",
+  "Tablet" : "Excelente para dispositivos móbiles o tablets",
+  "Tablet_Info" : "Nuestro diseño de aplicación es totalmente compatible con móbiles y tablets",
+  "Stock" : "Inventario",
+  "Stock_Info_1" : "Ten el control de gastos de tu inventario",
+  "Stock_Info_2" : "Si te queda poco de un producto, te avisamos",
+  "Tiempo" : "Ahorra tiempo",
+  "Tiempo_Info" : "Olvida la tediosa libreta de citas y el desorden de inventario",
+  "Caja" : "Gestión de caja",
+  "Caja_Info" : "No pierdas tiempo cerrando caja gracias a nuestro software"
+},
+
+"Section": {
+  "Title_Left" : "Calendario de citas",
+  "Subtitle_Left" : "Tu calendario de citas más sencillo y eficiente que nunca",
+  "Subtitle_Left_2": "Gestiona tu tiempo de forma eficaz y se adapta a los horarios de tu empresa",
+  "Title_Right": "Gestión de inventario y caja",
+  "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
+  
+},
+"Footer" :{
+"Contact": "Contacto",
+"Privacy": "Política de privacidad",
+"Support": "Ayuda",
+"Conditions": "Condiciones de uso" 
+}
 }

@@ -1,9 +1,10 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useContext } from 'react';
-import { Header, Button, AnimatedText } from './Banner.styled';
+import { Header, Button } from './Banner.styled';
 import DynamicTitle from './DynamicTitle/DynamicTitle';
 import { I18nContext } from '../../../config/language';
 import video from '../../../../public/assets/video/test.mp4';
+import ffu from '../../../../public/assets/images/images/test.jpg';
 
 const Banner = () => {
   const { messages, language } = useContext(I18nContext);
@@ -16,20 +17,13 @@ const Banner = () => {
           <video autoPlay muted loop id="myVideo">
             <source src={video} type="video/mp4" />
           </video>
+          <img src={ffu} alt="test" />
         </div>
         <div className="texto">
           <div>
-
-            {/* <h1>{messages[language].Welcome.WelcomeBanner}</h1>
-                        <h2>{messages[language].Welcome.WelcomeSubTitle}</h2> */}
-            <AnimatedText className="hola">
-              <DynamicTitle />
-            </AnimatedText>
-
+            <DynamicTitle className="titulo" />
           </div>
-
-          <Button onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
-
+          <Button id="signIn" onClick={() => loginWithRedirect()}>{messages[language].SignIn}</Button>
         </div>
       </div>
     </Header>
