@@ -4,7 +4,6 @@ import List from '@Components/Calendar/List/List';
 import Calendarapp from '../../components/Calendar/Calendar/Calendarapp';
 import { WrapperMenu } from './Calendar.styled';
 import axios from '../../commons/axios';
-import {parse} from "@fortawesome/fontawesome-svg-core";
 
 const Calendar = () => {
   const [events, setEvents] = useState([]);
@@ -25,7 +24,7 @@ const Calendar = () => {
         state: app.app_state,
         customer: app.cus_id,
         start: app.app_date,
-        end: moment(app.app_date).add(app.ser_time, 'minutes')._d,
+        end: moment(app.app_date).add(app.app_time, 'minutes')._d,
         color: '#7759a0',
         // end: moment(app.app_date).add(parseInt(app.ser_time, 10), 'minutes'),
 
