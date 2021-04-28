@@ -15,7 +15,7 @@ import Container from './Calendarapp.styled';
 import axios from '../../../axios';
 
 const Calendarapp = ({ customers, events, setEvents }) => {
-  const [state, setState] = useState(false);
+  const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
@@ -60,11 +60,11 @@ const Calendarapp = ({ customers, events, setEvents }) => {
   const showDrawer = (selectInfo) => {
     isEdit(false);
     setInfo(selectInfo);
-    setState(true);
+    setView(true);
   };
 
   const onClose = () => {
-    setState(false);
+    setView(false);
     setEvent({});
   };
 
@@ -98,7 +98,7 @@ const Calendarapp = ({ customers, events, setEvents }) => {
       cus_id: selectInfo.event.extendedProps.customer,
     });
     isEdit(true);
-    setState(true);
+    setView(true);
   };
   const editEvent = (e) => {
     setEvent({ ...event, state: e.target.value });
@@ -165,7 +165,7 @@ const Calendarapp = ({ customers, events, setEvents }) => {
         }
         width={720}
         onClose={onClose}
-        visible={state}
+        visible={view}
         destroyOnClose
         bodyStyle={{ paddingBottom: 80 }}
         footer={(
