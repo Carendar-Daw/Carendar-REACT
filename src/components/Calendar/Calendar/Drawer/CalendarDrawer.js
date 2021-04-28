@@ -5,6 +5,7 @@ import {
 import moment from 'moment';
 import { TwitterPicker } from 'react-color';
 import axios from '@Commons/axios';
+import { Option } from 'antd/es/mentions';
 
 const CalendarDrawer = ({
   edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment,
@@ -147,6 +148,27 @@ const CalendarDrawer = ({
                 defaultValue={info.event ? info.event.extendedProps.state : ''}
                 onChange={(e) => setEvent({ ...event, state: e.target.value })}
               />
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col span={12}>
+            <Form.Item
+              label="Servicios"
+            >
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: '100%' }}
+                placeholder="Please select"
+              >
+                <Option key={1}>servicios1</Option>
+                <Option key={2}>servicios2</Option>
+                <Option key={3}>servicios3</Option>
+                <Option key={4}>servicios4</Option>
+                <Option key={5}>servicios5</Option>
+                <Option key={6}>servicios6</Option>
+              </Select>
             </Form.Item>
           </Col>
         </Row>
