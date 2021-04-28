@@ -11,10 +11,10 @@ const Calendar = () => {
 
   useEffect(async () => {
     const allEvents = [];
-    const response = await axios.get('/appointment/saloon/1');
+    const response = await axios.get('/appointment/saloon');
 
-    const allCustomers = response.data.data.customers;
-    response.data.data.appointments.forEach((app) => {
+    const allCustomers = response.data.customers;
+    response.data.appointments.forEach((app) => {
       const customer = allCustomers.filter((cus) => cus.cus_id === parseInt(app.cus_id, 10))[0];
       const event = {
         id: app.app_id,
