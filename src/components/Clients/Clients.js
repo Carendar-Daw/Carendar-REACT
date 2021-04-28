@@ -12,12 +12,16 @@ import Drawer from './Drawer';
 import Table from './Table';
 import { getSaloonId } from '../../store';
 import Spinner from '../../commons/Spinner/Spinner';
+import Details from "@Components/Clients/Details/Details";
+
+const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
 
 const Clients = () => {
   const [theClients, setClients] = useState({
     cus_id: '',
     cus_name: '',
     cus_email: '',
+    cus_photo: 'defaultAvatar.jpg',
     cus_color_preference: '',
     cus_born_date: '',
     cus_phone: '',
@@ -37,7 +41,7 @@ const Clients = () => {
         const getClients = await axios.get('customer');
         dispatch({ type: ACTIONS.GET_CLIENTS, payload: getClients.data.customers });
       } catch (errors) {
-        error('Error al cargar los Cliente');
+        error('Error al cargar los Clientes');
       } finally {
         setLoadingSkeleton(false);
         setLoadingSpinner(false);
@@ -70,7 +74,6 @@ const Clients = () => {
     try {
       setLoadingSpinner(true);
       const newClient = await axios.post('customer', theClients);
-      console.log(newClient);
       dispatch({ type: ACTIONS.POST_CLIENTS, payload: newClient.data.customers });
       success('Cliente creado correctamente');
       setShowDrawer(false);
@@ -92,6 +95,7 @@ const Clients = () => {
         cus_id: '',
         cus_name: '',
         cus_email: '',
+        cus_photo: 'defaultAvatar.jpg',
         cus_color_preference: '',
         cus_born_date: '',
         cus_phone: '',
@@ -122,6 +126,8 @@ const Clients = () => {
   return (
     <WrapperClients>
       {loadingSpinner && <Spinner />}
+
+
       <WrapperTitle>
         <FontAwesomeIcon className="icon" icon="calendar-alt" />
         <TitlePage>Clients</TitlePage>
@@ -140,6 +146,7 @@ const Clients = () => {
         buildClients={buildClients}
         isUpdating={isUpdating}
         theClients={theClients}
+        setClients={setClients}
       />
     </WrapperClients>
   );

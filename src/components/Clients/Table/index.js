@@ -8,7 +8,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkeleton }) => {
 
-
   const columns = [
     {
       title: 'Name',

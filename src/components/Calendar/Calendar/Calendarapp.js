@@ -99,7 +99,7 @@ const Calendarapp = ({ customers, events, setEvents }) => {
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
-          editable={false}
+          editable={true}
           events={events}
           selectable
           selectMirror

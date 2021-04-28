@@ -28,7 +28,7 @@ const Calendar = () => {
       allEvents.push(event);
     });
     setEvents(allEvents);
-    setCustomers(response.data.data.customers);
+    setCustomers(response.data.customers);
   }, []);
 
   return (
