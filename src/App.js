@@ -9,7 +9,7 @@ import '@Commons/FontAwesomeIcons';
 import '@Commons/Styles/Typography';
 import Spinner from '@Commons/Spinner/SpinnerPage';
 import { error } from '@Commons/MessagesApp/Messages';
-import axios from './axios';
+import axios from './commons/axios';
 import { saveSalon } from './store/actions';
 import Landing from './containers/Landing/Landing';
 import Calendar from './containers/Calendar/Calendar';

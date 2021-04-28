@@ -1,56 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import esLocale from '@fullcalendar/core/locales/es';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { TwitterPicker } from 'react-color';
 import listPlugin from '@fullcalendar/list';
-import {
-  Drawer, Form, Button, Col, Row, Input, DatePicker, Select,
-} from 'antd';
-import moment from 'moment';
+import CalendarDrawer from '@Components/Calendar/Calendar/Drawer/CalendarDrawer';
 import Container from './Calendarapp.styled';
-import axios from '../../../axios';
+import axios from '../../../commons/axios';
 
-const Calendarapp = () => {
-  const [state, setState] = useState(false);
-  const [title, setTitle] = useState('');
+const Calendarapp = ({ customers, events, setEvents }) => {
+  const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
-  const [events, setEvents] = useState([]);
-  const [customers, setCustomers] = useState([]);
   const [edit, isEdit] = useState(false);
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
   const [color, setColor] = useState('#7759a0');
+  const [event, setEvent] = useState({});
 
-  useEffect(async () => {
-    const allEvents = [];
-    const response = await axios.get('/appointment/saloon/1');
-
-    await response.data.data.appointments.forEach((app) => {
-      const event = {
-        id: app.app_id,
-        title: `Cliente ID:${app.cus_id}\n${app.app_state}`,
-        description: app.app_state,
-        customer: app.cus_id,
-        start: app.app_date,
-        color: '#7759a0',
-        end: moment(app.app_date).add(30, 'minutes'),
-      };
-      allEvents.push(event);
-    });
-    setEvents(allEvents);
-    setCustomers(response.data.data.customers);
-  }, []);
   const postAppointment = async () => {
-    const d = new Date(info.startStr);
+    const d = event.app_date;
     const date = d.toISOString().split('T')[0];
     const time = d.toTimeString().split(' ')[0];
     const appointment = {
       sal_id: 1,
-      cus_id: 1,
+      cus_id: event.cus_id,
       app_date: `${date} ${time}`,
-      app_state: title,
-      app_color: info.extendedProps.color,
+      app_state: event.state,
+      // app_color: info.extendedProps.color,
     };
     await axios.post('/appointment', appointment);
   };
@@ -60,95 +37,64 @@ const Calendarapp = () => {
     const time = d.toTimeString().split(' ')[0];
     const appointment = {
       sal_id: 1,
-      cus_id: 1,
+      cus_id: event.cus_id,
       app_date: `${date} ${time}`,
-      app_state: title,
-      app_color: info.extendedProps.color,
+      app_state: event.state,
+      // app_color: info.extendedProps.color,
     };
     await axios.put(`/appointment/${info.event.id}`, appointment);
   };
-  const deleteAppointment = async () => axios.delete(`/appointment/${info.event.id}`);
 
-  const loadCustomers = () => {
-    const options = [];
-    customers.forEach((customer) => {
-      options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
-    });
-    return options;
-  };
   const showDrawer = (selectInfo) => {
     isEdit(false);
     setInfo(selectInfo);
-    setState(true);
+    setView(true);
   };
 
   const onClose = () => {
-    setState(false);
-    setTitle('');
+    setView(false);
+    setEvent({});
   };
 
   const handleDateSelect = () => {
     const calendarApi = info.view.calendar;
     calendarApi.unselect(); // clear date selection
-    if (title) {
-      calendarApi.addEvent({ // will render immediately. will call handleEventAdd
-        title,
-        start: info.startStr,
+    if (event.state) {
+      const newEvent = { // will render immediately. will call handleEventAdd
+        title: event.state,
+        start: event.app_date,
         end: info.endStr,
         allDay: info.allDay,
-        color: info.extendedProps.color,
-      }, true); // temporary=true, will get overwritten when reducer gives new events
+        // color: info.extendedProps.color,
+      };
+      calendarApi.addEvent(newEvent, true); // temporary=true, will get overwritten when reducer gives new events
+      setEvents([...events, newEvent]);
     }
   };
 
-  const postEvent = (e) => {
-    setTitle(e.target.value);
-    handleDateSelect();
-    onClose();
-    postAppointment();
-  };
+
   const updateAppointment = (selectInfo) => {
     setInfo(selectInfo);
+    // console.log(selectInfo.event);
+    setEvent({
+      state: selectInfo.event.extendedProps.state,
+      cus_id: selectInfo.event.extendedProps.customer,
+    });
     isEdit(true);
-    setState(true);
+    setView(true);
   };
-  const editEvent = (e) => {
-    setTitle(e.target.value);
-    onClose();
-    putAppointment();
-    const calendarApi = info.view.calendar;
-    events.forEach((event) => {
-      if (event.id === parseInt(info.event.id, 10)) {
-        const updatedEvent = { ...event };
-        updatedEvent.description = title;
-        updatedEvent.title = `Cliente ID:${updatedEvent.customer}\n${title}`;
-        calendarApi.getEventById(info.event.id).remove();
-        calendarApi.addEvent(updatedEvent);
-      }
-    });
-  };
-  const deleteEvent = (e) => {
-    console.log(info.event);
-    setTitle(e.target.value);
-    onClose();
-    deleteAppointment();
-    const calendarApi = info.view.calendar;
-    events.forEach((event) => {
-      if (event.id === parseInt(info.event.id, 10)) {
-        calendarApi.getEventById(info.event.id).remove();
-      }
-    });
-  };
+
 
   return (
     <>
       <Container>
         <FullCalendar
+          locale={esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           headerToolbar={{
             left: 'prev,next today',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,list',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay',
           }}
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
@@ -168,110 +114,26 @@ const Calendarapp = () => {
           }}
         />
       </Container>
-      <Drawer
-        title={
-          edit
-            ? 'Update an appointment'
-            : 'Create a new appointment'
-        }
-        width={720}
+      <CalendarDrawer
+        edit={edit}
         onClose={onClose}
-        visible={state}
-        destroyOnClose
-        bodyStyle={{ paddingBottom: 80 }}
-        footer={(
-          <div
-            style={{
-              textAlign: 'right',
-            }}
-          >
-            <Button onClick={onClose} style={{ marginRight: 8 }}>
-              Cancel
-            </Button>
-            {
-              edit
-                ? (
-                  <>
-                    <Button onClick={editEvent} type="primary" style={{ marginRight: 8 }}>
-                      Edit
-                    </Button>
-                    <Button onClick={deleteEvent} type="danger">
-                      Delete
-                    </Button>
-                  </>
-                )
-                : (
-                  <Button onClick={postEvent} type="primary">
-                    Submit
-                  </Button>
-                )
-            }
-          </div>
-                  )}
-      >
-        <Form layout="vertical" hideRequiredMark>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Customer ID"
-                rules={[{ required: true, message: 'Please enter user name' }]}
-              >
-                <Select
-                  showSearch
-                  style={{ width: 200 }}
-                  placeholder="Select a person"
-                  optionFilterProp="children"
-                  filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                >
-                  {loadCustomers()}
-                </Select>
-                {' '}
-
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Cita date"
-                rules={[{ required: true }]}
-              >
-                <DatePicker
-                  defaultValue={
-                  info.event
-                    ? moment(info.event.startStr)
-                    : ''
-                  }
-                  style={{ width: '100%' }}
-                  getPopupContainer={(trigger) => trigger.parentElement}
-                  showTime
-                  format="DD-MM-YY HH:mm"
-                />
-
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <Form.Item
-                label="Estado"
-                rules={[{ required: true, message: 'Please enter user name' }]}
-              >
-                <Input placeholder="Please enter user name" defaultValue={info.event ? info.event.extendedProps.description : ''} onChange={(e) => setTitle(e.target.value)} />
-              </Form.Item>
-            </Col>
-          </Row>
-          <Row gutter={16}>
-            <Col span={12}>
-              <TwitterPicker
-                onChange={(e) => setColor(e.hex)}
-              />
-            </Col>
-          </Row>
-        </Form>
-      </Drawer>
+        view={view}
+        setEvent={setEvent}
+        event={event}
+        info={info}
+        setColor={setColor}
+        customers={customers}
+        events={events}
+        handleDateSelect={handleDateSelect}
+        postAppointment={postAppointment}
+        putAppointment={putAppointment}
+      />
     </>
   );
 };
-
+Calendarapp.propTypes = {
+  customers: PropTypes.instanceOf(Array).isRequired,
+  events: PropTypes.instanceOf(Array).isRequired,
+  setEvents: PropTypes.func.isRequired,
+};
 export default Calendarapp;
