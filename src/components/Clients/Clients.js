@@ -1,11 +1,9 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/MessagesApp/Messages';
-import Confirm from '@Commons/Modal/Confirm';
-import axios from '../../axios';
+import axios from '@Commons/axios';
 import {
   TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, ButtonDelete, ButtonUpdate,
 } from './Clients.styled';
@@ -14,6 +12,7 @@ import Drawer from './Drawer';
 import Table from './Table';
 import { getSaloonId } from '../../store';
 import Spinner from '../../commons/Spinner/Spinner';
+
 const Clients = () => {
   const [theClients, setClients] = useState({
     cus_id: '',
@@ -39,7 +38,7 @@ const Clients = () => {
         dispatch({ type: ACTIONS.GET_CLIENTS, payload: getClients.data.customers });
       } catch (errors) {
         error('Error al cargar los Cliente');
-      }finally {
+      } finally {
         setLoadingSkeleton(false);
         setLoadingSpinner(false);
       }
@@ -54,7 +53,7 @@ const Clients = () => {
       success('Cliente eliminada correctamente');
     } catch (errors) {
       error('Error al eliminar un Cliente');
-    }finally {
+    } finally {
       setLoadingSpinner(false);
     }
   };
@@ -78,7 +77,7 @@ const Clients = () => {
     } catch (errors) {
       setShowDrawer(false);
       error('Error al crear Cliente');
-    }finally {
+    } finally {
       setLoadingSpinner(false);
     }
   };
@@ -100,7 +99,7 @@ const Clients = () => {
       success('Cliente Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar Cliente');
-    }finally {
+    } finally {
       setLoadingSpinner(false);
     }
   };
@@ -128,7 +127,7 @@ const Clients = () => {
         <TitlePage>Clients</TitlePage>
       </WrapperTitle>
       <WrapperTable>
-        <Table isGoingToDelete={isGoingToDelete} showDrawerUpdate={showDrawerUpdate} clients={clients} loadingSkeleton={loadingSkeleton}/>
+        <Table isGoingToDelete={isGoingToDelete} showDrawerUpdate={showDrawerUpdate} clients={clients} loadingSkeleton={loadingSkeleton} />
       </WrapperTable>
       <ButtonAdd onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
