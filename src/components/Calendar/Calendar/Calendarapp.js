@@ -7,10 +7,10 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import CalendarDrawer from '@Components/Calendar/Calendar/Drawer/CalendarDrawer';
+import axios from '@Commons/axios';
 import Container from './Calendarapp.styled';
-import axios from '../../../commons/axios';
 
-const Calendarapp = ({ customers, events, setEvents }) => {
+const Calendarapp = ({ customers, events, setEvents, services }) => {
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
@@ -60,6 +60,8 @@ const Calendarapp = ({ customers, events, setEvents }) => {
     const calendarApi = info.view.calendar;
     calendarApi.unselect(); // clear date selection
     if (event.state) {
+      console.log(event)
+      console.log(info)
       const newEvent = { // will render immediately. will call handleEventAdd
         title: event.state,
         start: event.app_date,
@@ -72,7 +74,6 @@ const Calendarapp = ({ customers, events, setEvents }) => {
     }
   };
 
-
   const updateAppointment = (selectInfo) => {
     setInfo(selectInfo);
     // console.log(selectInfo.event);
@@ -83,7 +84,6 @@ const Calendarapp = ({ customers, events, setEvents }) => {
     isEdit(true);
     setView(true);
   };
-
 
   return (
     <>
