@@ -3,7 +3,7 @@ import moment from 'moment';
 import List from '@Components/Calendar/List/List';
 import Calendarapp from '../../components/Calendar/Calendar/Calendarapp';
 import { WrapperMenu } from './Calendar.styled';
-import axios from '../../axios';
+import axios from '../../commons/axios';
 
 const Calendar = () => {
   const [events, setEvents] = useState([]);

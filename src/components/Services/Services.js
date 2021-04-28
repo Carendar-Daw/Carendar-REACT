@@ -6,7 +6,7 @@ import {
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/MessagesApp/Messages';
-import axios from '../../axios';
+import axios from '../../commons/axios';
 import {
   TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, ButtonDelete, ButtonUpdate,
 } from './Services.styled';

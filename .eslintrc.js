@@ -34,5 +34,6 @@ module.exports = {
     'no-return-assign': toggle.WARNING,
     'linebreak-style': toggle.OFF,
     'no-console': toggle.WARNING,
+    'react/prop-types': toggle.OFF,
   },
 };
