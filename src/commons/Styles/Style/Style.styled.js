@@ -33,7 +33,6 @@ export const CardApp = styled.main`
     background-color: white;
     border-top: 7px solid #8265a7;
     border-radius: 10px;
-    width: 90%;
     margin: auto;
 
     @media ${device.tablet} {
@@ -59,6 +58,13 @@ export const ButtonDefault = styled.button`
   font-size: 14px;
   font-weight: bold;
   
+`;
+
+export const WrapperButtonsDrawer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+ 
 `;
 
 export const Link = styled.a`

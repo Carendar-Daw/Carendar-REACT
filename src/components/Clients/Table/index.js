@@ -1,12 +1,12 @@
 import React from 'react';
 import {Skeleton, Space, Table} from 'antd';
-import {ButtonDelete, ButtonUpdate} from "@Components/Clients/Clients.styled";
+import {ButtonDelete, ButtonUpdate, ButtonDetails, ButtonHistory} from "@Components/Clients/Clients.styled";
 import Confirm from "@Commons/Modal/Confirm";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 
-const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkeleton }) => {
+const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkeleton, getDetailsCustomer, getHistoryCustomer }) => {
 
   const columns = [
     {
@@ -19,6 +19,7 @@ const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkel
       title: 'Email',
       dataIndex: 'cus_email',
       key: 'cus_email',
+      responsive: ['lg'],
     },
     {
       title: 'Color',
@@ -30,12 +31,13 @@ const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkel
       title: 'Born Date',
       dataIndex: 'cus_born_date',
       key: 'cus_born_date',
-      responsive: ['sm'],
+      responsive: ['xxl'],
     },
     {
       title: 'Phone',
       dataIndex: 'cus_phone',
       key: 'cus_phone',
+      responsive: ['xxl'],
     },
     {
       title: 'Id',
@@ -50,6 +52,12 @@ const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkel
             <ButtonUpdate onClick={() => showDrawerUpdate(record.cus_id)}>
               Editar
             </ButtonUpdate>
+            <ButtonDetails onClick={() => getDetailsCustomer(record.cus_id)}>
+              Show Details
+            </ButtonDetails>
+            <ButtonHistory onClick={() => getHistoryCustomer(record.cus_id)}>
+              Show History
+            </ButtonHistory>
             <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.cus_id)}>
               <ButtonDelete>
                 <FontAwesomeIcon className="icon" icon="trash" />

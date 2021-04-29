@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/MessagesApp/Messages';
 import axios from '@Commons/axios';
 import {
-  TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, ButtonDelete, ButtonUpdate,
+  TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, FlexWrapper, WrapperSection
 } from './Clients.styled';
 import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersClients';
 import Drawer from './Drawer';
@@ -13,8 +13,7 @@ import Table from './Table';
 import { getSaloonId } from '../../store';
 import Spinner from '../../commons/Spinner/Spinner';
 import Details from "@Components/Clients/Details/Details";
-
-const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
+import History from "@Components/Clients/History/History";
 
 const Clients = () => {
   const [theClients, setClients] = useState({
@@ -30,6 +29,8 @@ const Clients = () => {
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [getDrawer, setShowDrawer] = useState(false);
+  const [history, setHistory] = useState([]);
+  const [details, setDetails] = useState(null);
   const [clients, dispatch] = useReducer(reducer, inistialStateReducer);
   const saloonId = useSelector(getSaloonId);
 
@@ -78,8 +79,8 @@ const Clients = () => {
       success('Cliente creado correctamente');
       setShowDrawer(false);
     } catch (errors) {
-      setShowDrawer(false);
-      error('Error al crear Cliente');
+      setShowDrawer('Error al crear cliente');
+      error('Error al crear el cliente');
     } finally {
       setLoadingSpinner(false);
     }
@@ -89,6 +90,7 @@ const Clients = () => {
     try {
       setLoadingSpinner(true);
       const updatedSClients = await axios.put(`customer/${theClients.cus_id}`, theClients);
+      console.log(updatedSClients.data);
       dispatch({ type: ACTIONS.UPDATE_CLIENTS, payload: { id: theClients.cus_id, updatedClients: updatedSClients.data.customer } });
       setShowDrawer(false);
       setClients({
@@ -103,6 +105,25 @@ const Clients = () => {
       success('Cliente Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar Cliente');
+    } finally {
+      setLoadingSpinner(false);
+    }
+  };
+
+  const getDetailsCustomer = (id) => {
+    const clientToShow = clients.filter((client) => client.cus_id === id)[0];
+    setDetails(clientToShow);
+  };
+
+
+  const getHistoryCustomer = async (id) => {
+    try {
+      setLoadingSpinner(true);
+      const newHistory = await axios.get(`appointment/customer/${id}`);
+      console.log(newHistory.data.appointments);
+      success('Historial obtenido correctamente');
+    } catch (errors) {
+      error('Error al obtener historial');
     } finally {
       setLoadingSpinner(false);
     }
@@ -124,31 +145,51 @@ const Clients = () => {
   };
 
   return (
-    <WrapperClients>
-      {loadingSpinner && <Spinner />}
+      <>
+        <FlexWrapper>
+          <WrapperSection>
+            <WrapperClients>
+              {loadingSpinner && <Spinner />}
+              <WrapperTitle>
+                <FontAwesomeIcon className="icon" icon="calendar-alt" />
+                <TitlePage>Clients</TitlePage>
+              </WrapperTitle>
+              <WrapperTable>
+                <Table
+                    isGoingToDelete={isGoingToDelete}
+                    showDrawerUpdate={showDrawerUpdate}
+                    clients={clients}
+                    loadingSkeleton={loadingSkeleton}
+                    getDetailsCustomer={getDetailsCustomer}
+                    getHistoryCustomer={getHistoryCustomer}
+                />
+              </WrapperTable>
+
+              <ButtonAdd onClick={showDrawer}>
+                <PlusOutlined className="buttonAdd" />
+              </ButtonAdd>
+              <Drawer
+                  onClose={onClose}
+                  getDrawer={getDrawer}
+                  createClients={createClients}
+                  updateClients={updateClients}
+                  buildClients={buildClients}
+                  isUpdating={isUpdating}
+                  theClients={theClients}
+                  setClients={setClients}
+              />
+            </WrapperClients>
+            <History />
+
+          </WrapperSection>
+
+          <Details details={details}/>
+
+        </FlexWrapper>
 
 
-      <WrapperTitle>
-        <FontAwesomeIcon className="icon" icon="calendar-alt" />
-        <TitlePage>Clients</TitlePage>
-      </WrapperTitle>
-      <WrapperTable>
-        <Table isGoingToDelete={isGoingToDelete} showDrawerUpdate={showDrawerUpdate} clients={clients} loadingSkeleton={loadingSkeleton} />
-      </WrapperTable>
-      <ButtonAdd onClick={showDrawer}>
-        <PlusOutlined className="buttonAdd" />
-      </ButtonAdd>
-      <Drawer
-        onClose={onClose}
-        getDrawer={getDrawer}
-        createClients={createClients}
-        updateClients={updateClients}
-        buildClients={buildClients}
-        isUpdating={isUpdating}
-        theClients={theClients}
-        setClients={setClients}
-      />
-    </WrapperClients>
+      </>
+
   );
 };
 

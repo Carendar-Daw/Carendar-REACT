@@ -15,9 +15,11 @@ export const TitlePage = styled(Heading4)`
 export const WrapperClients = styled(CardApp)`
 
     margin-top: 30px;
+    margin-bottom: 40px;
+    width: 90% !important;
     @media ${device.tablet} {
       padding-top: 30px;
-      margin-left: 40px;
+      
     }
 
    .buttonAdd{
@@ -75,4 +77,30 @@ export const ButtonUpdate = styled.button`
   border: none;
   box-shadow: 3px 7px 7px 0px rgba(0,0,0,0.75);
   cursor:pointer;
+`;
+
+export const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+`;
+
+export const WrapperSection = styled.div`
+  margin: auto;
+  width: 100%;
+`;
+
+export const ButtonDetails = styled(ButtonUpdate)`
+ 
+  background-color: pink;
+  
+`;
+export const ButtonHistory = styled(ButtonUpdate)`
+ 
+  background-color: pink;
+  
 `;

@@ -1,13 +1,25 @@
 import React from 'react';
+import { WrapperDetails , WrapperInfo, TitlePage, ChooseAlert} from "@Components/Clients/Details/Details.styled";
 
-const Details = ({cosa}) => {
+const Details = ({ details }) => {
 
     const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
 
     return (
-        <div>
-            <img src={`${URLIMG}${cosa}`} />
-        </div>
+
+        <WrapperDetails>
+            <TitlePage>Information About</TitlePage>
+            {!details ? <ChooseAlert>Choose some Person...</ChooseAlert> :
+                <WrapperInfo>
+                    <img src={`${URLIMG}${details.cus_photo}`}/>
+                    <p><strong>Name:</strong>{details.cus_name}</p>
+                    <p><strong>Email:</strong>{details.cus_email}</p>
+                    <p><strong>Phone:</strong>{details.cus_phone}</p>
+                    <p><strong>Color:</strong>{details.cus_color_preference}</p>
+                    <p><strong>Born:</strong>{details.cus_born_date}</p>
+
+                </WrapperInfo>}
+        </WrapperDetails>
     );
 };
 
