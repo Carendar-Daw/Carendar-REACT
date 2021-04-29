@@ -5,15 +5,22 @@ import {
 import moment from 'moment';
 import { TwitterPicker } from 'react-color';
 import axios from '@Commons/axios';
-import { Option } from 'antd/es/mentions';
 
 const CalendarDrawer = ({
-  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment,
+  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment, services
 }) => {
   const loadCustomers = () => {
     const options = [];
     customers.forEach((customer) => {
       options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
+    });
+    return options;
+  };
+  const loadServices = () => {
+    const options = [];
+    services.forEach((service) => {
+      console.log(service)
+      options.push(<Select.Option value={service.ser_description} key={service.ser_id}>{service.ser_description}</Select.Option>);
     });
     return options;
   };
@@ -157,17 +164,13 @@ const CalendarDrawer = ({
               label="Servicios"
             >
               <Select
+                showSearch
                 mode="multiple"
                 allowClear
                 style={{ width: '100%' }}
                 placeholder="Please select"
               >
-                <Option key={1}>servicios1</Option>
-                <Option key={2}>servicios2</Option>
-                <Option key={3}>servicios3</Option>
-                <Option key={4}>servicios4</Option>
-                <Option key={5}>servicios5</Option>
-                <Option key={6}>servicios6</Option>
+                {loadServices()}
               </Select>
             </Form.Item>
           </Col>

@@ -127,6 +127,7 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
         handleDateSelect={handleDateSelect}
         postAppointment={postAppointment}
         putAppointment={putAppointment}
+        services={services}
       />
     </>
   );
