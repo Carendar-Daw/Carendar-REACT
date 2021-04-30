@@ -71,6 +71,18 @@ const Clients = () => {
     setClients({ ...theClients, [field]: value, sal_id: saloonId });
   };
 
+  const setUserDefault = () => {
+    setClients({
+      cus_id: '',
+      cus_name: '',
+      cus_email: '',
+      cus_photo: 'defaultAvatar.jpg',
+      cus_color_preference: '',
+      cus_born_date: '',
+      cus_phone: '',
+    });
+  }
+
   const createClients = async () => {
     try {
       setLoadingSpinner(true);
@@ -78,6 +90,7 @@ const Clients = () => {
       dispatch({ type: ACTIONS.POST_CLIENTS, payload: newClient.data.customers });
       success('Cliente creado correctamente');
       setShowDrawer(false);
+      setUserDefault();
     } catch (errors) {
       setShowDrawer('Error al crear cliente');
       error('Error al crear el cliente');
@@ -93,15 +106,7 @@ const Clients = () => {
       console.log(updatedSClients.data);
       dispatch({ type: ACTIONS.UPDATE_CLIENTS, payload: { id: theClients.cus_id, updatedClients: updatedSClients.data.customer } });
       setShowDrawer(false);
-      setClients({
-        cus_id: '',
-        cus_name: '',
-        cus_email: '',
-        cus_photo: 'defaultAvatar.jpg',
-        cus_color_preference: '',
-        cus_born_date: '',
-        cus_phone: '',
-      });
+      setUserDefault();
       success('Cliente Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar Cliente');
