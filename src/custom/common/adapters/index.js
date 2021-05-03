@@ -1,1 +1,0 @@
-cosas como el moment

@@ -1,1 +1,0 @@
-cosas que te puedes copiar de otra app y funciobaria(antdesgin)

@@ -1,31 +1,30 @@
-/*eslint-disable*/
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: "./src/index.js",
+  devtool: 'source-map',
+  entry: './src/application/index.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
     publicPath: '/',
   },
-  devtool: 'source-map',
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
-      '@Components': path.resolve(__dirname, './src/components/'),
-      '@Landing': path.resolve(__dirname, './src/components/Landing/'),
-      '@Assets': path.resolve(__dirname, './public/assets/'),
-      '@Commons': path.resolve(__dirname, './src/commons'),
+      '@Application': path.resolve(__dirname, './src/application'),
+      '@Commons': path.resolve(__dirname, './src/common'),
+      '@Pages': path.resolve(__dirname, './src/pages'),
+      '@Assets': path.resolve(__dirname, './public/assets'),
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      filename: "index.html",
-      favicon: "./public/assets/images/logos/logo-carendar.ico",
+      template: './public/index.html',
+      filename: 'index.html',
+      favicon: './public/assets/images/logos/logo-carendar.ico',
     }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
@@ -39,21 +38,21 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader",
+            loader: 'html-loader',
           },
         ],
       },
       {
         test: /\.(css)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
         },
       },
       {
