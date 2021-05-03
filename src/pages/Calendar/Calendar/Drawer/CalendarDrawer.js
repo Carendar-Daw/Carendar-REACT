@@ -26,9 +26,7 @@ const CalendarDrawer = ({
     return options;
   };
   const loadDefaultServices = () => {
-    return event.services.map((service) =>{
-      return service;
-    });
+    return event.services.map((service) => service);
   }
 
   const postEvent = (e) => {
@@ -179,7 +177,7 @@ const CalendarDrawer = ({
                 style={{ width: '100%' }}
                 defaultValue={event.services
                   ? loadDefaultServices()
-                  : [1,2,3]}
+                  : null}
                 placeholder="Please select"
                 onChange={(value, options) => setEvent({ ...event, services: options })}
               >

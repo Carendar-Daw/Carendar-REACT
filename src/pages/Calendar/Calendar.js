@@ -17,7 +17,7 @@ const Calendar = () => {
     const customersRes = await axios.get('/customer');
     setServices(servicesRes.data.services);
     setCustomers(customersRes.data.customers);
-    console.log(customersRes.data.customers)
+    console.log(response.data.appointments)
     response.data.appointments.forEach((app) => {
 
       const event = {

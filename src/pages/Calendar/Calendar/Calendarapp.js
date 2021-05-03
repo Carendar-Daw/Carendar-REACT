@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import esLocale from '@fullcalendar/core/locales/es';
 import FullCalendar from '@fullcalendar/react';
@@ -6,11 +6,13 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
+import axios from '@Commons/http';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import Container from './Calendarapp.styled';
-import axios from '@Commons/http';
 
-const Calendarapp = ({ customers, events, setEvents, services }) => {
+const Calendarapp = ({
+  customers, events, setEvents, services,
+}) => {
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
@@ -31,9 +33,10 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
       app_services: event.services,
       // app_color: info.extendedProps.color,
     };
-    await axios.post('/appointment', appointment).then(e => console.log(e));
+    await axios.post('/appointment', appointment).then((e) => console.log(e));
   };
   const putAppointment = async () => {
+    // TODO: servicios
     const d = new Date(info.event.startStr);
     const date = d.toISOString().split('T')[0];
     const time = d.toTimeString().split(' ')[0];
@@ -62,7 +65,7 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
     const calendarApi = info.view.calendar;
     calendarApi.unselect(); // clear date selection
     if (event.state) {
-      console.log(event)
+      console.log(event);
       const newEvent = { // will render immediately. will call handleEventAdd
         title: event.state,
         start: event.app_date,
@@ -76,12 +79,16 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
     }
   };
 
-  const updateAppointment = (selectInfo) => {
+  const updateAppointment = async (selectInfo) => {
     setInfo(selectInfo);
+    const resServices = await axios.get(`/services/${selectInfo.event.id}`);
+    const allServices = Object.values(resServices.data.service);
+    const servicesInAppointment = services.filter((ele) => allServices.map((e) => e.ser_id).includes(ele.ser_id));
     setEvent({
       state: selectInfo.event.extendedProps.state,
       cus_id: selectInfo.event.extendedProps.customer,
-      services: selectInfo.event.extendedProps.services,
+      services: servicesInAppointment.map((ele) => ele.ser_description),
+
     });
     isEdit(true);
     setView(true);
@@ -101,7 +108,7 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
-          editable={true}
+          editable
           events={events}
           selectable
           selectMirror
