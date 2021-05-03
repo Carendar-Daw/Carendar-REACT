@@ -104,3 +104,28 @@ export const ButtonHistory = styled(ButtonUpdate)`
   background-color: pink;
   
 `;
+
+export const WrapperHistory = styled(CardApp)`
+    margin-top: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 90% !important;
+    margin-bottom: 20px;
+    @media ${device.tablet} {
+     
+      padding-top: 30px;
+     
+    }
+
+`;
+
+export const WrapperCardsHistory = styled.div`
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media ${device.laptop} {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+`;

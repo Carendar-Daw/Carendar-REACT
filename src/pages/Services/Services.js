@@ -13,13 +13,15 @@ import Table from './Table';
 import { getSaloonId } from '@Application/store/user/reducer';
 import Spinner from "@Commons/components/presentational/Spinner/Spinner";
 
+const inistialServices = {
+  ser_id: '',
+  ser_price: '',
+  ser_description: '',
+  ser_time: '',
+};
+
 const Services = () => {
-  const [theService, setService] = useState({
-    ser_id: '',
-    ser_price: '',
-    ser_description: '',
-    ser_time: '',
-  });
+  const [theService, setService] = useState(inistialServices);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
@@ -85,12 +87,7 @@ const Services = () => {
       const updatedService = await axios.put(`services/${theService.ser_id}`, theService);
       dispatch({ type: ACTIONS.UPDATE_SERVICES, payload: { id: theService.ser_id, updatedService: updatedService.data.services } });
       setShowDrawer(false);
-      setService({
-        ser_price: '',
-        ser_description: '',
-        ser_time: '',
-        sal_id: saloonId,
-      });
+      setService(inistialServices);
       success('Servicio Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar servicio');
