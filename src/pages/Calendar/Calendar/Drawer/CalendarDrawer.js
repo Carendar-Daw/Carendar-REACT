@@ -11,9 +11,11 @@ const CalendarDrawer = ({
 }) => {
   const loadCustomers = () => {
     const options = [];
-    customers.forEach((customer) => {
-      options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
-    });
+    if (customers){
+      customers.forEach((customer) => {
+        options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
+      });
+    }
     return options;
   };
   const loadServices = () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import esLocale from '@fullcalendar/core/locales/es';
 import FullCalendar from '@fullcalendar/react';
@@ -133,10 +133,5 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
       />
     </>
   );
-};
-Calendarapp.propTypes = {
-  customers: PropTypes.instanceOf(Array).isRequired,
-  events: PropTypes.instanceOf(Array).isRequired,
-  setEvents: PropTypes.func.isRequired,
 };
 export default Calendarapp;
