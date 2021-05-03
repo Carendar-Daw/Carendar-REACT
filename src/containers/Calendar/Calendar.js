@@ -17,7 +17,9 @@ const Calendar = () => {
     const customersRes = await axios.get('/customer');
     setServices(servicesRes.data.services);
     setCustomers(customersRes.data.customers);
+    console.log(response.data)
     response.data.appointments.forEach((app) => {
+
       const event = {
         id: app.app_id,
         title: `${app.cus_name} - ${app.app_state}`,
@@ -26,6 +28,7 @@ const Calendar = () => {
         start: app.app_date,
         end: moment(app.app_date).add(app.app_time, 'minutes')._d,
         color: '#7759a0',
+        services: [],
         // end: moment(app.app_date).add(parseInt(app.ser_time, 10), 'minutes'),
 
       };

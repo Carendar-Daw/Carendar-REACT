@@ -7,7 +7,7 @@ import { TwitterPicker } from 'react-color';
 import axios from '@Commons/axios';
 
 const CalendarDrawer = ({
-  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment, services
+  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment, services,
 }) => {
   const loadCustomers = () => {
     const options = [];
@@ -19,13 +19,18 @@ const CalendarDrawer = ({
   const loadServices = () => {
     const options = [];
     services.forEach((service) => {
-      console.log(service)
       options.push(<Select.Option value={service.ser_description} key={service.ser_id}>{service.ser_description}</Select.Option>);
     });
     return options;
   };
+  const loadDefaultServices = () => {
+    return event.services.map((service) =>{
+      return service;
+    });
+  }
+
   const postEvent = (e) => {
-    setEvent({ ...event, state: e.target.value });
+    setEvent({ ...event, state: e.target.value, cus_id:1 });
     handleDateSelect();
     onClose();
     postAppointment();
@@ -168,7 +173,11 @@ const CalendarDrawer = ({
                 mode="multiple"
                 allowClear
                 style={{ width: '100%' }}
+                defaultValue={event.services
+                  ? loadDefaultServices()
+                  : [1,2,3]}
                 placeholder="Please select"
+                onChange={(value, options) => setEvent({ ...event, services: options })}
               >
                 {loadServices()}
               </Select>

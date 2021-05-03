@@ -16,20 +16,22 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
   const [edit, isEdit] = useState(false);
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
   const [color, setColor] = useState('#7759a0');
-  const [event, setEvent] = useState({});
+  const [event, setEvent] = useState({
+    services: [],
+  });
 
   const postAppointment = async () => {
     const d = event.app_date;
     const date = d.toISOString().split('T')[0];
     const time = d.toTimeString().split(' ')[0];
     const appointment = {
-      sal_id: 1,
       cus_id: event.cus_id,
       app_date: `${date} ${time}`,
       app_state: event.state,
+      app_services: event.services,
       // app_color: info.extendedProps.color,
     };
-    await axios.post('/appointment', appointment);
+    await axios.post('/appointment', appointment).then(e => console.log(e));
   };
   const putAppointment = async () => {
     const d = new Date(info.event.startStr);
@@ -61,12 +63,12 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
     calendarApi.unselect(); // clear date selection
     if (event.state) {
       console.log(event)
-      console.log(info)
       const newEvent = { // will render immediately. will call handleEventAdd
         title: event.state,
         start: event.app_date,
         end: info.endStr,
         allDay: info.allDay,
+        services: event.services,
         // color: info.extendedProps.color,
       };
       calendarApi.addEvent(newEvent, true); // temporary=true, will get overwritten when reducer gives new events
@@ -76,10 +78,10 @@ const Calendarapp = ({ customers, events, setEvents, services }) => {
 
   const updateAppointment = (selectInfo) => {
     setInfo(selectInfo);
-    // console.log(selectInfo.event);
     setEvent({
       state: selectInfo.event.extendedProps.state,
       cus_id: selectInfo.event.extendedProps.customer,
+      services: selectInfo.event.extendedProps.services,
     });
     isEdit(true);
     setView(true);
