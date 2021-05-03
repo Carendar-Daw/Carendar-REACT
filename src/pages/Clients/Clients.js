@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
 import axios from '@Commons/http';
 import {
-  TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, FlexWrapper, WrapperSection
+  TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, FlexWrapper, WrapperSection , WrapperHistory, WrapperCardsHistory
 } from './Clients.styled';
 import { ACTIONS, reducer, initialStateReducer } from './helpers/helpersClients';
 import Drawer from './Drawer';
@@ -31,7 +31,7 @@ const Clients = () => {
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [getDrawer, setShowDrawer] = useState(false);
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState(null);
   const [details, setDetails] = useState(null);
   const [clients, dispatch] = useReducer(reducer, initialStateReducer);
   const saloonId = useSelector(getSaloonId);
@@ -113,6 +113,7 @@ const Clients = () => {
     try {
       setLoadingSpinner(true);
       const newHistory = await axios.get(`appointment/customer/${id}`);
+      setHistory(newHistory.data.appointments);
       success('Historial obtenido correctamente');
     } catch (errors) {
       error('Error al obtener historial');
@@ -169,7 +170,10 @@ const Clients = () => {
               setClients={setClients}
           />
         </WrapperClients>
-        <History />
+        <WrapperHistory>
+          <TitlePage>History</TitlePage>
+          {history ? <History history={history}/> :  <p>Choose a person...</p>}
+        </WrapperHistory>
       </WrapperSection>
       <Details details={details}/>
     </FlexWrapper>
