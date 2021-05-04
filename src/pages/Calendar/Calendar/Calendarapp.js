@@ -65,7 +65,6 @@ const Calendarapp = ({
     const calendarApi = info.view.calendar;
     calendarApi.unselect(); // clear date selection
     if (event.state) {
-      console.log(event);
       const newEvent = { // will render immediately. will call handleEventAdd
         title: event.state,
         start: event.app_date,

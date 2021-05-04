@@ -11,7 +11,7 @@ const CalendarDrawer = ({
 }) => {
   const loadCustomers = () => {
     const options = [];
-    if (customers){
+    if (customers) {
       customers.forEach((customer) => {
         options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
       });
@@ -25,12 +25,9 @@ const CalendarDrawer = ({
     });
     return options;
   };
-  const loadDefaultServices = () => {
-    return event.services.map((service) => service);
-  }
+  const loadDefaultServices = () => event.services.map((service) => service);
 
-  const postEvent = (e) => {
-    setEvent({ ...event, state: e.target.value, cus_id:1 });
+  const postEvent = () => {
     handleDateSelect();
     onClose();
     postAppointment();
@@ -157,11 +154,16 @@ const CalendarDrawer = ({
               label="Estado"
               rules={[{ required: true, message: 'Please enter user name' }]}
             >
-              <Input
-                placeholder="Please enter user name"
-                defaultValue={info.event ? info.event.extendedProps.state : ''}
-                onChange={(e) => setEvent({ ...event, state: e.target.value })}
-              />
+              <Select
+                style={{ width: '100%' }}
+                defaultValue={info.event ? info.event.extendedProps.state : 'Confirmado'}
+                placeholder="Please select"
+                onChange={(e, data) => setEvent({ ...event, state: data.value })}
+              >
+                <Select.Option value="Confirmado">Confirmado</Select.Option>
+                <Select.Option value="En Proceso">En Proceso</Select.Option>
+                <Select.Option value="Finalizado">Finalizado</Select.Option>
+              </Select>
             </Form.Item>
           </Col>
         </Row>
