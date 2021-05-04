@@ -100,9 +100,7 @@ export const ButtonDetails = styled(ButtonUpdate)`
   
 `;
 export const ButtonHistory = styled(ButtonUpdate)`
- 
   background-color: pink;
-  
 `;
 
 export const WrapperHistory = styled(CardApp)`

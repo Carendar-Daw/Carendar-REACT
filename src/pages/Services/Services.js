@@ -4,14 +4,15 @@ import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
 import axios from '@Commons/http';
+import { getSaloonId } from '@Application/store/user/reducer';
+import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import {
-  TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd,
+  TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, FlexWrapper,
 } from './Services.styled';
 import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersServices';
 import Drawer from './Drawer';
 import Table from './Table';
-import { getSaloonId } from '@Application/store/user/reducer';
-import Spinner from "@Commons/components/presentational/Spinner/Spinner";
+import Details from './Details/Details';
 
 const inistialServices = {
   ser_id: '',
@@ -26,6 +27,7 @@ const Services = () => {
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [getDrawer, setShowDrawer] = useState(false);
+  const [details, setDetails] = useState(null);
   const [services, dispatch] = useReducer(reducer, inistialStateReducer);
   const saloonId = useSelector(getSaloonId);
 
@@ -38,7 +40,7 @@ const Services = () => {
         dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
       } catch (errors) {
         error('Error al cargar los servicios');
-      }finally {
+      } finally {
         setLoadingSkeleton(false);
         setLoadingSpinner(false);
       }
@@ -53,7 +55,7 @@ const Services = () => {
       success('Servicio eliminada correctamente');
     } catch (errors) {
       error('Error al eliminar un servicio');
-    }finally {
+    } finally {
       setLoadingSpinner(false);
     }
   };
@@ -76,7 +78,7 @@ const Services = () => {
     } catch (errors) {
       setShowDrawer(false);
       error('Error al crear servicio');
-    }finally {
+    } finally {
       setLoadingSpinner(false);
     }
   };
@@ -91,9 +93,14 @@ const Services = () => {
       success('Servicio Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar servicio');
-    }finally {
+    } finally {
       setLoadingSpinner(false);
     }
+  };
+
+  const getDetailsService = (id) => {
+    const [serviceToShow] = services.filter((service) => service.ser_id === id);
+    setDetails(serviceToShow);
   };
 
   const showDrawerUpdate = (id) => {
@@ -112,28 +119,37 @@ const Services = () => {
   };
 
   return (
-    <WrapperServices>
-      {loadingSpinner && <Spinner />}
-      <WrapperTitle>
-        <FontAwesomeIcon className="icon" icon="calendar-alt" />
-        <TitlePage>Servicios</TitlePage>
-      </WrapperTitle>
-      <WrapperTable>
-        <Table showDrawerUpdate={showDrawerUpdate} isGoingToDelete={isGoingToDelete} services={services} loadingSkeleton={loadingSkeleton}/>
-      </WrapperTable>
-      <ButtonAdd onClick={showDrawer}>
-        <PlusOutlined className="buttonAdd" />
-      </ButtonAdd>
-      <Drawer
-        onClose={onClose}
-        getDrawer={getDrawer}
-        createService={createService}
-        updateService={updateService}
-        buildService={buildService}
-        isUpdating={isUpdating}
-        theService={theService}
-      />
-    </WrapperServices>
+    <FlexWrapper>
+      <WrapperServices>
+        {loadingSpinner && <Spinner />}
+        <WrapperTitle>
+          <FontAwesomeIcon className="icon" icon="calendar-alt" />
+          <TitlePage>Servicios</TitlePage>
+        </WrapperTitle>
+        <WrapperTable>
+          <Table
+            showDrawerUpdate={showDrawerUpdate}
+            isGoingToDelete={isGoingToDelete}
+            services={services}
+            loadingSkeleton={loadingSkeleton}
+            getDetailsService={getDetailsService}
+          />
+        </WrapperTable>
+        <ButtonAdd onClick={showDrawer}>
+          <PlusOutlined className="buttonAdd" />
+        </ButtonAdd>
+        <Drawer
+          onClose={onClose}
+          getDrawer={getDrawer}
+          createService={createService}
+          updateService={updateService}
+          buildService={buildService}
+          isUpdating={isUpdating}
+          theService={theService}
+        />
+      </WrapperServices>
+      <Details details={details}/>
+    </FlexWrapper>
   );
 };
 

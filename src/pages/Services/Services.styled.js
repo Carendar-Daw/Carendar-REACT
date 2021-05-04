@@ -77,3 +77,13 @@ export const ButtonUpdate = styled.button`
   box-shadow: 3px 7px 7px 0px rgba(0,0,0,0.75);
   cursor:pointer;
 `;
+
+export const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
+`;

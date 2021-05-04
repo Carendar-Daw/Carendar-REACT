@@ -4,16 +4,16 @@ import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
 import axios from '@Commons/http';
+import { getSaloonId } from '@Application/store/user/reducer';
+import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import {
-  TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, FlexWrapper, WrapperSection , WrapperHistory, WrapperCardsHistory
+  TitlePage, WrapperTitle, WrapperTable, WrapperClients, ButtonAdd, FlexWrapper, WrapperSection, WrapperHistory, WrapperCardsHistory,
 } from './Clients.styled';
 import { ACTIONS, reducer, initialStateReducer } from './helpers/helpersClients';
 import Drawer from './Drawer';
 import Table from './Table';
-import { getSaloonId } from '@Application/store/user/reducer';
-import Spinner from '@Commons/components/presentational/Spinner/Spinner';
-import Details from "./Details/Details";
-import History from "./History/History";
+import Details from './Details/Details';
+import History from './History/History';
 
 const defaultClientState = {
   cus_id: '',
@@ -65,7 +65,7 @@ const Clients = () => {
     }
   };
 
-  const isGoingToDelete = id => deleteClients(id);
+  const isGoingToDelete = (id) => deleteClients(id);
 
   const buildClients = (field, { target: { value } }) => {
     setClients({ ...theClients, [field]: value, sal_id: saloonId });
@@ -105,7 +105,7 @@ const Clients = () => {
   };
 
   const getDetailsCustomer = (id) => {
-    const [clientToShow] = clients.filter(client => client.cus_id === id);
+    const [clientToShow] = clients.filter((client) => client.cus_id === id);
     setDetails(clientToShow);
   };
 
@@ -113,8 +113,12 @@ const Clients = () => {
     try {
       setLoadingSpinner(true);
       const newHistory = await axios.get(`appointment/customer/${id}`);
-      setHistory(newHistory.data.appointments);
-      success('Historial obtenido correctamente');
+      if (!newHistory.data.appointments.length) {
+        error('El historal esta vacio');
+      } else {
+        setHistory(newHistory.data.appointments);
+        success('Historial obtenido correctamente');
+      }
     } catch (errors) {
       error('Error al obtener historial');
     } finally {
@@ -148,34 +152,34 @@ const Clients = () => {
           </WrapperTitle>
           <WrapperTable>
             <Table
-                isGoingToDelete={isGoingToDelete}
-                showDrawerUpdate={showDrawerUpdate}
-                clients={clients}
-                loadingSkeleton={loadingSkeleton}
-                getDetailsCustomer={getDetailsCustomer}
-                getHistoryCustomer={getHistoryCustomer}
+              isGoingToDelete={isGoingToDelete}
+              showDrawerUpdate={showDrawerUpdate}
+              clients={clients}
+              loadingSkeleton={loadingSkeleton}
+              getDetailsCustomer={getDetailsCustomer}
+              getHistoryCustomer={getHistoryCustomer}
             />
           </WrapperTable>
           <ButtonAdd onClick={showDrawer}>
             <PlusOutlined className="buttonAdd" />
           </ButtonAdd>
           <Drawer
-              onClose={onClose}
-              getDrawer={getDrawer}
-              createClients={createClients}
-              updateClients={updateClients}
-              buildClients={buildClients}
-              isUpdating={isUpdating}
-              theClients={theClients}
-              setClients={setClients}
+            onClose={onClose}
+            getDrawer={getDrawer}
+            createClients={createClients}
+            updateClients={updateClients}
+            buildClients={buildClients}
+            isUpdating={isUpdating}
+            theClients={theClients}
+            setClients={setClients}
           />
         </WrapperClients>
         <WrapperHistory>
           <TitlePage>History</TitlePage>
-          {history ? <History history={history}/> :  <p>Choose a person...</p>}
+          {history ? <History history={history} /> : <p>Choose a person...</p>}
         </WrapperHistory>
       </WrapperSection>
-      <Details details={details}/>
+      <Details details={details} />
     </FlexWrapper>
   );
 };

@@ -131,9 +131,5 @@ const Calendarapp = ({ customers, events, setEvents }) => {
     </>
   );
 };
-Calendarapp.propTypes = {
-  customers: PropTypes.instanceOf(Array).isRequired,
-  events: PropTypes.instanceOf(Array).isRequired,
-  setEvents: PropTypes.func.isRequired,
-};
+
 export default Calendarapp;

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Button, Col, Drawer, Form, Input, Row,
 } from 'antd';
+import { WrapperButtonsDrawer } from '@Commons/components/domain/Styles/Style.styled';
 
 const DrawerServices = ({
   onClose, getDrawer, createService, updateService, buildService, isUpdating, theService
@@ -13,27 +14,6 @@ const DrawerServices = ({
     visible={getDrawer}
     destroyOnClose
     bodyStyle={{ paddingBottom: 80 }}
-    footer={(
-      <div
-        style={{
-          textAlign: 'right',
-        }}
-      >
-        <Button onClick={onClose} style={{ marginRight: 8 }}>
-          Cancel
-        </Button>
-        {!isUpdating
-          ? (
-            <Button type="primary" onClick={createService}>
-              Submit
-            </Button>
-          ) : (
-            <Button type="primary" onClick={updateService}>
-              Update
-            </Button>
-          )}
-      </div>
-      )}
   >
     <Form layout="vertical" hideRequiredMark>
       <Row gutter={16}>
@@ -61,6 +41,21 @@ const DrawerServices = ({
           </Form.Item>
         </Col>
       </Row>
+      <WrapperButtonsDrawer>
+        <Button onClick={onClose} style={{ marginRight: 8 }}>
+          Cancel
+        </Button>
+        {!isUpdating
+          ? (
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          ) : (
+            <Button type="primary" htmlType="submit">
+              Update
+            </Button>
+          )}
+      </WrapperButtonsDrawer>
     </Form>
   </Drawer>
 );

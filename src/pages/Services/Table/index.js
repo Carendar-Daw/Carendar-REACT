@@ -3,8 +3,9 @@ import { Space, Table, Skeleton } from 'antd';
 import { ButtonDelete, ButtonUpdate } from "../Services.styled";
 import Confirm from '@Commons/components/presentational/Modal/Confirm';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ButtonDetails } from '@Pages/Clients/Clients.styled';
 
-const TableServices = ({showDrawerUpdate, isGoingToDelete, services, loadingSkeleton}) => {
+const TableServices = ({showDrawerUpdate, isGoingToDelete, getDetailsService, services, loadingSkeleton}) => {
 
   const columns = [
     {
@@ -37,6 +38,9 @@ const TableServices = ({showDrawerUpdate, isGoingToDelete, services, loadingSkel
             <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
               Editar
             </ButtonUpdate>
+            <ButtonDetails onClick={() => getDetailsService(record.ser_id)}>
+              Show Details
+            </ButtonDetails>
             <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.ser_id)}>
               <ButtonDelete>
                 <FontAwesomeIcon className="icon" icon="trash" />
