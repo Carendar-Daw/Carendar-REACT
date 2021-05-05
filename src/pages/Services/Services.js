@@ -119,7 +119,7 @@ const Services = () => {
   };
 
   return (
-    <FlexWrapper>
+    <FlexWrapper className='services'>
       <WrapperServices>
         {loadingSpinner && <Spinner />}
         <WrapperTitle>

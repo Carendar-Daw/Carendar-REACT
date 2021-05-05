@@ -8,7 +8,7 @@ const Details = ({ details }) => {
 
   return (
 
-    <WrapperDetails>
+    <WrapperDetails className='client-details'>
       <TitlePage>Information About</TitlePage>
       {!details ? <ChooseAlert>Choose some Person...</ChooseAlert>
         : (

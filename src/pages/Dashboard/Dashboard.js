@@ -10,7 +10,7 @@ import {
 } from './Dashboard.styled';
 
 const Dashboard = () => (
-  <WrapperMenu>
+  <WrapperMenu className="dashboard">
     <IteamMenu>
       <Card>
         <ImgCard src={Calendar} />

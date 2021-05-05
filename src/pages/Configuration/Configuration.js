@@ -70,7 +70,6 @@ const Configuration = () => {
       <WrapperSection>
         <WrapperPhoto>
           <ImgSaloon src={saloonPicture} />
-          <button>Do Tour</button>
         </WrapperPhoto>
         <WrapperInfo>
           <WrapperForm onSubmit={updateConfig}>

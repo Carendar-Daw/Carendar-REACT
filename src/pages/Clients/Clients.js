@@ -144,7 +144,7 @@ const Clients = () => {
   return (
     <FlexWrapper>
       <WrapperSection>
-        <WrapperClients>
+        <WrapperClients className='client-list'>
           {loadingSpinner && <Spinner />}
           <WrapperTitle>
             <FontAwesomeIcon className="icon" icon="calendar-alt" />
@@ -174,7 +174,7 @@ const Clients = () => {
             setClients={setClients}
           />
         </WrapperClients>
-        <WrapperHistory>
+        <WrapperHistory className='client-history'>
           <TitlePage>History</TitlePage>
           {history ? <History history={history} /> : <p>Choose a person...</p>}
         </WrapperHistory>
