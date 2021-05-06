@@ -6,7 +6,7 @@ import logo from '@Assets/images/logos/logo-carendar.png';
 import {
   HeaderLeft, IteamMenuWrapper, Logo, LogoImg,
 } from './Sidebar.styled';
-import { textMenu, color, initialState } from './config';
+import { textMenu, color } from './config';
 
 const Sidebar = ({ hamburger, setBackgorund, background }) => {
   const setNavBackgroundColor = (button) => {
@@ -52,6 +52,13 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
       <Tooltip placement="right" color={color} title={textMenu.services}>
         <NavLink to="/services">
           <IteamMenuWrapper background={background.services} onClick={() => setNavBackgroundColor('services')}>
+            <FontAwesomeIcon className="icon" icon="cut" />
+          </IteamMenuWrapper>
+        </NavLink>
+      </Tooltip>
+      <Tooltip placement="right" color={color} title={textMenu.products}>
+        <NavLink to="/products">
+          <IteamMenuWrapper background={background.products} onClick={() => setNavBackgroundColor('products')}>
             <FontAwesomeIcon className="icon" icon="cut" />
           </IteamMenuWrapper>
         </NavLink>

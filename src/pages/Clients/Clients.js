@@ -80,11 +80,11 @@ const Clients = () => {
       dispatch({ type: ACTIONS.POST_CLIENTS, payload: newClient.data.customers });
       success('Cliente creado correctamente');
       setShowDrawer(false);
-      setUserDefault();
     } catch (errors) {
       setShowDrawer('Error al crear cliente');
       error('Error al crear el cliente');
     } finally {
+      setUserDefault();
       setLoadingSpinner(false);
     }
   };
@@ -95,11 +95,11 @@ const Clients = () => {
       const updatedSClients = await axios.put(`customer/${theClients.cus_id}`, theClients);
       dispatch({ type: ACTIONS.UPDATE_CLIENTS, payload: { id: theClients.cus_id, updatedClients: updatedSClients.data.customer } });
       setShowDrawer(false);
-      setUserDefault();
       success('Cliente Modificado correctamente');
     } catch (errors) {
       error('Error al Modificar Cliente');
     } finally {
+      setUserDefault();
       setLoadingSpinner(false);
     }
   };

@@ -6,6 +6,7 @@ import Services from '@Pages/Services/Services';
 import Clients from '@Pages/Clients/Clients';
 import Configuration from '@Pages/Configuration/Configuration';
 import Dashboard from '@Pages/Dashboard/Dashboard';
+import Products from '@Pages/Products/Products';
 import Header from '@Application/components/Layout/Layout';
 import ProtectedRoute from '@Application/components/ProtectedRoute/ProtectedRoute';
 import Spinner from '@Commons/components/presentational/Spinner/SpinnerPage';
@@ -24,6 +25,7 @@ const RoutesApp = () => {
             <ProtectedRoute path="/calendar" component={Calendar} layout={Header} />
             <ProtectedRoute path="/services" component={Services} layout={Header} />
             <ProtectedRoute path="/clients" component={Clients} layout={Header} />
+            <ProtectedRoute path="/products" component={Products} layout={Header} />
             <ProtectedRoute path="/configuration" component={Configuration} layout={Header} />
           </Switch>
         ) : !verified ? <h1>verifica tu cuenta, sino no puedes entrar :v</h1> : <Spinner /> }
