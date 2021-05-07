@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import esLocale from '@fullcalendar/core/locales/es';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -17,7 +17,6 @@ const Calendarapp = ({
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
-  const [color, setColor] = useState('#7759a0');
   const [event, setEvent] = useState({
     state: 'Confirmado',
     services: [],
@@ -35,7 +34,6 @@ const Calendarapp = ({
       app_services: event.services,
       app_color: event.color,
     };
-    console.log(appointment)
     await axios.post('/appointment', appointment);
   };
   const putAppointment = async () => {
@@ -48,7 +46,7 @@ const Calendarapp = ({
       app_services: event.services,
       app_color: event.color,
     };
-    await axios.put(`/appointment/${info.event.id}`, appointment).then((e) => console.log(e));
+    await axios.put(`/appointment/${info.event.id}`, appointment);
   };
 
   const showDrawer = (selectInfo) => {
@@ -74,9 +72,6 @@ const Calendarapp = ({
       services: event.services,
       color: event.color,
     };
-    console.log(newEvent)
-    console.log(event)
-    console.log(info)
     calendarApi.addEvent(newEvent, true); // temporary=true, will get overwritten when reducer gives new events
     setEvents([...events, newEvent]);
   };
@@ -116,10 +111,12 @@ const Calendarapp = ({
           selectable
           selectMirror
           dayMaxEvents
+         // eventMouseEnter={(e)=>alert(e.event.extendedProps.customer.cus_name)}
           select={showDrawer}
           eventClick={loadAppointment}
           aspectRatio={aspectRatio}
           windowResize={() => {
+            // eslint-disable-next-line no-unused-expressions
             window.innerWidth > 1336
               ? setAspectRatio(1.8)
               : setAspectRatio(1);
@@ -133,7 +130,6 @@ const Calendarapp = ({
         setEvent={setEvent}
         event={event}
         info={info}
-        setColor={setColor}
         customers={customers}
         events={events}
         handleDateSelect={handleDateSelect}

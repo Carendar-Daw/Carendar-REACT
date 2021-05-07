@@ -7,7 +7,7 @@ import { GithubPicker } from 'react-color';
 import axios from '@Commons/http';
 
 const CalendarDrawer = ({
-  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment, services,
+  edit, onClose, view, setEvent, event, info, customers, events, handleDateSelect, postAppointment, putAppointment, services,
 }) => {
   const loadCustomers = () => {
     const options = [];
@@ -44,8 +44,6 @@ const CalendarDrawer = ({
         updatedEvent.title = `${updatedEvent.customer.cus_name} - ${event.state}`;
         calendarApi.getEventById(info.event.id).remove();
         calendarApi.addEvent(updatedEvent);
-        console.log(updatedEvent);
-        console.log(event);
       }
     });
   };
