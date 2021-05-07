@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Col, DatePicker, Drawer, Form, Input, Row, Select,
+  Button, Col, DatePicker, Drawer, Form, Row, Select,
 } from 'antd';
 import moment from 'moment';
 import { TwitterPicker } from 'react-color';
@@ -21,7 +21,7 @@ const CalendarDrawer = ({
   const loadServices = () => {
     const options = [];
     services.forEach((service) => {
-      options.push(<Select.Option value={service.ser_description} key={service.ser_id}>{service.ser_description}</Select.Option>);
+      options.push(<Select.Option value={service.ser_id} key={service.ser_id}>{service.ser_description}</Select.Option>);
     });
     return options;
   };
@@ -32,8 +32,7 @@ const CalendarDrawer = ({
     onClose();
     postAppointment();
   };
-  const editEvent = (e) => {
-    setEvent({ ...event, state: e.target.value });
+  const editEvent = () => {
     onClose();
     putAppointment();
     const calendarApi = info.view.calendar;
@@ -50,8 +49,7 @@ const CalendarDrawer = ({
 
   const deleteAppointment = async () => axios.delete(`/appointment/${info.event.id}`);
 
-  const deleteEvent = (e) => {
-    setEvent({ ...event, state: e.target.value });
+  const deleteEvent = () => {
     onClose();
     deleteAppointment();
     const calendarApi = info.view.calendar;
@@ -181,7 +179,7 @@ const CalendarDrawer = ({
                   ? loadDefaultServices()
                   : null}
                 placeholder="Please select"
-                onChange={(value, options) => setEvent({ ...event, services: options })}
+                onChange={(value) => setEvent({ ...event, services: value })}
               >
                 {loadServices()}
               </Select>
