@@ -31,6 +31,7 @@ const TableServices = ({
       dataIndex: 'sto_amount',
       key: 'sto_amount',
       responsive: ['sm'],
+      render: (text) => <p>{text} cant.</p>,
     },
     {
       title: 'Id',
@@ -60,13 +61,15 @@ const TableServices = ({
 
   const columnsTableFiltered = columns.filter((col) => col.dataIndex !== 'sto_id');
 
+  const collectionSkeleton = ([<Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />]);
+
   return (
     <>
       <Table
         columns={columnsTableFiltered}
         dataSource={products}
         locale={{
-          emptyText: loadingSkeleton ? <Skeleton active={loadingSkeleton} /> : null,
+          emptyText: loadingSkeleton ? collectionSkeleton : null,
         }}
       />
     </>

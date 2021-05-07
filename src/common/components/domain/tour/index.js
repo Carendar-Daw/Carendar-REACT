@@ -29,7 +29,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       action: () => {
         if (!navChanged.dashboard) {
           history.push('/dashboard');
-          setNavChanged({ ...navChanged, dashboard: true });
+          setNavChanged({ ...initialStateRoutes, dashboard: true });
         }
       },
     },
@@ -51,7 +51,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       action: () => {
         if (!navChanged.clients) {
           history.push('/clients');
-          setNavChanged({ ...navChanged, clients: true });
+          setNavChanged({ ...initialStateRoutes, clients: true });
         }
       },
     },
@@ -69,7 +69,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       action: () => {
         if (!navChanged.services) {
           history.push('/services');
-          setNavChanged({ ...navChanged, services: true });
+          setNavChanged({ ...initialStateRoutes, services: true });
         }
       },
     },

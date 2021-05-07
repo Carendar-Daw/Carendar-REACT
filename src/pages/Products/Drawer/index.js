@@ -32,7 +32,7 @@ const DrawerServices = ({
               label="Name"
               rules={[{ required: true, message: 'Please enter name' }]}
             >
-              <Input placeholder="Please enter name" defaultValue={theProduct.sto_name} onChange={(event) => buildProduct('sto_name', event)} />
+              <Input placeholder="Please enter name" Value={theProduct.sto_name} onChange={(event) => buildProduct('sto_name', event)} />
             </Form.Item>
             <Form.Item
               name="amount"

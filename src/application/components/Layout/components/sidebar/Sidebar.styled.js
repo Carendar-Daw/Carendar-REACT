@@ -46,3 +46,10 @@ export const Logo = styled.div`
 export const LogoImg = styled.img`
   max-height: 2.1rem;
 `;
+
+export const WrapperMenu = styled.div`
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`;

@@ -38,7 +38,7 @@ const Dashboard = () => (
         </NavLink>
       </IteamMenu>
       <IteamMenu>
-        <NavLink to="/cash-register">
+        <NavLink to="/cash">
         <Card>
           <ImgCard src={SavingMoney} />
           <Title>Cash</Title>

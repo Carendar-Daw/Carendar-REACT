@@ -71,12 +71,14 @@ const TableServices = ({
 
   const columnsTableFiltered = columns.filter((col) => col.dataIndex !== 'cus_id');
 
+  const collectionSkeleton = ([<Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />]);
+
   return (
     <Table
       columns={columnsTableFiltered}
       dataSource={clients}
       locale={{
-        emptyText: loadingSkeleton ? <Skeleton active={loadingSkeleton} /> : null,
+        emptyText: loadingSkeleton ? collectionSkeleton : null,
       }}
     />
   );
