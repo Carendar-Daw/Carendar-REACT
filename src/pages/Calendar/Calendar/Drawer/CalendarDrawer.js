@@ -1,29 +1,38 @@
 import React from 'react';
 import {
-  Button, Col, DatePicker, Drawer, Form, Input, Row, Select,
+  Button, Col, DatePicker, Drawer, Form, Row, Select,
 } from 'antd';
 import moment from 'moment';
 import { TwitterPicker } from 'react-color';
 import axios from '@Commons/http';
 
 const CalendarDrawer = ({
-  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment,
+  edit, onClose, view, setEvent, event, info, setColor, customers, events, handleDateSelect, postAppointment, putAppointment, services,
 }) => {
   const loadCustomers = () => {
     const options = [];
-    customers.forEach((customer) => {
-      options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
+    if (customers) {
+      customers.forEach((customer) => {
+        options.push(<Select.Option value={customer.cus_id} key={customer.cus_id}>{customer.cus_name}</Select.Option>);
+      });
+    }
+    return options;
+  };
+  const loadServices = () => {
+    const options = [];
+    services.forEach((service) => {
+      options.push(<Select.Option value={service.ser_id} key={service.ser_id}>{service.ser_description}</Select.Option>);
     });
     return options;
   };
-  const postEvent = (e) => {
-    setEvent({ ...event, state: e.target.value });
+  const loadDefaultServices = () => event.services.map((service) => service);
+
+  const postEvent = () => {
     handleDateSelect();
     onClose();
     postAppointment();
   };
-  const editEvent = (e) => {
-    setEvent({ ...event, state: e.target.value });
+  const editEvent = () => {
     onClose();
     putAppointment();
     const calendarApi = info.view.calendar;
@@ -40,8 +49,7 @@ const CalendarDrawer = ({
 
   const deleteAppointment = async () => axios.delete(`/appointment/${info.event.id}`);
 
-  const deleteEvent = (e) => {
-    setEvent({ ...event, state: e.target.value });
+  const deleteEvent = () => {
     onClose();
     deleteAppointment();
     const calendarApi = info.view.calendar;
@@ -144,11 +152,37 @@ const CalendarDrawer = ({
               label="Estado"
               rules={[{ required: true, message: 'Please enter user name' }]}
             >
-              <Input
-                placeholder="Please enter user name"
-                defaultValue={info.event ? info.event.extendedProps.state : ''}
-                onChange={(e) => setEvent({ ...event, state: e.target.value })}
-              />
+              <Select
+                style={{ width: '100%' }}
+                defaultValue={info.event ? info.event.extendedProps.state : 'Confirmado'}
+                placeholder="Please select"
+                onChange={(e, data) => setEvent({ ...event, state: data.value })}
+              >
+                <Select.Option value="Confirmado">Confirmado</Select.Option>
+                <Select.Option value="En Proceso">En Proceso</Select.Option>
+                <Select.Option value="Finalizado">Finalizado</Select.Option>
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col span={12}>
+            <Form.Item
+              label="Servicios"
+            >
+              <Select
+                showSearch
+                mode="multiple"
+                allowClear
+                style={{ width: '100%' }}
+                defaultValue={event.services
+                  ? loadDefaultServices()
+                  : null}
+                placeholder="Please select"
+                onChange={(value) => setEvent({ ...event, services: value })}
+              >
+                {loadServices()}
+              </Select>
             </Form.Item>
           </Col>
         </Row>
