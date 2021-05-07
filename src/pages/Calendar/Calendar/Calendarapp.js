@@ -35,7 +35,7 @@ const Calendarapp = ({
       app_services: event.services,
       // app_color: info.extendedProps.color,
     };
-    await axios.post('/appointment', appointment);
+    // await axios.post('/appointment', appointment);
   };
   const putAppointment = async () => {
     const d = event.app_date;
@@ -64,18 +64,20 @@ const Calendarapp = ({
   const handleDateSelect = () => {
     const calendarApi = info.view.calendar;
     calendarApi.unselect(); // clear date selection
-    if (event.state) {
-      const newEvent = { // will render immediately. will call handleEventAdd
-        title: event.state,
-        start: event.app_date,
-        end: info.endStr,
-        allDay: info.allDay,
-        services: event.services,
-        // color: info.extendedProps.color,
-      };
-      calendarApi.addEvent(newEvent, true); // temporary=true, will get overwritten when reducer gives new events
-      setEvents([...events, newEvent]);
-    }
+
+    const newEvent = { // will render immediately. will call handleEventAdd
+      title: event.state,
+      start: info.startStr,
+      end: info.endStr,
+      allDay: info.allDay,
+      services: event.services,
+      // color: info.extendedProps.color,
+    };
+    console.log(newEvent)
+    console.log(event)
+    console.log(info)
+    calendarApi.addEvent(newEvent, true); // temporary=true, will get overwritten when reducer gives new events
+    setEvents([...events, newEvent]);
   };
 
   const loadAppointment = async (selectInfo) => {
@@ -85,7 +87,8 @@ const Calendarapp = ({
     const servicesInAppointment = services.filter((ele) => allServices.map((e) => e.ser_id).includes(ele.ser_id));
     setEvent({
       state: selectInfo.event.extendedProps.state,
-      cus_id: selectInfo.event.extendedProps.customer,
+      cus_id: selectInfo.event.extendedProps.customer.cus_id,
+      cus_name: selectInfo.event.extendedProps.customer.cus_name,
       services: servicesInAppointment.map((ele) => ele.ser_id),
       app_date: moment(selectInfo.event.startStr),
     });

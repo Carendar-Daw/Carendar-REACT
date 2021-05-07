@@ -40,9 +40,11 @@ const CalendarDrawer = ({
       if (ev.id === parseInt(info.event.id, 10)) {
         const updatedEvent = { ...ev };
         updatedEvent.state = event.state;
-        updatedEvent.title = `${updatedEvent.customer}\n${event.state}`;
+        updatedEvent.title = `${updatedEvent.customer.cus_name} - ${event.state}`;
         calendarApi.getEventById(info.event.id).remove();
         calendarApi.addEvent(updatedEvent);
+        console.log(updatedEvent)
+        console.log(event)
       }
     });
   };
