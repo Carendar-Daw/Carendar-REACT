@@ -143,11 +143,11 @@ const Products = () => {
         <Drawer
           onClose={onClose}
           getDrawer={getDrawer}
-          createService={createProduct}
-          updateService={updateProduct}
-          buildService={buildProduct}
+          createProduct={createProduct}
+          updateProduct={updateProduct}
+          buildProduct={buildProduct}
           isUpdating={isUpdating}
-          theService={setProduct}
+          theProduct={theProduct}
         />
       </WrapperProducts>
       <Details details={details} />

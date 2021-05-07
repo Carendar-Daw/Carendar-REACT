@@ -9,20 +9,24 @@ const Details = ({ details }) => {
 
     <WrapperDetails>
       <TitlePage>Information About</TitlePage>
-      {!details ? <ChooseAlert>Choose some Service...</ChooseAlert>
+      {!details ? <ChooseAlert>Choose some Product...</ChooseAlert>
         : (
           <WrapperInfo>
             <p>
-              <strong>Description:</strong>
-              {details.ser_description}
+              <strong>Name:</strong>
+              {details.sto_name}
             </p>
             <p>
-              <strong>Price:</strong>
-              {details.ser_price}
+              <strong>Amount:</strong>
+              {details.sto_amount}
             </p>
             <p>
-              <strong>Time:</strong>
-              {details.ser_time}
+              <strong>PVP:</strong>
+              {details.sto_pvp}
+            </p>
+            <p>
+              <strong>Barcode:</strong>
+              {details.sto_barcode}
             </p>
           </WrapperInfo>
         )}

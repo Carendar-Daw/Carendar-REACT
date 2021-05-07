@@ -48,7 +48,7 @@ const TableServices = ({
           <ButtonDetails onClick={() => getDetailsProducts(record.sto_id)}>
             Show Details
           </ButtonDetails>
-          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.ser_id)}>
+          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.sto_id)}>
             <ButtonDelete>
               <FontAwesomeIcon className="icon" icon="trash" />
             </ButtonDelete>

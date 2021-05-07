@@ -17,7 +17,7 @@ const DrawerServices = ({
 
   return (
     <Drawer
-      title="Create a new Service"
+      title={isUpdating ? 'Update a service' : 'Create a new service'}
       width={320}
       onClose={onClose}
       visible={getDrawer}
