@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from "react-redux";
+import { error } from '@Commons/components/presentational/MessagesApp/Messages';
 import { saveSalon, savePhotoSaloon } from "../store/user/actions";
 import axios from '@Commons/http';
 

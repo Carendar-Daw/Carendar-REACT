@@ -13,11 +13,12 @@ export const TitlePage = styled(Heading4)`
 `;
 
 export const WrapperServices = styled(CardApp)`
-
+    width: 90%;
     margin-top: 30px;
     @media ${device.tablet} {
       padding-top: 30px;
       margin-left: 40px;
+      width: 70%;
     }
 
    .buttonAdd{
