@@ -27,6 +27,7 @@ const Calendarapp = ({
     const d = event.app_date
       ? moment(event.app_date)
       : moment(info.startStr);
+    d.add(2, 'hours');
     const appointment = {
       cus_id: event.cus_id,
       app_date: d._d,
@@ -38,7 +39,7 @@ const Calendarapp = ({
   };
   const putAppointment = async () => {
     const d = event.app_date;
-    console.log(event.app_date)
+    d.add(2, 'hours');
     const appointment = {
       cus_id: event.cus_id,
       app_date: d,
@@ -86,7 +87,7 @@ const Calendarapp = ({
       state: selectInfo.event.extendedProps.state,
       cus_id: selectInfo.event.extendedProps.customer,
       services: servicesInAppointment.map((ele) => ele.ser_id),
-      app_date: moment(selectInfo.event.startStr).add(2, 'hours'),
+      app_date: moment(selectInfo.event.startStr),
     });
     isEdit(true);
     setView(true);
