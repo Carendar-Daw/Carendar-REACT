@@ -6,6 +6,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import axios from '@Commons/http';
+import moment from 'moment';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import Container from './Calendarapp.styled';
 
@@ -23,28 +24,24 @@ const Calendarapp = ({
   });
 
   const postAppointment = async () => {
-    const d = event.app_date;
-    const [date] = d.toISOString().split('T');
-    const [time] = d.toTimeString().split(' ');
+    const d = event.app_date
+      ? moment(event.app_date)
+      : moment(info.startStr);
     const appointment = {
       cus_id: event.cus_id,
-      app_date: `${date} ${time}`,
+      app_date: d._d,
       app_state: event.state,
       app_services: event.services,
       // app_color: info.extendedProps.color,
     };
-    console.log(event)
     await axios.post('/appointment', appointment);
   };
   const putAppointment = async () => {
-    const d = event.app_date ? event.app_date : new Date(info.event.startStr);
-
-    const [date] = d.toISOString().split('T');
-    const [time] = d.toTimeString().split(' ');
-
+    const d = event.app_date;
+    console.log(event.app_date)
     const appointment = {
       cus_id: event.cus_id,
-      app_date: `${date} ${time}`,
+      app_date: d,
       app_state: event.state,
       app_services: event.services,
       // app_color: info.extendedProps.color,
@@ -89,7 +86,7 @@ const Calendarapp = ({
       state: selectInfo.event.extendedProps.state,
       cus_id: selectInfo.event.extendedProps.customer,
       services: servicesInAppointment.map((ele) => ele.ser_id),
-      app_date: selectInfo.event.startStr,
+      app_date: moment(selectInfo.event.startStr).add(2, 'hours'),
     });
     isEdit(true);
     setView(true);
