@@ -3,7 +3,7 @@ import {
   Button, Col, DatePicker, Drawer, Form, Row, Select,
 } from 'antd';
 import moment from 'moment';
-import { TwitterPicker } from 'react-color';
+import { GithubPicker } from 'react-color';
 import axios from '@Commons/http';
 
 const CalendarDrawer = ({
@@ -40,11 +40,12 @@ const CalendarDrawer = ({
       if (ev.id === parseInt(info.event.id, 10)) {
         const updatedEvent = { ...ev };
         updatedEvent.state = event.state;
+        updatedEvent.color = event.color;
         updatedEvent.title = `${updatedEvent.customer.cus_name} - ${event.state}`;
         calendarApi.getEventById(info.event.id).remove();
         calendarApi.addEvent(updatedEvent);
-        console.log(updatedEvent)
-        console.log(event)
+        console.log(updatedEvent);
+        console.log(event);
       }
     });
   };
@@ -177,6 +178,7 @@ const CalendarDrawer = ({
                 showSearch
                 mode="multiple"
                 allowClear
+                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 style={{ width: '100%' }}
                 defaultValue={event.services
                   ? loadDefaultServices()
@@ -191,9 +193,18 @@ const CalendarDrawer = ({
         </Row>
         <Row gutter={16}>
           <Col span={12}>
-            <TwitterPicker
-              onChange={(e) => setColor(e.hex)}
-            />
+            <Form.Item
+              label="color"
+            >
+              <GithubPicker
+                colors={['#6B5091', '#896EAF', '#947BB7', '#9F89BE', '#947BB7', '#9F89BE', '#A996C5',
+                  '#DE5476', '#E26584', '#E57692', '#E8879F', '#EB98AD', '#EEAABB', '#F2BBC9']}
+                triangle="hide"
+                width="190px"
+                onChange={(e) => setEvent({ ...event, color: e.hex })}
+              />
+            </Form.Item>
+
           </Col>
         </Row>
       </Form>

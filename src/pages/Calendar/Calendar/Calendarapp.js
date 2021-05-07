@@ -33,9 +33,10 @@ const Calendarapp = ({
       app_date: d._d,
       app_state: event.state,
       app_services: event.services,
-      // app_color: info.extendedProps.color,
+      app_color: event.color,
     };
-    // await axios.post('/appointment', appointment);
+    console.log(appointment)
+    await axios.post('/appointment', appointment);
   };
   const putAppointment = async () => {
     const d = event.app_date;
@@ -45,7 +46,7 @@ const Calendarapp = ({
       app_date: d,
       app_state: event.state,
       app_services: event.services,
-      // app_color: info.extendedProps.color,
+      app_color: event.color,
     };
     await axios.put(`/appointment/${info.event.id}`, appointment).then((e) => console.log(e));
   };
@@ -71,7 +72,7 @@ const Calendarapp = ({
       end: info.endStr,
       allDay: info.allDay,
       services: event.services,
-      // color: info.extendedProps.color,
+      color: event.color,
     };
     console.log(newEvent)
     console.log(event)
@@ -110,7 +111,7 @@ const Calendarapp = ({
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
-          editable
+          editable={false}
           events={events}
           selectable
           selectMirror
