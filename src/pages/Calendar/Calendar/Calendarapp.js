@@ -84,12 +84,12 @@ const Calendarapp = ({
     setInfo(selectInfo);
     const resServices = await axios.get(`/services/${selectInfo.event.id}`);
     const allServices = Object.values(resServices.data.service);
-
     const servicesInAppointment = services.filter((ele) => allServices.map((e) => e.ser_id).includes(ele.ser_id));
     setEvent({
       state: selectInfo.event.extendedProps.state,
       cus_id: selectInfo.event.extendedProps.customer,
       services: servicesInAppointment.map((ele) => ele.ser_id),
+      app_date: selectInfo.event.startStr,
     });
     isEdit(true);
     setView(true);

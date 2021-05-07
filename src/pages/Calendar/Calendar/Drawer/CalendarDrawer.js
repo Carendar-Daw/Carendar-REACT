@@ -132,9 +132,10 @@ const CalendarDrawer = ({
             >
               <DatePicker
                 defaultValue={
-                      info.event
-                        ? moment(info.event.startStr)
-                        : ''
+                      event.app_date
+                        ? moment(event.app_date)
+                        : moment(info.startStr)
+
                     }
                 style={{ width: '100%' }}
                 getPopupContainer={(trigger) => trigger.parentElement}
