@@ -93,27 +93,42 @@ const Calendarapp = ({
     isEdit(true);
     setView(true);
   };
-  const contentPopover = (ev) => {
-    console.log(ev.event.extendedProps);
-    return (
-        <span>{ev.event.extendedProps.state}</span>
-    );
-  };
-  const renderEventContent = (ev) => {
-    console.log(states);
-    console.log(ev.event.extendedProps.state);
+  const statePopover = (ev) => (
+    <span>{ev.event.extendedProps.state}</span>
+  );
+  const appointmentPopover = () => {
+    let text = [];
+    if (event.service) {
+      const allServices = Object.values(event.service);
+      const servicesInAppointment = services.filter((ele) => allServices.map((e) => e.ser_id).includes(ele.ser_id));
+      text = servicesInAppointment.map((ser) => ser.ser_description);
+    }
     return (
       <>
-        <Popover content={contentPopover(ev)}>
-          <Badge color={states[ev.event.extendedProps.state]} />
-        </Popover>
-        <span>
-          {ev.timeText}
-        </span>
-
+        {
+          text.map((ser) => (
+            <p key={ser}>{ser}</p>
+          ))
+        }
       </>
     );
   };
+  const loadDetail = async (ev) => {
+    const resServices = await axios.get(`/services/${ev.event.id}`);
+    setEvent({ ...event, service: resServices.data.service });
+  };
+  const renderEventContent = (ev) => (
+    <>
+      <Popover content={statePopover(ev)}>
+        <Badge color={states[ev.event.extendedProps.state]} />
+      </Popover>
+      <Popover content={appointmentPopover}>
+        <span onMouseOver={() => loadDetail(ev)}>
+          {` ${ev.timeText} I ${ev.event.extendedProps.customer.cus_name}`}
+        </span>
+      </Popover>
+    </>
+  );
   return (
     <>
       <Container>
