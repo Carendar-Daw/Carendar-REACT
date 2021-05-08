@@ -7,8 +7,10 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import axios from '@Commons/http';
 import moment from 'moment';
+import states from '@Pages/Calendar/helpers';
+import { Popover } from 'antd';
 import CalendarDrawer from './Drawer/CalendarDrawer';
-import Container from './Calendarapp.styled';
+import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
   customers, events, setEvents, services,
@@ -18,7 +20,7 @@ const Calendarapp = ({
   const [edit, isEdit] = useState(false);
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
   const [event, setEvent] = useState({
-    state: 'Confirmado',
+    state: 'Aprobado',
     services: [],
   });
 
@@ -91,7 +93,27 @@ const Calendarapp = ({
     isEdit(true);
     setView(true);
   };
+  const contentPopover = (ev) => {
+    console.log(ev.event.extendedProps);
+    return (
+        <span>{ev.event.extendedProps.state}</span>
+    );
+  };
+  const renderEventContent = (ev) => {
+    console.log(states);
+    console.log(ev.event.extendedProps.state);
+    return (
+      <>
+        <Popover content={contentPopover(ev)}>
+          <Badge color={states[ev.event.extendedProps.state]} />
+        </Popover>
+        <span>
+          {ev.timeText}
+        </span>
 
+      </>
+    );
+  };
   return (
     <>
       <Container>
@@ -111,6 +133,7 @@ const Calendarapp = ({
           selectable
           selectMirror
           dayMaxEvents
+          allDaySlot={false}
          // eventMouseEnter={(e)=>alert(e.event.extendedProps.customer.cus_name)}
           select={showDrawer}
           eventClick={loadAppointment}
@@ -121,6 +144,7 @@ const Calendarapp = ({
               ? setAspectRatio(1.8)
               : setAspectRatio(1);
           }}
+          eventContent={renderEventContent}
         />
       </Container>
       <CalendarDrawer

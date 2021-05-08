@@ -94,7 +94,7 @@ const CalendarDrawer = ({
                       </>
                     )
                     : (
-                      <Button onClick={postEvent} type="primary">
+                      <Button type="primary" onClick={postEvent}>
                         Submit
                       </Button>
                     )
@@ -106,8 +106,9 @@ const CalendarDrawer = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
+              name={'customer'}
               label="Customer ID"
-              rules={[{ required: true, message: 'Please enter user name' }]}
+              rules={[{required: true, message: 'Please select time!' }]}
             >
               <Select
                 showSearch
@@ -116,7 +117,7 @@ const CalendarDrawer = ({
                 optionFilterProp="children"
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 onChange={(e) => setEvent({ ...event, cus_id: e })}
-                defaultValue={event.cus_id}
+                defaultValue={event.cus_id ? event.cus_id : null}
               >
                 {loadCustomers()}
               </Select>
@@ -128,8 +129,15 @@ const CalendarDrawer = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
+              name="date-picker"
               label="Cita date"
-              rules={[{ required: true }]}
+              rules={[
+                {
+                  type: 'object',
+                  required: true,
+                  message: 'Please select time!',
+                },
+              ]}
             >
               <DatePicker
                 defaultValue={
@@ -141,6 +149,7 @@ const CalendarDrawer = ({
                 style={{ width: '100%' }}
                 getPopupContainer={(trigger) => trigger.parentElement}
                 showTime
+                allowClear={false}
                 format="DD-MM-YY HH:mm"
                 onChange={(e) => setEvent({ ...event, app_date: e })}
               />
@@ -160,9 +169,11 @@ const CalendarDrawer = ({
                 placeholder="Please select"
                 onChange={(e, data) => setEvent({ ...event, state: data.value })}
               >
-                <Select.Option value="Confirmado">Confirmado</Select.Option>
-                <Select.Option value="En Proceso">En Proceso</Select.Option>
+                <Select.Option value="Pendiente">Pendiente</Select.Option>
+                <Select.Option value="Aprobado">Aprobado</Select.Option>
                 <Select.Option value="Finalizado">Finalizado</Select.Option>
+                <Select.Option value="Facturado">Facturado</Select.Option>
+                <Select.Option value="Cancelado">Cancelado</Select.Option>
               </Select>
             </Form.Item>
           </Col>
@@ -195,11 +206,11 @@ const CalendarDrawer = ({
               label="color"
             >
               <GithubPicker
-                colors={['#6B5091', '#896EAF', '#947BB7', '#9F89BE', '#947BB7', '#9F89BE', '#A996C5',
+                colors={['#6B5091', '#896EAF', '#947BB7', '#9F89BE', '#947BB8', '#9F89BF', '#A996C5',
                   '#DE5476', '#E26584', '#E57692', '#E8879F', '#EB98AD', '#EEAABB', '#F2BBC9']}
                 triangle="hide"
                 width="190px"
-                onChange={(e) => setEvent({ ...event, color: e.hex })}
+                onChangeComplete={(e) => setEvent({ ...event, color: e.hex })}
               />
             </Form.Item>
 
