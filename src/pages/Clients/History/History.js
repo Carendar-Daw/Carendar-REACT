@@ -8,7 +8,7 @@ const History = ({ history }) => {
 
     return (
         <ContentHistory>
-            <Timeline mode='left'>
+            <Timeline mode='left' >
                 {history.map(appointment => (
                     <Timeline.Item label={appointment.app_date.split(' ')[0]}>
                     <p>Time: {appointment.app_date.split(' ')[1]}</p>

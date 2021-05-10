@@ -1,13 +1,14 @@
 import React from 'react';
-import {Skeleton, Space, Table} from 'antd';
-import {ButtonDelete, ButtonUpdate, ButtonDetails, ButtonHistory} from "../Clients.styled";
-import Confirm from "@Commons/components/presentational/Modal/Confirm";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Skeleton, Space, Table } from 'antd';
+import Confirm from '@Commons/components/presentational/Modal/Confirm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  ButtonDelete, ButtonUpdate, ButtonDetails, ButtonHistory,
+} from '../Clients.styled';
 
-
-
-const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkeleton, getDetailsCustomer, getHistoryCustomer }) => {
-
+const TableServices = ({
+  showDrawerUpdate, isGoingToDelete, clients, loadingSkeleton, getDetailsCustomer, getHistoryCustomer,
+}) => {
   const columns = [
     {
       title: 'Name',
@@ -48,37 +49,39 @@ const TableServices = ({ showDrawerUpdate, isGoingToDelete, clients, loadingSkel
       title: 'Action',
       key: 'action',
       render: (record) => (
-          <Space size="middle">
-            <ButtonUpdate onClick={() => showDrawerUpdate(record.cus_id)}>
-              Editar
-            </ButtonUpdate>
-            <ButtonDetails onClick={() => getDetailsCustomer(record.cus_id)}>
-              Show Details
-            </ButtonDetails>
-            <ButtonHistory onClick={() => getHistoryCustomer(record.cus_id)}>
-              Show History
-            </ButtonHistory>
-            <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.cus_id)}>
-              <ButtonDelete>
-                <FontAwesomeIcon className="icon" icon="trash" />
-              </ButtonDelete>
-            </Confirm>
-          </Space>
+        <Space size="middle">
+          <ButtonUpdate onClick={() => showDrawerUpdate(record.cus_id)}>
+            Editar
+          </ButtonUpdate>
+          <ButtonDetails onClick={() => getDetailsCustomer(record.cus_id)}>
+            Show Details
+          </ButtonDetails>
+          <ButtonHistory onClick={() => getHistoryCustomer(record.cus_id)}>
+            Show History
+          </ButtonHistory>
+          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.cus_id)}>
+            <ButtonDelete>
+              <FontAwesomeIcon className="icon" icon="trash" />
+            </ButtonDelete>
+          </Confirm>
+        </Space>
       ),
     },
   ];
 
   const columnsTableFiltered = columns.filter((col) => col.dataIndex !== 'cus_id');
 
+  const collectionSkeleton = ([<Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />]);
+
   return (
-      <Table
-          columns={columnsTableFiltered}
-          dataSource={clients}
-          locale={{
-            emptyText: loadingSkeleton ? <Skeleton active={loadingSkeleton} /> : null
-          }}
-      />
+    <Table
+      columns={columnsTableFiltered}
+      dataSource={clients}
+      locale={{
+        emptyText: loadingSkeleton ? collectionSkeleton : null,
+      }}
+    />
   );
-}
+};
 
 export default TableServices;

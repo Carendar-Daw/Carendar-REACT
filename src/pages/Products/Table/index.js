@@ -3,48 +3,53 @@ import { Space, Table, Skeleton } from 'antd';
 import Confirm from '@Commons/components/presentational/Modal/Confirm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonDetails } from '@Pages/Clients/Clients.styled';
-import { ButtonDelete, ButtonUpdate } from '../Services.styled';
+import { ButtonDelete, ButtonUpdate } from '../Products.styled';
 
 const TableServices = ({
-  showDrawerUpdate, isGoingToDelete, getDetailsService, services, loadingSkeleton,
+  showDrawerUpdate, isGoingToDelete, getDetailsProducts, products, loadingSkeleton,
 }) => {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'ser_description',
-      key: 'ser_description',
+      dataIndex: 'sto_name',
+      key: 'sto_name',
       render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Precio',
-      dataIndex: 'ser_price',
-      key: 'ser_price',
-      render: (text) => <p>{text} $</p>,
+      title: 'Barcode',
+      dataIndex: 'sto_barcode',
+      key: 'sto_barcode',
     },
     {
-      title: 'Time',
-      dataIndex: 'ser_time',
-      key: 'ser_time',
+      title: 'PVP',
+      dataIndex: 'sto_pvp',
+      key: 'sto_pvp',
       responsive: ['sm'],
-      render: (text) => <p>{text} min</p>,
+    },
+    {
+      title: 'Amount',
+      dataIndex: 'sto_amount',
+      key: 'sto_amount',
+      responsive: ['sm'],
+      render: (text) => <p>{text} cant.</p>,
     },
     {
       title: 'Id',
-      dataIndex: 'ser_id',
-      key: 'ser_id',
+      dataIndex: 'sto_id',
+      key: 'sto_id',
     },
     {
       title: 'Action',
       key: 'action',
       render: (record) => (
         <Space size="middle">
-          <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
+          <ButtonUpdate onClick={() => showDrawerUpdate(record.sto_id)}>
             Editar
           </ButtonUpdate>
-          <ButtonDetails onClick={() => getDetailsService(record.ser_id)}>
+          <ButtonDetails onClick={() => getDetailsProducts(record.sto_id)}>
             Show Details
           </ButtonDetails>
-          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.ser_id)}>
+          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.sto_id)}>
             <ButtonDelete>
               <FontAwesomeIcon className="icon" icon="trash" />
             </ButtonDelete>
@@ -54,7 +59,7 @@ const TableServices = ({
     },
   ];
 
-  const columnsTableFiltered = columns.filter((col) => col.dataIndex !== 'ser_id');
+  const columnsTableFiltered = columns.filter((col) => col.dataIndex !== 'sto_id');
 
   const collectionSkeleton = ([<Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />, <Skeleton active={loadingSkeleton} />]);
 
@@ -62,7 +67,7 @@ const TableServices = ({
     <>
       <Table
         columns={columnsTableFiltered}
-        dataSource={services}
+        dataSource={products}
         locale={{
           emptyText: loadingSkeleton ? collectionSkeleton : null,
         }}

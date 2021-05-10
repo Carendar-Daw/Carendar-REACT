@@ -4,7 +4,7 @@ import { deviceMax } from '@Commons/styles/breakpoints';
 export const HeaderLeft = styled.aside`
   width: 50px;
   height: 100%;
-  background-color: gray;
+  background-color: #8265A7;
   box-shadow: 13px 4px 12px -7px rgba(0, 0, 0, 0.75);
   position: fixed;
   transition-duration: 200ms;
@@ -37,7 +37,7 @@ export const IteamMenuWrapper = styled.div`
 export const Logo = styled.div`
   width: 50px;
   height: 50px;
-  background-color: #DAE0FE;
+  background-color: #fbf7ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,4 +45,11 @@ export const Logo = styled.div`
 
 export const LogoImg = styled.img`
   max-height: 2.1rem;
+`;
+
+export const WrapperMenu = styled.div`
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;

@@ -9,7 +9,6 @@ export const ContentPopOver = styled.div`
   align-items: center;
   cursor: pointer;
   border-radius: 50%;
-  border: #8265A7 2px solid;
   transition-duration: 200ms;
   :hover {
     background-color: yellow;
@@ -27,7 +26,7 @@ export const Hamb = styled(Hamburger)`
   span {
     ${({ hamburger }) => {
     if (hamburger) {
-        return `
+      return `
         transition-duration: 200ms;
         position:absolute;
         transform: rotate(0deg); 
@@ -72,11 +71,16 @@ export const Logout = styled.a`
   color: #8265A7;
 `;
 
+export const TourText = styled.p`
+  color: blue;
+  cursor: pointer;
+`;
+
 export const HeaderTop = styled.div`
   width: 100vw;
   height: 50px;
   position: fixed;
-  background-color: #8265A7;
+  background-color: #ba9ce0;
   box-shadow: 13px 4px 12px -7px rgba(0, 0, 0, 0.75);
   z-index: 3;
   overflow: hidden;

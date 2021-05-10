@@ -1,26 +1,44 @@
 import React from 'react';
-import { WrapperDetails , WrapperInfo, TitlePage, ChooseAlert} from "./Details.styled";
+import {
+  WrapperDetails, WrapperInfo, TitlePage, ChooseAlert,
+} from './Details.styled';
 
 const Details = ({ details }) => {
+  const URLIMG = 'http://localhost/carendar/laravel/Carendar-LARAVEL/storage/app/public/images/avatar/';
 
-    const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
+  return (
 
-    return (
+    <WrapperDetails className='client-details'>
+      <TitlePage>Information About</TitlePage>
+      {!details ? <ChooseAlert>Choose some Person...</ChooseAlert>
+        : (
+          <WrapperInfo>
+            <img src={`${URLIMG}${details.cus_photo}`} />
+            <p>
+              <strong>Name:</strong>
+              {details.cus_name}
+            </p>
+            <p>
+              <strong>Email:</strong>
+              {details.cus_email}
+            </p>
+            <p>
+              <strong>Phone:</strong>
+              {details.cus_phone}
+            </p>
+            <p>
+              <strong>Color:</strong>
+              {details.cus_color_preference}
+            </p>
+            <p>
+              <strong>Born:</strong>
+              {details.cus_born_date}
+            </p>
 
-        <WrapperDetails>
-            <TitlePage>Information About</TitlePage>
-            {!details ? <ChooseAlert>Choose some Person...</ChooseAlert> :
-                <WrapperInfo>
-                    <img src={`${URLIMG}${details.cus_photo}`}/>
-                    <p><strong>Name:</strong>{details.cus_name}</p>
-                    <p><strong>Email:</strong>{details.cus_email}</p>
-                    <p><strong>Phone:</strong>{details.cus_phone}</p>
-                    <p><strong>Color:</strong>{details.cus_color_preference}</p>
-                    <p><strong>Born:</strong>{details.cus_born_date}</p>
-
-                </WrapperInfo>}
-        </WrapperDetails>
-    );
+          </WrapperInfo>
+        )}
+    </WrapperDetails>
+  );
 };
 
 export default Details;

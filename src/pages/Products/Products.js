@@ -7,28 +7,29 @@ import axios from '@Commons/http';
 import { getSaloonId } from '@Application/store/user/reducer';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import {
-  TitlePage, WrapperTitle, WrapperTable, WrapperServices, ButtonAdd, FlexWrapper,
-} from './Services.styled';
-import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersServices';
+  TitlePage, WrapperTitle, WrapperTable, WrapperProducts, ButtonAdd, FlexWrapper,
+} from './Products.styled';
+import { ACTIONS, reducer, inistialStateReducer } from './helpers/helpersProducts';
 import Drawer from './Drawer';
 import Table from './Table';
 import Details from './Details/Details';
 
-const inistialServices = {
-  ser_id: '',
-  ser_price: '',
-  ser_description: '',
-  ser_time: '',
+const inistialProduct = {
+  sto_id: '',
+  sto_barcode: '',
+  sto_name: '',
+  sto_pvp: '',
+  sto_amount: '',
 };
 
-const Services = () => {
-  const [theService, setService] = useState(inistialServices);
+const Products = () => {
+  const [theProduct, setProduct] = useState(inistialProduct);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [getDrawer, setShowDrawer] = useState(false);
   const [details, setDetails] = useState(null);
-  const [services, dispatch] = useReducer(reducer, inistialStateReducer);
+  const [products, dispatch] = useReducer(reducer, inistialStateReducer);
   const saloonId = useSelector(getSaloonId);
 
   useEffect(async () => {
@@ -36,10 +37,10 @@ const Services = () => {
       try {
         setLoadingSpinner(true);
         setLoadingSkeleton(true);
-        const getServices = await axios.get('services');
-        dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
+        const getProducts = await axios.get('stock');
+        dispatch({ type: ACTIONS.GET_PRODUCTS, payload: getProducts.data.stock });
       } catch (errors) {
-        error('Error al cargar los servicios');
+        error('Error al cargar los productos');
       } finally {
         setLoadingSkeleton(false);
         setLoadingSpinner(false);
@@ -50,11 +51,11 @@ const Services = () => {
   const deleteService = async (id) => {
     try {
       setLoadingSpinner(true);
-      await axios.delete(`services/${id}`);
-      dispatch({ type: ACTIONS.DELETE_SERVICES, payload: id });
-      success('Servicio eliminada correctamente');
+      await axios.delete(`stock/${id}`);
+      dispatch({ type: ACTIONS.DELETE_PRODUCTS, payload: id });
+      success('Producto eliminada correctamente');
     } catch (errors) {
-      error('Error al eliminar un servicio');
+      error('Error al eliminar un producto');
     } finally {
       setLoadingSpinner(false);
     }
@@ -64,49 +65,49 @@ const Services = () => {
     deleteService(id);
   };
 
-  const buildService = (field, { target: { value } }) => {
-    setService({ ...theService, [field]: value, sal_id: saloonId });
+  const buildProduct = (field, { target: { value } }) => {
+    setProduct({ ...theProduct, [field]: value, sal_id: saloonId });
   };
 
-  const createService = async () => {
+  const createProduct = async () => {
     try {
       setLoadingSpinner(true);
-      const newService = await axios.post('services', theService);
-      dispatch({ type: ACTIONS.POST_SERVICES, payload: newService.data.services });
-      success('Servicio creado correctamente');
+      const newProduct = await axios.post('stock', theProduct);
+      dispatch({ type: ACTIONS.POST_PRODUCTS, payload: newProduct.data.stock });
+      success('Productos creado correctamente');
       setShowDrawer(false);
     } catch (errors) {
       setShowDrawer(false);
-      error('Error al crear servicio');
+      error('Error al crear productos');
     } finally {
-      setService(inistialServices);
+      setProduct(inistialProduct);
       setLoadingSpinner(false);
     }
   };
 
-  const updateService = async () => {
+  const updateProduct = async () => {
     try {
       setLoadingSpinner(true);
-      const updatedService = await axios.put(`services/${theService.ser_id}`, theService);
-      dispatch({ type: ACTIONS.UPDATE_SERVICES, payload: { id: theService.ser_id, updatedService: updatedService.data.services } });
+      const updatedProduct = await axios.put(`stock/${theProduct.sto_id}`, theProduct);
+      dispatch({ type: ACTIONS.UPDATE_PRODUCTS, payload: { id: theProduct.sto_id, updatedService: updatedProduct.data.stock } });
       setShowDrawer(false);
-      success('Servicio Modificado correctamente');
+      success('Producto Modificado correctamente');
     } catch (errors) {
-      error('Error al Modificar servicio');
+      error('Error al Modificar producto');
     } finally {
-      setService(inistialServices);
+      setProduct(inistialProduct);
       setLoadingSpinner(false);
     }
   };
 
-  const getDetailsService = (id) => {
-    const [serviceToShow] = services.filter((service) => service.ser_id === id);
-    setDetails(serviceToShow);
+  const getDetailsProducts = (id) => {
+    const [productToShow] = products.filter((prod) => prod.sto_id === id);
+    setDetails(productToShow);
   };
 
   const showDrawerUpdate = (id) => {
-    const serviceToUpdate = services.filter((service) => service.ser_id === id)[0];
-    setService({ ...serviceToUpdate });
+    const [productToUpdate] = products.filter((prod) => prod.sto_id === id);
+    setProduct({ ...productToUpdate });
     setShowDrawer(true);
     setIsUpdating(true);
   };
@@ -120,20 +121,20 @@ const Services = () => {
   };
 
   return (
-    <FlexWrapper className='services'>
-      <WrapperServices>
+    <FlexWrapper className='products'>
+      <WrapperProducts>
         {loadingSpinner && <Spinner />}
         <WrapperTitle>
           <FontAwesomeIcon className="icon" icon="calendar-alt" />
-          <TitlePage>Servicios</TitlePage>
+          <TitlePage>Inventario/Productos</TitlePage>
         </WrapperTitle>
         <WrapperTable>
           <Table
             showDrawerUpdate={showDrawerUpdate}
             isGoingToDelete={isGoingToDelete}
-            services={services}
+            products={products}
             loadingSkeleton={loadingSkeleton}
-            getDetailsService={getDetailsService}
+            getDetailsProducts={getDetailsProducts}
           />
         </WrapperTable>
         <ButtonAdd onClick={showDrawer}>
@@ -142,16 +143,16 @@ const Services = () => {
         <Drawer
           onClose={onClose}
           getDrawer={getDrawer}
-          createService={createService}
-          updateService={updateService}
-          buildService={buildService}
+          createProduct={createProduct}
+          updateProduct={updateProduct}
+          buildProduct={buildProduct}
           isUpdating={isUpdating}
-          theService={theService}
+          theProduct={theProduct}
         />
-      </WrapperServices>
-      <Details details={details}/>
+      </WrapperProducts>
+      <Details details={details} />
     </FlexWrapper>
   );
 };
 
-export default Services;
+export default Products;
