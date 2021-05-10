@@ -51,6 +51,13 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
               </IteamMenuWrapper>
             </NavLink>
           </Tooltip>
+          <Tooltip placement="right" color={color} title={textMenu.statistics}>
+            <NavLink to="/statistics">
+              <IteamMenuWrapper background={background.statistics} onClick={() => setNavBackgroundColor('statistics')}>
+                <FontAwesomeIcon className="icon" icon="users" />
+              </IteamMenuWrapper>
+            </NavLink>
+          </Tooltip>
           <Tooltip placement="right" color={color} title={textMenu.services}>
             <NavLink to="/services">
               <IteamMenuWrapper background={background.services} onClick={() => setNavBackgroundColor('services')}>
