@@ -141,7 +141,7 @@ const CalendarDrawer = ({
                 getPopupContainer={(trigger) => trigger.parentElement}
                 showTime
                 format="DD-MM-YY HH:mm"
-                onChange={(e) => setEvent({ ...event, app_date: e._d })}
+                onChange={(e) => setEvent({ ...event, app_date: e })}
               />
 
             </Form.Item>
