@@ -72,35 +72,6 @@ const CalendarDrawer = ({
       visible={view}
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
-      footer={(
-        <div
-          style={{
-            textAlign: 'right',
-          }}
-        >
-          <Button onClick={onClose} style={{ marginRight: 8 }}>
-            Cancel
-          </Button>
-          {
-                  edit
-                    ? (
-                      <>
-                        <Button onClick={editEvent} type="primary" style={{ marginRight: 8 }}>
-                          Edit
-                        </Button>
-                        <Button onClick={deleteEvent} type="danger">
-                          Delete
-                        </Button>
-                      </>
-                    )
-                    : (
-                      <Button type="primary" onClick={postEvent}>
-                        Submit
-                      </Button>
-                    )
-                }
-        </div>
-          )}
     >
       <Form layout="vertical" hideRequiredMark>
         <Row gutter={16}>
@@ -214,6 +185,41 @@ const CalendarDrawer = ({
               />
             </Form.Item>
 
+          </Col>
+        </Row>
+        <Row>
+          <Col span={22}>
+            <Row>
+              <Col span={22}>
+                <div
+                  style={{
+                    textAlign: 'right',
+                  }}
+                >
+                  <Button onClick={onClose} style={{ marginRight: 8 }}>
+                    Cancel
+                  </Button>
+                  {
+                    edit
+                      ? (
+                        <>
+                          <Button onClick={editEvent} type="primary" style={{ marginRight: 8 }}>
+                            Edit
+                          </Button>
+                          <Button onClick={deleteEvent} type="danger">
+                            Delete
+                          </Button>
+                        </>
+                      )
+                      : (
+                        <Button type="primary" onClick={postEvent}>
+                          Submit
+                        </Button>
+                      )
+                  }
+                </div>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Form>
