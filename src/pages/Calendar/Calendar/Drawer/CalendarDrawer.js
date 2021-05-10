@@ -3,7 +3,7 @@ import {
   Button, Col, DatePicker, Drawer, Form, Row, Select,
 } from 'antd';
 import moment from 'moment';
-import { GithubPicker } from 'react-color';
+import { TwitterPicker } from 'react-color';
 import axios from '@Commons/http';
 
 const CalendarDrawer = ({
@@ -106,9 +106,9 @@ const CalendarDrawer = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
-              name={'customer'}
+              name="customer"
               label="Customer ID"
-              rules={[{required: true, message: 'Please select time!' }]}
+              rules={[{ required: true, message: 'Please select time!' }]}
             >
               <Select
                 showSearch
@@ -205,11 +205,11 @@ const CalendarDrawer = ({
             <Form.Item
               label="color"
             >
-              <GithubPicker
+              <TwitterPicker
                 colors={['#6B5091', '#896EAF', '#947BB7', '#9F89BE', '#947BB8', '#9F89BF', '#A996C5',
                   '#DE5476', '#E26584', '#E57692', '#E8879F', '#EB98AD', '#EEAABB', '#F2BBC9']}
+                color={event.color}
                 triangle="hide"
-                width="190px"
                 onChangeComplete={(e) => setEvent({ ...event, color: e.hex })}
               />
             </Form.Item>
