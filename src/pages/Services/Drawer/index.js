@@ -8,7 +8,7 @@ const DrawerServices = ({
   onClose, getDrawer, createService, updateService, buildService, isUpdating, theService,
 }) => {
   const onFinish = () => {
-    if (!isUpdating) {
+    if (isUpdating) {
       createService();
     } else {
       updateService();
