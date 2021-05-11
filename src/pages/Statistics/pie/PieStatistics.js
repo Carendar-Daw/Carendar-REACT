@@ -1,14 +1,15 @@
-import React from 'react';
+import React  from 'react';
 import { Pie } from 'react-chartjs-2';
 import { WrapperPie } from './PieStatistics.styled';
 
 const PieStatistics = ({ servicesByAppointment }) => {
+
   const data = {
-    labels: ['aa'],
+    labels: servicesByAppointment ? servicesByAppointment.labels : ['aa'],
     datasets: [
       {
         label: '# of Votes',
-        data: [1],
+        data: servicesByAppointment ? servicesByAppointment.data : [1],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -34,14 +35,6 @@ const PieStatistics = ({ servicesByAppointment }) => {
     <WrapperPie>
       <div className='header'>
         <h1 className='title'>Pie Chart</h1>
-        <div className='links'>
-          <a
-            className='btn btn-gh'
-            href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Pie.js'
-          >
-            Github Source
-          </a>
-        </div>
       </div>
       <Pie data={data} />
     </WrapperPie>

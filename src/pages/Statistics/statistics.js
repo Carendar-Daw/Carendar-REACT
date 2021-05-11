@@ -9,15 +9,15 @@ import VerticalBar from './verticalStatistics/VerticalStatistics';
 const dateFormat = 'YYYY/MM/DD HH:mm:ss';
 
 const Statistics = () => {
-  const [servicesByAppointment, setServicesByAppointment] = useState(false);
+  const [servicesByAppointment, setServicesByAppointment] = useState(null);
   const { RangePicker } = DatePicker;
 
   const handleDateRange = async (dateString) => {
-    console.log(dateString);
     const services = await axios.post('http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api/statistics', { minTime: dateString[0], maxTime: dateString[1] });
-    console.log(services.data.servicesPie);
-    setServicesByAppointment(services.data.servicesPie);
-    console.log(servicesByAppointment.map(ser => ser.ser_description));
+    setServicesByAppointment({
+      labels: services.data.servicesPie.map(ser => ser.ser_description),
+      data: services.data.servicesPie.map(ser => ser.numTotal),
+    });
   };
 
   return (

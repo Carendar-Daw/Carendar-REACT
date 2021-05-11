@@ -5,8 +5,11 @@ import { CardApp } from '@Commons/components/domain/Styles/Style.styled';
 export const WrapperStatistics = styled.div`
     padding-top: 10px;
     margin: auto;
-    padding: 40px;
+    
     box-sizing: border-box;
+    @media ${device.tablet} {
+      padding: 20px;
+    }
 `;
 
 export const FlexWrapper = styled.div`
