@@ -4,7 +4,6 @@ import { device } from '@Commons/styles/breakpoints';
 export const WrapperCash = styled.div`
   background-color: white;
   width: 100vw;
-  padding: 20px;
   box-sizing: border-box;
   @media ${device.tablet} {
     width: calc(100vw - 50px);
@@ -24,3 +23,7 @@ export const WrapperOptions = styled.section`
   background-color: white;
 `;
 
+export const WrapperComponents = styled.section`
+  display: flex;
+  height: calc(100vh - 50px);
+`;
