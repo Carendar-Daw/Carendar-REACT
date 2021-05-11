@@ -21,7 +21,7 @@ const Calendarapp = ({
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
   const [event, setEvent] = useState({
     state: 'Aprobado',
-    services: [],
+    services: null,
   });
 
   const postAppointment = async () => {
@@ -41,7 +41,6 @@ const Calendarapp = ({
   const putAppointment = async () => {
     const d = event.app_date;
     d.add(2, 'hours');
-    console.log(event)
     const appointment = {
       cus_id: event.cus_id,
       app_date: d,
@@ -49,7 +48,7 @@ const Calendarapp = ({
       app_services: event.services,
       app_color: event.color,
     };
-   // await axios.put(`/appointment/${info.event.id}`, appointment);
+    await axios.put(`/appointment/${info.event.id}`, appointment);
   };
 
   const showDrawer = (selectInfo) => {
@@ -128,7 +127,6 @@ const Calendarapp = ({
           selectMirror
           dayMaxEvents
           allDaySlot={false}
-         // eventMouseEnter={(e)=>alert(e.event.extendedProps.customer.cus_name)}
           select={showDrawer}
           eventClick={loadAppointment}
           aspectRatio={aspectRatio}

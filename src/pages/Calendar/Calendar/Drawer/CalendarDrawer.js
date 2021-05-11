@@ -60,6 +60,13 @@ const CalendarDrawer = ({
       }
     });
   };
+  const onFinish = () => {
+    if (!edit) {
+      postEvent();
+    } else {
+      editEvent();
+    }
+  };
   return (
     <Drawer
       title={
@@ -73,27 +80,37 @@ const CalendarDrawer = ({
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
     >
-      <Form layout="vertical" hideRequiredMark>
+      <Form
+        layout="vertical"
+        hideRequiredMark
+        onFinish={onFinish}
+        initialValues={{
+          'date-picker': event.app_date
+            ? moment(event.app_date)
+            : moment(info.startStr),
+          customer: event.cus_id ? event.cus_id : null,
+          services: event.services
+            ? loadDefaultServices()
+            : [],
+        }}
+      >
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
               name="customer"
               label="Customer ID"
+              hasFeedback
               rules={[{ required: true, message: 'Please select time!' }]}
             >
               <Select
                 showSearch
-                style={{ width: 200 }}
                 placeholder="Select a person"
                 optionFilterProp="children"
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 onChange={(e) => setEvent({ ...event, cus_id: e })}
-                defaultValue={event.cus_id ? event.cus_id : null}
               >
                 {loadCustomers()}
               </Select>
-              {' '}
-
             </Form.Item>
           </Col>
         </Row>
@@ -102,21 +119,15 @@ const CalendarDrawer = ({
             <Form.Item
               name="date-picker"
               label="Cita date"
+              hasFeedback
               rules={[
                 {
-                  type: 'object',
                   required: true,
                   message: 'Please select time!',
                 },
               ]}
             >
               <DatePicker
-                defaultValue={
-                      event.app_date
-                        ? moment(event.app_date)
-                        : moment(info.startStr)
-
-                    }
                 style={{ width: '100%' }}
                 getPopupContainer={(trigger) => trigger.parentElement}
                 showTime
@@ -152,7 +163,9 @@ const CalendarDrawer = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
+              name="services"
               label="Servicios"
+              rules={[{ required: true, message: 'Please select atleast one service', type: 'array' }]}
             >
               <Select
                 showSearch
@@ -160,9 +173,6 @@ const CalendarDrawer = ({
                 allowClear
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 style={{ width: '100%' }}
-                defaultValue={event.services
-                  ? loadDefaultServices()
-                  : null}
                 placeholder="Please select"
                 onChange={(value) => setEvent({ ...event, services: value })}
               >
@@ -203,7 +213,7 @@ const CalendarDrawer = ({
                     edit
                       ? (
                         <>
-                          <Button onClick={editEvent} type="primary" style={{ marginRight: 8 }}>
+                          <Button type="primary" style={{ marginRight: 8 }} htmlType="submit">
                             Edit
                           </Button>
                           <Button onClick={deleteEvent} type="danger">
@@ -212,7 +222,7 @@ const CalendarDrawer = ({
                         </>
                       )
                       : (
-                        <Button type="primary" onClick={postEvent}>
+                        <Button type="primary" htmlType="submit">
                           Submit
                         </Button>
                       )
