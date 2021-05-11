@@ -96,37 +96,14 @@ const Calendarapp = ({
   const statePopover = (ev) => (
     <span>{ev.event.extendedProps.state}</span>
   );
-  const appointmentPopover = () => {
-    let text = [];
-    if (event.service) {
-      const allServices = Object.values(event.service);
-      const servicesInAppointment = services.filter((ele) => allServices.map((e) => e.ser_id).includes(ele.ser_id));
-      text = servicesInAppointment.map((ser) => ser.ser_description);
-    }
-    return (
-      <>
-        {
-          text.map((ser) => (
-            <p key={ser}>{ser}</p>
-          ))
-        }
-      </>
-    );
-  };
-  const loadDetail = async (ev) => {
-    const resServices = await axios.get(`/services/${ev.event.id}`);
-    setEvent({ ...event, service: resServices.data.service });
-  };
   const renderEventContent = (ev) => (
     <>
       <Popover content={statePopover(ev)}>
         <Badge color={states[ev.event.extendedProps.state]} />
       </Popover>
-      <Popover content={appointmentPopover}>
-        <span onMouseOver={() => loadDetail(ev)}>
-          {` ${ev.timeText} I ${ev.event.extendedProps.customer.cus_name}`}
-        </span>
-      </Popover>
+      <span>
+        {` ${ev.timeText} I ${ev.event.extendedProps.customer.cus_name}`}
+      </span>
     </>
   );
   return (
@@ -149,7 +126,6 @@ const Calendarapp = ({
           selectMirror
           dayMaxEvents
           allDaySlot={false}
-         // eventMouseEnter={(e)=>alert(e.event.extendedProps.customer.cus_name)}
           select={showDrawer}
           eventClick={loadAppointment}
           aspectRatio={aspectRatio}
