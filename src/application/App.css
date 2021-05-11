@@ -13,3 +13,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: #8265A7;
 }
+button {
+    outline: none;
+}
