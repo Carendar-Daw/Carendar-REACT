@@ -103,7 +103,7 @@ const Calendarapp = ({
         <Badge color={states[ev.event.extendedProps.state]} />
       </Popover>
       <span>
-        {` ${ev.timeText} I ${ev.event.extendedProps.customer.cus_name}`}
+        {` ${ev.timeText} I ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
       </span>
     </>
   );
