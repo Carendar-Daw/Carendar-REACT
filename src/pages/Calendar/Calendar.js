@@ -25,7 +25,7 @@ const Calendar = () => {
         customer: { cus_id: app.cus_id, cus_name: app.cus_name },
         start: app.app_date,
         end: moment(app.app_date).add(app.app_time, 'minutes')._d,
-        color: `${app.app_color}E6`,
+        color: `${app.app_color}`,
         services: [],
       };
       allEvents.push(event);
