@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { CardApp } from '@Commons/components/domain/Styles/Style.styled';
 import { device } from '@Commons/styles/breakpoints';
 
-export const WrapperPie = styled(CardApp)`
+export const WrapperVerticalBar = styled(CardApp)`
   width: 90% !important;
   margin: 30px auto 20px;
   box-sizing: border-box;
@@ -11,7 +11,7 @@ export const WrapperPie = styled(CardApp)`
   @media ${device.tablet} {
     margin-top: 30px;
     margin-left: 20px;
-    width: 40% !important;
+    width: 60% !important;
 
   }
 `;
