@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import Landing from '@Pages/Landing/Landing';
 import Calendar from '@Pages/Calendar/Calendar';
 import Services from '@Pages/Services/Services';
@@ -14,8 +15,10 @@ import ProtectedRoute from '@Application/components/ProtectedRoute/ProtectedRout
 import Spinner from '@Commons/components/presentational/Spinner/SpinnerPage';
 import useAuth from '../../hooks/use-auth';
 
+
 const RoutesApp = () => {
   const [ready, verified] = useAuth();
+  const { logout } = useAuth0();
 
   return (
     <Router>
@@ -32,7 +35,7 @@ const RoutesApp = () => {
             <ProtectedRoute path="/cash" component={Cash} layout={Header} />
             <ProtectedRoute path="/configuration" component={Configuration} layout={Header} />
           </Switch>
-        ) : !verified ? <h1>verifica tu cuenta, sino no puedes entrar :v</h1> : <Spinner /> }
+        ) : !verified ? <h1 onClick={() => logout()}>verifica tu cuenta, sino no puedes entrar :v</h1> : <Spinner /> }
       </Switch>
     </Router>
   );
