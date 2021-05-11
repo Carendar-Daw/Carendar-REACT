@@ -3,7 +3,7 @@ import {
   Button, Col, DatePicker, Drawer, Form, Row, Select,
 } from 'antd';
 import moment from 'moment';
-import { GithubPicker } from 'react-color';
+import { TwitterPicker } from 'react-color';
 import axios from '@Commons/http';
 
 const CalendarDrawer = ({
@@ -60,6 +60,13 @@ const CalendarDrawer = ({
       }
     });
   };
+  const onFinish = () => {
+    if (!edit) {
+      postEvent();
+    } else {
+      editEvent();
+    }
+  };
   return (
     <Drawer
       title={
@@ -72,57 +79,38 @@ const CalendarDrawer = ({
       visible={view}
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
-      footer={(
-        <div
-          style={{
-            textAlign: 'right',
-          }}
-        >
-          <Button onClick={onClose} style={{ marginRight: 8 }}>
-            Cancel
-          </Button>
-          {
-                  edit
-                    ? (
-                      <>
-                        <Button onClick={editEvent} type="primary" style={{ marginRight: 8 }}>
-                          Edit
-                        </Button>
-                        <Button onClick={deleteEvent} type="danger">
-                          Delete
-                        </Button>
-                      </>
-                    )
-                    : (
-                      <Button type="primary" onClick={postEvent}>
-                        Submit
-                      </Button>
-                    )
-                }
-        </div>
-          )}
     >
-      <Form layout="vertical" hideRequiredMark>
+      <Form
+        layout="vertical"
+        hideRequiredMark
+        onFinish={onFinish}
+        initialValues={{
+          'date-picker': event.app_date
+            ? moment(event.app_date)
+            : moment(info.startStr),
+          customer: event.cus_id ? event.cus_id : null,
+          services: event.services
+            ? loadDefaultServices()
+            : [],
+        }}
+      >
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
-              name={'customer'}
+              name="customer"
               label="Customer ID"
-              rules={[{required: true, message: 'Please select time!' }]}
+              hasFeedback
+              rules={[{ required: true, message: 'Please select time!' }]}
             >
               <Select
                 showSearch
-                style={{ width: 200 }}
                 placeholder="Select a person"
                 optionFilterProp="children"
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 onChange={(e) => setEvent({ ...event, cus_id: e })}
-                defaultValue={event.cus_id ? event.cus_id : null}
               >
                 {loadCustomers()}
               </Select>
-              {' '}
-
             </Form.Item>
           </Col>
         </Row>
@@ -131,21 +119,15 @@ const CalendarDrawer = ({
             <Form.Item
               name="date-picker"
               label="Cita date"
+              hasFeedback
               rules={[
                 {
-                  type: 'object',
                   required: true,
                   message: 'Please select time!',
                 },
               ]}
             >
               <DatePicker
-                defaultValue={
-                      event.app_date
-                        ? moment(event.app_date)
-                        : moment(info.startStr)
-
-                    }
                 style={{ width: '100%' }}
                 getPopupContainer={(trigger) => trigger.parentElement}
                 showTime
@@ -181,7 +163,9 @@ const CalendarDrawer = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
+              name="services"
               label="Servicios"
+              rules={[{ required: true, message: 'Please select atleast one service', type: 'array' }]}
             >
               <Select
                 showSearch
@@ -189,9 +173,6 @@ const CalendarDrawer = ({
                 allowClear
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 style={{ width: '100%' }}
-                defaultValue={event.services
-                  ? loadDefaultServices()
-                  : null}
                 placeholder="Please select"
                 onChange={(value) => setEvent({ ...event, services: value })}
               >
@@ -205,15 +186,50 @@ const CalendarDrawer = ({
             <Form.Item
               label="color"
             >
-              <GithubPicker
+              <TwitterPicker
                 colors={['#6B5091', '#896EAF', '#947BB7', '#9F89BE', '#947BB8', '#9F89BF', '#A996C5',
                   '#DE5476', '#E26584', '#E57692', '#E8879F', '#EB98AD', '#EEAABB', '#F2BBC9']}
+                color={event.color ? event.color : setEvent({ ...event, color: '#6B5091' })}
                 triangle="hide"
-                width="190px"
                 onChangeComplete={(e) => setEvent({ ...event, color: e.hex })}
               />
             </Form.Item>
 
+          </Col>
+        </Row>
+        <Row>
+          <Col span={22}>
+            <Row>
+              <Col span={22}>
+                <div
+                  style={{
+                    textAlign: 'right',
+                  }}
+                >
+                  <Button onClick={onClose} style={{ marginRight: 8 }}>
+                    Cancel
+                  </Button>
+                  {
+                    edit
+                      ? (
+                        <>
+                          <Button type="primary" style={{ marginRight: 8 }} htmlType="submit">
+                            Edit
+                          </Button>
+                          <Button onClick={deleteEvent} type="danger">
+                            Delete
+                          </Button>
+                        </>
+                      )
+                      : (
+                        <Button type="primary" htmlType="submit">
+                          Submit
+                        </Button>
+                      )
+                  }
+                </div>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Form>

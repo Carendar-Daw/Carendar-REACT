@@ -21,7 +21,7 @@ const Calendarapp = ({
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
   const [event, setEvent] = useState({
     state: 'Aprobado',
-    services: [],
+    services: null,
   });
 
   const postAppointment = async () => {
@@ -89,6 +89,7 @@ const Calendarapp = ({
       cus_name: selectInfo.event.extendedProps.customer.cus_name,
       services: servicesInAppointment.map((ele) => ele.ser_id),
       app_date: moment(selectInfo.event.startStr),
+      color: selectInfo.event.backgroundColor,
     });
     isEdit(true);
     setView(true);
