@@ -189,7 +189,7 @@ const CalendarDrawer = ({
               <TwitterPicker
                 colors={['#6B5091', '#896EAF', '#947BB7', '#9F89BE', '#947BB8', '#9F89BF', '#A996C5',
                   '#DE5476', '#E26584', '#E57692', '#E8879F', '#EB98AD', '#EEAABB', '#F2BBC9']}
-                color={event.color}
+                color={event.color ? event.color : setEvent({ ...event, color: '#6B5091' })}
                 triangle="hide"
                 onChangeComplete={(e) => setEvent({ ...event, color: e.hex })}
               />
