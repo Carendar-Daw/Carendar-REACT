@@ -1,24 +1,27 @@
-import React from 'react';
+import React , {useContext} from 'react';
 import { useSelector } from 'react-redux';
 import { Popover } from 'antd';
 import { getSaloonPicture } from '@Application/store/user/reducer';
 import {
   ContentPopOver, Hamb, TourText, UserData, UserPicture, WrapperNavTop, Logout, HeaderTop,
 } from './Topbar.styled';
-
+import { I18nContext } from '@Application/lang/language';
 const Topbar = ({
   hamburgerClick, hamburger, logout, setIsTourOpen,
 }) => {
+
+  const { messages, language } = useContext(I18nContext);
+
   const saloonPicture = useSelector(getSaloonPicture);
 
   const doTourAgain = () => {
     setIsTourOpen(true);
   };
 
-  const contentSettigns = (
+  const contentSettings = (
     <div>
-      <TourText onClick={doTourAgain}>Do tour again!</TourText>
-      <Logout onClick={() => logout({ returnTo: window.location.origin })}>Logout</Logout>
+      <TourText onClick={doTourAgain}>{messages[language].Dashboard.Tour}</TourText>
+      <Logout onClick={() => logout({ returnTo: window.location.origin })}>{messages[language].Dashboard.Logout}</Logout>
     </div>
   );
 
@@ -31,7 +34,7 @@ const Topbar = ({
           <span />
         </Hamb>
         <UserData className="logout">
-          <Popover content={contentSettigns} title="Settings" trigger="click" className="popover">
+          <Popover content={contentSettings} title={messages[language].Dashboard.Settings} trigger="click" className="popover">
             <ContentPopOver>
               <UserPicture src={saloonPicture} />
             </ContentPopOver>

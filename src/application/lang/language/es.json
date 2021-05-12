@@ -37,5 +37,15 @@
 "Privacy": "Política de privacidad",
 "Support": "Ayuda",
 "Conditions": "Condiciones de uso" 
-}
+},
+"Dashboard" :{
+  "Calendar": "Calendario",
+  "Services": "Servicios",
+  "Clients": "Clientes",
+  "Cash": "Caja registradora" ,
+  "Settings": "Configuración" ,
+  "Products": "Productos",
+  "Tour": "Haz el tour de nuevo",
+  "Logout": "Cerrar sesión"
+  }
 }

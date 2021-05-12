@@ -34,5 +34,18 @@
     "Privacy": "Política de privacitat",
     "Support": "Ajuda",
     "Conditions": "Condicions d'ús" 
-    }
+    },
+
+    "Dashboard" :{
+      "Dashboard": "Pàgina principal",
+      "Calendar": "Calendari",
+      "Services": "Serveis",
+      "Clients": "Clients",
+      "Cash": "Caixa registradora" ,
+      "Settings": "Configuració" ,
+      "Products": "Productes",
+      "Tour": "Fés el tour de nou",
+      "Logout": "Tancar sessió"
+      }
+
   }

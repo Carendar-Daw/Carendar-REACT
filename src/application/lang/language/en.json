@@ -36,5 +36,15 @@
   "Privacy": "Privacy politics",
   "Support": "Support",
   "Conditions": "Use Conditions" 
-  }
+  },
+  "Dashboard" :{
+    "Calendar": "Calendar",
+    "Services": "Services",
+    "Clients": "Clients",
+    "Cash": "Cash" ,
+    "Settings": "Settings" ,
+    "Products": "Products",
+    "Tour": "Tour",
+    "Logout": "Logout"
+    }
 }
