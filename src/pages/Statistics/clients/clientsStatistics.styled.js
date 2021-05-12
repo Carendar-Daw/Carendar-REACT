@@ -7,11 +7,12 @@ export const WrapperPie = styled(CardApp)`
   margin: 30px auto 20px;
   box-sizing: border-box;
   padding: 20px;
-  
+
   @media ${device.tablet} {
     margin-top: 30px;
     margin-left: 20px;
     width: 40% !important;
+
   }
 `;
 
@@ -20,14 +21,8 @@ export const Title = styled.h1`
   font-weight: 500;
 `;
 
-export const ImgEmpty = styled.img`
-  width: 70%;
-  display: block;
-  margin: auto;
-  margin-top: 20px;
-`;
-
 export const SubTitle = styled.p`
   color: gray;
   font-weight: 300;
 `;
+

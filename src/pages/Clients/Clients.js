@@ -164,9 +164,7 @@ const Clients = () => {
               getHistoryCustomer={getHistoryCustomer}
             />
           </WrapperTable>
-          <ButtonAdd onClick={showDrawer}>
-            <PlusOutlined className="buttonAdd" />
-          </ButtonAdd>
+
           <Drawer
             onClose={onClose}
             getDrawer={getDrawer}
@@ -185,6 +183,9 @@ const Clients = () => {
         </WrapperHistory>
       </WrapperSection>
       <Details details={details} />
+      <ButtonAdd onClick={showDrawer}>
+        <PlusOutlined className="buttonAdd" />
+      </ButtonAdd>
     </FlexWrapper>
   );
 };
