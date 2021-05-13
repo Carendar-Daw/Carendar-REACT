@@ -23,7 +23,7 @@ const Statistics = () => {
         setServicesByAppointment(false);
         setClients(null);
         setLoadingSpinner(true);
-        const statistics = await axios.post('http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api/statistics', { minTime: dateString[0], maxTime: dateString[1] });
+        const statistics = await axios.post('statistics', { minTime: dateString[0], maxTime: dateString[1] });
         if (statistics.data.servicesPie.length !== 0) {
           setServicesByAppointment({
             labels: statistics.data.servicesPie.map((service) => service.ser_description),

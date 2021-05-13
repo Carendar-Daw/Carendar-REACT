@@ -7,7 +7,8 @@
   },
 
   "Main" : {
-  "Title": "Hacemos crecer tu negocio con nuestro software de gestión",
+  "Title": "Plataforma todo en uno",
+  "SubTitle": "Carendar automatiza desde la agenda y visitas hasta estadisticas y control de stock.",
   "Calendario" : "Calendario",
   "Cal_Info_1" : "Gestiona las citas de tus clientes con nuestro intuitivo calendario",
   "Cal_Info_2" : "Muy sencillo y cómodo",
@@ -25,9 +26,9 @@
 },
 
 "Section": {
-  "Title_Left" : "Calendario de citas",
-  "Subtitle_Left" : "Tu calendario de citas más sencillo y eficiente que nunca",
-  "Subtitle_Left_2": "Gestiona tu tiempo de forma eficaz y se adapta a los horarios de tu empresa",
+  "Title_Left" : "Agenda",
+  "Subtitle_Left" : "Gestiona las citas fácilmente",
+  "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
   "Title_Right": "Gestión de inventario y caja",
   "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
   
