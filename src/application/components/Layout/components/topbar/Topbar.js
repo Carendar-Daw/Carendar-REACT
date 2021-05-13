@@ -1,15 +1,15 @@
-import React , {useContext} from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { Popover } from 'antd';
 import { getSaloonPicture } from '@Application/store/user/reducer';
+import { I18nContext } from '@Application/lang/language';
 import {
   ContentPopOver, Hamb, TourText, UserData, UserPicture, WrapperNavTop, Logout, HeaderTop,
 } from './Topbar.styled';
-import { I18nContext } from '@Application/lang/language';
+
 const Topbar = ({
   hamburgerClick, hamburger, logout, setIsTourOpen,
 }) => {
-
   const { messages, language } = useContext(I18nContext);
 
   const saloonPicture = useSelector(getSaloonPicture);

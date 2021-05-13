@@ -46,5 +46,22 @@
     "Products": "Products",
     "Tour": "Tour",
     "Logout": "Logout"
-    }
+    },
+
+    "Stock" :{
+      "Title": "Stock/Products",
+      "Name": "Name",
+      "Barcode": "Barcode",
+      "PVP": "PVP",
+      "Amount": "Amount" ,
+      "Action": "Action" ,
+      "Edit": "Edit",
+      "ShowDetails": "Show details",
+      "InfoAbout": "Information about",
+      "ChooseProduct": "Choose some products...",
+      "Create": "Create a new product",
+      "Cancel": "Cancel",
+      "Submit": "Submit"
+      }
+
 }

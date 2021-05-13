@@ -47,5 +47,22 @@
   "Products": "Productos",
   "Tour": "Haz el tour de nuevo",
   "Logout": "Cerrar sesión"
-  }
+  },
+
+  "Stock" :{
+    "Title": "Inventario/Productos",
+    "Name": "Nombre:",
+    "Barcode": "Código de barras",
+    "PVP": "PVP",
+    "Amount": "Cantidad" ,
+    "Action": "Acción" ,
+    "Edit": "Editar",
+    "ShowDetails": "Muestra detalles",
+    "InfoAbout": "Información",
+    "ChooseProduct": "Escoge algún producto...",
+    "Create": "Crea un nuevo producto",
+    "Cancel": "Cancelar",
+    "Submit": "Añadir"
+    }
+
 }

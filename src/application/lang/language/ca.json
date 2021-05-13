@@ -46,6 +46,22 @@
       "Products": "Productes",
       "Tour": "Fés el tour de nou",
       "Logout": "Tancar sessió"
-      }
+      },
+
+      "Stock" :{
+        "Title": "Inventari/Productes",
+        "Name": "Nom",
+        "Barcode": "Codi de barres",
+        "PVP": "PVP",
+        "Amount": "Quantitat" ,
+        "Action": "Acció" ,
+        "Edit": "Editar",
+        "ShowDetails": "Mostra detalls",
+        "InfoAbout": "Informació",
+        "ChooseProduct": "Escull algun producte...",
+        "Create": "Crea un nou producte",
+        "Cancel": "Cancelar",
+        "Submit": "Afegir"
+        }
 
   }

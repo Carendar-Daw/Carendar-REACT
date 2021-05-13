@@ -3,11 +3,11 @@ import { Tooltip } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '@Assets/images/logos/logo-carendar.png';
+import { I18nContext } from '@Application/lang/language';
 import {
-  HeaderLeft, IteamMenuWrapper, Logo, LogoImg, WrapperMenu
+  HeaderLeft, IteamMenuWrapper, Logo, LogoImg, WrapperMenu,
 } from './Sidebar.styled';
 import { color } from './config';
-import { I18nContext } from '@Application/lang/language';
 
 const Sidebar = ({ hamburger, setBackgorund, background }) => {
   const { messages, language } = useContext(I18nContext);

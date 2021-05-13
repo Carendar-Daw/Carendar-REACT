@@ -1,4 +1,6 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, {
+  useReducer, useState, useEffect, useContext,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,6 +8,7 @@ import { success, error } from '@Commons/components/presentational/MessagesApp/M
 import axios from '@Commons/http';
 import { getSaloonId } from '@Application/store/user/reducer';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
+import { I18nContext } from '@Application/lang/language';
 import {
   TitlePage, WrapperTitle, WrapperTable, WrapperProducts, ButtonAdd, FlexWrapper,
 } from './Products.styled';
@@ -23,6 +26,7 @@ const inistialProduct = {
 };
 
 const Products = () => {
+  const { messages, language } = useContext(I18nContext);
   const [theProduct, setProduct] = useState(inistialProduct);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
@@ -121,12 +125,12 @@ const Products = () => {
   };
 
   return (
-    <FlexWrapper className='products'>
+    <FlexWrapper className="products">
       <WrapperProducts>
         {loadingSpinner && <Spinner />}
         <WrapperTitle>
           <FontAwesomeIcon className="icon" icon="calendar-alt" />
-          <TitlePage>Inventario/Productos</TitlePage>
+          <TitlePage>{messages[language].Stock.Title}</TitlePage>
         </WrapperTitle>
         <WrapperTable>
           <Table
