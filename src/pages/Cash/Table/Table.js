@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import axios from '@Commons/http';
 import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const columns = [
   {
@@ -31,6 +32,14 @@ const columns = [
   {
     title: 'Services',
     dataIndex: 'services',
+  },
+  {
+    title: 'Cobrar',
+    dataIndex: 'payment',
+    align: 'center',
+    render: (appointment) => (
+      <FontAwesomeIcon onClick={() => console.log(appointment)} className="icon" icon="shopping-cart" />
+    ),
   },
 ];
 
@@ -62,7 +71,6 @@ const TableCash = () => {
     const allEvents = [];
     const response = await axios.get('/appointment/cash');
     const allAppointments = hasServices(response.data.appointments);
-    console.log(allAppointments);
     allAppointments.forEach((app) => {
       const event = {
         key: app.app_id,
@@ -71,6 +79,7 @@ const TableCash = () => {
         price: app.ser_price,
         date: app.app_date,
         services: app.ser_description,
+        payment: app,
       };
       allEvents.push(event);
     });
