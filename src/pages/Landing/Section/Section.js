@@ -19,7 +19,7 @@ const Section = () => {
           <img src={image} alt="" />
         </WrapperImg>
       </Card>
-      <Card reverse>
+      <Card reverse={true}>
         <WrapperText>
           <Title>{messages[language].Section.Title_Right}</Title>
           <SubTitle>{messages[language].Section.Subtitle_Right}</SubTitle>

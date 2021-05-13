@@ -54,7 +54,7 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
           <Tooltip placement="right" color={color} title={textMenu.statistics}>
             <NavLink to="/statistics">
               <IteamMenuWrapper background={background.statistics} onClick={() => setNavBackgroundColor('statistics')}>
-                <FontAwesomeIcon className="icon" icon="users" />
+                <FontAwesomeIcon className="icon" icon="chart-pie" />
               </IteamMenuWrapper>
             </NavLink>
           </Tooltip>
@@ -68,7 +68,7 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
           <Tooltip placement="right" color={color} title={textMenu.products}>
             <NavLink to="/products">
               <IteamMenuWrapper background={background.products} onClick={() => setNavBackgroundColor('products')}>
-                <FontAwesomeIcon className="icon" icon="cut" />
+                <FontAwesomeIcon className="icon" icon="box" />
               </IteamMenuWrapper>
             </NavLink>
           </Tooltip>

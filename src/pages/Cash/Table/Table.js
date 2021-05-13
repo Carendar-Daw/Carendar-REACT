@@ -1,53 +1,91 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
+import axios from '@Commons/http';
+import moment from 'moment';
 
 const columns = [
   {
-    title: 'Name',
-    dataIndex: 'name',
+    title: 'PK',
+    dataIndex: 'key',
     render: (text) => <a>{text}</a>,
   },
   {
-    title: 'Cash Assets',
-    className: 'column-money',
-    dataIndex: 'money',
+    title: 'Status',
+    dataIndex: 'status',
+    render: (text) => <a>{text}</a>,
+  },
+  {
+    title: 'Customer',
+    className: 'customer',
+    dataIndex: 'customer',
     align: 'right',
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
+    title: 'Price',
+    dataIndex: 'price',
+  },
+  {
+    title: 'Date',
+    dataIndex: 'date',
+  },
+  {
+    title: 'Services',
+    dataIndex: 'services',
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    money: '￥300,000.00',
-    address: 'New York No. 1 Lake Park',
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    money: '￥1,256,000.00',
-    address: 'London No. 1 Lake Park',
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    money: '￥120,000.00',
-    address: 'Sidney No. 1 Lake Park',
-  },
-];
+const TableCash = () => {
+  const [appointments, setAppointments] = useState([]);
 
-const TableCash = () => (
-  <Table
-    columns={columns}
-    dataSource={data}
-    bordered
-    title={() => 'Header'}
-    footer={() => 'Footer'}
-  />
-);
+  const hasServices = (app) => {
+    const sad = app.map((appointment) => {
+      const x = app.filter((a) => a.app_id === appointment.app_id);
+      if (x.length > 1) {
+        const ayuda = { ...x[0] };
+        x.forEach((ele, index) => {
+          if (index !== 0) {
+            ayuda.ser_description = `${ayuda.ser_description}, ${ele.ser_description}`;
+            ayuda.ser_price += ele.ser_price;
+          }
+        });
+        return ayuda;
+      }
+      return appointment;
+    });
+
+    return sad.filter(
+      (v, i, a) => a.findIndex((t) => t.app_id === v.app_id) === i,
+    );
+  };
+
+  useEffect(async () => {
+    const allEvents = [];
+    const response = await axios.get('/appointment/cash');
+    const allAppointments = hasServices(response.data.appointments);
+    console.log(allAppointments);
+    allAppointments.forEach((app) => {
+      const event = {
+        key: app.app_id,
+        status: app.app_state,
+        customer: app.cus_name,
+        price: app.ser_price,
+        date: app.app_date,
+        services: app.ser_description,
+      };
+      allEvents.push(event);
+    });
+    setAppointments(allEvents);
+  }, []);
+
+  return (
+    <Table
+      columns={columns}
+      dataSource={appointments}
+      bordered
+      title={() => 'Header'}
+      footer={() => 'Footer'}
+    />
+  );
+};
 
 export default TableCash;

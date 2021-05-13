@@ -11,6 +11,8 @@ import {
   faCog,
   faCashRegister,
   faTrash,
+  faBox,
+  faChartPie
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -25,4 +27,6 @@ library.add(
     faCog,
     faCashRegister,
     faTrash,
+    faBox,
+    faChartPie
 );

@@ -21,7 +21,7 @@ const Calendarapp = ({
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
   const [event, setEvent] = useState({
     state: 'Aprobado',
-    services: [],
+    services: null,
   });
 
   const postAppointment = async () => {
@@ -89,6 +89,7 @@ const Calendarapp = ({
       cus_name: selectInfo.event.extendedProps.customer.cus_name,
       services: servicesInAppointment.map((ele) => ele.ser_id),
       app_date: moment(selectInfo.event.startStr),
+      color: selectInfo.event.backgroundColor,
     });
     isEdit(true);
     setView(true);
@@ -96,41 +97,18 @@ const Calendarapp = ({
   const statePopover = (ev) => (
     <span>{ev.event.extendedProps.state}</span>
   );
-  const appointmentPopover = () => {
-    let text = [];
-    if (event.service) {
-      const allServices = Object.values(event.service);
-      const servicesInAppointment = services.filter((ele) => allServices.map((e) => e.ser_id).includes(ele.ser_id));
-      text = servicesInAppointment.map((ser) => ser.ser_description);
-    }
-    return (
-      <>
-        {
-          text.map((ser) => (
-            <p key={ser}>{ser}</p>
-          ))
-        }
-      </>
-    );
-  };
-  const loadDetail = async (ev) => {
-    const resServices = await axios.get(`/services/${ev.event.id}`);
-    setEvent({ ...event, service: resServices.data.service });
-  };
   const renderEventContent = (ev) => (
     <>
       <Popover content={statePopover(ev)}>
         <Badge color={states[ev.event.extendedProps.state]} />
       </Popover>
-      <Popover content={appointmentPopover}>
-        <span onMouseOver={() => loadDetail(ev)}>
-          {` ${ev.timeText} I ${ev.event.extendedProps.customer.cus_name}`}
-        </span>
-      </Popover>
+      <span>
+        {` ${ev.timeText} I ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
+      </span>
     </>
   );
   return (
-    <>
+    <WrapperCalendarApp>
       <Container>
         <FullCalendar
           locale={esLocale}
@@ -149,7 +127,6 @@ const Calendarapp = ({
           selectMirror
           dayMaxEvents
           allDaySlot={false}
-         // eventMouseEnter={(e)=>alert(e.event.extendedProps.customer.cus_name)}
           select={showDrawer}
           eventClick={loadAppointment}
           aspectRatio={aspectRatio}
@@ -176,7 +153,7 @@ const Calendarapp = ({
         putAppointment={putAppointment}
         services={services}
       />
-    </>
+    </WrapperCalendarApp>
   );
 };
 

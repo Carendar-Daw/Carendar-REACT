@@ -5,6 +5,7 @@ import {
 import { UploadOutlined } from '@ant-design/icons';
 import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
 import { WrapperButtonsDrawer } from '@Commons/components/domain/Styles/Style.styled';
+import moment from "moment";
 
 const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
 
@@ -48,7 +49,17 @@ const DrawerServices = ({
       visible={getDrawer}
       destroyOnClose
     >
-      <Form layout="vertical" onFinish={onFinish}>
+      <Form
+          layout="vertical"
+          onFinish={onFinish}
+          initialValues={{
+            name:theClients.cus_name,
+            Email: theClients.cus_email,
+            ColorPreference:theClients.cus_color_preference,
+            Phone: theClients.cus_phone,
+            'date-picker': theClients.cus_born_date,
+          }}
+      >
         <Row gutter={16}>
           <Col span={22}>
             <Form.Item
@@ -56,14 +67,14 @@ const DrawerServices = ({
               label="Name"
               rules={[{ required: true, message: 'Please enter user name' }]}
             >
-              <Input placeholder="Please enter user name" defaultValue={theClients.cus_name} onChange={(event) => buildClients('cus_name', event)} />
+              <Input placeholder="Please enter user name" onChange={(event) => buildClients('cus_name', event)} />
             </Form.Item>
             <Form.Item
               name="Email"
               label="Email"
               rules={[{ required: true, message: 'Please enter a email' }]}
             >
-              <Input placeholder="Please enter a email" defaultValue={theClients.cus_email} onChange={(event) => buildClients('cus_email', event)} />
+              <Input placeholder="Please enter a email" onChange={(event) => buildClients('cus_email', event)} />
             </Form.Item>
             <Form.Item
               name="Born"
@@ -76,18 +87,18 @@ const DrawerServices = ({
               />
             </Form.Item>
             <Form.Item
-              name="Color Preference"
+              name="ColorPreference"
               label="Color Preference"
               rules={[{ required: true, message: 'Please enter Color Preference' }]}
             >
-              <Input placeholder="Please enter a Color" defaultValue={theClients.cus_color_preference} onChange={(event) => buildClients('cus_color_preference', event)} />
+              <Input placeholder="Please enter a Color" onChange={(event) => buildClients('cus_color_preference', event)} />
             </Form.Item>
             <Form.Item
               name="Phone"
               label="Phone"
               rules={[{ required: true, message: 'Please enter a Phone' }]}
             >
-              <Input placeholder="Please enter a Phone" defaultValue={theClients.cus_phone} onChange={(event) => buildClients('cus_phone', event)} />
+              <Input placeholder="Please enter a Phone" onChange={(event) => buildClients('cus_phone', event)} />
             </Form.Item>
             <p>Optional photo</p>
             <Upload

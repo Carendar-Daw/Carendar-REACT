@@ -13,3 +13,8 @@ export const Badge = styled.div`
   display: inline-block;
   margin-left: 5px;
 `;
+
+export const WrapperCalendarApp = styled.div`
+  width: 70%;
+  
+`;
