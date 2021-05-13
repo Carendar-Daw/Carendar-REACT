@@ -82,6 +82,7 @@ export const ButtonUpdate = styled.button`
 export const FlexWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: start;
   justify-content: center;
   @media ${device.tablet} {
