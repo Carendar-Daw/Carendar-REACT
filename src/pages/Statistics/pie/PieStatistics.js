@@ -1,11 +1,12 @@
-import React  from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
-import { WrapperPie } from './PieStatistics.styled';
+import { WrapperPie, Title, ImgEmpty, SubTitle } from './PieStatistics.styled';
+import empty from '@Assets/images/images/empty.svg';
 
-const PieStatistics = ({ servicesByAppointment }) => {
+const PieStatistics = ({ servicesByAppointment, isDataPie}) => {
 
   const data = {
-    labels: servicesByAppointment ? servicesByAppointment.labels : ['aa'],
+    labels: servicesByAppointment ? servicesByAppointment.labels : ['default'],
     datasets: [
       {
         label: '# of Votes',
@@ -33,10 +34,20 @@ const PieStatistics = ({ servicesByAppointment }) => {
 
   return (
     <WrapperPie>
-      <div className='header'>
-        <h1 className='title'>Pie Chart</h1>
+      <div className="header">
+        <Title>Services</Title>
       </div>
-      <Pie data={data} />
+      {isDataPie ? (
+        <>
+          <SubTitle>Look the % of services made by appointment</SubTitle>
+          <Pie
+            data={data}
+          />
+        </>
+      ) : (
+        <ImgEmpty src={empty}/>
+      )}
+
     </WrapperPie>
   );
 };

@@ -1,41 +1,71 @@
 import React, { useState } from 'react';
 import { DatePicker } from 'antd';
-import moment from 'moment';
 import axios from '@Commons/http';
+import Spinner from '@Commons/components/presentational/Spinner/Spinner';
+import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
 import { WrapperStatistics, FlexWrapper, WrapperDateRange } from './statistics.styled';
 import PieStatistics from './pie/PieStatistics';
 import VerticalBar from './verticalStatistics/VerticalStatistics';
+import ClientsStatistics from './clients/clientsStatistics';
 
 const dateFormat = 'YYYY/MM/DD HH:mm:ss';
 
 const Statistics = () => {
   const [servicesByAppointment, setServicesByAppointment] = useState(null);
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+  const [clients, setClients] = useState(null);
+  const [isDataPie, setIsDataPie] = useState(false);
   const { RangePicker } = DatePicker;
 
   const handleDateRange = async (dateString) => {
-    const services = await axios.post('http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api/statistics', { minTime: dateString[0], maxTime: dateString[1] });
-    setServicesByAppointment({
-      labels: services.data.servicesPie.map(ser => ser.ser_description),
-      data: services.data.servicesPie.map(ser => ser.numTotal),
-    });
+    try {
+      if(dateString){
+        setServicesByAppointment(false);
+        setClients(null);
+        setLoadingSpinner(true);
+        const statistics = await axios.post('http://localhost/carendar/laravel/Carendar-LARAVEL/public/index.php/api/statistics', { minTime: dateString[0], maxTime: dateString[1] });
+        if (statistics.data.servicesPie.length !== 0) {
+          setServicesByAppointment({
+            labels: statistics.data.servicesPie.map((service) => service.ser_description),
+            data: statistics.data.servicesPie.map((service) => service.numTotal),
+          });
+          setIsDataPie(true);
+        }else {
+          setIsDataPie(false);
+        }
+        success('Estadisticas obtenidas correctamente');
+        setClients(statistics.data.customer.numTotal);
+      }
+    } catch (errors) {
+      error('Error al obtener historial');
+    } finally {
+      setLoadingSpinner(false);
+    }
   };
 
   return (
     <WrapperStatistics>
+      {loadingSpinner && <Spinner />}
       <FlexWrapper>
         <WrapperDateRange>
           <RangePicker
             format={dateFormat}
             onChange={handleDateRange}
-            defaultValue={[moment('2021-03-03 21:17:02'), moment('2021-11-22 21:17:02')]}
           />
         </WrapperDateRange>
-        <PieStatistics />
+        <ClientsStatistics
+          clients={clients}
+          loadingSpinner={loadingSpinner}
+        />
         <PieStatistics />
       </FlexWrapper>
       <FlexWrapper>
         <VerticalBar />
-        <PieStatistics servicesByAppointment={servicesByAppointment} />
+        <PieStatistics
+          servicesByAppointment={servicesByAppointment}
+          loadingSpinner={loadingSpinner}
+          isDataPie={isDataPie}
+        />
       </FlexWrapper>
     </WrapperStatistics>
   );

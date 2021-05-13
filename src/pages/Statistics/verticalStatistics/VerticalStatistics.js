@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import { WrapperVerticalBar } from './VerticalStatistics.styled';
+import { WrapperVerticalBar, Title } from './VerticalStatistics.styled';
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -44,15 +44,7 @@ const options = {
 const VerticalBar = () => (
   <WrapperVerticalBar>
     <div className='header'>
-      <h1 className='title'>Vertical Bar Chart</h1>
-      <div className='links'>
-        <a
-          className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/VerticalBar.js'
-        >
-          Github Source
-        </a>
-      </div>
+      <Title className='title'>Vertical Bar Chart</Title>
     </div>
     <Bar data={data} options={options} />
   </WrapperVerticalBar>

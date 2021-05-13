@@ -15,3 +15,8 @@ export const WrapperVerticalBar = styled(CardApp)`
 
   }
 `;
+
+export const Title = styled.h1`
+  color: #9038ff;
+  font-weight: 500;
+`;
