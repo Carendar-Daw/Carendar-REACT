@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { Space, Table, Skeleton } from 'antd';
 import Confirm from '@Commons/components/presentational/Modal/Confirm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,21 +9,22 @@ import { ButtonDelete, ButtonUpdate } from '../Services.styled';
 const TableServices = ({
   showDrawerUpdate, isGoingToDelete, getDetailsService, services, loadingSkeleton,
 }) => {
+  const { messages, language } = useContext(I18nContext);
   const columns = [
     {
-      title: 'Name',
+      title: messages[language].Stock.Name,
       dataIndex: 'ser_description',
       key: 'ser_description',
       render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Precio',
+      title: messages[language].Services.Price,
       dataIndex: 'ser_price',
       key: 'ser_price',
-      render: (text) => <p>{text} $</p>,
+      render: (text) => <p>{text} €</p>,
     },
     {
-      title: 'Time',
+      title: messages[language].Services.Time,
       dataIndex: 'ser_time',
       key: 'ser_time',
       responsive: ['sm'],
@@ -34,17 +36,17 @@ const TableServices = ({
       key: 'ser_id',
     },
     {
-      title: 'Action',
+      title: messages[language].Stock.Action,
       key: 'action',
       render: (record) => (
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
-            Editar
+            {messages[language].Stock.Edit}
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsService(record.ser_id)}>
-            Show Details
+            {messages[language].Stock.ShowDetails}
           </ButtonDetails>
-          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.ser_id)}>
+          <Confirm text={messages[language].Services.ConfirmDeleteService} confirmDelete={() => isGoingToDelete(record.ser_id)}>
             <ButtonDelete>
               <FontAwesomeIcon className="icon" icon="trash" />
             </ButtonDelete>

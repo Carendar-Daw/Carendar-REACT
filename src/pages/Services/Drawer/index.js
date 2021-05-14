@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import {
   Button, Col, Drawer, Form, Input, Row,
 } from 'antd';
@@ -7,6 +8,8 @@ import { WrapperButtonsDrawer } from '@Commons/components/domain/Styles/Style.st
 const DrawerServices = ({
   onClose, getDrawer, createService, updateService, buildService, isUpdating, theService,
 }) => {
+  const { messages, language } = useContext(I18nContext);
+
   const onFinish = () => {
     if (!isUpdating) {
       createService();
@@ -17,7 +20,7 @@ const DrawerServices = ({
 
   return (
     <Drawer
-      title={isUpdating ? 'Update a service' : 'Create a new service'}
+      title={isUpdating ? messages[language].Services.EditService : messages[language].Services.CreateService}
       width={320}
       onClose={onClose}
       visible={getDrawer}
@@ -29,39 +32,39 @@ const DrawerServices = ({
           <Col span={22}>
             <Form.Item
               name="name"
-              label="Name"
-              rules={[{ required: true, message: 'Please enter user name' }]}
+              label={messages[language].Stock.Name}
+              rules={[{ required: true, message: messages[language].Stock.PleaseEnterName }]}
             >
-              <Input placeholder="Please enter user name" defaultValue={theService.ser_description} onChange={(event) => buildService('ser_description', event)} />
+              <Input placeholder={messages[language].Stock.PleaseEnterName} defaultValue={theService.ser_description} onChange={(event) => buildService('ser_description', event)} />
             </Form.Item>
             <Form.Item
               name="price"
-              label="Price"
-              rules={[{ required: true, message: 'Please enter a price' }]}
+              label={messages[language].Services.Price}
+              rules={[{ required: true, message: messages[language].Services.PleaseEnterPrice }]}
             >
-              <Input placeholder="Please enter a price" defaultValue={theService.ser_price} onChange={(event) => buildService('ser_price', event)} />
+              <Input placeholder={messages[language].Services.PleaseEnterPrice} defaultValue={theService.ser_price} onChange={(event) => buildService('ser_price', event)} />
             </Form.Item>
             <Form.Item
               name="time"
-              label="Time"
-              rules={[{ required: true, message: 'Please enter a time' }]}
+              label={messages[language].Services.Time}
+              rules={[{ required: true, message: messages[language].Services.PleaseEnterTime }]}
             >
-              <Input placeholder="Please enter a time" defaultValue={theService.ser_time} onChange={(event) => buildService('ser_time', event)} />
+              <Input placeholder={messages[language].Services.PleaseEnterTime} defaultValue={theService.ser_time} onChange={(event) => buildService('ser_time', event)} />
             </Form.Item>
           </Col>
         </Row>
         <WrapperButtonsDrawer>
           <Button onClick={onClose} style={{ marginRight: 8 }}>
-            Cancel
+            { messages[language].Stock.Cancel}
           </Button>
           {!isUpdating
             ? (
               <Button type="primary" htmlType="submit">
-                Submit
+                { messages[language].Stock.Submit}
               </Button>
             ) : (
               <Button type="primary" htmlType="submit">
-                Update
+                { messages[language].Stock.Update}
               </Button>
             )}
         </WrapperButtonsDrawer>
