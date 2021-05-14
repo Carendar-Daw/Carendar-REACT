@@ -1,24 +1,33 @@
-import React from 'react';
-import { ContentHistory } from "./History.styled";
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import {
-    Timeline
+  Timeline,
 } from 'antd';
+import { ContentHistory } from './History.styled';
 
 const History = ({ history }) => {
-
-    return (
-        <ContentHistory>
-            <Timeline mode='left' >
-                {history.map(appointment => (
-                    <Timeline.Item label={appointment.app_date.split(' ')[0]}>
-                    <p>Time: {appointment.app_date.split(' ')[1]}</p>
-                    <p>Color: {appointment.app_color}</p>
-                    <p>State: {appointment.app_state}</p>
-                    </Timeline.Item>
-                ))}
-            </Timeline>
-        </ContentHistory>
-    );
+  const { messages, language } = useContext(I18nContext);
+  return (
+    <ContentHistory>
+      <Timeline mode="left">
+        {history.map((appointment) => (
+          <Timeline.Item label={appointment.app_date.split(' ')[0]}>
+            <p>
+              {messages[language].Services.Time}
+              {appointment.app_date.split(' ')[1]}
+            </p>
+            <p>
+              Color:
+              {appointment.app_color}
+            </p>
+            <p>
+              {messages[language].Customers.State}
+              {appointment.app_state}
+            </p>
+          </Timeline.Item>
+        ))}
+      </Timeline>
+    </ContentHistory>
+  );
 };
-
 export default History;

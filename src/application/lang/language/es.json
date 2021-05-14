@@ -97,5 +97,32 @@
       "ErrorCreate": "Error al crear el servicio",
       "ServiceEdited": "Servicio modificado correctamente",
       "ErrorEdit": "Error al modificar el servicio"
-      }
+      },
+
+      "Customers" :{
+        "Title": "Clientes",
+        "Phone": "Teléfono",
+        "Born": "Nacido",
+        "State": "Estado",
+        "OptionalPhoto": "Foto (opcional)",
+        "UploadPhoto": "Subir (Máx: 1)",
+        "ColorPreference": "Preferencia de color",
+        "ChooseCustomer": "Escoge algún servicio...",
+        "CreateCustomer": "Crea un nuevo servicio",
+        "EditCustomer": "Edita el servicio",
+        "PleaseEnterEmail": "Por favor, añade un precio",
+        "PleaseEnterBorn":  "Por favor, añade una duración",
+        "PleaseEnterPhone":  "Por favor, añade una duración",
+        "PleaseEnterColorPreference":  "Por favor, añade una duración",
+        "ConfirmDeleteService": "Estás seguro que quieres borrar el servicio?",
+        "ErrorServices": "Error al cargar los servicios",
+        "ServiceDeleted": "Servicio eliminado correctamente",
+        "ErrorDelete": "Error al eliminar un servicio",
+        "ServiceCreated": "Servicio creado correctamente",
+        "ErrorCreate": "Error al crear el servicio",
+        "ServiceEdited": "Servicio modificado correctamente",
+        "ErrorEdit": "Error al modificar el servicio",
+        "FileUpload": "Fichero subido correctamente",
+        "UploadFail": "Error al subir el fichero"
+        }
 }
