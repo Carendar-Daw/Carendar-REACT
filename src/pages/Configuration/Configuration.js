@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from '@Commons/http';
 import { getSaloonPicture } from '@Application/store/user/reducer';
+import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
+import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import {
   WrapperConfiguration,
   WrapperTitle,
@@ -16,8 +19,6 @@ import {
   Input,
 } from './Configuration.styled';
 import Language from './Language/Languaje';
-import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
-import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 
 const initialConfig = {
   sal_email: null,
@@ -28,6 +29,7 @@ const initialConfig = {
 };
 
 const Configuration = () => {
+  const { messages, language } = useContext(I18nContext);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [config, setConfig] = useState(initialConfig);
   const saloonPicture = useSelector(getSaloonPicture);
@@ -48,9 +50,9 @@ const Configuration = () => {
       const updatedConfig = await axios.put('saloon', config);
       console.log(updatedConfig);
 
-      success('Configuracion Modificada correctamente');
+      success(messages[language].Config.ConfigEdited);
     } catch (errors) {
-      error('Error al Modificar tu configuracion');
+      error(messages[language].Config.ErrorEdit);
     } finally {
       setLoadingSpinner(false);
     }
@@ -62,7 +64,7 @@ const Configuration = () => {
       {loadingSpinner && <Spinner />}
       <WrapperTitle>
         <FontAwesomeIcon className="icon" icon="cog" />
-        <TitlePage>Configuration</TitlePage>
+        <TitlePage>{messages[language].Config.Title}</TitlePage>
       </WrapperTitle>
       <WrapperLanguage>
         <Language />
@@ -78,7 +80,7 @@ const Configuration = () => {
             <Input type="text" value={config.sal_brand} onChange={(e) => buildConfig('sal_brand', e)} />
             <Input type="text" value={config.sal_location} onChange={(e) => buildConfig('sal_location', e)} />
             <Input type="number" value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
-            <button>Submit</button>
+            <button>{messages[language].Stock.Submit}</button>
           </WrapperForm>
         </WrapperInfo>
       </WrapperSection>
