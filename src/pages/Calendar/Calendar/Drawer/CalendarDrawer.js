@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import {
   Button, Col, DatePicker, Drawer, Form, Row, Select,
 } from 'antd';
@@ -9,6 +10,8 @@ import axios from '@Commons/http';
 const CalendarDrawer = ({
   edit, onClose, view, setEvent, event, info, customers, events, handleDateSelect, postAppointment, putAppointment, services,
 }) => {
+  const { messages, language } = useContext(I18nContext);
+
   const loadCustomers = () => {
     const options = [];
     if (customers) {
@@ -71,8 +74,8 @@ const CalendarDrawer = ({
     <Drawer
       title={
             edit
-              ? 'Update an appointment'
-              : 'Create a new appointment'
+              ? messages[language].Appointments.EditAppointment
+              : messages[language].Appointments.CreateAppointment
           }
       width={720}
       onClose={onClose}
@@ -98,13 +101,13 @@ const CalendarDrawer = ({
           <Col span={12}>
             <Form.Item
               name="customer"
-              label="Customer ID"
+              label={messages[language].Appointments.CustomerID}
               hasFeedback
-              rules={[{ required: true, message: 'Please select time!' }]}
+              rules={[{ required: true, message: messages[language].Appointments.PleaseSelectCustomer }]}
             >
               <Select
                 showSearch
-                placeholder="Select a person"
+                placeholder={messages[language].Appointments.PleaseSelectCustomer}
                 optionFilterProp="children"
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 onChange={(e) => setEvent({ ...event, cus_id: e })}
@@ -118,12 +121,12 @@ const CalendarDrawer = ({
           <Col span={12}>
             <Form.Item
               name="date-picker"
-              label="Cita date"
+              label={messages[language].Appointments.AppointmentDate}
               hasFeedback
               rules={[
                 {
                   required: true,
-                  message: 'Please select time!',
+                  message: messages[language].Appointments.PleaseEnterAppointmentDate,
                 },
               ]}
             >
@@ -142,20 +145,20 @@ const CalendarDrawer = ({
         <Row gutter={16}>
           <Col span={12}>
             <Form.Item
-              label="Estado"
-              rules={[{ required: true, message: 'Please enter user name' }]}
+              label={messages[language].Customers.State}
+              rules={[{ required: true, message: messages[language].Appointments.PleaseEnterState }]}
             >
               <Select
                 style={{ width: '100%' }}
                 defaultValue={info.event ? info.event.extendedProps.state : 'Confirmado'}
-                placeholder="Please select"
+                placeholder={messages[language].Appointments.PleaseSelect}
                 onChange={(e, data) => setEvent({ ...event, state: data.value })}
               >
-                <Select.Option value="Pendiente">Pendiente</Select.Option>
-                <Select.Option value="Aprobado">Aprobado</Select.Option>
-                <Select.Option value="Finalizado">Finalizado</Select.Option>
-                <Select.Option value="Facturado">Facturado</Select.Option>
-                <Select.Option value="Cancelado">Cancelado</Select.Option>
+                <Select.Option value="Pendiente">{messages[language].Appointments.ToConfirm}</Select.Option>
+                <Select.Option value="Aprobado">{messages[language].Appointments.Aproved}</Select.Option>
+                <Select.Option value="Finalizado">{messages[language].Appointments.Finished}</Select.Option>
+                <Select.Option value="Facturado">{messages[language].Appointments.Factured}</Select.Option>
+                <Select.Option value="Cancelado">{messages[language].Appointments.Canceled}</Select.Option>
               </Select>
             </Form.Item>
           </Col>
@@ -164,8 +167,8 @@ const CalendarDrawer = ({
           <Col span={12}>
             <Form.Item
               name="services"
-              label="Servicios"
-              rules={[{ required: true, message: 'Please select atleast one service', type: 'array' }]}
+              label={messages[language].Services.Title}
+              rules={[{ required: true, message: messages[language].Appointments.PleaseSelectService, type: 'array' }]}
             >
               <Select
                 showSearch
@@ -173,7 +176,7 @@ const CalendarDrawer = ({
                 allowClear
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
                 style={{ width: '100%' }}
-                placeholder="Please select"
+                placeholder={messages[language].Appointments.PleaseSelect}
                 onChange={(value) => setEvent({ ...event, services: value })}
               >
                 {loadServices()}
@@ -207,23 +210,23 @@ const CalendarDrawer = ({
                   }}
                 >
                   <Button onClick={onClose} style={{ marginRight: 8 }}>
-                    Cancel
+                    { messages[language].Stock.Cancel}
                   </Button>
                   {
                     edit
                       ? (
                         <>
                           <Button type="primary" style={{ marginRight: 8 }} htmlType="submit">
-                            Edit
+                            { messages[language].Stock.Edit}
                           </Button>
                           <Button onClick={deleteEvent} type="danger">
-                            Delete
+                            { messages[language].Stock.Delete}
                           </Button>
                         </>
                       )
                       : (
                         <Button type="primary" htmlType="submit">
-                          Submit
+                          { messages[language].Stock.Submit}
                         </Button>
                       )
                   }
