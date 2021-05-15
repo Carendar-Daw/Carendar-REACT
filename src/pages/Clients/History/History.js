@@ -14,14 +14,19 @@ const History = ({ history }) => {
           <Timeline.Item label={appointment.app_date.split(' ')[0]}>
             <p>
               {messages[language].Services.Time}
+              :
+              {' '}
               {appointment.app_date.split(' ')[1]}
             </p>
             <p>
               Color:
+              {' '}
               {appointment.app_color}
             </p>
             <p>
               {messages[language].Customers.State}
+              :
+              {' '}
               {appointment.app_state}
             </p>
           </Timeline.Item>

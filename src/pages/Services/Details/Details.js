@@ -13,15 +13,27 @@ const Details = ({ details }) => {
         : (
           <WrapperInfo>
             <p>
-              <strong>{messages[language].Stock.Name}</strong>
+              <strong>
+                {messages[language].Stock.Name}
+                :
+                {' '}
+              </strong>
               {details.ser_description}
             </p>
             <p>
-              <strong>{messages[language].Services.Price}</strong>
+              <strong>
+                {messages[language].Services.Price}
+                :
+                {' '}
+              </strong>
               {details.ser_price}
             </p>
             <p>
-              <strong>{messages[language].Services.Time}</strong>
+              <strong>
+                {messages[language].Services.Time}
+                :
+                {' '}
+              </strong>
               {details.ser_time}
             </p>
           </WrapperInfo>

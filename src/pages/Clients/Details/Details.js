@@ -19,28 +19,31 @@ const Details = ({ details }) => {
               <strong>
                 {messages[language].Stock.Name}
                 :
+                {' '}
               </strong>
               {details.cus_name}
             </p>
             <p>
-              <strong>Email:</strong>
+              <strong>Email: </strong>
               {details.cus_email}
             </p>
             <p>
               <strong>
                 {messages[language].Customers.Phone}
                 :
+                {' '}
               </strong>
               {details.cus_phone}
             </p>
             <p>
-              <strong>Color:</strong>
+              <strong>Color: </strong>
               {details.cus_color_preference}
             </p>
             <p>
               <strong>
                 {messages[language].Customers.Born}
                 :
+                {' '}
               </strong>
               {details.cus_born_date}
             </p>

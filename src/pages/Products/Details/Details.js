@@ -16,6 +16,7 @@ const Details = ({ details }) => {
               <strong>
                 {messages[language].Stock.Name}
                 :
+                {' '}
               </strong>
               {details.sto_name}
             </p>
@@ -23,6 +24,7 @@ const Details = ({ details }) => {
               <strong>
                 {messages[language].Stock.Amount}
                 :
+                {' '}
               </strong>
               {details.sto_amount}
             </p>
@@ -30,6 +32,7 @@ const Details = ({ details }) => {
               <strong>
                 {messages[language].Stock.PVP}
                 :
+                {' '}
               </strong>
               {details.sto_pvp}
             </p>
@@ -37,6 +40,7 @@ const Details = ({ details }) => {
               <strong>
                 {messages[language].Stock.Barcode}
                 :
+                {' '}
               </strong>
               {details.sto_barcode}
             </p>
