@@ -42,6 +42,7 @@ export const Header = styled.div`
   }
   img{
     display: none;
+    object-fit: cover;
     width: 100%;
     height: 100%;
     @media ${deviceMax.laptopL} {
