@@ -30,7 +30,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [{
-        from: './public',
+        from: './public/assets/images',
         to: './',
       }, {
         from: './public/manifest.json',
