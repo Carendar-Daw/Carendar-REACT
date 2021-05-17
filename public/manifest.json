@@ -6,22 +6,22 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "./images/logos/carendar48.ico",
+      "src": "./logos/carendar48.ico",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "./images/logos/carendar96.ico",
+      "src": "./logos/carendar96.ico",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "./images/logos/carendar144.ico",
+      "src": "./logos/carendar144.ico",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "./images/logos/carendar192.ico",
+      "src": "./logos/carendar192.ico",
       "type": "image/png",
       "sizes": "192x192"
     }
