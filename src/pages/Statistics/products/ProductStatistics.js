@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { WrapperPie, Title, SubTitle } from './productsStadistics.styled';
+import { WrapperPie, Title, SubTitle } from './productStadistics.styled';
 
 const productsStatiscs = ({ products, loadingSpinner }) => {
     const [isData, setIsData] = useState(false);
