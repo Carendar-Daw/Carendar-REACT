@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {GenerateSW} = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 
@@ -26,10 +27,7 @@ module.exports = {
       filename: 'index.html',
       favicon: './public/assets/images/logos/logo-carendar.ico',
     }),
-    new Manifest({
-      fileName: './manifest.json',
-      publicPath: '/static/react/',
-    }),
+    new GenerateSW(),
     new MiniCssExtractPlugin(),
     new Dotenv(),
   ],
