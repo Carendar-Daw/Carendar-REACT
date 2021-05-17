@@ -71,6 +71,10 @@ const Clients = () => {
     setClients({ ...theClients, [field]: value, sal_id: saloonId });
   };
 
+  const insertDate = (theDate) => {
+    setClients({ ...theClients, cus_born_date: theDate, sal_id: saloonId });
+  };
+
   const setUserDefault = () => setClients(defaultClientState);
 
   const createClients = async () => {
@@ -144,7 +148,7 @@ const Clients = () => {
   return (
     <FlexWrapper>
       <WrapperSection>
-        <WrapperClients className='client-list'>
+        <WrapperClients className="client-list">
           {loadingSpinner && <Spinner />}
           <WrapperTitle>
             <FontAwesomeIcon className="icon" icon="calendar-alt" />
@@ -160,9 +164,6 @@ const Clients = () => {
               getHistoryCustomer={getHistoryCustomer}
             />
           </WrapperTable>
-          <ButtonAdd onClick={showDrawer}>
-            <PlusOutlined className="buttonAdd" />
-          </ButtonAdd>
           <Drawer
             onClose={onClose}
             getDrawer={getDrawer}
@@ -172,14 +173,18 @@ const Clients = () => {
             isUpdating={isUpdating}
             theClients={theClients}
             setClients={setClients}
+            insertDate={insertDate}
           />
         </WrapperClients>
-        <WrapperHistory className='client-history'>
+        <WrapperHistory className="client-history">
           <TitlePage>History</TitlePage>
           {history ? <History history={history} /> : <p>Choose a person...</p>}
         </WrapperHistory>
       </WrapperSection>
       <Details details={details} />
+      <ButtonAdd onClick={showDrawer}>
+        <PlusOutlined className="buttonAdd" />
+      </ButtonAdd>
     </FlexWrapper>
   );
 };

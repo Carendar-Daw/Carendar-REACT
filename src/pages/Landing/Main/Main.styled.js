@@ -12,35 +12,14 @@ import { Heading4, Item } from '@Commons/components/domain/Styles/Style.styled';
 * */
 
 export const Container = styled.div`
-
-& {
-  margin-top: 10vw;
-  margin-bottom: 15vw;
-}
-
-  &>div{
+  
+   &>div{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     
   }
-  
-  h3{
-    text-align: center;
-    font-size: 3rem;
-    @media ${deviceMax.mobileL} {
-    font-size: 1rem;
-    margin: 0 2%;
-    font-weight: bold;
   }
-  }
-  @media ${device.laptop} {
-    margin-top: 22vw;
-  }
-  @media ${deviceMax.mobileL} {
-    margin-top: 0;
-  }  
-
 `;
 
 export const Heading = styled(Heading4)`
@@ -63,7 +42,6 @@ export const ContainerCenter = styled.ul`
   justify-content: center;
   max-width: 1200px;
   margin: auto;
-  margin-top: 5rem;
   padding-inline-start: 0px;
   @media ${deviceMax.mobileL} {
     margin-top: 0;
@@ -71,6 +49,7 @@ export const ContainerCenter = styled.ul`
 `;
 
 export const Card = styled.div`
+  width: 500px;
   margin: 1.4em;
   padding: 4em;
   display: flex;
@@ -90,5 +69,25 @@ export const Card = styled.div`
     
   }
   
-  
 `;
+
+export const Title = styled.h5`
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 30px;
+`;
+
+export const SubTitle = styled.p`
+  text-align: center;
+  font-size: 20px;
+`;
+
+export const WrapperMainTitles = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+`;
+

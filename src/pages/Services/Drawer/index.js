@@ -8,11 +8,7 @@ const DrawerServices = ({
   onClose, getDrawer, createService, updateService, buildService, isUpdating, theService,
 }) => {
   const onFinish = () => {
-    if (!isUpdating) {
-      createService();
-    } else {
-      updateService();
-    }
+     isUpdating ? updateService() : createService();
   };
 
   return (
@@ -23,6 +19,11 @@ const DrawerServices = ({
       visible={getDrawer}
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
+      initialValues={{
+        name: theService.ser_description,
+        price: theService.ser_price,
+        time:theService.ser_time,
+      }}
     >
       <Form layout="vertical" hideRequiredMark onFinish={onFinish}>
         <Row gutter={16}>
@@ -32,21 +33,21 @@ const DrawerServices = ({
               label="Name"
               rules={[{ required: true, message: 'Please enter user name' }]}
             >
-              <Input placeholder="Please enter user name" defaultValue={theService.ser_description} onChange={(event) => buildService('ser_description', event)} />
+              <Input placeholder="Please enter user name" onChange={(event) => buildService('ser_description', event)} />
             </Form.Item>
             <Form.Item
               name="price"
               label="Price"
               rules={[{ required: true, message: 'Please enter a price' }]}
             >
-              <Input placeholder="Please enter a price" defaultValue={theService.ser_price} onChange={(event) => buildService('ser_price', event)} />
+              <Input placeholder="Please enter a price" onChange={(event) => buildService('ser_price', event)} />
             </Form.Item>
             <Form.Item
               name="time"
               label="Time"
               rules={[{ required: true, message: 'Please enter a time' }]}
             >
-              <Input placeholder="Please enter a time" defaultValue={theService.ser_time} onChange={(event) => buildService('ser_time', event)} />
+              <Input placeholder="Please enter a time" onChange={(event) => buildService('ser_time', event)} />
             </Form.Item>
           </Col>
         </Row>

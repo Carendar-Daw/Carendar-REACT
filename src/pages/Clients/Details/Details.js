@@ -4,7 +4,7 @@ import {
 } from './Details.styled';
 
 const Details = ({ details }) => {
-  const URLIMG = 'http://localhost/carendar/laravel/Carendar-LARAVEL/storage/app/public/images/avatar/';
+  const URLIMG = process.env.API_KEY;
 
   return (
 
