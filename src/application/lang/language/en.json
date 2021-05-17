@@ -6,7 +6,8 @@
     "WelcomeSubTitle": "The perfect platform for your beauty center"
   },
 "Main" : {
-  "Title": "Keep growing your business with our management software",
+  "Title": "All-in-one platform",
+  "SubTitle": "\nCarendar automates from the agenda and visits to statistics and stock control.",
   "Calendario" : "Calendar",
   "Cal_Info_1" : "Manage your clients appointments with our intuitive calendar",
   "Cal_Info_2" : "Very simple and easy to use",
@@ -24,9 +25,9 @@
 },
 
 "Section": {
-  "Title_Left": "Appointment Calendar",
-  "Subtitle_Left" : "Your appointment calendar easier and more efficient than ever before",
-  "Subtitle_Left_2": "It manages your time effectively and it fits to your business schedule",
+  "Title_Left": "Scheduling",
+  "Subtitle_Left" : "Appointments made easy",
+  "Subtitle_Left_2": "The schedule allows you to have a complete view of all the appointments.",
   "Title_Right": "Stock & Cash Management",
   "Subtitle_Right": "Your business is always safe with our stock and cash management" 
 },

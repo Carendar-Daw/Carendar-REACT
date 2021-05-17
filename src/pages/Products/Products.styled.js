@@ -21,10 +21,6 @@ export const WrapperProducts = styled(CardApp)`
       width: 70%;
     }
 
-   .buttonAdd{
-       font-size: 35px;
-   }
-
 `;
 
 export const WrapperTitle = styled.div`
@@ -53,12 +49,11 @@ export const ButtonAdd = styled.button`
   border: none;
   background-color: #8265a7;
   cursor: pointer;
-  position: absolute;
-  bottom: 70px;
-  right: 90px;
+  position: fixed;
+  right: 48px;
+  bottom: 32px;
   box-shadow: rgb(0 0 0 / 24%) 0px 6px 6px 0px, rgb(0 0 0 / 12%) 0px 0px 6px 0px;
   outline: none;
-
 `;
 
 export const ButtonDelete = styled.button`
@@ -80,10 +75,15 @@ export const ButtonUpdate = styled.button`
 
 export const FlexWrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: start;
   justify-content: center;
   @media ${device.tablet} {
     flex-direction: row;
+  }
+
+  .buttonAdd{
+    font-size: 35px;
   }
 `;

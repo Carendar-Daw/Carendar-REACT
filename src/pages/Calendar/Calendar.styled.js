@@ -3,7 +3,6 @@ import { device } from '@Commons/styles/breakpoints';
 
 export const WrapperMenu = styled.div`
     display: flex;
-  
     height: calc(100vh - 50px);
     width: calc(100vw - 50px);
     position: absolute;
