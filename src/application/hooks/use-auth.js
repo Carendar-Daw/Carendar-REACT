@@ -21,6 +21,7 @@ const useAuth = () => {
         auth0_id: sub,
       };
       const idToken = await getIdTokenClaims();
+      console.log(idToken.__raw);
       axios.defaults.headers.common.Authorization = `Bearer ${idToken.__raw}`;
       try {
         const newSaloon = await axios.post('saloon', saloon);

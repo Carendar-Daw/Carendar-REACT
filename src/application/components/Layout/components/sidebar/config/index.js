@@ -6,6 +6,7 @@ export const textMenu = {
   cash: 'Cash',
   clients: 'Clients',
   configuration: 'Configuration',
+  statistics: 'Statistics',
 };
 
 export const color = '#8265A7';

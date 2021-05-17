@@ -17,6 +17,8 @@ export const Title = styled.div`
     text-align: left;
     @media ${deviceMax.tablet} {
       text-align: center;
+      display: block;
+      margin: auto;
       padding-bottom: 1px;
     }
     
@@ -32,8 +34,9 @@ export const SubTitle = styled.div`
     }
 `;
 
-export const Text = styled.div` 
+export const Text = styled.p` 
    font-size: 15px;
+  line-height: 25px;
    color: gray;
    margin-bottom:50px;
    @media ${deviceMax.tablet} {
@@ -49,10 +52,34 @@ export const Card = styled.div`
  
   padding: 5em;
   display: flex;
+  max-width: 1000px;
+  margin: auto;
   justify-content: space-around;
   flex-direction: ${(props) => (props.reverse ? 'row-reverse' : '')};
   @media ${deviceMax.tablet} {
     flex-direction: column;
     align-items: center;
+  }
+  @media ${deviceMax.tablet} {
+    padding: 2em;
+  }
+`;
+
+export const WrapperText = styled.div`
+ width: 50%;
+  @media ${deviceMax.tablet} {
+    width: 90%;
+  }
+`;
+
+export const WrapperImg = styled.div`
+  width: 30%;
+  img {
+    margin: auto;
+    display: block;
+  }
+  @media ${deviceMax.tablet} {
+    width: 90%;
+    margin-top: 20px;
   }
 `;

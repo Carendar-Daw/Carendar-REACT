@@ -1,0 +1,30 @@
+{
+  "short_name": "Carendar",
+  "name": "Carendar",
+  "theme_color": "#8265a7",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./assets/logos/logo-carendar.ico",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./assets/logos/logo-carendar.ico",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./assets/logos/logo-carendar.ico",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "./assets/logos/logo-carendar.ico",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/?utm_source=launcher"
+}

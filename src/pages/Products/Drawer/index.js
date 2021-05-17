@@ -24,7 +24,16 @@ const DrawerServices = ({
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
     >
-      <Form layout="vertical" hideRequiredMark onFinish={onFinish}>
+      <Form layout="vertical"
+            hideRequiredMark
+            onFinish={onFinish}
+            initialValues={{
+              name: theProduct.sto_name,
+              amount: theProduct.sto_amount,
+              PVP:theProduct.sto_pvp,
+              barcode: theProduct.sto_barcode,
+            }}
+      >
         <Row gutter={16}>
           <Col span={22}>
             <Form.Item
@@ -32,28 +41,28 @@ const DrawerServices = ({
               label="Name"
               rules={[{ required: true, message: 'Please enter name' }]}
             >
-              <Input placeholder="Please enter name" Value={theProduct.sto_name} onChange={(event) => buildProduct('sto_name', event)} />
+              <Input placeholder="Please enter name" onChange={(event) => buildProduct('sto_name', event)} />
             </Form.Item>
             <Form.Item
               name="amount"
               label="Amount"
               rules={[{ required: true, message: 'Please enter a amount' }]}
             >
-              <Input placeholder="Please enter a amount" defaultValue={theProduct.sto_amount} onChange={(event) => buildProduct('sto_amount', event)} />
+              <Input placeholder="Please enter a amount" onChange={(event) => buildProduct('sto_amount', event)} />
             </Form.Item>
             <Form.Item
               name="PVP"
               label="PVP"
               rules={[{ required: true, message: 'Please enter a PVP' }]}
             >
-              <Input placeholder="Please enter a PVP" defaultValue={theProduct.sto_pvp} onChange={(event) => buildProduct('sto_pvp', event)} />
+              <Input placeholder="Please enter a PVP" onChange={(event) => buildProduct('sto_pvp', event)} />
             </Form.Item>
             <Form.Item
               name="barcode"
               label="Barcode"
               rules={[{ required: true, message: 'Please enter a barcode' }]}
             >
-              <Input placeholder="Please enter a barcode" defaultValue={theProduct.sto_barcode} onChange={(event) => buildProduct('sto_barcode', event)} />
+              <Input placeholder="Please enter a barcode" onChange={(event) => buildProduct('sto_barcode', event)} />
             </Form.Item>
           </Col>
         </Row>

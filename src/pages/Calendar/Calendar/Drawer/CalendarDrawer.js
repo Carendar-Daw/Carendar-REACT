@@ -194,7 +194,6 @@ const CalendarDrawer = ({
                 onChangeComplete={(e) => setEvent({ ...event, color: e.hex })}
               />
             </Form.Item>
-
           </Col>
         </Row>
         <Row>
