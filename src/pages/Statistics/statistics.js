@@ -3,10 +3,11 @@ import { DatePicker } from 'antd';
 import axios from '@Commons/http';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
-import { WrapperStatistics, FlexWrapper, WrapperDateRange } from './statistics.styled';
+import { WrapperStatistics, FlexWrapper, WrapperDateRange, Title, SubTitle } from './statistics.styled';
 import PieStatistics from './pie/PieStatistics';
 import VerticalBar from './verticalStatistics/VerticalStatistics';
 import ClientsStatistics from './clients/clientsStatistics';
+import ProductsStatistics from './products/ProductsStatistics';
 
 const dateFormat = 'YYYY/MM/DD HH:mm:ss';
 
@@ -14,6 +15,7 @@ const Statistics = () => {
   const [servicesByAppointment, setServicesByAppointment] = useState(null);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [clients, setClients] = useState(null);
+  const [products, setProducts] = useState(null);
   const [isDataPie, setIsDataPie] = useState(false);
   const { RangePicker } = DatePicker;
 
@@ -33,8 +35,9 @@ const Statistics = () => {
         }else {
           setIsDataPie(false);
         }
-        success('Estadisticas obtenidas correctamente');
+        setProducts(statistics.data.products.Total);
         setClients(statistics.data.customer.numTotal);
+        success('Estadisticas obtenidas correctamente');
       }
     } catch (errors) {
       error('Error al obtener historial');
@@ -48,6 +51,8 @@ const Statistics = () => {
       {loadingSpinner && <Spinner />}
       <FlexWrapper>
         <WrapperDateRange>
+          <Title>Select a Range date</Title>
+          <SubTitle>See your saloon data from some dates</SubTitle>
           <RangePicker
             format={dateFormat}
             onChange={handleDateRange}
@@ -57,7 +62,10 @@ const Statistics = () => {
           clients={clients}
           loadingSpinner={loadingSpinner}
         />
-        <PieStatistics />
+        <ProductsStatistics
+            products={products}
+            loadingSpinner={loadingSpinner}
+        />
       </FlexWrapper>
       <FlexWrapper>
         <VerticalBar />

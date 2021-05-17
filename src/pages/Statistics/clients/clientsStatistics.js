@@ -10,7 +10,7 @@ const ClientsStatistics = ({ clients, loadingSpinner }) => {
 
   return (
     <WrapperPie>
-      <Title>Clients Stadistics</Title>
+      <Title>Clients</Title>
       {isData ?
         (
           <>

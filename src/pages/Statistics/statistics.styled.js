@@ -35,3 +35,13 @@ export const WrapperDateRange = styled(CardApp)`
 
   }
 `;
+
+export const Title = styled.h1`
+  color: #9038ff;
+  font-weight: 500;
+`;
+
+export const SubTitle = styled.p`
+  color: gray;
+  font-weight: 300;
+`;
