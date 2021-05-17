@@ -108,7 +108,7 @@ const Calendarapp = ({
     </>
   );
   return (
-    <WrapperCalendarApp>
+    <>
       <Container>
         <FullCalendar
           locale={esLocale}
@@ -153,7 +153,7 @@ const Calendarapp = ({
         putAppointment={putAppointment}
         services={services}
       />
-    </WrapperCalendarApp>
+    </>
   );
 };
 
