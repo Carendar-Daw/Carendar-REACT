@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { WrapperList } from '@Pages/Cash/List/List.styled';
 import Table from '../Table/Table';
-import {WrapperList} from "@Pages/Cash/List/List.styled";
-const List = () => {
 
-  return (
-    <>
-        <WrapperList>
-            <Table/>
-        </WrapperList>
-    </>
-  );
-};
+const List = ({ filteredAppointments }) => (
+  <>
+    <WrapperList>
+      <Table appointments={filteredAppointments} />
+    </WrapperList>
+  </>
+);
 
 export default List;

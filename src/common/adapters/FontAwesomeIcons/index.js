@@ -30,3 +30,4 @@ library.add(
     faBox,
     faChartPie
 );
+
