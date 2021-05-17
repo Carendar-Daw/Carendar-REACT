@@ -7,7 +7,7 @@ import { WrapperStatistics, FlexWrapper, WrapperDateRange, Title, SubTitle } fro
 import PieStatistics from './pie/PieStatistics';
 import VerticalBar from './verticalStatistics/VerticalStatistics';
 import ClientsStatistics from './clients/clientsStatistics';
-import ProductsStatistics from './products/ProductsStatistics';
+import ProductsStatistics from './products/ProductStatistics';
 
 const dateFormat = 'YYYY/MM/DD HH:mm:ss';
 
