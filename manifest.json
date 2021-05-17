@@ -6,22 +6,22 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "./assets/images/logos/logo-carendar.ico",
+      "src": "./public/assets/images/logos/logo-carendar.ico",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "./assets/images/logos/logo-carendar.ico",
+      "src": "./public/assets/images/logos/logo-carendar.ico",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "./assets/images/logos/logo-carendar.ico",
+      "src": "./public/assets/images/logos/logo-carendar.ico",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "./assets/images/logos/logo-carendar.ico",
+      "src": "./public/assets/images/logos/logo-carendar.ico",
       "type": "image/png",
       "sizes": "192x192"
     }
