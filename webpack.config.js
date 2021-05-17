@@ -26,6 +26,10 @@ module.exports = {
       filename: 'index.html',
       favicon: './public/assets/images/logos/logo-carendar.ico',
     }),
+    new Manifest({
+      fileName: './manifest.json',
+      publicPath: '/static/react/',
+    }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
   ],
