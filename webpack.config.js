@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {GenerateSW} = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -26,6 +27,12 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
       favicon: './public/assets/images/logos/logo-carendar.ico',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: './public/manifest.json',
+        to: './manifest.json',
+      }],
     }),
     new GenerateSW(),
     new MiniCssExtractPlugin(),
