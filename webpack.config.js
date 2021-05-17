@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { InjectManifest } = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -37,8 +37,28 @@ module.exports = {
         to: './',
       }],
     }),
-    new InjectManifest({
-      swSrc: './src/service-worker.js',
+    new GenerateSW({
+      // Do not precache images
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+      // Define runtime caching rules.
+      runtimeCaching: [{
+        // Match any request that ends with .png, .jpg, .jpeg or .svg.
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+        // Apply a cache-first strategy.
+        handler: 'CacheFirst',
+
+        options: {
+          // Use a custom cache name.
+          cacheName: 'images',
+
+          // Only cache 10 images.
+          expiration: {
+            maxEntries: 10,
+          },
+        },
+      }],
     }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
