@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { WrapperComponents, WrapperFilters } from '@Pages/Cash/Filters/Filters.styled';
 import Checkbox from 'antd/es/checkbox/Checkbox';
-import { Col } from 'antd';
+import { Col, DatePicker } from 'antd';
+import moment from "moment";
 
-const Filter = ({ appointments, setFilteredAppointments }) => {
+const { RangePicker } = DatePicker;
+
+const Filter = ({ appointments, setFilteredAppointments, filteredAppointments }) => {
+  const [filters, setFilters] = useState({
+    status: [],
+    date: [],
+  });
   const filterList = (e) => ((e.length > 0) ? setFilteredAppointments(appointments.filter((app) => e.includes(app.status))) : setFilteredAppointments(appointments));
+  const filterDateList = ([d1, d2]) => setFilteredAppointments(filteredAppointments.filter((app) => (moment(app.date) > d1 && moment(app.date) < d2)));
   return (
     <>
       <WrapperFilters>
@@ -27,6 +35,8 @@ const Filter = ({ appointments, setFilteredAppointments }) => {
               <Checkbox value="Cancelado">Cancelado</Checkbox>
             </Col>
           </Checkbox.Group>
+
+          <RangePicker showTime onChange={filterDateList} />
         </WrapperComponents>
       </WrapperFilters>
     </>
