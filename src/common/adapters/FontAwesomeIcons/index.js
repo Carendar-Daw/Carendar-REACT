@@ -12,7 +12,8 @@ import {
   faCashRegister,
   faTrash,
   faBox,
-  faChartPie
+  faChartPie,
+    faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -28,6 +29,7 @@ library.add(
     faCashRegister,
     faTrash,
     faBox,
-    faChartPie
+    faChartPie,
+    faShoppingCart,
 );
 
