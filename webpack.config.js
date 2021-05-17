@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { GenerateSW } = require('workbox-webpack-plugin');
+const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -37,7 +37,9 @@ module.exports = {
         to: './',
       }],
     }),
-    new GenerateSW(),
+    new InjectManifest({
+      swSrc: './src/service-worker.js',
+    }),
     new MiniCssExtractPlugin(),
     new Dotenv(),
   ],
