@@ -45,6 +45,7 @@
     "Cash": "Caja registradora",
     "Settings": "Configuración",
     "Products": "Productos",
+    "Statistics": "Estadísticas",
     "Tour": "Haz el tour de nuevo",
     "Logout": "Cerrar sesión"
   },
@@ -148,6 +149,4 @@
     "ConfigEdit": "Configuración modificada correctamente",
     "ErrorEdit": "Error al modificar la configuración"
   }
-
-
 }

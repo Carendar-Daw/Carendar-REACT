@@ -46,6 +46,7 @@
     "Settings": "Settings",
     "Products": "Products",
     "Tour": "Tour",
+    "Statistics": "Statistics",
     "Logout": "Logout"
   },
   "Stock": {
@@ -148,4 +149,5 @@
     "ConfigEdit": "Configuration modified successfully",
     "ErrorEdit": "Error modifying configuration"
 
+}
 }
