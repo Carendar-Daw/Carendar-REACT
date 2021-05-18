@@ -1,4 +1,7 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, {
+  useReducer, useState, useEffect, useContext,
+} from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { useSelector } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +25,8 @@ const inistialServices = {
 };
 
 const Services = () => {
+  const { messages, language } = useContext(I18nContext);
+
   const [theService, setService] = useState(inistialServices);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
@@ -39,7 +44,7 @@ const Services = () => {
         const getServices = await axios.get('services');
         dispatch({ type: ACTIONS.GET_SERVICES, payload: getServices.data.services });
       } catch (errors) {
-        error('Error al cargar los servicios');
+        error(messages[language].Services.ErrorServices);
       } finally {
         setLoadingSkeleton(false);
         setLoadingSpinner(false);
@@ -52,9 +57,9 @@ const Services = () => {
       setLoadingSpinner(true);
       await axios.delete(`services/${id}`);
       dispatch({ type: ACTIONS.DELETE_SERVICES, payload: id });
-      success('Servicio eliminada correctamente');
+      success(messages[language].Services.ServiceDeleted);
     } catch (errors) {
-      error('Error al eliminar un servicio');
+      error(messages[language].Services.ErrorDelete);
     } finally {
       setLoadingSpinner(false);
     }
@@ -73,11 +78,11 @@ const Services = () => {
       setLoadingSpinner(true);
       const newService = await axios.post('services', theService);
       dispatch({ type: ACTIONS.POST_SERVICES, payload: newService.data.services });
-      success('Servicio creado correctamente');
+      success(messages[language].Services.ServiceCreated);
       setShowDrawer(false);
     } catch (errors) {
       setShowDrawer(false);
-      error('Error al crear servicio');
+      error(messages[language].Services.ErrorCreate);
     } finally {
       setService(inistialServices);
       setLoadingSpinner(false);
@@ -90,9 +95,9 @@ const Services = () => {
       const updatedService = await axios.put(`services/${theService.ser_id}`, theService);
       dispatch({ type: ACTIONS.UPDATE_SERVICES, payload: { id: theService.ser_id, updatedService: updatedService.data.services } });
       setShowDrawer(false);
-      success('Servicio Modificado correctamente');
+      success(messages[language].Services.ServiceEdited);
     } catch (errors) {
-      error('Error al Modificar servicio');
+      error(messages[language].Services.ErrorEdit);
     } finally {
       setService(inistialServices);
       setLoadingSpinner(false);
@@ -120,7 +125,7 @@ const Services = () => {
   };
 
   return (
-    <FlexWrapper className='services'>
+    <FlexWrapper className="services">
       <WrapperServices>
         {loadingSpinner && <Spinner />}
         <WrapperTitle>

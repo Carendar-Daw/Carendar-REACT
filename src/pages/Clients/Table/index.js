@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { Skeleton, Space, Table } from 'antd';
 import Confirm from '@Commons/components/presentational/Modal/Confirm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,15 +10,16 @@ import {
 const TableServices = ({
   showDrawerUpdate, isGoingToDelete, clients, loadingSkeleton, getDetailsCustomer, getHistoryCustomer,
 }) => {
+  const { messages, language } = useContext(I18nContext);
   const columns = [
     {
-      title: 'Name',
+      title: messages[language].Stock.Name,
       dataIndex: 'cus_name',
       key: 'cus_name',
       render: (text) => <a>{text}</a>,
     },
     {
-      title: 'Email',
+      title: messages[language].Customers.Email,
       dataIndex: 'cus_email',
       key: 'cus_email',
       responsive: ['lg'],
@@ -29,13 +31,13 @@ const TableServices = ({
       responsive: ['sm'],
     },
     {
-      title: 'Born Date',
+      title: messages[language].Customers.Born,
       dataIndex: 'cus_born_date',
       key: 'cus_born_date',
       responsive: ['xxl'],
     },
     {
-      title: 'Phone',
+      title: messages[language].Customers.Phone,
       dataIndex: 'cus_phone',
       key: 'cus_phone',
       responsive: ['xxl'],
@@ -46,20 +48,20 @@ const TableServices = ({
       key: 'cus_id',
     },
     {
-      title: 'Action',
+      title: messages[language].Stock.Action,
       key: 'action',
       render: (record) => (
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.cus_id)}>
-            Editar
+            {messages[language].Stock.Edit}
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsCustomer(record.cus_id)}>
-            Show Details
+            {messages[language].Stock.ShowDetails}
           </ButtonDetails>
           <ButtonHistory onClick={() => getHistoryCustomer(record.cus_id)}>
-            Show History
+            {messages[language].Customers.ShowHistory}
           </ButtonHistory>
-          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.cus_id)}>
+          <Confirm text={messages[language].Customers.ConfirmDeleteCustomer} confirmDelete={() => isGoingToDelete(record.cus_id)}>
             <ButtonDelete>
               <FontAwesomeIcon className="icon" icon="trash" />
             </ButtonDelete>

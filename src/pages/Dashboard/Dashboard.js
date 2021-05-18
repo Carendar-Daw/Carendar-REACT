@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useContext }from 'react';
 import Calendar from '@Assets/images/images/calendar.svg';
 import Barber from '@Assets/images/images/barber.svg';
 import Clients from '@Assets/images/images/clients.svg';
@@ -9,15 +9,19 @@ import { NavLink } from 'react-router-dom';
 import {
   WrapperMenu, IteamMenu, Title, Card, ImgCard,
 } from './Dashboard.styled';
+import { I18nContext } from '@Application/lang/language';
 
-const Dashboard = () => (
+
+const Dashboard = () => {
+  const { messages, language } = useContext(I18nContext);
+  return(
   <WrapperMenu className="dashboard">
 
     <IteamMenu>
       <NavLink to="/calendar">
         <Card>
           <ImgCard src={Calendar} />
-          <Title>Calendar</Title>
+          <Title>{messages[language].Dashboard.Calendar}</Title>
         </Card>
       </NavLink>
     </IteamMenu>
@@ -25,7 +29,7 @@ const Dashboard = () => (
       <NavLink to="/services">
         <Card>
           <ImgCard src={Barber} />
-          <Title>Services</Title>
+          <Title>{messages[language].Dashboard.Services}</Title>
         </Card>
       </NavLink>
     </IteamMenu>
@@ -33,7 +37,7 @@ const Dashboard = () => (
         <NavLink to="/clients">
         <Card>
           <ImgCard src={Clients} />
-          <Title>Clients</Title>
+          <Title>{messages[language].Dashboard.Clients}</Title>
         </Card>
         </NavLink>
       </IteamMenu>
@@ -41,7 +45,7 @@ const Dashboard = () => (
         <NavLink to="/cash">
         <Card>
           <ImgCard src={SavingMoney} />
-          <Title>Cash</Title>
+          <Title>{messages[language].Dashboard.Cash}</Title>
         </Card>
         </NavLink>
       </IteamMenu>
@@ -49,7 +53,7 @@ const Dashboard = () => (
         <NavLink to="/configuration">
         <Card>
           <ImgCard src={PersonalSettings} />
-          <Title>Settings</Title>
+          <Title>{messages[language].Dashboard.Settings}</Title>
         </Card>
         </NavLink>
       </IteamMenu>
@@ -57,11 +61,12 @@ const Dashboard = () => (
         <NavLink to="/products">
         <Card>
           <ImgCard src={Products} />
-          <Title>Products</Title>
+          <Title>{messages[language].Dashboard.Products}</Title>
         </Card>
         </NavLink>
       </IteamMenu>
   </WrapperMenu>
-);
 
+);
+};
 export default Dashboard;
