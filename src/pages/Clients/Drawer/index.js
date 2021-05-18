@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
 import { I18nContext } from '@Application/lang/language';
 import {
-  Button, Col, Drawer, Form, Input, Row, Upload,
+  Button, Col, Drawer, Form, Input, Row, Upload, DatePicker,
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
 import { WrapperButtonsDrawer } from '@Commons/components/domain/Styles/Style.styled';
+import moment from "moment";
 
 const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
 
 const DrawerServices = ({
-  onClose, getDrawer, createClients, updateClients, buildClients, isUpdating, theClients, setClients,
+  onClose, getDrawer, createClients, updateClients, buildClients, isUpdating, theClients, setClients, insertDate
 }) => {
   const { messages, language } = useContext(I18nContext);
   const file = (info) => {
@@ -50,7 +51,17 @@ const DrawerServices = ({
       visible={getDrawer}
       destroyOnClose
     >
-      <Form layout="vertical" onFinish={onFinish}>
+      <Form
+          layout="vertical"
+          onFinish={onFinish}
+          initialValues={{
+            name:theClients.cus_name,
+            Email: theClients.cus_email,
+            ColorPreference:theClients.cus_color_preference,
+            Phone: theClients.cus_phone,
+            'date-picker': theClients.cus_born_date,
+          }}
+      >
         <Row gutter={16}>
           <Col span={22}>
             <Form.Item
@@ -72,14 +83,17 @@ const DrawerServices = ({
               label={messages[language].Customers.Born}
               rules={[{ required: true, message: messages[language].Customers.PleaseEnterBorn }]}
             >
-              <Input placeholder={messages[language].Customers.PleaseEnterBorn} defaultValue={theClients.cus_born_date} onChange={(event) => buildClients('cus_born_date', event)} />
+              <DatePicker
+                format="YYYY-MM-DD"
+                onChange={(event) => insertDate(event.format('YYYY-MM-DD'))}
+              />
             </Form.Item>
             <Form.Item
-              name="Color Preference"
+              name="ColorPreference"
               label={messages[language].Customers.ColorPreference}
-              rules={[{ required: true, message: messages[language].Customers.PleaseEnterColorPreference }]}
+              rules={[{ required: true, message: messages[language].Customers.PleaseEnterColorPreference}]}
             >
-              <Input placeholder={messages[language].Customers.PleaseEnterColorPreference} defaultValue={theClients.cus_color_preference} onChange={(event) => buildClients('cus_color_preference', event)} />
+              <Input placeholder="Please enter a Color" onChange={(event) => buildClients('cus_color_preference', event)} />
             </Form.Item>
             <Form.Item
               name="Phone"

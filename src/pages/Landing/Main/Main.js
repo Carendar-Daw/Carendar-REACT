@@ -2,14 +2,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { I18nContext } from '@Application/lang/language';
 import {
-  Container, Card, Heading, List, UList, ContainerCenter,
+  Container, Card, Heading, List, UList, ContainerCenter, Title, SubTitle, WrapperMainTitles
 } from './Main.styled';
 
 const Main = () => {
   const { messages, language } = useContext(I18nContext);
   return (
     <Container>
-      <h3>{messages[language].Main.Title}</h3>
+      <WrapperMainTitles>
+        <Title>{messages[language].Main.Title}</Title>
+        <SubTitle>{messages[language].Main.SubTitle}</SubTitle>
+      </WrapperMainTitles>
       <ContainerCenter>
         <Card>
           <div>

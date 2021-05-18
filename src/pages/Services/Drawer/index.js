@@ -11,11 +11,7 @@ const DrawerServices = ({
   const { messages, language } = useContext(I18nContext);
 
   const onFinish = () => {
-    if (!isUpdating) {
-      createService();
-    } else {
-      updateService();
-    }
+     isUpdating ? updateService() : createService();
   };
 
   return (
@@ -26,6 +22,11 @@ const DrawerServices = ({
       visible={getDrawer}
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
+      initialValues={{
+        name: theService.ser_description,
+        price: theService.ser_price,
+        time:theService.ser_time,
+      }}
     >
       <Form layout="vertical" hideRequiredMark onFinish={onFinish}>
         <Row gutter={16}>

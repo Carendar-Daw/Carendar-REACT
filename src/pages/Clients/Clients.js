@@ -75,6 +75,10 @@ const Clients = () => {
     setClients({ ...theClients, [field]: value, sal_id: saloonId });
   };
 
+  const insertDate = (theDate) => {
+    setClients({ ...theClients, cus_born_date: theDate, sal_id: saloonId });
+  };
+
   const setUserDefault = () => setClients(defaultClientState);
 
   const createClients = async () => {
@@ -164,9 +168,6 @@ const Clients = () => {
               getHistoryCustomer={getHistoryCustomer}
             />
           </WrapperTable>
-          <ButtonAdd onClick={showDrawer}>
-            <PlusOutlined className="buttonAdd" />
-          </ButtonAdd>
           <Drawer
             onClose={onClose}
             getDrawer={getDrawer}
@@ -176,6 +177,7 @@ const Clients = () => {
             isUpdating={isUpdating}
             theClients={theClients}
             setClients={setClients}
+            insertDate={insertDate}
           />
         </WrapperClients>
         <WrapperHistory className="client-history">
@@ -184,6 +186,9 @@ const Clients = () => {
         </WrapperHistory>
       </WrapperSection>
       <Details details={details} />
+      <ButtonAdd onClick={showDrawer}>
+        <PlusOutlined className="buttonAdd" />
+      </ButtonAdd>
     </FlexWrapper>
   );
 };

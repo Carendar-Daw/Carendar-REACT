@@ -8,7 +8,6 @@ export const WrapperMenu = styled.div`
     padding-top: 10px;
     width: 100%;
     margin: auto;
-    height: 75vh;
     padding: 40px;
     box-sizing: border-box;
   

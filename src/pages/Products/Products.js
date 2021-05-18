@@ -141,9 +141,6 @@ const Products = () => {
             getDetailsProducts={getDetailsProducts}
           />
         </WrapperTable>
-        <ButtonAdd onClick={showDrawer}>
-          <PlusOutlined className="buttonAdd" />
-        </ButtonAdd>
         <Drawer
           onClose={onClose}
           getDrawer={getDrawer}
@@ -155,6 +152,9 @@ const Products = () => {
         />
       </WrapperProducts>
       <Details details={details} />
+      <ButtonAdd onClick={showDrawer}>
+        <PlusOutlined className="buttonAdd" />
+      </ButtonAdd>
     </FlexWrapper>
   );
 };

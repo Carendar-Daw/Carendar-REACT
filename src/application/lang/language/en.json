@@ -5,36 +5,39 @@
     "WelcomeBanner": "Welcome to Carendar!",
     "WelcomeSubTitle": "The perfect platform for your beauty center"
   },
-  "Main": {
-    "Title": "Keep growing your business with our management software",
-    "Calendario": "Calendar",
-    "Cal_Info_1": "Manage your clients appointments with our intuitive calendar",
-    "Cal_Info_2": "Very simple and easy to use",
-    "Servicios": "Services",
-    "Serv_Info": "Add and edit your services segons according to your business requirements",
-    "Tablet": "Excellent for mobile devices and tablets",
-    "Tablet_Info": "Our app design is totally compatible with mobiles and tablets",
-    "Stock": "Stock",
-    "Stock_Info_1": "Have the expenses control of your stock",
-    "Stock_Info_2": "If you have low stock, we warn you",
-    "Tiempo": "Save time",
-    "Tiempo_Info": "Forget the tedious appointment book and the stock disorder",
-    "Caja": "Cash management",
-    "Caja_Info": "Do not lose time cash closing"
+  "Main" : {
+    "Title": "All-in-one platform",
+    "SubTitle": "\nCarendar automates from the agenda and visits to statistics and stock control.",
+    "Calendario" : "Calendar",
+    "Cal_Info_1" : "Manage your clients appointments with our intuitive calendar",
+    "Cal_Info_2" : "Very simple and easy to use",
+    "Servicios" : "Services",
+    "Serv_Info" : "Add and edit your services segons according to your business requirements",
+    "Tablet" : "Excellent for mobile devices and tablets",
+    "Tablet_Info" : "Our app design is totally compatible with mobiles and tablets",
+    "Stock" : "Stock",
+    "Stock_Info_1" : "Have the expenses control of your stock",
+    "Stock_Info_2" : "If you have low stock, we warn you",
+    "Tiempo" : "Save time",
+    "Tiempo_Info" : "Forget the tedious appointment book and the stock disorder",
+    "Caja" : "Cash management",
+    "Caja_Info" : "Do not lose time cash closing"
   },
+  
   "Section": {
-    "Title_Left": "Appointment Calendar",
-    "Subtitle_Left": "Your appointment calendar easier and more efficient than ever before",
-    "Subtitle_Left_2": "It manages your time effectively and it fits to your business schedule",
+    "Title_Left": "Scheduling",
+    "Subtitle_Left" : "Appointments made easy",
+    "Subtitle_Left_2": "The schedule allows you to have a complete view of all the appointments.",
     "Title_Right": "Stock & Cash Management",
-    "Subtitle_Right": "Your business is always safe with our stock and cash management"
+    "Subtitle_Right": "Your business is always safe with our stock and cash management" 
   },
-  "Footer": {
+  
+  "Footer" :{
     "Contact": "Contact",
     "Privacy": "Privacy politics",
     "Support": "Support",
-    "Conditions": "Use Conditions"
-  },
+    "Conditions": "Use Conditions" 
+    },
   "Dashboard": {
     "Calendar": "Calendar",
     "Services": "Services",
@@ -144,5 +147,5 @@
     "Title": "Configuration",
     "ConfigEdit": "Configuration modified successfully",
     "ErrorEdit": "Error modifying configuration"
-  }
+
 }

@@ -1,3 +1,14 @@
+export const textMenu = {
+  dashboard: 'Dashboard',
+  services: 'Services',
+  calendar: 'Calendar',
+  products: 'Products',
+  cash: 'Cash',
+  clients: 'Clients',
+  configuration: 'Configuration',
+  statistics: 'Statistics',
+};
+
 export const color = '#8265A7';
 
 export const initialState = {

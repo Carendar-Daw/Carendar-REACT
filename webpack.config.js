@@ -1,7 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -25,6 +27,38 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
       favicon: './public/assets/images/logos/logo-carendar.ico',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{
+        from: './public/assets/images',
+        to: './',
+      }, {
+        from: './public/manifest.json',
+        to: './',
+      }],
+    }),
+    new GenerateSW({
+      // Do not precache images
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+
+      // Define runtime caching rules.
+      runtimeCaching: [{
+        // Match any request that ends with .png, .jpg, .jpeg or .svg.
+        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+
+        // Apply a cache-first strategy.
+        handler: 'CacheFirst',
+
+        options: {
+          // Use a custom cache name.
+          cacheName: 'images',
+
+          // Only cache 10 images.
+          expiration: {
+            maxEntries: 10,
+          },
+        },
+      }],
     }),
     new MiniCssExtractPlugin(),
     new Dotenv(),

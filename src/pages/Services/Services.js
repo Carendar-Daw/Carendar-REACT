@@ -141,9 +141,6 @@ const Services = () => {
             getDetailsService={getDetailsService}
           />
         </WrapperTable>
-        <ButtonAdd onClick={showDrawer}>
-          <PlusOutlined className="buttonAdd" />
-        </ButtonAdd>
         <Drawer
           onClose={onClose}
           getDrawer={getDrawer}
@@ -154,7 +151,10 @@ const Services = () => {
           theService={theService}
         />
       </WrapperServices>
-      <Details details={details} />
+      <Details details={details}/>
+      <ButtonAdd onClick={showDrawer}>
+        <PlusOutlined className="buttonAdd" />
+      </ButtonAdd>
     </FlexWrapper>
   );
 };
