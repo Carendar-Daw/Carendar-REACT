@@ -12,3 +12,18 @@ export const WrapperList = styled(CardApp)`
   padding: 2em;
 `;
 
+export const WrapperActualMoney = styled.div`
+  display: flex;
+`;
+
+export const WrapperMoneyCash = styled.div`
+  width: 50%;
+
+`;
+
+export const WrapperStateCash = styled.div`
+  width: 50%;
+  text-align: right;
+
+`;
+

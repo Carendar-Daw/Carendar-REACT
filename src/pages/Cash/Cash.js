@@ -3,10 +3,13 @@ import Filters from '@Pages/Cash/Filters/Filters';
 import List from '@Pages/Cash/List/List';
 import axios from '@Commons/http';
 import { WrapperComponents } from './Cash.styled';
+import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 
 const Cash = () => {
   const [appointments, setAppointments] = useState([]);
   const [filteredAppointments, setFilteredAppointments] = useState([]);
+  const [loadingSpinner, setLoadingSpinner] = useState(false);
+
   const hasServices = (app) => {
     const sad = app.map((appointment) => {
       const x = app.filter((a) => a.app_id === appointment.app_id);
@@ -49,11 +52,11 @@ const Cash = () => {
 
   return (
     <>
+      {loadingSpinner && <Spinner />}
       <WrapperComponents>
         <Filters appointments={appointments} setAppointments={setAppointments} filteredAppointments={filteredAppointments} setFilteredAppointments={setFilteredAppointments} />
-        <List appointments={appointments} filteredAppointments={filteredAppointments} />
+        <List setLoadingSpinner={setLoadingSpinner} appointments={appointments} filteredAppointments={filteredAppointments} />
       </WrapperComponents>
-
     </>
 
   );
