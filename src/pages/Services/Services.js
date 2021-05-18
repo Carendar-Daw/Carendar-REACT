@@ -130,7 +130,7 @@ const Services = () => {
         {loadingSpinner && <Spinner />}
         <WrapperTitle>
           <FontAwesomeIcon className="icon" icon="calendar-alt" />
-          <TitlePage>Servicios</TitlePage>
+          <TitlePage>{messages[language].Services.Title}</TitlePage>
         </WrapperTitle>
         <WrapperTable>
           <Table
