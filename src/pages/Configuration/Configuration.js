@@ -60,7 +60,7 @@ const Configuration = () => {
 
   return (
 
-    <WrapperConfiguration>
+    <WrapperConfiguration className="configuration">
       {loadingSpinner && <Spinner />}
       <WrapperTitle>
         <FontAwesomeIcon className="icon" icon="cog" />

@@ -113,7 +113,7 @@ const Calendarapp = ({
   );
   return (
     <>
-      <Container>
+      <Container className="calendar">
         <FullCalendar
           locale={language === "en" ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}

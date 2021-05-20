@@ -148,5 +148,16 @@
     "Title": "Configuración",
     "ConfigEdit": "Configuración modificada correctamente",
     "ErrorEdit": "Error al modificar la configuración"
+  },
+
+  "Tour":{
+    "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
+    "Sidebar": "De la misma forma que en el menú principal, tenemos las diferentes funciones en nuestra barra lateral, pero se añade el apartado 'Estadísticas'",
+    "Profile": "Desde aquí podremos acceder a nuestros datos personales, hacer otra vez el tour o cerrar la sesión de nuestro salón",
+    "Calendar": "Aquí podremos visualizar, añadir y editar las citas que tenemos en nuestro salón. \nHay disponible vista del calendario según el día, la semana o el mes. \nPara añadir una cita basta con arrastrar de la hora de inicio a la hora de finalización. \nPara editar una cita ya existente basta con hacer un click y editar los campos",
+    "Customers": "Aquí podremos acceder a los datos de nuestros clientes, así como editarlos, mostrar sus detalles, su historial o eliminarlos de la base de datos",
+    "CustomersHistory": "Aquí veremos el historial de citas de cada cliente",
+    "CustomerInfo":"Aquí podremos consultar la información personal del cliente seleccionado",
+    "Services":"Aquí podremos acceder a los datos de nuestros servicios, así como editarlos, mostrar sus detalles, o eliminarlos de la base de datos"
   }
 }

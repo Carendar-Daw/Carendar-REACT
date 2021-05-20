@@ -9,7 +9,7 @@ const List = ({events}) => {
   const { messages, language } = useContext(I18nContext);
   return(
   <>
-    <Container>
+    <Container className="calendar-list">
       <FullCalendar
         locale={language === "en" ? null : esLocale}
         plugins={[listPlugin]}
