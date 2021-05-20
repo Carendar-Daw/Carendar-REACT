@@ -186,7 +186,7 @@ const Clients = () => {
         </WrapperHistory>
       </WrapperSection>
       <Details details={details} />
-      <ButtonAdd onClick={showDrawer}>
+      <ButtonAdd className="client-add" onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
       </ButtonAdd>
     </FlexWrapper>

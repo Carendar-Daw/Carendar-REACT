@@ -126,11 +126,11 @@ const Services = () => {
 
   return (
     <FlexWrapper className="services">
-      <WrapperServices>
+      <WrapperServices className="service-list">
         {loadingSpinner && <Spinner />}
         <WrapperTitle>
           <FontAwesomeIcon className="icon" icon="calendar-alt" />
-          <TitlePage>Servicios</TitlePage>
+          <TitlePage>{messages[language].Services.Title}</TitlePage>
         </WrapperTitle>
         <WrapperTable>
           <Table
@@ -152,7 +152,7 @@ const Services = () => {
         />
       </WrapperServices>
       <Details details={details}/>
-      <ButtonAdd onClick={showDrawer}>
+      <ButtonAdd className="service-add" onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
       </ButtonAdd>
     </FlexWrapper>

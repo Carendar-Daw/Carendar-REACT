@@ -7,7 +7,7 @@ import {
 const Details = ({ details }) => {
   const { messages, language } = useContext(I18nContext);
   return (
-    <WrapperDetails>
+    <WrapperDetails className="service-details">
       <TitlePage>{messages[language].Stock.InfoAbout}</TitlePage>
       {!details ? <ChooseAlert>{messages[language].Services.ChooseService}</ChooseAlert>
         : (

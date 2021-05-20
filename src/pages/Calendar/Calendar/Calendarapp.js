@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import esLocale from '@fullcalendar/core/locales/es';
+import { I18nContext } from '@Application/lang/language';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -15,6 +16,7 @@ import { Container, Badge } from './Calendarapp.styled';
 const Calendarapp = ({
   customers, events, setEvents, services,
 }) => {
+  const { messages, language } = useContext(I18nContext);
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
@@ -23,6 +25,8 @@ const Calendarapp = ({
     state: 'Aprobado',
     services: null,
   });
+
+  
 
   const postAppointment = async () => {
     const d = event.app_date
@@ -103,15 +107,15 @@ const Calendarapp = ({
         <Badge color={states[ev.event.extendedProps.state]} />
       </Popover>
       <span>
-        {` ${ev.timeText} I ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
+        {` ${ev.timeText}  ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
       </span>
     </>
   );
   return (
     <>
-      <Container>
+      <Container className="calendar">
         <FullCalendar
-          locale={esLocale}
+          locale={language === "en" ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           headerToolbar={{
             left: 'prev,next today',

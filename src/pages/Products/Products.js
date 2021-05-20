@@ -126,7 +126,7 @@ const Products = () => {
 
   return (
     <FlexWrapper className="products">
-      <WrapperProducts>
+      <WrapperProducts className="product-list">
         {loadingSpinner && <Spinner />}
         <WrapperTitle>
           <FontAwesomeIcon className="icon" icon="calendar-alt" />
@@ -152,7 +152,7 @@ const Products = () => {
         />
       </WrapperProducts>
       <Details details={details} />
-      <ButtonAdd onClick={showDrawer}>
+      <ButtonAdd className="product-add" onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
       </ButtonAdd>
     </FlexWrapper>
