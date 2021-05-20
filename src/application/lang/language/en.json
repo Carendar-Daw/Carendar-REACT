@@ -43,6 +43,7 @@
     "Services": "Services",
     "Clients": "Clients",
     "Cash": "Cash",
+    "Statistics": "Statistics",
     "Settings": "Settings",
     "Products": "Products",
     "Tour": "Tour",
@@ -148,6 +149,5 @@
     "Title": "Configuration",
     "ConfigEdit": "Configuration modified successfully",
     "ErrorEdit": "Error modifying configuration"
-
-}
+  }
 }

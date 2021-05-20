@@ -1,5 +1,5 @@
 {
-  "LogIn": "Iniciar sesión",
+  "LogIn": "Iniciar",
   "SignIn": "Registrate",
   "Welcome": {
     "WelcomeBanner": "Bienvenido a Carendar!",
@@ -45,6 +45,7 @@
     "Cash": "Caja registradora",
     "Settings": "Configuración",
     "Products": "Productos",
+    "Statistics": "Estadisticas",
     "Tour": "Haz el tour de nuevo",
     "Logout": "Cerrar sesión"
   },

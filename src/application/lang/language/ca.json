@@ -1,5 +1,5 @@
 {
-  "LogIn": "Iniciar sessió",
+  "LogIn": "Iniciar",
   "SignIn": "Registrat",
   "Welcome": {
     "WelcomeBanner": "Benvingut a Carendar!",
@@ -42,6 +42,7 @@
     "Services": "Serveis",
     "Clients": "Clients",
     "Cash": "Caixa registradora",
+    "Statistics": "Estadistiques",
     "Settings": "Configuració",
     "Products": "Productes",
     "Tour": "Fés el tour de nou",
