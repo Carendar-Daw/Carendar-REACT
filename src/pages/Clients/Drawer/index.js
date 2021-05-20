@@ -6,12 +6,12 @@ import {
 import { UploadOutlined } from '@ant-design/icons';
 import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
 import { WrapperButtonsDrawer } from '@Commons/components/domain/Styles/Style.styled';
-import moment from "moment";
+import moment from 'moment';
 
 const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
 
 const DrawerServices = ({
-  onClose, getDrawer, createClients, updateClients, buildClients, isUpdating, theClients, setClients, insertDate
+  onClose, getDrawer, createClients, updateClients, buildClients, isUpdating, theClients, setClients, insertDate,
 }) => {
   const { messages, language } = useContext(I18nContext);
   const file = (info) => {
@@ -52,15 +52,15 @@ const DrawerServices = ({
       destroyOnClose
     >
       <Form
-          layout="vertical"
-          onFinish={onFinish}
-          initialValues={{
-            name:theClients.cus_name,
-            Email: theClients.cus_email,
-            ColorPreference:theClients.cus_color_preference,
-            Phone: theClients.cus_phone,
-            'date-picker': theClients.cus_born_date,
-          }}
+        layout="vertical"
+        onFinish={onFinish}
+        initialValues={{
+          name: theClients.cus_name,
+          Email: theClients.cus_email,
+          ColorPreference: theClients.cus_color_preference,
+          Phone: theClients.cus_phone,
+          'date-picker': theClients.cus_born_date,
+        }}
       >
         <Row gutter={16}>
           <Col span={22}>
@@ -91,7 +91,7 @@ const DrawerServices = ({
             <Form.Item
               name="ColorPreference"
               label={messages[language].Customers.ColorPreference}
-              rules={[{ required: true, message: messages[language].Customers.PleaseEnterColorPreference}]}
+              rules={[{ required: true, message: messages[language].Customers.PleaseEnterColorPreference }]}
             >
               <Input placeholder="Please enter a Color" onChange={(event) => buildClients('cus_color_preference', event)} />
             </Form.Item>

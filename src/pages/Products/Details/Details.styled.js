@@ -56,4 +56,3 @@ export const ChooseAlert = styled.p`
 
   margin-top: 10px;
 `;
-

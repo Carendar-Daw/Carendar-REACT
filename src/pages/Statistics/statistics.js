@@ -3,7 +3,9 @@ import { DatePicker } from 'antd';
 import axios from '@Commons/http';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
-import { WrapperStatistics, FlexWrapper, WrapperDateRange, Title, SubTitle } from './statistics.styled';
+import {
+  WrapperStatistics, FlexWrapper, WrapperDateRange, Title, SubTitle,
+} from './statistics.styled';
 import PieStatistics from './pie/PieStatistics';
 import VerticalBar from './verticalStatistics/VerticalStatistics';
 import ClientsStatistics from './clients/clientsStatistics';
@@ -21,7 +23,7 @@ const Statistics = () => {
 
   const handleDateRange = async (dateString) => {
     try {
-      if(dateString){
+      if (dateString) {
         setServicesByAppointment(false);
         setClients(null);
         setLoadingSpinner(true);
@@ -32,7 +34,7 @@ const Statistics = () => {
             data: statistics.data.servicesPie.map((service) => service.numTotal),
           });
           setIsDataPie(true);
-        }else {
+        } else {
           setIsDataPie(false);
         }
         setProducts(statistics.data.products.Total);
@@ -63,8 +65,8 @@ const Statistics = () => {
           loadingSpinner={loadingSpinner}
         />
         <ProductsStatistics
-            products={products}
-            loadingSpinner={loadingSpinner}
+          products={products}
+          loadingSpinner={loadingSpinner}
         />
       </FlexWrapper>
       <FlexWrapper>

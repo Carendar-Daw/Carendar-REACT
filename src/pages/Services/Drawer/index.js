@@ -11,7 +11,7 @@ const DrawerServices = ({
   const { messages, language } = useContext(I18nContext);
 
   const onFinish = () => {
-     isUpdating ? updateService() : createService();
+    isUpdating ? updateService() : createService();
   };
 
   return (
@@ -25,7 +25,7 @@ const DrawerServices = ({
       initialValues={{
         name: theService.ser_description,
         price: theService.ser_price,
-        time:theService.ser_time,
+        time: theService.ser_time,
       }}
     >
       <Form layout="vertical" hideRequiredMark onFinish={onFinish}>

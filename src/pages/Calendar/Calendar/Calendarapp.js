@@ -26,8 +26,6 @@ const Calendarapp = ({
     services: null,
   });
 
-  
-
   const postAppointment = async () => {
     const d = event.app_date
       ? moment(event.app_date)
@@ -115,7 +113,7 @@ const Calendarapp = ({
     <>
       <Container className="calendar">
         <FullCalendar
-          locale={language === "en" ? null : esLocale}
+          locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           headerToolbar={{
             left: 'prev,next today',

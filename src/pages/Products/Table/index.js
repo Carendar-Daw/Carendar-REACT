@@ -33,7 +33,12 @@ const TableServices = ({
       dataIndex: 'sto_amount',
       key: 'sto_amount',
       responsive: ['sm'],
-      render: (text) => <p>{text}u</p>,
+      render: (text) => (
+        <p>
+          {text}
+          u
+        </p>
+      ),
     },
     {
       title: 'Id',

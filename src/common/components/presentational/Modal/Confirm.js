@@ -3,7 +3,7 @@ import { I18nContext } from '@Application/lang/language';
 import { Modal, Button } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
-const Confirm = ({ text, confirmDelete, children }) =>{
+const Confirm = ({ text, confirmDelete, children }) => {
   const { confirm } = Modal;
   const { messages, language } = useContext(I18nContext);
 

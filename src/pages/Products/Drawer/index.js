@@ -27,15 +27,16 @@ const DrawerServices = ({
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
     >
-      <Form layout="vertical"
-            hideRequiredMark
-            onFinish={onFinish}
-            initialValues={{
-              name: theProduct.sto_name,
-              amount: theProduct.sto_amount,
-              PVP:theProduct.sto_pvp,
-              barcode: theProduct.sto_barcode,
-            }}
+      <Form
+        layout="vertical"
+        hideRequiredMark
+        onFinish={onFinish}
+        initialValues={{
+          name: theProduct.sto_name,
+          amount: theProduct.sto_amount,
+          PVP: theProduct.sto_pvp,
+          barcode: theProduct.sto_barcode,
+        }}
       >
         <Row gutter={16}>
           <Col span={22}>

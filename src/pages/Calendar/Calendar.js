@@ -36,7 +36,7 @@ const Calendar = () => {
   return (
     <WrapperMenu>
       <Calendarapp
-      
+
         events={events}
         setEvents={setEvents}
         customers={customers}

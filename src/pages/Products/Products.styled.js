@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {device, deviceMax} from '@Commons/styles/breakpoints';
+import { device, deviceMax } from '@Commons/styles/breakpoints';
 import { Heading4, CardApp } from '@Commons/components/domain/Styles/Style.styled';
 
 export const TitlePage = styled(Heading4)`

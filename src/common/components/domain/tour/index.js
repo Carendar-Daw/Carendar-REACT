@@ -96,54 +96,54 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
         }
       },
     },
-    
-  {
-    selector: '.cash',
-    content: messages[language].Tour.Cash,
-    action: () => {
-      if (!navChanged.cash) {
-        history.push('/cash');
-        setNavChanged({ ...initialStateRoutes, cash: true });
-      }
+
+    {
+      selector: '.cash',
+      content: messages[language].Tour.Cash,
+      action: () => {
+        if (!navChanged.cash) {
+          history.push('/cash');
+          setNavChanged({ ...initialStateRoutes, cash: true });
+        }
+      },
     },
-  },
-  {
-    selector: '.statistics',
-    content: messages[language].Tour.Statistics,
-    action: () => {
-      if (!navChanged.statistics) {
-        history.push('/configuration');
-        setNavChanged({ ...initialStateRoutes, statistics: true });
-      }
+    {
+      selector: '.statistics',
+      content: messages[language].Tour.Statistics,
+      action: () => {
+        if (!navChanged.statistics) {
+          history.push('/configuration');
+          setNavChanged({ ...initialStateRoutes, statistics: true });
+        }
+      },
     },
-  },
-  {
-    selector: '.configuration',
-    content: messages[language].Tour.Configuration,
-    action: () => {
-      if (!navChanged.configuration) {
-        history.push('/configuration');
-        setNavChanged({ ...initialStateRoutes, configuration: true });
-      }
+    {
+      selector: '.configuration',
+      content: messages[language].Tour.Configuration,
+      action: () => {
+        if (!navChanged.configuration) {
+          history.push('/configuration');
+          setNavChanged({ ...initialStateRoutes, configuration: true });
+        }
+      },
     },
-  },
   ];
 
-return (
-  <>
-    { /* other stuff */}
-    <Tour
-      steps={steps}
-      isOpen={isTourOpen}
-      //nextStep
-      onRequestClose={setTourOff}
-      closeWithMask={false}
-      lastStepNextButton={<button>Done! Let's start playing</button>}
-      accentColor="blue"
-      startAt={0}
-    />
-  </>
-);
+  return (
+    <>
+      { /* other stuff */}
+      <Tour
+        steps={steps}
+        isOpen={isTourOpen}
+      // nextStep
+        onRequestClose={setTourOff}
+        closeWithMask={false}
+        lastStepNextButton={<button>Done! Let's start playing</button>}
+        accentColor="blue"
+        startAt={0}
+      />
+    </>
+  );
 };
 
 export default TourApp;

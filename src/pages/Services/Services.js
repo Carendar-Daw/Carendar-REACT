@@ -151,7 +151,7 @@ const Services = () => {
           theService={theService}
         />
       </WrapperServices>
-      <Details details={details}/>
+      <Details details={details} />
       <ButtonAdd className="service-add" onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
       </ButtonAdd>

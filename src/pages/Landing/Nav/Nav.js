@@ -1,5 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { I18nContext } from '@Application/lang/language';
+import esp from '@Assets/images/Language/España.jpg';
+import cat from '@Assets/images/Language/Catalunya.png';
+import uk from '@Assets/images/Language/Uk.png';
+import logo from '@Assets/images/logos/logo-carendar.png';
 import {
   Wrapper,
   Ham,
@@ -14,11 +19,6 @@ import {
   Arrow,
   Flag,
 } from './Nav.styled';
-import { I18nContext } from '@Application/lang/language';
-import esp from '@Assets/images/Language/España.jpg';
-import cat from '@Assets/images/Language/Catalunya.png';
-import uk from '@Assets/images/Language/Uk.png';
-import logo from '@Assets/images/logos/logo-carendar.png';
 
 const Nav = () => {
   const { loginWithRedirect } = useAuth0();

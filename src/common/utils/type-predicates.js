@@ -1,1 +1,1 @@
-export const isNumber = number => typeof number === "number";
+export const isNumber = (number) => typeof number === 'number';

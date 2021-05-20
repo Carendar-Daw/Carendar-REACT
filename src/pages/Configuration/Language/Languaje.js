@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import esp from '@Assets/images/Language/España.jpg';
 import cat from '@Assets/images/Language/Catalunya.png';
 import uk from '@Assets/images/Language/Uk.png';
+import { I18nContext } from '@Application/lang/language';
 import {
   Arrow,
   Dropbtn,
@@ -10,7 +11,6 @@ import {
   StyledUl,
   SubA,
 } from './Language.styled';
-import { I18nContext } from '@Application/lang/language';
 
 const Languaje = () => {
   const { language, setLanguage } = useContext(I18nContext);

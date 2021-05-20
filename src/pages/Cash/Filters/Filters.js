@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { WrapperComponents, WrapperFilters } from '@Pages/Cash/Filters/Filters.styled';
 import Checkbox from 'antd/es/checkbox/Checkbox';
 import { Col, DatePicker } from 'antd';
-import moment from "moment";
+import moment from 'moment';
 
 const { RangePicker } = DatePicker;
 

@@ -37,7 +37,7 @@ export const Hamb = styled(Hamburger)`
         position:absolute;
         transform: rotate(45deg); 
         `;
-}
+  }
 }
     :nth-child(1) { ${({ hamburger }) => ((hamburger) ? 'transform: translateY(-8px);' : 'transform: rotate(-45deg);')}}
     :nth-child(2) { ${({ hamburger }) => ((hamburger) ? 'transform: translateY(8px);' : 'transform: rotate(-45deg);')}}

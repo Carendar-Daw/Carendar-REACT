@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import { I18nContext } from '@Application/lang/language';
 import {
-  Container, Card, Heading, List, UList, ContainerCenter, Title, SubTitle, WrapperMainTitles
+  Container, Card, Heading, List, UList, ContainerCenter, Title, SubTitle, WrapperMainTitles,
 } from './Main.styled';
 
 const Main = () => {

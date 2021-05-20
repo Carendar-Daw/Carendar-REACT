@@ -4,13 +4,13 @@ import thunk from 'redux-thunk';
 import reducer from './user/reducer';
 
 const logger = () => (next) => (action) => {
-    const results = next(action);
-    return results;
+  const results = next(action);
+  return results;
 };
 
 export default createStore(
-    reducer,
-    composeWithDevTools(
-        applyMiddleware(logger, thunk)
-    )
+  reducer,
+  composeWithDevTools(
+    applyMiddleware(logger, thunk),
+  ),
 );
