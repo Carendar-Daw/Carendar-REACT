@@ -154,7 +154,7 @@
     "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
     "Sidebar": "De la misma forma que en el menú principal, tenemos las diferentes funciones en nuestra barra lateral, pero se añade el apartado 'Estadísticas'",
     "Profile": "Desde aquí podremos acceder a nuestros datos personales, hacer otra vez el tour o cerrar la sesión de nuestro salón",
-    "Calendar": "Aquí podremos visualizar, añadir y editar las citas que tenemos en nuestro salón. \nHay disponible vista del calendario según el día, la semana o el mes. \nPara añadir una cita basta con arrastrar de la hora de inicio a la hora de finalización. \nPara editar una cita ya existente basta con hacer un click y editar los campos\nPara eliminarla, click sobre la cita y seleccionar el botón 'eliminar'",
+    "Calendar": "Aquí podremos visualizar, añadir y editar las citas que tenemos en nuestro salón. \nHay disponible la vista del calendario según el día, la semana o el mes. \nPara añadir una cita basta con arrastrar de la hora de inicio a la hora de finalización. \nPara editar una cita ya existente basta con hacer un click y editar los campos\nPara eliminarla, click sobre la cita y seleccionar el botón 'eliminar'",
     "CalendarList": "En esta ventana podremos visualizar las citas que hay programadas en el día seleccionado",
     "Customers": "Aquí podremos acceder a los datos de nuestros clientes, servicios o productos, así como editarlos, mostrar sus detalles, su historial (en caso de los clientes) o eliminarlos de la base de datos",
     "CustomersHistory": "Esta vista solo se verá en el apartado de clientes. Aquí veremos el historial de citas de cada cliente",

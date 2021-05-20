@@ -9,7 +9,7 @@
     "Title": "All-in-one platform",
     "SubTitle": "\nCarendar automates from the agenda and visits to statistics and stock control.",
     "Calendario" : "Calendar",
-    "Cal_Info_1" : "Manage your clients appointments with our intuitive calendar",
+    "Cal_Info_1" : "Manage your customer appointments with our intuitive calendar",
     "Cal_Info_2" : "Very simple and easy to use",
     "Servicios" : "Services",
     "Serv_Info" : "Add and edit your services segons according to your business requirements",
@@ -41,7 +41,7 @@
   "Dashboard": {
     "Calendar": "Calendar",
     "Services": "Services",
-    "Clients": "Clients",
+    "Clients": "Customers",
     "Cash": "Cash",
     "Settings": "Settings",
     "Products": "Products",
@@ -151,13 +151,17 @@
 
 },
 "Tour":{
-  "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
-  "Sidebar": "De la misma forma que en el menú principal, tenemos las diferentes funciones en nuestra barra lateral, pero se añade el apartado 'Estadísticas'",
-  "Profile": "Desde aquí podremos acceder a nuestros datos personales y modificarlos a nuestro gusto",
-  "FunctionsIntro": "Una vez explicado el menú principal vamos a navegar por las diferentes funcionalidades que ofrece Carendar!",
-  "Customers": "Aquí podremos acceder a los datos de nuestros clientes, así como editarlos, mostrar sus detalles, su historial o eliminarlos de la base de datos",
-  "CustomersHistory": "Aquí veremos el historial de citas de cada cliente",
-  "CustomerInfo":"Aquí podremos consultar la información personal del cliente seleccionado",
-  "Services":"Aquí podremos acceder a los datos de nuestros servicios, así como editarlos, mostrar sus detalles, o eliminarlos de la base de datos"
+  "Dashboard": "Here is where the app functionalities are. We can access to them with a simple click",
+  "Sidebar": "The same way as dashboard, we have the different app functionalities in our sidebar, but we added 'Statistics'",
+  "Profile": "From here we can access to our personal data, do the tour again or logout",
+  "Calendar": "From here we can see, add and edit the appointments that we have in our saloon. \nWe have day, week and month calendar views available. \nTo add an appointment we should drag from the start time to the finish time. \nTo edit an appointment we should click and edit the fields.\nTo delete an appointment, we should click on the event and select the button 'delete'",
+  "CalendarList": "In this window we can see the scheduled appointments that we have the selected day",
+  "Customers": "From here we can access to customer, services and products data, as we can edit it, show details, and show history (in case of the customers) or delete from the database",
+  "CustomersHistory": "This view is exclusive to the customer section. From here we will see the history of the customer appointments",
+  "CustomerInfo":"Here we will see the customer, service or product information that is selected",
+  "CustomerAdd":"To add costumers, services or products, we click on that button and fill the inputs",
+  "Cash": "Caja xd",
+  "Statistics": "Estadísticas xd",
+  "Configuration": "In this view you can edit the characteristics of your saloon and change to your favourite language" 
 }
 }

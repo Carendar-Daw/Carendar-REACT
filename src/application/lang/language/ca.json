@@ -41,10 +41,10 @@
     "Calendar": "Calendari",
     "Services": "Serveis",
     "Clients": "Clients",
+    "Statistics": "Estadístiques",
     "Cash": "Caixa registradora",
     "Settings": "Configuració",
     "Products": "Productes",
-    "Statistics": "Estadístiques",
     "Tour": "Fés el tour de nou",
     "Logout": "Tancar sessió"
   },
@@ -149,13 +149,17 @@
     "ErrorEdit": "Error al modificar la configuració"
   },
   "Tour":{
-    "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
-    "Sidebar": "De la misma forma que en el menú principal, tenemos las diferentes funciones en nuestra barra lateral, pero se añade el apartado 'Estadísticas'",
-    "Profile": "Desde aquí podremos acceder a nuestros datos personales y modificarlos a nuestro gusto, además de cerrar nuestra sesión",
-    "FunctionsIntro": "Una vez explicado el menú principal vamos a navegar por las diferentes funcionalidades que ofrece Carendar!",
-    "Customers": "Aquí podremos acceder a los datos de nuestros clientes, así como editarlos, mostrar sus detalles, su historial o eliminarlos de la base de datos",
-    "CustomersHistory": "Aquí veremos el historial de citas de cada cliente",
-    "CustomerInfo":"Aquí podremos consultar la información personal del cliente seleccionado",
-    "Services":"Aquí podremos acceder a los datos de nuestros servicios, así como editarlos, mostrar sus detalles, o eliminarlos de la base de datos"
+    "Dashboard": "Aquí es situen les diferents funcionalitats de l'aplicació, a las quals podem accedir amb un simple clic",
+    "Sidebar": "De la mateixa manera que en el menú principal, tenim les diferents funcions en la nostra barra lateral, però s'afegeix l'apartat 'Estadístiques'",
+    "Profile": "Des d'aquí podrem accedir a les nostres dades personals, fer un altre cop el tour o tancar la sessió del nostre saló",
+    "Calendar": "Aquí podrem visualitzar, afegir i editar les cites que tenim en el nostre saló. \nEstà disponible la vista del calendario segons el dia, la setmana o el mes. \nPer a afegir una cita hi ha prou amb arrossegar des de l'hora d'inici a l'hora de finalització. \nPer a editar una cita ja existent hi ha prou amb fer clic i editar els camps\nPer eliminar-la, clic sobre la cita i seleccionar el botó 'eliminar'",
+    "CalendarList": "En esta ventana podremos visualizar las citas que hay programadas en el día seleccionado",
+    "Customers": "Aquí podrem accedir a les dades dels nostres clients, serveis o productes, així com editar-los, mostrar els seus detalls, el seu historial (en cas dels clients) o eliminar-los de la base de dades",
+    "CustomersHistory": "Aquesta vista només es veura en l'apartat de clients. Aquí veurem l'historial de citas de cada client",
+    "CustomerInfo":"Aquí ens sortirà la informació del client, servei o producte seleccionat",
+    "CustomerAdd":"Per a afegir clients, serveis o productes, pulsem en el botó i omplim els camps",
+    "Cash": "Caja xd",
+    "Statistics": "Estadísticas xd",
+    "Configuration": "En aquesta vista pots editar els camps del teu saló i canviar l'idioma del mateix seleccionant la bandera del teu idioma preferit" 
   }
 }
