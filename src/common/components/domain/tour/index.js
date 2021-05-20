@@ -131,7 +131,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
 
 return (
   <>
-    /*{ /* other stuff */}*/
+    { /* other stuff */}
     <Tour
       steps={steps}
       isOpen={isTourOpen}
