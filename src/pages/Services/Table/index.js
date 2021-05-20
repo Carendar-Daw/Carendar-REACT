@@ -21,14 +21,26 @@ const TableServices = ({
       title: messages[language].Services.Price,
       dataIndex: 'ser_price',
       key: 'ser_price',
-      render: (text) => <p>{text} €</p>,
+      render: (text) => (
+        <p>
+          {text}
+          {' '}
+          €
+        </p>
+      ),
     },
     {
       title: messages[language].Services.Time,
       dataIndex: 'ser_time',
       key: 'ser_time',
       responsive: ['sm'],
-      render: (text) => <p>{text} min</p>,
+      render: (text) => (
+        <p>
+          {text}
+          {' '}
+          min
+        </p>
+      ),
     },
     {
       title: 'Id',
@@ -41,9 +53,11 @@ const TableServices = ({
       render: (record) => (
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
+            <FontAwesomeIcon className="icon" icon="edit" />
             {messages[language].Stock.Edit}
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsService(record.ser_id)}>
+            <FontAwesomeIcon className="icon" icon="search" />
             {messages[language].Stock.ShowDetails}
           </ButtonDetails>
           <Confirm text={messages[language].Services.ConfirmDeleteService} confirmDelete={() => isGoingToDelete(record.ser_id)}>

@@ -65,11 +65,11 @@ export const ButtonDelete = styled.button`
 
 export const ButtonUpdate = styled.button`
   padding: 6px 15px;
-  background-color: #BA9CE0;
+  background-color: #ba9ce0;
   border-radius: 10px;
   border: none;
-  cursor:pointer;
-  .icon{
+  cursor: pointer;
+  .icon {
     margin-right: 5px;
   }
 `;

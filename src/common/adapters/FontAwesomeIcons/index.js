@@ -16,6 +16,7 @@ import {
   faEdit,
   faUserTag,
   faHistory,
+  faSearch,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -35,4 +36,5 @@ library.add(
   faEdit,
   faUserTag,
   faHistory,
+  faSearch,
 );
