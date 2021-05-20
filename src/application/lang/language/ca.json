@@ -56,7 +56,7 @@
     "Amount": "Quantitat",
     "Action": "Acció",
     "Edit": "Editar",
-    "ShowDetails": "Mostra detalls",
+    "ShowDetails": "Detalls",
     "InfoAbout": "Informació",
     "ChooseProduct": "Escull algún producte...",
     "CreateProduct": "Crea un nou producte",
@@ -126,7 +126,7 @@
     "ErrorHistory": "Error al obtenir l'historial",
     "FileUpload": "Fitxer pujat correctament",
     "UploadFail": "Error al pujar el fitxer",
-    "ShowHistory": "Mostrar historial"
+    "ShowHistory": "Historial"
   },
   "Appointments": {
     "EditAppointment": "Edita la cita",

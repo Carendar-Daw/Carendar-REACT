@@ -57,7 +57,7 @@
     "Amount": "Cantidad",
     "Action": "Acción",
     "Edit": "Editar",
-    "ShowDetails": "Muestra detalles",
+    "ShowDetails": "Detalles",
     "InfoAbout": "Información",
     "ChooseProduct": "Escoge algún producto...",
     "CreateProduct": "Crea un nuevo producto",
@@ -127,7 +127,7 @@
     "ErrorHistory": "Error al obtener historial",
     "FileUpload": "Fichero subido correctamente",
     "UploadFail": "Error al subir el fichero",
-    "ShowHistory": "Mostrar historial"
+    "ShowHistory": "MHistorial"
   },
   "Appointments": {
     "EditAppointment": "Edita la cita",

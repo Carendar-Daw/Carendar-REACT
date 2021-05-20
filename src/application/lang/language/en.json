@@ -57,7 +57,7 @@
     "Amount": "Amount",
     "Action": "Action",
     "Edit": "Edit",
-    "ShowDetails": "Show details",
+    "ShowDetails": "Details",
     "InfoAbout": "Information About",
     "ChooseProduct": "Choose some product...",
     "CreateProduct": "Create new product",
@@ -127,7 +127,7 @@
     "ErrorHistory": "Error loading history",
     "FileUpload": "File uploaded successfully",
     "UploadFail": "Error uploading file",
-    "ShowHistory": "Show history"
+    "ShowHistory": "History"
   },
   "Appointments": {
     "EditAppointment": "Edit appointment",
