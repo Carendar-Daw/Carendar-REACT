@@ -127,7 +127,7 @@
     "ErrorHistory": "Error al obtener historial",
     "FileUpload": "Fichero subido correctamente",
     "UploadFail": "Error al subir el fichero",
-    "ShowHistory": "MHistorial"
+    "ShowHistory": "Historial"
   },
   "Appointments": {
     "EditAppointment": "Edita la cita",
