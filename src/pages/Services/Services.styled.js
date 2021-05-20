@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '@Commons/styles/breakpoints';
+import { device, deviceMax } from '@Commons/styles/breakpoints';
 import { Heading4, CardApp } from '@Commons/components/domain/Styles/Style.styled';
 
 export const TitlePage = styled(Heading4)`
@@ -70,6 +70,14 @@ export const ButtonUpdate = styled.button`
   cursor:pointer;
   .icon {
     margin-right: 5px;
+  }
+  @media ${deviceMax.laptopM} {
+    span{
+      display: none;
+    }
+    .icon {
+      margin-right: 0;
+    }
   }
 `;
 

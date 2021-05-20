@@ -54,11 +54,15 @@ const TableServices = ({
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.ser_id)}>
             <FontAwesomeIcon className="icon" icon="edit" />
-            {messages[language].Stock.Edit}
+            <span>
+              {messages[language].Stock.Edit}
+            </span>
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsService(record.ser_id)}>
             <FontAwesomeIcon className="icon" icon="search" />
-            {messages[language].Stock.ShowDetails}
+            <span>
+              {messages[language].Stock.ShowDetails}
+            </span>
           </ButtonDetails>
           <Confirm text={messages[language].Services.ConfirmDeleteService} confirmDelete={() => isGoingToDelete(record.ser_id)}>
             <ButtonDelete>

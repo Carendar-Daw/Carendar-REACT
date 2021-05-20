@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '@Commons/styles/breakpoints';
+import { device, deviceMax } from '@Commons/styles/breakpoints';
 import { Heading4, CardApp } from '@Commons/components/domain/Styles/Style.styled';
 
 export const TitlePage = styled(Heading4)`
@@ -24,23 +24,22 @@ export const WrapperClients = styled(CardApp)`
 `;
 
 export const WrapperTitle = styled.div`
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    width: 90%;
-    margin: auto;
-    margin-top: 20px;
-    .icon {
-        font-size: 33px;
-        margin-right: 10px;
-    }
-    
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90%;
+  margin: 20px auto auto;
+
+  .icon {
+    font-size: 33px;
+    margin-right: 10px;
+  }
+
 `;
 
 export const WrapperTable = styled.div`
   width: 90%;
-  margin: auto;
-  margin-top: 60px;
+  margin: 60px auto auto;
 `;
 
 export const ButtonAdd = styled.button`
@@ -72,6 +71,14 @@ export const ButtonUpdate = styled.button`
   .icon {
     margin-right: 5px;
   }
+  @media ${deviceMax.laptopM} {
+    span{
+      display: none;
+    }
+    .icon {
+      margin-right: 0;
+    }
+  }
 `;
 
 export const FlexWrapper = styled.div`
@@ -97,10 +104,26 @@ export const WrapperSection = styled.div`
 export const ButtonDetails = styled(ButtonUpdate)`
 
   background-color: #ebddff;
+  @media ${deviceMax.laptopM} {
+    span{
+      display: none;
+    }
+    .icon {
+      margin-right: 0;
+    }
+  }
 
 `;
 export const ButtonHistory = styled(ButtonUpdate)`
   background-color: #ebddff;
+  @media ${deviceMax.laptopM} {
+    span{
+      display: none;
+    }
+    .icon {
+      margin-right: 0;
+    }
+  }
 `;
 
 export const WrapperHistory = styled(CardApp)`
