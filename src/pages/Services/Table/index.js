@@ -15,7 +15,7 @@ const TableServices = ({
       title: messages[language].Stock.Name,
       dataIndex: 'ser_description',
       key: 'ser_description',
-      render: (text) => <a>{text}</a>,
+      render: (text) => <p>{text}</p>,
     },
     {
       title: messages[language].Services.Price,

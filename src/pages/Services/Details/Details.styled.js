@@ -9,26 +9,23 @@ export const TitlePage = styled(Heading4)`
     margin-bottom: 0;
     border-radius: 3px;
     line-height: 40px;
+    font-family: 'poppins',sans-serif;
   
 `;
 
 export const WrapperDetails = styled(CardApp)`
-  
-  padding-top: 30px;
- 
+
   width: 90% !important;
-  margin:auto;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin: 30px auto 20px;
   box-sizing: border-box;
   padding: 20px;
- 
+
   @media ${device.tablet} {
     margin-top: 30px;
     margin-right: 40px;
     margin-left: 20px;
     width: 30% !important;
-    
+
   }
 
 `;
@@ -52,7 +49,5 @@ export const WrapperInfo = styled.div`
 `;
 
 export const ChooseAlert = styled.p`
-
   margin-top: 10px;
 `;
-

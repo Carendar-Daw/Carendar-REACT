@@ -15,7 +15,7 @@ const TableServices = ({
       title: messages[language].Stock.Name,
       dataIndex: 'sto_name',
       key: 'sto_name',
-      render: (text) => <a>{text}</a>,
+      render: (text) => <p>{text}</p>,
     },
     {
       title: messages[language].Stock.Barcode,
@@ -46,10 +46,15 @@ const TableServices = ({
       render: (record) => (
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.sto_id)}>
-            {messages[language].Stock.Edit}
+            <FontAwesomeIcon className="icon" icon="edit" />
+            <span>
+              {messages[language].Stock.Edit}
+            </span>
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsProducts(record.sto_id)}>
-            {messages[language].Stock.ShowDetails}
+            <span>
+              {messages[language].Stock.ShowDetails}
+            </span>
           </ButtonDetails>
           <Confirm text={messages[language].Stock.ConfirmDeleteStock} confirmDelete={() => isGoingToDelete(record.sto_id)}>
             <ButtonDelete>
