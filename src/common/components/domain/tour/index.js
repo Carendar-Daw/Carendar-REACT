@@ -60,7 +60,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
     },
     {
       selector: '.calendar-list',
-      content: messages[language].Stock.Title,
+      content: messages[language].Tour.CalendarList,
       action: () => {
         if (!navChanged.calendar) {
           history.push('/calendar');
@@ -70,7 +70,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
     },
     {
       selector: '.client-list',
-      content: messages[language].Stock.Title,
+      content: messages[language].Tour.Customers,
       action: () => {
         if (!navChanged.clients) {
           history.push('/clients');
@@ -80,15 +80,15 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
     },
     {
       selector: '.client-history',
-      content: messages[language].Stock.Title,
+      content: messages[language].Tour.CustomersHistory,
     },
     {
       selector: '.client-details',
-      content: messages[language].Stock.Title,
+      content: messages[language].Tour.CustomerInfo,
     },
     {
       selector: '.client-add',
-      content: messages[language].Stock.Title,
+      content: messages[language].Tour.CustomerAdd,
       action: () => {
         if (!navChanged.clients) {
           history.push('/clients');
@@ -96,57 +96,10 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
         }
       },
     },
-    {
-      selector: '.service-list',
-      content: messages[language].Stock.Title,
-      action: () => {
-        if (!navChanged.services) {
-          history.push('/services');
-          setNavChanged({ ...initialStateRoutes, services: true });
-        }
-      },
-    },
-    {
-      selector: '.service-details',
-      content: messages[language].Stock.Title,
-    },
-    {
-      selector: '.service-add',
-      content: messages[language].Stock.Title,
-      action: () => {
-        if (!navChanged.products) {
-          history.push('/services');
-          setNavChanged({ ...initialStateRoutes, services: true });
-        }
-      },
-    },
-    {
-      selector: '.product-list',
-      content: messages[language].Stock.Title,
-      action: () => {
-        if (!navChanged.products) {
-          history.push('/products');
-          setNavChanged({ ...initialStateRoutes, products: true });
-        }
-      },
-    },
-    {
-    selector: '.product-details',
-    content: messages[language].Stock.Title,
-  },
-  {
-    selector: '.product-add',
-    content: messages[language].Stock.Title,
-    action: () => {
-        if (!navChanged.products) {
-          history.push('/products');
-          setNavChanged({ ...initialStateRoutes, products: true });
-        }
-      },
-  },
+    
   {
     selector: '.cash',
-    content: messages[language].Stock.Title,
+    content: messages[language].Tour.Cash,
     action: () => {
       if (!navChanged.cash) {
         history.push('/cash');
@@ -156,7 +109,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
   },
   {
     selector: '.statistics',
-    content: messages[language].Stock.Title,
+    content: messages[language].Tour.Statistics,
     action: () => {
       if (!navChanged.statistics) {
         history.push('/configuration');
@@ -166,7 +119,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
   },
   {
     selector: '.configuration',
-    content: messages[language].Stock.Title,
+    content: messages[language].Tour.Configuration,
     action: () => {
       if (!navChanged.configuration) {
         history.push('/configuration');
@@ -178,11 +131,11 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
 
 return (
   <>
-    { /* other stuff */}
+    /*{ /* other stuff */}*/
     <Tour
       steps={steps}
       isOpen={isTourOpen}
-      nextStep
+      //nextStep
       onRequestClose={setTourOff}
       closeWithMask={false}
       lastStepNextButton={<button>Done! Let's start playing</button>}
