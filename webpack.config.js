@@ -39,7 +39,7 @@ module.exports = {
     }),
     new GenerateSW({
       // Do not precache images
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      // exclude: [/\.(?:png|jpg|jpeg|svg)$/],
 
       // Define runtime caching rules.
       runtimeCaching: [{

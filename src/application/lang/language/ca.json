@@ -1,5 +1,5 @@
 {
-  "LogIn": "Iniciar sessió",
+  "LogIn": "Iniciar",
   "SignIn": "Registrat",
   "Welcome": {
     "WelcomeBanner": "Benvingut a Carendar!",
@@ -43,6 +43,7 @@
     "Clients": "Clients",
     "Statistics": "Estadístiques",
     "Cash": "Caixa registradora",
+    "Statistics": "Estadistiques",
     "Settings": "Configuració",
     "Products": "Productes",
     "Tour": "Fés el tour de nou",
@@ -64,6 +65,7 @@
     "Cancel": "Cancelar",
     "Submit": "Afegir",
     "Update": "Actualiza",
+    "Delete": "Borra",
     "PleaseEnterName": "Per favor, afegeix un nom",
     "PleaseEnterAmount": "Per favor, afegeix una quantitat",
     "PleaseEnterPVP": "Per favor, afegeix un PVP",

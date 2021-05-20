@@ -43,6 +43,7 @@
     "Services": "Services",
     "Clients": "Customers",
     "Cash": "Cash",
+    "Statistics": "Statistics",
     "Settings": "Settings",
     "Products": "Products",
     "Tour": "Tour",
@@ -65,6 +66,7 @@
     "Cancel": "Cancel",
     "Submit": "Submit",
     "Update": "Update",
+    "Delete": "Delete",
     "PleaseEnterName": "Please, enter a name",
     "PleaseEnterAmount": "Please, enter amount",
     "PleaseEnterPVP": "Please, enter PVP",
@@ -148,7 +150,6 @@
     "Title": "Configuration",
     "ConfigEdit": "Configuration modified successfully",
     "ErrorEdit": "Error modifying configuration"
-
 },
 "Tour":{
   "Dashboard": "Here is where the app functionalities are. We can access to them with a simple click",

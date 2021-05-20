@@ -1,5 +1,5 @@
 {
-  "LogIn": "Iniciar sesión",
+  "LogIn": "Iniciar",
   "SignIn": "Registrate",
   "Welcome": {
     "WelcomeBanner": "Bienvenido a Carendar!",
@@ -65,6 +65,7 @@
     "Cancel": "Cancelar",
     "Submit": "Añadir",
     "Update": "Actualiza",
+    "Delete": "Borrar",
     "PleaseEnterName": "Por favor, añade un nombre",
     "PleaseEnterAmount": "Por favor, añade una cantidad",
     "PleaseEnterPVP": "Por favor, añade un PVP",

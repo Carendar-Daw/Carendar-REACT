@@ -27,7 +27,7 @@ const Nav = () => {
   const changeLanguage = (lang) => {
     setLanguage(lang);
   };
-  const [hamburger, setHamburger] = useState(true);
+  const [hamburger, setHamburger] = useState(false);
 
   const hamburgerClick = () => {
     setHamburger(!hamburger);
@@ -48,7 +48,6 @@ const Nav = () => {
     <Wrapper>
       <Logo hamburger={hamburger} onClick={() => hamburgerClick(hamburger)} src={logo} alt="" />
       <WrapperContentMenu hamburger={hamburger}>
-      <Ham><span>></span></Ham>
         <StyledUl>
           <DropDownLi>
             <Dropbtn>
