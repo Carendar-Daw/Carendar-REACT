@@ -53,14 +53,14 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
               </IteamMenuWrapper>
             </NavLink>
           </Tooltip>
-          <Tooltip placement="right" color={color} title={textMenu.statistics}>
+          <Tooltip placement="right" color={color} title={"messages[language].Statistics.Title"}>
             <NavLink to="/statistics">
               <IteamMenuWrapper background={background.statistics} onClick={() => setNavBackgroundColor('statistics')}>
                 <FontAwesomeIcon className="icon" icon="chart-pie" />
               </IteamMenuWrapper>
             </NavLink>
           </Tooltip>
-          <Tooltip placement="right" color={color} title={textMenu.services}>
+          <Tooltip placement="right" color={color} title={messages[language].Services.Title}>
             <NavLink to="/services">
               <IteamMenuWrapper background={background.services} onClick={() => setNavBackgroundColor('services')}>
                 <FontAwesomeIcon className="icon" icon="cut" />
