@@ -12,22 +12,27 @@ import {
   faCashRegister,
   faTrash,
   faBox,
-  faChartPie
+  faChartPie,
+  faEdit,
+  faUserTag,
+  faHistory,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
-    fab,
-    faCalendarAlt,
-    faCut,
-    faTabletAlt,
-    faDatabase,
-    faClock,
-    faUsers,
-    faHome,
-    faCog,
-    faCashRegister,
-    faTrash,
-    faBox,
-    faChartPie
+  fab,
+  faCalendarAlt,
+  faCut,
+  faTabletAlt,
+  faDatabase,
+  faClock,
+  faUsers,
+  faHome,
+  faCog,
+  faCashRegister,
+  faTrash,
+  faBox,
+  faChartPie,
+  faEdit,
+  faUserTag,
+  faHistory,
 );
-
