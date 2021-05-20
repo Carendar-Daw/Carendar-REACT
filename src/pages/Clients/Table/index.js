@@ -53,15 +53,15 @@ const TableServices = ({
       render: (record) => (
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.cus_id)}>
-            <FontAwesomeIcon icon={"edit"} />
+            <FontAwesomeIcon className="icon" icon="edit" />
             {messages[language].Stock.Edit}
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsCustomer(record.cus_id)}>
-            <FontAwesomeIcon icon={"user-tag"} />
+            <FontAwesomeIcon className="icon" icon="user-tag" />
             {messages[language].Stock.ShowDetails}
           </ButtonDetails>
           <ButtonHistory onClick={() => getHistoryCustomer(record.cus_id)}>
-            <FontAwesomeIcon icon={"history"} />
+            <FontAwesomeIcon className="icon" icon="history" />
             {messages[language].Customers.ShowHistory}
           </ButtonHistory>
           <Confirm text={messages[language].Customers.ConfirmDeleteCustomer} confirmDelete={() => isGoingToDelete(record.cus_id)}>

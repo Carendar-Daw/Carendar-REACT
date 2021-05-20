@@ -57,20 +57,21 @@ export const ButtonAdd = styled.button`
 `;
 
 export const ButtonDelete = styled.button`
-  padding: 8px;
-  background-color: red;
+  background-color: #ff5e5e;
   border-radius: 10px;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const ButtonUpdate = styled.button`
-  padding: 5px;
-  background-color: #6a6af1;
+  padding: 6px 15px;
+  background-color: #BA9CE0;
   border-radius: 10px;
   border: none;
-  box-shadow: 3px 7px 7px 0px rgba(0,0,0,0.75);
   cursor:pointer;
+  .icon{
+    margin-right: 5px;
+  }
 `;
 
 export const FlexWrapper = styled.div`
@@ -94,12 +95,12 @@ export const WrapperSection = styled.div`
 `;
 
 export const ButtonDetails = styled(ButtonUpdate)`
- 
-  background-color: pink;
-  
+
+  background-color: #ebddff;
+
 `;
 export const ButtonHistory = styled(ButtonUpdate)`
-  background-color: pink;
+  background-color: #ebddff;
 `;
 
 export const WrapperHistory = styled(CardApp)`
