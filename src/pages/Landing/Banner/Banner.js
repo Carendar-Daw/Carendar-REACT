@@ -13,6 +13,9 @@ const Banner = () => {
   return (
     <Header>
         <WrapperContent>
+          <video autoPlay muted loop id="myVideo">
+            <source src={video} type="video/mp4" />
+          </video>
           <img src={ffu} alt="test" />
           <div className="texto">
             <div>
