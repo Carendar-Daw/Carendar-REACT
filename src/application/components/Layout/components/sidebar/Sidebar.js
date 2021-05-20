@@ -54,7 +54,7 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
             </NavLink>
           </Tooltip>
 
-          <Tooltip placement="right" color={color} title={"messages[language].Statistics.Title"}>
+          <Tooltip placement="right" color={color} title={messages[language].Dashboard.Statistics}>
             <NavLink to="/statistics">
               <IteamMenuWrapper background={background.statistics} onClick={() => setNavBackgroundColor('statistics')}>
                 <FontAwesomeIcon className="icon" icon="chart-pie" />
