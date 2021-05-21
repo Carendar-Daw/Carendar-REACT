@@ -21,6 +21,8 @@ const Calendarapp = ({
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
 
+  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 0.1 : 0.1);
+
   const [event, setEvent] = useState({
     state: 'Aprobado',
     services: null,
@@ -130,6 +132,13 @@ const Calendarapp = ({
           allDaySlot={false}
           select={showDrawer}
           eventClick={loadAppointment}
+          aspectRatio={aspectRatio}
+          windowResize={() => {
+            // eslint-disable-next-line no-unused-expressions
+            window.innerWidth > 1336
+              ? setAspectRatio(0.1)
+              : setAspectRatio(0.1);
+          }}
           eventContent={renderEventContent}
           aspectRatio={aspectRatio}
         />

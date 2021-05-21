@@ -18,9 +18,6 @@ const Confirm = ({ text, confirmDelete, children }) => {
       onOk() {
         confirmDelete();
       },
-      onCancel() {
-        console.log('Are you drunk?');
-      },
     });
   }
 
