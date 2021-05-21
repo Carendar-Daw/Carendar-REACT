@@ -26,7 +26,6 @@ const TableCash = ({ appointments }) => {
 
   const handleClickPayAppointment = async () => {
     try {
-      setLoadingSpinner(true);
       const buildAppointment = {
         app_id: appointmentPaying.app_id,
         cus_id: appointmentPaying.cus_id,
@@ -40,7 +39,6 @@ const TableCash = ({ appointments }) => {
       error('Error al pagar cita');
     } finally {
       setVisible(false);
-      setLoadingSpinner(false);
     }
   };
 

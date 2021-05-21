@@ -18,7 +18,7 @@ const Calendarapp = ({
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
-  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
+  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 0.1 : 0.1);
   const [event, setEvent] = useState({
     state: 'Aprobado',
     services: null,
@@ -133,8 +133,8 @@ const Calendarapp = ({
           windowResize={() => {
             // eslint-disable-next-line no-unused-expressions
             window.innerWidth > 1336
-              ? setAspectRatio(1.8)
-              : setAspectRatio(1);
+              ? setAspectRatio(0.1)
+              : setAspectRatio(0.1);
           }}
           eventContent={renderEventContent}
         />

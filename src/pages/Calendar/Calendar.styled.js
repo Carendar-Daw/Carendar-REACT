@@ -2,15 +2,20 @@ import styled from 'styled-components';
 import { device } from '@Commons/styles/breakpoints';
 
 export const WrapperMenu = styled.div`
-    display: flex;
-    height: calc(100vh - 50px);
-    width: calc(100vw - 50px);
-    position: absolute;
-    top: 50px;
-    left: 50px;
-  
-    
+  display: flex;
+  width: 100%;
+  align-items: start;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-direction:column;
 
+  @media ${device.tablet} {
+    padding: 30px;
+    width: calc(100vw - 50px);
+  }
+  @media ${device.laptopL} {
+    flex-direction: row;
+  }
 `;
 
 export const IteamMenu = styled.div`

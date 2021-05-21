@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         ? setIsTourOpen(true)
         : setIsTourOpen(false);
     } catch (errors) {
-      error('Error en la app');
+      error('Error al realizar el tour');
     }
   }, []);
 
