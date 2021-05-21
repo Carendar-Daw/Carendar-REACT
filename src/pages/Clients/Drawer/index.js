@@ -46,7 +46,7 @@ const DrawerServices = ({
   return (
     <Drawer
       title={isUpdating ? messages[language].Customers.EditCustomer : messages[language].Customers.CreateCustomer}
-      width={320}
+      width={window.innerWidth > 1000 ? 320 : window.innerWidth}
       onClose={onClose}
       visible={getDrawer}
       destroyOnClose

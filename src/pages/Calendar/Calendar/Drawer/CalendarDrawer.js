@@ -77,7 +77,7 @@ const CalendarDrawer = ({
               ? messages[language].Appointments.EditAppointment
               : messages[language].Appointments.CreateAppointment
           }
-      width={720}
+      width={window.innerWidth > 1000 ? 720 : window.innerWidth}
       onClose={onClose}
       visible={view}
       destroyOnClose

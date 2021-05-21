@@ -10,18 +10,17 @@ import axios from '@Commons/http';
 import moment from 'moment';
 import states from '@Pages/Calendar/helpers';
 import { Popover } from 'antd';
+import { log10 } from 'chart.js/helpers';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
-  customers, events, setEvents, services, aspectRatio,
+  customers, events, setEvents, services,
 }) => {
-  const { messages, language } = useContext(I18nContext);
+  const { language } = useContext(I18nContext);
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
-
-  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 0.1 : 0.1);
 
   const [event, setEvent] = useState({
     state: 'Aprobado',
@@ -81,6 +80,27 @@ const Calendarapp = ({
     setEvents([...events, newEvent]);
   };
 
+  let config;
+
+  if (window.innerWidth > 1000) {
+    config = {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay',
+      },
+    };
+
+  } else {
+    config = {
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'timeGridDay',
+      },
+    };
+  }
+
   const loadAppointment = async (selectInfo) => {
     setInfo(selectInfo);
     const resServices = await axios.get(`/services/${selectInfo.event.id}`);
@@ -110,17 +130,14 @@ const Calendarapp = ({
       </span>
     </>
   );
+
   return (
     <>
       <Container className="calendar">
         <FullCalendar
           locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-          headerToolbar={{
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
-          }}
+          {...config}
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
@@ -129,18 +146,11 @@ const Calendarapp = ({
           selectable
           selectMirror
           dayMaxEvents
+          height="auto"
           allDaySlot={false}
           select={showDrawer}
           eventClick={loadAppointment}
-          aspectRatio={aspectRatio}
-          windowResize={() => {
-            // eslint-disable-next-line no-unused-expressions
-            window.innerWidth > 1336
-              ? setAspectRatio(0.1)
-              : setAspectRatio(0.1);
-          }}
           eventContent={renderEventContent}
-          aspectRatio={aspectRatio}
         />
       </Container>
       <CalendarDrawer
