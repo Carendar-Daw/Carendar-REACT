@@ -90,4 +90,3 @@ export const WrapperMainTitles = styled.div`
   flex-direction: column;
   padding: 2em;
 `;
-

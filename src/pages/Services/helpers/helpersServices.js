@@ -6,7 +6,6 @@ export const ACTIONS = {
     UPDATE_SERVICES: 'update',
 };
 
-
 export const reducer = (currentServices, action) => {
     switch (action.type) {
         case ACTIONS.GET_SERVICES:

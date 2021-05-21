@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import { deviceMax } from '@Commons/styles/breakpoints';
 
-
 export const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;

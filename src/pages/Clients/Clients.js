@@ -1,4 +1,7 @@
-import React, { useReducer, useState, useEffect } from 'react';
+import React, {
+  useReducer, useState, useEffect, useContext,
+} from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { useSelector } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,6 +29,7 @@ const defaultClientState = {
 };
 
 const Clients = () => {
+  const { messages, language } = useContext(I18nContext);
   const [theClients, setClients] = useState(defaultClientState);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [loadingSkeleton, setLoadingSkeleton] = useState(false);
@@ -44,7 +48,7 @@ const Clients = () => {
         const getClients = await axios.get('customer');
         dispatch({ type: ACTIONS.GET_CLIENTS, payload: getClients.data.customers });
       } catch (errors) {
-        error('Error al cargar los Clientes');
+        error(messages[language].Customers.ErrorCustomers);
       } finally {
         setLoadingSkeleton(false);
         setLoadingSpinner(false);
@@ -57,9 +61,9 @@ const Clients = () => {
       setLoadingSpinner(true);
       await axios.delete(`customer/${id}`);
       dispatch({ type: ACTIONS.DELETE_CLIENTS, payload: id });
-      success('Cliente eliminada correctamente');
+      success(messages[language].Customers.CustomerDeleted);
     } catch (errors) {
-      error('Error al eliminar un Cliente');
+      error(messages[language].Customers.ErrorDelete);
     } finally {
       setLoadingSpinner(false);
     }
@@ -82,11 +86,11 @@ const Clients = () => {
       setLoadingSpinner(true);
       const newClient = await axios.post('customer', theClients);
       dispatch({ type: ACTIONS.POST_CLIENTS, payload: newClient.data.customers });
-      success('Cliente creado correctamente');
+      success(messages[language].Customers.CustomerCreated);
       setShowDrawer(false);
     } catch (errors) {
-      setShowDrawer('Error al crear cliente');
-      error('Error al crear el cliente');
+      setShowDrawer(messages[language].Customers.ErrorCreate);
+      error(messages[language].Customers.ErrorCreate);
     } finally {
       setUserDefault();
       setLoadingSpinner(false);
@@ -99,9 +103,9 @@ const Clients = () => {
       const updatedSClients = await axios.put(`customer/${theClients.cus_id}`, theClients);
       dispatch({ type: ACTIONS.UPDATE_CLIENTS, payload: { id: theClients.cus_id, updatedClients: updatedSClients.data.customer } });
       setShowDrawer(false);
-      success('Cliente Modificado correctamente');
+      success(messages[language].Customers.CustomerEdited);
     } catch (errors) {
-      error('Error al Modificar Cliente');
+      error(messages[language].Customers.ErrorEdit);
     } finally {
       setUserDefault();
       setLoadingSpinner(false);
@@ -118,13 +122,13 @@ const Clients = () => {
       setLoadingSpinner(true);
       const newHistory = await axios.get(`appointment/customer/${id}`);
       if (!newHistory.data.appointments.length) {
-        error('El historal esta vacio');
+        error(messages[language].Customers.EmptyHistory);
       } else {
         setHistory(newHistory.data.appointments);
-        success('Historial obtenido correctamente');
+        success(messages[language].Customers.HistoryOk);
       }
     } catch (errors) {
-      error('Error al obtener historial');
+      error(messages[language].Customers.ErrorHistory);
     } finally {
       setLoadingSpinner(false);
     }
@@ -152,7 +156,7 @@ const Clients = () => {
           {loadingSpinner && <Spinner />}
           <WrapperTitle>
             <FontAwesomeIcon className="icon" icon="calendar-alt" />
-            <TitlePage>Clients</TitlePage>
+            <TitlePage>{messages[language].Customers.Title}</TitlePage>
           </WrapperTitle>
           <WrapperTable>
             <Table
@@ -177,12 +181,12 @@ const Clients = () => {
           />
         </WrapperClients>
         <WrapperHistory className="client-history">
-          <TitlePage>History</TitlePage>
-          {history ? <History history={history} /> : <p>Choose a person...</p>}
+          <TitlePage>{messages[language].Customers.History}</TitlePage>
+          {history ? <History history={history} /> : <p>{messages[language].Customers.ChooseCustomer}</p>}
         </WrapperHistory>
       </WrapperSection>
       <Details details={details} />
-      <ButtonAdd onClick={showDrawer}>
+      <ButtonAdd className="client-add" onClick={showDrawer}>
         <PlusOutlined className="buttonAdd" />
       </ButtonAdd>
     </FlexWrapper>

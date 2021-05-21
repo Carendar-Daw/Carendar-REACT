@@ -85,4 +85,3 @@ export const WrapperContent = styled.div`
   align-items: center;
   text-align: center;
 `;
-

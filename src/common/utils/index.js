@@ -1,1 +1,1 @@
-//funciones que tengan alguna funcion generica
+// funciones que tengan alguna funcion generica

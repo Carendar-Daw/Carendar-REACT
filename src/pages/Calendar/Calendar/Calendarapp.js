@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import esLocale from '@fullcalendar/core/locales/es';
+import { I18nContext } from '@Application/lang/language';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -13,12 +14,15 @@ import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
-  customers, events, setEvents, services,
+  customers, events, setEvents, services, aspectRatio,
 }) => {
+  const { messages, language } = useContext(I18nContext);
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
+
   const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 0.1 : 0.1);
+
   const [event, setEvent] = useState({
     state: 'Aprobado',
     services: null,
@@ -70,7 +74,6 @@ const Calendarapp = ({
       title: event.state,
       start: info.startStr,
       end: info.endStr,
-      allDay: info.allDay,
       services: event.services,
       color: event.color,
     };
@@ -103,15 +106,15 @@ const Calendarapp = ({
         <Badge color={states[ev.event.extendedProps.state]} />
       </Popover>
       <span>
-        {` ${ev.timeText} I ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
+        {` ${ev.timeText}  ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
       </span>
     </>
   );
   return (
     <>
-      <Container>
+      <Container className="calendar">
         <FullCalendar
-          locale={esLocale}
+          locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           headerToolbar={{
             left: 'prev,next today',
@@ -137,6 +140,7 @@ const Calendarapp = ({
               : setAspectRatio(0.1);
           }}
           eventContent={renderEventContent}
+          aspectRatio={aspectRatio}
         />
       </Container>
       <CalendarDrawer

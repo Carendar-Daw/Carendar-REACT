@@ -36,10 +36,7 @@ export const Button = styled(ButtonDefault)`
     transition: 0.2s 0.1s;
 
     }
-    @media ${deviceMax.mobileL} {
-  font-size: 10px;
-  margin: 0 0 0 0;
-  top: -10px;
+    @media ${deviceMax.tablet} {}
   }
 
   span:hover {
@@ -62,25 +59,6 @@ export const Button = styled(ButtonDefault)`
 
 
 `;
-
-export const Ham = styled.div`
-  position: absolute;
-  height: 50px;
-  width: 20px;
-  background-color: #8265A7;
-  left: 0;
-  top: -11px;
-  display: none;
-  @media ${deviceMax.mobileL} {
-  left: -150px;
-  ${({ hamburger }) => ((hamburger) ? 'display: none; ' : 'display: flex; margin-right: 50px;')}
- 
-;
-
-  } 
-
-`;
-
 export const Wrapper = styled.div`
   display: flex;
   height: 4rem;
@@ -92,9 +70,6 @@ export const Wrapper = styled.div`
   z-index: 1;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.3);
-  @media ${deviceMax.mobileL} {
-  flex-direction: column;
-  }
 `;
 
 export const WrapperContentMenu = styled.div`
@@ -102,18 +77,40 @@ export const WrapperContentMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  @media ${deviceMax.mobileL} { 
-  position: absolute;
-  top: 20px;
-  ${({ hamburger }) => ((hamburger) ? 'transform: translateX(70px);' : 'transform: translateX(-300px);')}
+  @media ${deviceMax.tablet} {
+    transition-duration: 200ms;
+    width: auto;
+    position: fixed;
+
+    ${({ hamburger }) => {
+    if (hamburger) {
+      return 'transform: translateY(55px);';
+    }
+    return 'transform: translateY(0); visibility:hidden;';
+  }}
   }
 `;
 
 export const Logo = styled.img`
   max-height: 3rem;
-  @media ${deviceMax.mobileL} {
-    transform: ${({ hamburger }) => (hamburger ? 'translateX(-250px);' : 'translateX(0px);')}
-
+  @media ${deviceMax.tablet} {
+    animation:shake 4s;
+    animation-iteration-count:infinite;
+    cursor: pointer;
+  }
+  @keyframes shake {
+    0% { transform: rotate(0deg); }
+    2% { transform: rotate(-4deg); }
+    4% { transform: rotate(4deg); }
+    6% { transform: rotate(0deg); }
+    8% { transform: rotate(4deg); }
+    10% { transform: rotate(-4deg); }
+    12% { transform: rotate(0deg); }
+    14% { transform: rotate(-4deg); }
+    16% { transform: rotate(4deg); }
+    18% { transform: rotate(0deg); }
+    20% { transform: rotate(-4deg); }
+    22% { transform: rotate(0); }
   }
 `;
 

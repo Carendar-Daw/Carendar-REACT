@@ -1,3 +1,3 @@
 import http from '../http';
 
-export const getUser = user => http.get('/curren');
+export const getUser = (user) => http.get('/curren');

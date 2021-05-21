@@ -15,7 +15,6 @@ import ProtectedRoute from '@Application/components/ProtectedRoute/ProtectedRout
 import Spinner from '@Commons/components/presentational/Spinner/SpinnerPage';
 import useAuth from '../../hooks/use-auth';
 
-
 const RoutesApp = () => {
   const [ready, verified] = useAuth();
   const { logout } = useAuth0();

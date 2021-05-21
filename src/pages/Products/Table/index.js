@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { Space, Table, Skeleton } from 'antd';
 import Confirm from '@Commons/components/presentational/Modal/Confirm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,30 +9,36 @@ import { ButtonDelete, ButtonUpdate } from '../Products.styled';
 const TableServices = ({
   showDrawerUpdate, isGoingToDelete, getDetailsProducts, products, loadingSkeleton,
 }) => {
+  const { messages, language } = useContext(I18nContext);
   const columns = [
     {
-      title: 'Name',
+      title: messages[language].Stock.Name,
       dataIndex: 'sto_name',
       key: 'sto_name',
-      render: (text) => <a>{text}</a>,
+      render: (text) => <p>{text}</p>,
     },
     {
-      title: 'Barcode',
+      title: messages[language].Stock.Barcode,
       dataIndex: 'sto_barcode',
       key: 'sto_barcode',
     },
     {
-      title: 'PVP',
+      title: messages[language].Stock.PVP,
       dataIndex: 'sto_pvp',
       key: 'sto_pvp',
       responsive: ['sm'],
     },
     {
-      title: 'Amount',
+      title: messages[language].Stock.Amount,
       dataIndex: 'sto_amount',
       key: 'sto_amount',
       responsive: ['sm'],
-      render: (text) => <p>{text} cant.</p>,
+      render: (text) => (
+        <p>
+          {text}
+          u
+        </p>
+      ),
     },
     {
       title: 'Id',
@@ -39,17 +46,22 @@ const TableServices = ({
       key: 'sto_id',
     },
     {
-      title: 'Action',
+      title: messages[language].Stock.Action,
       key: 'action',
       render: (record) => (
         <Space size="middle">
           <ButtonUpdate onClick={() => showDrawerUpdate(record.sto_id)}>
-            Editar
+            <FontAwesomeIcon className="icon" icon="edit" />
+            <span>
+              {messages[language].Stock.Edit}
+            </span>
           </ButtonUpdate>
           <ButtonDetails onClick={() => getDetailsProducts(record.sto_id)}>
-            Show Details
+            <span>
+              {messages[language].Stock.ShowDetails}
+            </span>
           </ButtonDetails>
-          <Confirm text="Do you want to delete the service?" confirmDelete={() => isGoingToDelete(record.sto_id)}>
+          <Confirm text={messages[language].Stock.ConfirmDeleteStock} confirmDelete={() => isGoingToDelete(record.sto_id)}>
             <ButtonDelete>
               <FontAwesomeIcon className="icon" icon="trash" />
             </ButtonDelete>

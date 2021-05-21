@@ -11,11 +11,16 @@ const ClientsStatistics = ({ clients, loadingSpinner }) => {
   return (
     <WrapperPie>
       <Title>Clients</Title>
-      {isData ?
-        (
+      {isData
+        ? (
           <>
             <SubTitle>Your client stadistics</SubTitle>
-            <p>Este mes has registrado {clients} clientes!</p>
+            <p>
+              Este mes has registrado
+              {clients}
+              {' '}
+              clientes!
+            </p>
           </>
         ) : (
           <p>Choose some date...</p>

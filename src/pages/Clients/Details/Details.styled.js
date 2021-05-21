@@ -9,6 +9,7 @@ export const TitlePage = styled(Heading4)`
     margin-bottom: 0;
     border-radius: 3px;
     line-height: 40px;
+    font-family: 'poppins',sans-serif;
   
 `;
 
@@ -52,4 +53,3 @@ export const ChooseAlert = styled.p`
 
   margin-top: 10px;
 `;
-

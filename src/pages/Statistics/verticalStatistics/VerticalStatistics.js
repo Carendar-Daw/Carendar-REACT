@@ -43,8 +43,8 @@ const options = {
 
 const VerticalBar = () => (
   <WrapperVerticalBar>
-    <div className='header'>
-      <Title className='title'>Vertical Bar Chart</Title>
+    <div className="header">
+      <Title className="title">Vertical Bar Chart</Title>
     </div>
     <Bar data={data} options={options} />
   </WrapperVerticalBar>
