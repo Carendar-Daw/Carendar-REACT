@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
-import {
-  Container, Card, Heading, List, UList, ContainerCenter, Title, SubTitle, WrapperMainTitles
-} from './Main.styled';
 import { I18nContext } from '@Application/lang/language';
+import {
+  Container, Card, Heading, List, UList, ContainerCenter, Title, SubTitle, WrapperMainTitles,
+} from './Main.styled';
 
 const Main = () => {
   const { messages, language } = useContext(I18nContext);

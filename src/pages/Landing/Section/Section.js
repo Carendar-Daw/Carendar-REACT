@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import {
-  Container, Card, Title, SubTitle, Text, WrapperText, WrapperImg
-} from './Section.styled';
 import image from '@Assets/images/logos/logo-carendar.png';
 import { I18nContext } from '@Application/lang/language';
+import {
+  Container, Card, Title, SubTitle, Text, WrapperText, WrapperImg,
+} from './Section.styled';
 
 const Section = () => {
   const { messages, language } = useContext(I18nContext);
@@ -19,7 +19,7 @@ const Section = () => {
           <img src={image} alt="" />
         </WrapperImg>
       </Card>
-      <Card reverse={true}>
+      <Card reverse>
         <WrapperText>
           <Title>{messages[language].Section.Title_Right}</Title>
           <SubTitle>{messages[language].Section.Subtitle_Right}</SubTitle>

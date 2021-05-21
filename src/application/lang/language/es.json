@@ -1,42 +1,179 @@
 {
-  "LogIn": "Iniciar sesión",
+  "LogIn": "Iniciar",
   "SignIn": "Registrate",
   "Welcome": {
     "WelcomeBanner": "Bienvenido a Carendar!",
     "WelcomeSubTitle": "La plataforma perfecta para tu centro de estetica"
   },
-
   "Main" : {
-  "Title": "Plataforma todo en uno",
-  "SubTitle": "Carendar automatiza desde la agenda y visitas hasta estadisticas y control de stock.",
-  "Calendario" : "Calendario",
-  "Cal_Info_1" : "Gestiona las citas de tus clientes con nuestro intuitivo calendario",
-  "Cal_Info_2" : "Muy sencillo y cómodo",
-  "Servicios" : "Servicios",
-  "Serv_Info" : "Añade y modifica servicios según las necesidades de tu negocio",
-  "Tablet" : "Excelente para dispositivos móbiles o tablets",
-  "Tablet_Info" : "Nuestro diseño de aplicación es totalmente compatible con móbiles y tablets",
-  "Stock" : "Inventario",
-  "Stock_Info_1" : "Ten el control de gastos de tu inventario",
-  "Stock_Info_2" : "Si te queda poco de un producto, te avisamos",
-  "Tiempo" : "Ahorra tiempo",
-  "Tiempo_Info" : "Olvida la tediosa libreta de citas y el desorden de inventario",
-  "Caja" : "Gestión de caja",
-  "Caja_Info" : "No pierdas tiempo cerrando caja gracias a nuestro software"
-},
-
-"Section": {
-  "Title_Left" : "Agenda",
-  "Subtitle_Left" : "Gestiona las citas fácilmente",
-  "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
-  "Title_Right": "Gestión de inventario y caja",
-  "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
+    "Title": "Plataforma todo en uno",
+    "SubTitle": "Carendar automatiza desde la agenda y visitas hasta estadisticas y control de stock.",
+    "Calendario" : "Calendario",
+    "Cal_Info_1" : "Gestiona las citas de tus clientes con nuestro intuitivo calendario",
+    "Cal_Info_2" : "Muy sencillo y cómodo",
+    "Servicios" : "Servicios",
+    "Serv_Info" : "Añade y modifica servicios según las necesidades de tu negocio",
+    "Tablet" : "Excelente para dispositivos móbiles o tablets",
+    "Tablet_Info" : "Nuestro diseño de aplicación es totalmente compatible con móbiles y tablets",
+    "Stock" : "Inventario",
+    "Stock_Info_1" : "Ten el control de gastos de tu inventario",
+    "Stock_Info_2" : "Si te queda poco de un producto, te avisamos",
+    "Tiempo" : "Ahorra tiempo",
+    "Tiempo_Info" : "Olvida la tediosa libreta de citas y el desorden de inventario",
+    "Caja" : "Gestión de caja",
+    "Caja_Info" : "No pierdas tiempo cerrando caja gracias a nuestro software"
+  },
   
-},
-"Footer" :{
-"Contact": "Contacto",
-"Privacy": "Política de privacidad",
-"Support": "Ayuda",
-"Conditions": "Condiciones de uso" 
-}
+  "Section": {
+    "Title_Left" : "Agenda",
+    "Subtitle_Left" : "Gestiona las citas fácilmente",
+    "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
+    "Title_Right": "Gestión de inventario y caja",
+    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
+    
+  },
+  "Footer" :{
+  "Contact": "Contacto",
+  "Privacy": "Política de privacidad",
+  "Support": "Ayuda",
+  "Conditions": "Condiciones de uso" 
+  },
+  "Dashboard": {
+    "Calendar": "Calendario",
+    "Services": "Servicios",
+    "Clients": "Clientes",
+    "Cash": "Caja registradora",
+    "Settings": "Configuración",
+    "Products": "Productos",
+    "Statistics": "Estadísticas",
+    "Tour": "Haz el tour de nuevo",
+    "Logout": "Cerrar sesión"
+  },
+  "Stock": {
+    "Title": "Inventario/Productos",
+    "Name": "Nombre",
+    "Barcode": "Código de barras",
+    "PVP": "PVP",
+    "Amount": "Cantidad",
+    "Action": "Acción",
+    "Edit": "Editar",
+    "ShowDetails": "Detalles",
+    "InfoAbout": "Información",
+    "ChooseProduct": "Escoge algún producto...",
+    "CreateProduct": "Crea un nuevo producto",
+    "EditProduct": "Edita el producto",
+    "Cancel": "Cancelar",
+    "Submit": "Añadir",
+    "Update": "Actualiza",
+    "Delete": "Borrar",
+    "PleaseEnterName": "Por favor, añade un nombre",
+    "PleaseEnterAmount": "Por favor, añade una cantidad",
+    "PleaseEnterPVP": "Por favor, añade un PVP",
+    "PleaseEnterBarcode": "Por favor, añade un código de barras",
+    "ConfirmDeleteStock": "Estás seguro que quieres borrar el producto?",
+    "ErrorStock": "Error al cargar los productos",
+    "StockDeleted": "Producto eliminado correctamente",
+    "ErrorDelete": "Error al eliminar un producto",
+    "StockCreated": "Producto creado correctamente",
+    "ErrorCreate": "Error al crear productos",
+    "StockEdited": "Producto modificado correctamente",
+    "ErrorEdit": "Error al modificar el producto",
+    "Yes": "Sí"
+  },
+  "Services": {
+    "Title": "Servicios",
+    "Price": "Precio",
+    "Time": "Duración",
+    "ChooseService": "Escoge algún servicio...",
+    "CreateService": "Crea un nuevo servicio",
+    "EditService": "Edita el servicio",
+    "PleaseEnterPrice": "Por favor, añade un precio",
+    "PleaseEnterTime": "Por favor, añade una duración",
+    "ConfirmDeleteService": "Estás seguro que quieres borrar el servicio?",
+    "ErrorServices": "Error al cargar los servicios",
+    "ServiceDeleted": "Servicio eliminado correctamente",
+    "ErrorDelete": "Error al eliminar un servicio",
+    "ServiceCreated": "Servicio creado correctamente",
+    "ErrorCreate": "Error al crear el servicio",
+    "ServiceEdited": "Servicio modificado correctamente",
+    "ErrorEdit": "Error al modificar el servicio"
+  },
+  "Customers": {
+    "Title": "Clientes",
+    "Phone": "Teléfono",
+    "Born": "Fecha de nacimiento",
+    "State": "Estado",
+    "History": "Historial",
+    "OptionalPhoto": "Foto (opcional)",
+    "UploadPhoto": "Subir (Máx: 1)",
+    "ColorPreference": "Preferencia de color",
+    "ChooseCustomer": "Escoge algún cliente...",
+    "CreateCustomer": "Crea un nuevo cliente",
+    "EditCustomer": "Edita el cliente",
+    "PleaseEnterEmail": "Por favor, añade un email",
+    "PleaseEnterBorn": "Por favor, añade una fecha de nacimiento",
+    "PleaseEnterPhone": "Por favor, añade un teléfono",
+    "PleaseEnterColorPreference": "Por favor, añade un color",
+    "ConfirmDeleteCustomer": "Estás seguro que quieres borrar el cliente?",
+    "ErrorCustomers": "Error al cargar los clientes",
+    "CustomerDeleted": "Cliente eliminado correctamente",
+    "ErrorDelete": "Error al eliminar un cliente",
+    "CustomerCreated": "Cliente creado correctamente",
+    "ErrorCreate": "Error al crear el cliente",
+    "CustomerEdited": "Cliente modificado correctamente",
+    "ErrorEdit": "Error al modificar el cliente",
+    "EmptyHistory": "El historial está vacío",
+    "HistoryOk": "Historial obtenido correctamente",
+    "ErrorHistory": "Error al obtener historial",
+    "FileUpload": "Fichero subido correctamente",
+    "UploadFail": "Error al subir el fichero",
+    "ShowHistory": "Historial"
+  },
+  "Appointments": {
+    "EditAppointment": "Edita la cita",
+    "CreateAppointment": "Crea una nueva cita",
+    "Canceled": "Cancelado",
+    "Factured": "Facturado",
+    "Finished": "Finalizado",
+    "Aproved": "Aprobado",
+    "ToConfirm": "Pendiente",
+    "PleaseSelect": "Por favor, escoge una opción",
+    "CustomerID": "Cliente",
+    "PleaseSelectCustomer": "Por favor, escoge a un cliente",
+    "AppointmentDate": "Fecha de la cita",
+    "PleaseEnterAppointmentDate": "Por favor, introduce fecha de la cita",
+    "PleaseEnterState": "Por favor, introduce un estado",
+    "PleaseSelectService": "Por favor, escoge al menos un servicio"
+  },
+  "UserConfig": {
+    "Title": "Configuración",
+    "ConfigEdit": "Configuración modificada correctamente",
+    "ErrorEdit": "Error al modificar la configuración"
+  },
+
+  "Tour":{
+    "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
+    "Sidebar": "De la misma forma que en el menú principal, tenemos las diferentes funciones en nuestra barra lateral, pero se añade el apartado 'Estadísticas'",
+    "Profile": "Desde aquí podremos acceder a nuestros datos personales, hacer otra vez el tour o cerrar la sesión de nuestro salón",
+    "Calendar": "Aquí podremos visualizar, añadir y editar las citas que tenemos en nuestro salón. \nHay disponible la vista del calendario según el día, la semana o el mes. \nPara añadir una cita basta con arrastrar de la hora de inicio a la hora de finalización. \nPara editar una cita ya existente basta con hacer un click y editar los campos\nPara eliminarla, click sobre la cita y seleccionar el botón 'eliminar'",
+    "CalendarList": "En esta ventana podremos visualizar las citas que hay programadas en el día seleccionado",
+    "Customers": "Aquí podremos acceder a los datos de nuestros clientes, servicios o productos, así como editarlos, mostrar sus detalles, su historial (en caso de los clientes) o eliminarlos de la base de datos",
+    "CustomersHistory": "Esta vista solo se verá en el apartado de clientes. Aquí veremos el historial de citas de cada cliente",
+    "CustomerInfo":"Aquí nos saldrá la información del cliente, servicio o producto seleccionado",
+    "CustomerAdd":"Para añadir clientes, servicios o productos pulsamos en el botón y rellenamos los campos",
+    "Cash": "Caja xd",
+    "Statistics": "Estadísticas xd",
+    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido" 
+
+  },
+  "Cookies": {
+    "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",
+    "PrivacyPolitics": "politicas de privacidad",
+    "Accept": "Aceptar"
+  },
+  "NoPermission": {
+    "Explanation": "Para acceder a la aplicación antes debes aceptar el email que deberia haber recibido.",
+    "Help": "Si se ha equivocado de email, haga click en el botón y vuelva a realizar el registro.",
+    "Button": "Volver"
+  }
 }

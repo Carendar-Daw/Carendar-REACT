@@ -2,42 +2,44 @@ import styled from 'styled-components';
 import { device } from '@Commons/styles/breakpoints';
 
 export const WrapperMenu = styled.div`
-    display: flex;
-    height: calc(100vh - 50px);
+  display: flex;
+  width: 100%;
+  align-items: start;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-direction:column;
+  @media ${device.tablet} {
+    padding: 30px;
     width: calc(100vw - 50px);
-    position: absolute;
-    top: 50px;
-    left: 50px;
-  
-    
-
+  }
+  @media ${device.laptopL} {
+    flex-direction: row;
+  }
 `;
 
 export const IteamMenu = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 90%;
-    margin: 30px;
-    box-sizing: border-box;
-   
-    @media ${device.tablet} {
-      width: 40%;
-      margin:0; 
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 90%;
+  margin: 30px;
+  box-sizing: border-box;
 
-    @media ${device.laptop} {
-      width: 30%;
-      margin:0;     
-    }
-
+  @media ${device.tablet} {
+    width: 40%;
+    margin:0;
+  }
+  @media ${device.laptop} {
+    width: 30%;
+    margin:0;
+  }
 `;
 
 export const Title = styled.div`
-   text-transform: uppercase;
-   font-size: 20px;
-   text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
 `;
 
 export const Card = styled.div`

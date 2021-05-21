@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
         ? setIsTourOpen(true)
         : setIsTourOpen(false);
     } catch (errors) {
-      error('Error en la app');
+      error('Error al realizar el tour');
     }
   }, []);
 
@@ -33,10 +33,10 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <GlobalStyle />
-      <Tour isTourOpen={isTourOpen} setIsTourOpen={setIsTourOpen}/>
+      <Tour isTourOpen={isTourOpen} setIsTourOpen={setIsTourOpen} />
       <Sidebar hamburger={hamburger} setBackgorund={setBackgorund} background={background} />
       <MainContent id="main">
-        <Topbar hamburgerClick={hamburgerClick} logout={logout} hamburger={hamburger} setIsTourOpen={setIsTourOpen}/>
+        <Topbar hamburgerClick={hamburgerClick} logout={logout} hamburger={hamburger} setIsTourOpen={setIsTourOpen} />
         <Content>
           {children}
         </Content>

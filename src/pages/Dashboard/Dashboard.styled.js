@@ -8,8 +8,12 @@ export const WrapperMenu = styled.div`
     padding-top: 10px;
     width: 100%;
     margin: auto;
-    padding: 40px;
     box-sizing: border-box;
+
+  @media ${device.tablet} {
+    justify-content: space-around;
+    padding: 40px;
+  }
   
 `;
 
@@ -58,6 +62,7 @@ export const Card = styled.div`
   border-radius: 10px;
   cursor: pointer;
   padding: 20px;
+  margin: auto;
   img {
     height: 220px;
   }

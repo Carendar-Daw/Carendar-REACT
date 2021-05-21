@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '@Commons/styles/breakpoints';
+import { device, deviceMax } from '@Commons/styles/breakpoints';
 import { Heading4, CardApp } from '@Commons/components/domain/Styles/Style.styled';
 
 export const TitlePage = styled(Heading4)`
@@ -9,6 +9,7 @@ export const TitlePage = styled(Heading4)`
     margin-bottom: 0;
     border-radius: 3px;
     line-height: 40px;
+    font-family: 'poppins',sans-serif;
   
 `;
 
@@ -57,20 +58,29 @@ export const ButtonAdd = styled.button`
 `;
 
 export const ButtonDelete = styled.button`
-  padding: 8px;
-  background-color: red;
+  background-color: #ff5e5e;
   border-radius: 10px;
   border: none;
   cursor:pointer;
 `;
 
 export const ButtonUpdate = styled.button`
-  padding: 5px;
-  background-color: #6a6af1;
+  padding: 6px 15px;
+  background-color: #BA9CE0;
   border-radius: 10px;
   border: none;
-  box-shadow: 3px 7px 7px 0px rgba(0,0,0,0.75);
   cursor:pointer;
+  .icon {
+    margin-right: 5px;
+  }
+  @media ${deviceMax.laptopM} {
+    span{
+      display: none;
+    }
+    .icon {
+      margin-right: 0;
+    }
+  }
 `;
 
 export const FlexWrapper = styled.div`

@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookie from '@Pages/Landing/Cookie-Consent/Cookie';
 import Nav from './Nav/Nav';
 import Banner from './Banner/Banner';
 import Main from './Main/Main';
@@ -14,6 +15,7 @@ const Landing = () => (
     <Section />
     <Footer />
     <FooterCopy />
+    <Cookie />
   </div>
 );
 

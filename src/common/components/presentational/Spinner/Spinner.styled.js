@@ -26,7 +26,7 @@ export const Animation = styled.div`
   border-radius: 50%;
   perspective: 800px;
    
-`;Center
+`;Center;
 
 export const Center = styled.div`
 

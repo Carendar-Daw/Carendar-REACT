@@ -25,4 +25,3 @@ export const SubTitle = styled.p`
   color: gray;
   font-weight: 300;
 `;
-

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import esLocale from '@fullcalendar/core/locales/es';
+import { I18nContext } from '@Application/lang/language';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -9,16 +10,18 @@ import axios from '@Commons/http';
 import moment from 'moment';
 import states from '@Pages/Calendar/helpers';
 import { Popover } from 'antd';
+import { log10 } from 'chart.js/helpers';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
   customers, events, setEvents, services,
 }) => {
+  const { language } = useContext(I18nContext);
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
-  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
+
   const [event, setEvent] = useState({
     state: 'Aprobado',
     services: null,
@@ -70,13 +73,33 @@ const Calendarapp = ({
       title: event.state,
       start: info.startStr,
       end: info.endStr,
-      allDay: info.allDay,
       services: event.services,
       color: event.color,
     };
     calendarApi.addEvent(newEvent, true); // temporary=true, will get overwritten when reducer gives new events
     setEvents([...events, newEvent]);
   };
+
+  let config;
+
+  if (window.innerWidth > 1000) {
+    config = {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay',
+      },
+    };
+
+  } else {
+    config = {
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'timeGridDay',
+      },
+    };
+  }
 
   const loadAppointment = async (selectInfo) => {
     setInfo(selectInfo);
@@ -103,21 +126,18 @@ const Calendarapp = ({
         <Badge color={states[ev.event.extendedProps.state]} />
       </Popover>
       <span>
-        {` ${ev.timeText} I ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
+        {` ${ev.timeText}  ${ev.event.extendedProps.customer ? ev.event.extendedProps.customer.cus_name : ''}`}
       </span>
     </>
   );
+
   return (
     <>
-      <Container>
+      <Container className="calendar">
         <FullCalendar
-          locale={esLocale}
+          locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-          headerToolbar={{
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
-          }}
+          {...config}
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
@@ -126,16 +146,10 @@ const Calendarapp = ({
           selectable
           selectMirror
           dayMaxEvents
+          height="auto"
           allDaySlot={false}
           select={showDrawer}
           eventClick={loadAppointment}
-          aspectRatio={aspectRatio}
-          windowResize={() => {
-            // eslint-disable-next-line no-unused-expressions
-            window.innerWidth > 1336
-              ? setAspectRatio(1.8)
-              : setAspectRatio(1);
-          }}
           eventContent={renderEventContent}
         />
       </Container>

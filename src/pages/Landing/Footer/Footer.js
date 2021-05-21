@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logo from '@Assets/images/logos/logo-provisional.png';
 import {
   Anchor, Contact, Container, Icons, Links, Logo, Text,
 } from './Footer.styled';
-import logo from '@Assets/images/logos/logo-provisional.png';
 
 const Footer = () => (
   <Container>

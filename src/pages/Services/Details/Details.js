@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import {
   WrapperDetails, WrapperInfo, TitlePage, ChooseAlert,
 } from './Details.styled';
 
 const Details = ({ details }) => {
-
+  const { messages, language } = useContext(I18nContext);
   return (
-
-    <WrapperDetails>
-      <TitlePage>Information About</TitlePage>
-      {!details ? <ChooseAlert>Choose some Service...</ChooseAlert>
+    <WrapperDetails className="service-details">
+      <TitlePage>{messages[language].Stock.InfoAbout}</TitlePage>
+      {!details ? <ChooseAlert>{messages[language].Services.ChooseService}</ChooseAlert>
         : (
           <WrapperInfo>
             <p>
-              <strong>Description:</strong>
+              <strong>
+                {messages[language].Stock.Name}
+                :
+                {' '}
+              </strong>
               {details.ser_description}
             </p>
             <p>
-              <strong>Price:</strong>
+              <strong>
+                {messages[language].Services.Price}
+                :
+                {' '}
+              </strong>
               {details.ser_price}
             </p>
             <p>
-              <strong>Time:</strong>
+              <strong>
+                {messages[language].Services.Time}
+                :
+                {' '}
+              </strong>
               {details.ser_time}
             </p>
           </WrapperInfo>

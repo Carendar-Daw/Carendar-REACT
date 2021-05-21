@@ -36,12 +36,14 @@ const Calendar = () => {
   return (
     <WrapperMenu>
       <Calendarapp
+        className="calendar"
         events={events}
         setEvents={setEvents}
         customers={customers}
         services={services}
       />
       <List
+        className="calendar-list"
         events={events}
       />
     </WrapperMenu>
