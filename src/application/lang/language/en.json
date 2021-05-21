@@ -169,5 +169,10 @@
     "Explanation": "This website only uses cookies to improve the user experience. If you have any questions, consult our",
     "PrivacyPolitics": "privacy policies",
     "Accept": "Accept"
+  },
+  "NoPermission": {
+    "Explanation": "To access the application, you must first accept the email that you should have received.",
+    "Help": "If you have put the wrong email address, click on the button and register again.",
+    "Button": "Return"
   }
 }
