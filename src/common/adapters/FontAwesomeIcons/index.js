@@ -17,6 +17,7 @@ import {
   faUserTag,
   faHistory,
   faSearch,
+  faSave,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -37,4 +38,5 @@ library.add(
   faUserTag,
   faHistory,
   faSearch,
+  faSave,
 );
