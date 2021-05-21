@@ -163,5 +163,10 @@
     "Cash": "Caja xd",
     "Statistics": "Estadísticas xd",
     "Configuration": "En aquesta vista pots editar els camps del teu saló i canviar l'idioma del mateix seleccionant la bandera del teu idioma preferit" 
+  },
+  "Cookies": {
+    "Explanation": "Aquesta pàgina web només utilitza cookies per millorar la experiència d'usuari. Si tens algun dubte consulta les nostres",
+    "PrivacyPolitics": "polítiques de privacitat",
+    "Accept": "Acceptar"
   }
 }
