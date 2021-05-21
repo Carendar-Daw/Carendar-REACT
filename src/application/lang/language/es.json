@@ -165,5 +165,10 @@
     "Statistics": "Estadísticas xd",
     "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido" 
 
+  },
+  "Cookies": {
+    "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",
+    "PrivacyPolitics": "politicas de privacidad",
+    "Accept": "Aceptar"
   }
 }
