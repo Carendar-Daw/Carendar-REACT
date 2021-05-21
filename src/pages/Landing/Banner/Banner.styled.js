@@ -45,6 +45,7 @@ export const Header = styled.div`
     object-fit: cover;
     width: 100%;
     height: 100%;
+    object-fit: cover;
     @media ${deviceMax.laptopL} {
       display: block;
     }

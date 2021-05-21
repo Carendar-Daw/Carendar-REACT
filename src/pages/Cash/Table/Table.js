@@ -1,10 +1,52 @@
 import React, { useState } from 'react';
-import { Table } from 'antd';
+import { Table, InputNumber } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from 'antd/es/modal/Modal';
+import axios from '@Commons/http';
+import { success, error } from '@Commons/components/presentational/MessagesApp/Messages';
+import {
+  WrapperButtonBuy, ButtonAccept, ButtonRefuse, WrapperButtonsModal,
+} from './Table.styled';
 
 const TableCash = ({ appointments }) => {
   const [visible, setVisible] = useState(false);
+  const [appointmentPaying, setAppointmentPaying] = useState(null);
+  const [price, setPrice] = useState(0);
+  const [priceRecived, setPriceRecived] = useState(0);
+
+  const renderModal = (appointment) => {
+    setVisible(true);
+    setAppointmentPaying(appointment);
+  };
+
+  const calculPrice = (number) => {
+    setPriceRecived(number);
+    number ? setPrice(number - appointmentPaying.ser_price) : setPrice(0);
+  };
+
+  const handleClickPayAppointment = async () => {
+    try {
+      const buildAppointment = {
+        app_id: appointmentPaying.app_id,
+        cus_id: appointmentPaying.cus_id,
+        tra_total: appointmentPaying.ser_price,
+        tra_received: priceRecived,
+      };
+      const paidAppointment = await axios.post('transaction', buildAppointment);
+      console.log(paidAppointment.data);
+      success('Cita pagada correctamente');
+    } catch (errors) {
+      error('Error al pagar cita');
+    } finally {
+      setVisible(false);
+    }
+  };
+
+  const closeModal = () => {
+    setPrice(0);
+    setVisible(false);
+  }
+
   const columns = [
     {
       title: 'PK',
@@ -38,32 +80,61 @@ const TableCash = ({ appointments }) => {
       title: 'Cobrar',
       dataIndex: 'payment',
       align: 'center',
+      fixed: 'right',
       render: (appointment) => (
-        <FontAwesomeIcon onClick={() => setVisible(true)} className="icon" icon="shopping-cart" />
+        <WrapperButtonBuy onClick={() => renderModal(appointment)}>
+          <FontAwesomeIcon className="icon" icon="shopping-cart" />
+        </WrapperButtonBuy>
       ),
     },
   ];
-
-  const renderModal = () => {
-
-  };
 
   return (
     <>
       <Table
         columns={columns}
         bordered
+        size="middle"
+        scroll={{ x: 'calc(700px + 50%)', y: 240 }}
         dataSource={appointments}
         title={() => <p>Header</p>}
         footer={() => 'Footer'}
       />
       <Modal
-        title="Title"
+        title="Confirm the payment of this appoitnment"
         visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
+        destroyOnClose={true}
+        footer={[
+          <WrapperButtonsModal>
+            <ButtonAccept onClick={handleClickPayAppointment}>Pay</ButtonAccept>
+            <ButtonRefuse onClick={closeModal}>Refuse</ButtonRefuse>
+          </WrapperButtonsModal>,
+        ]}
       >
-        <p>{renderModal}</p>
+
+        {visible && (
+          <>
+            <p>{appointmentPaying.app_state}</p>
+            <p>{appointmentPaying.cus_email}</p>
+            <p>{appointmentPaying.cus_name}</p>
+            <p>{appointmentPaying.cus_phone}</p>
+            <p>{appointmentPaying.ser_description}</p>
+            <p>{appointmentPaying.ser_price}</p>
+            <InputNumber
+              defaultValue={0}
+              formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+              onChange={calculPrice}
+            />
+            {price
+            && (
+            <>
+              <p>{price}</p>
+            </>
+            )}
+
+          </>
+        )}
       </Modal>
     </>
 

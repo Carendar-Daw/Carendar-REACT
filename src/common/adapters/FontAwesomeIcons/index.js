@@ -18,6 +18,8 @@ import {
   faHistory,
   faSearch,
   faSave,
+  faShoppingCart,
+
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -39,4 +41,5 @@ library.add(
   faHistory,
   faSearch,
   faSave,
+  faShoppingCart,
 );
