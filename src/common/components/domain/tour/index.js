@@ -112,7 +112,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       content: messages[language].Tour.Statistics,
       action: () => {
         if (!navChanged.statistics) {
-          history.push('/configuration');
+          history.push('/statistics');
           setNavChanged({ ...initialStateRoutes, statistics: true });
         }
       },

@@ -148,7 +148,27 @@
   "Config": {
     "Title": "Configuración",
     "ConfigEdit": "Configuración modificada correctamente",
-    "ErrorEdit": "Error al modificar la configuración"
+    "StartDate": "Error al modificar la configuración",
+    "EndDate": "Error al modificar la configuración"
+  },
+
+  "Statistics": {
+    "DateRange": "Selecciona un rango de fechas",
+    "DateRangeSubtitle": "Consulta los datos de tu salón en un rango de tiempo",
+    "ErrorEdit": "Error al modificar la configuración",
+    "Clients":"Clientes",
+    "ClientStatistics":"Las estadísticas de tus clientes",
+    "Products": "Productos",
+    "Services": "Servicios",
+    "ThisPeriodClients": "Este mes has registrado ", 
+    "Clients": " clientes!",
+    "ThisPeriodProducts": "Has gastado",
+    "Products": "€ en productos",
+    "ProductsStatistics": "Las estadísticas de tu stock",
+    "LookThePercentatge": "Mira el % de servicios hechos por cada cita",
+    "Earnings": "Ingresos",
+    ""
+    
   },
 
   "Tour":{
@@ -162,7 +182,7 @@
     "CustomerInfo":"Aquí nos saldrá la información del cliente, servicio o producto seleccionado",
     "CustomerAdd":"Para añadir clientes, servicios o productos pulsamos en el botón y rellenamos los campos",
     "Cash": "Caja xd",
-    "Statistics": "Estadísticas xd",
+    "Statistics": "Consulta las estadísticas de tu salón según el rango de tiempo que establezcas",
     "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido" 
 
   },

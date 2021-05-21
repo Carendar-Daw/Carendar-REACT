@@ -14,7 +14,7 @@ import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
-  customers, events, setEvents, services, aspectRatio,
+  customers, events, setEvents, services
 }) => {
   const { messages, language } = useContext(I18nContext);
   const [view, setView] = useState(false);
