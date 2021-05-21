@@ -145,7 +145,7 @@
     "PleaseEnterState": "Per favor, introdueix un estat",
     "PleaseSelectService": "Per favor, escull almenys un servei"
   },
-  "Config": {
+  "UserConfig": {
     "Title": "Configuració",
     "ConfigEdit": "Configuració modificada correctament",
     "ErrorEdit": "Error al modificar la configuració"

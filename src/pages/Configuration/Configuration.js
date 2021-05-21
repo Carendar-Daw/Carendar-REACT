@@ -6,6 +6,8 @@ import axios from '@Commons/http';
 import { getSaloonPicture } from '@Application/store/user/reducer';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
+import {ButtonDetails, ButtonUpdate} from '@Pages/Clients/Clients.styled';
+import { Space } from 'antd';
 import {
   WrapperConfiguration,
   WrapperTitle,
@@ -16,7 +18,6 @@ import {
   ImgSaloon,
   WrapperForm,
   WrapperLanguage,
-  Input,
 } from './Configuration.styled';
 import Language from './Language/Languaje';
 
@@ -50,9 +51,9 @@ const Configuration = () => {
       const updatedConfig = await axios.put('saloon', config);
       console.log(updatedConfig);
 
-      success(messages[language].Config.ConfigEdited);
+      success(messages[language].UserConfig.ConfigEdit);
     } catch (errors) {
-      error(messages[language].Config.ErrorEdit);
+      error(messages[language].UserConfig.ErrorEdit);
     } finally {
       setLoadingSpinner(false);
     }
@@ -64,7 +65,7 @@ const Configuration = () => {
       {loadingSpinner && <Spinner />}
       <WrapperTitle>
         <FontAwesomeIcon className="icon" icon="cog" />
-        <TitlePage>{messages[language].Config.Title}</TitlePage>
+        <TitlePage>{messages[language].UserConfig.Title}</TitlePage>
       </WrapperTitle>
       <WrapperLanguage>
         <Language />
@@ -75,12 +76,44 @@ const Configuration = () => {
         </WrapperPhoto>
         <WrapperInfo>
           <WrapperForm onSubmit={updateConfig}>
-            <Input type="text" value={config.sal_name} onChange={(e) => buildConfig('sal_name', e)} />
-            <Input type="text" value={config.sal_email} disable />
-            <Input type="text" value={config.sal_brand} onChange={(e) => buildConfig('sal_brand', e)} />
-            <Input type="text" value={config.sal_location} onChange={(e) => buildConfig('sal_location', e)} />
-            <Input type="number" value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
-            <button>{messages[language].Stock.Submit}</button>
+
+            <div className="group">
+              <input type="text" required value={config.sal_name} onChange={(e) => buildConfig('sal_name', e)} />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Nombre</label>
+            </div>
+            <div className="group">
+              <input type="text" value={config.sal_email} disabled />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Email</label>
+            </div>
+            <div className="group">
+              <input type="text" value={config.sal_brand} onChange={(e) => buildConfig('sal_brand', e)} />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Brand</label>
+            </div>
+            <div className="group">
+              <input type="text" value={config.sal_location} onChange={(e) => buildConfig('sal_location', e)} />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Location</label>
+            </div>
+            <div className="group">
+              <input type="text" xd value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
+              <span className="highlight" />
+              <span className="bar" />
+              <label>Phone</label>
+            </div>
+            <ButtonUpdate type="submit">
+              <FontAwesomeIcon className="icon" icon="save" />
+              <span>
+                {messages[language].Stock.Submit}
+              </span>
+            </ButtonUpdate>
+
           </WrapperForm>
         </WrapperInfo>
       </WrapperSection>
