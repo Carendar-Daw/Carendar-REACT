@@ -14,13 +14,13 @@ import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
-  customers, events, setEvents, services,
+  customers, events, setEvents, services, aspectRatio,
 }) => {
   const { messages, language } = useContext(I18nContext);
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
-  const [aspectRatio, setAspectRatio] = useState(window.innerWidth > 1336 ? 1.8 : 1);
+
   const [event, setEvent] = useState({
     state: 'Aprobado',
     services: null,
@@ -130,14 +130,8 @@ const Calendarapp = ({
           allDaySlot={false}
           select={showDrawer}
           eventClick={loadAppointment}
-          aspectRatio={aspectRatio}
-          windowResize={() => {
-            // eslint-disable-next-line no-unused-expressions
-            window.innerWidth > 1336
-              ? setAspectRatio(1.8)
-              : setAspectRatio(1);
-          }}
           eventContent={renderEventContent}
+          aspectRatio={aspectRatio}
         />
       </Container>
       <CalendarDrawer
