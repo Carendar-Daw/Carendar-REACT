@@ -31,9 +31,9 @@ const CalendarDrawer = ({
   const loadDefaultServices = () => event.services.map((service) => service);
 
   const postEvent = () => {
+    postAppointment();
     handleDateSelect();
     onClose();
-    postAppointment();
   };
   const editEvent = () => {
     onClose();

@@ -72,7 +72,6 @@ const Calendarapp = ({
       title: event.state,
       start: info.startStr,
       end: info.endStr,
-      allDay: info.allDay,
       services: event.services,
       color: event.color,
     };
