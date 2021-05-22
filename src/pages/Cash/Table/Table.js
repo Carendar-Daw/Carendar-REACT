@@ -33,6 +33,10 @@ const TableCash = ({ appointments }) => {
         tra_received: priceRecived,
       };
       const paidAppointment = await axios.post('transaction', buildAppointment);
+      const cash = {
+        cas_current: appointmentPaying.ser_price ,
+      };
+      await axios.put('cashregister', cash);
       console.log(paidAppointment.data);
       success('Cita pagada correctamente');
     } catch (errors) {

@@ -32,7 +32,6 @@ const List = ({ filteredAppointments }) => {
       error('Error al obtener Datos');
     } finally {
       setLoadingSpinner(false);
-
     }
   }, []);
 
@@ -40,13 +39,23 @@ const List = ({ filteredAppointments }) => {
     setStartMoney(number);
   };
 
-  const modalOpenCash = () => {
-    setVisible(true);
+  const modalOpenCash = async () => {
+    const isCash = await axios.get('cashregisterClosed');
+    if (isCash.data.cashRegister) {
+      const cash = {
+        cas_state: 'open',
+      };
+      await axios.put('cashregister', cash);
+      setActualStateCash(isCash.data.cashRegister);
+      setIsOpen(true);
+      success('La caja de hoy se a abierto nuevamente');
+    } else {
+      setVisible(true);
+    }
   };
 
   const openedCash = async (disabled) => {
     try {
-      console.log(startMoney);
       setLoadingSpinner(true);
       const cash = {
         cas_open: startMoney,
@@ -54,7 +63,7 @@ const List = ({ filteredAppointments }) => {
         cas_state: 'open',
       };
       const cashOpened = await axios.post('cashregister', cash);
-      console.log(cashOpened);
+      setActualStateCash(cashOpened.data.cashRegister);
       success('Datos obtenidos correctamente');
       setVisible(false);
       setIsOpen(disabled);
@@ -78,6 +87,7 @@ const List = ({ filteredAppointments }) => {
     } finally {
       setLoadingSpinner(false);
       setIsOpen(false);
+      setActualStateCash(null);
     }
   };
 
@@ -118,9 +128,14 @@ const List = ({ filteredAppointments }) => {
             ) : <Switch size="big" checked={isOpen} onChange={modalOpenCash} />}
 
           </WrapperMoneyCash>
+          {actualStateCash && (
           <WrapperStateCash>
-            <strong>Total: {actualStateCash.cas_current}</strong>
+            <strong>
+              Total:
+              {actualStateCash.cas_current}
+            </strong>
           </WrapperStateCash>
+          )}
         </WrapperActualMoney>
 
       </WrapperList>
