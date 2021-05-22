@@ -35,16 +35,7 @@ export const Header = styled.div`
   background-size: cover;
   color: white;
   
-  video {
-    width: 100%;
-    height: 100%;
-    filter: grayscale(30%);
-    @media ${deviceMax.laptopL} {
-    display: none;
-  }
-  }
   img{
-    display: none;
     object-fit: cover;
     width: 100%;
     height: 100%;

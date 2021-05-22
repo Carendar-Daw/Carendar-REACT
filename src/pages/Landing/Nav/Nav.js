@@ -7,7 +7,6 @@ import uk from '@Assets/images/Language/Uk.png';
 import logo from '@Assets/images/logos/logo-carendar.png';
 import {
   Wrapper,
-  Ham,
   Button,
   Logo,
   StyledUl,

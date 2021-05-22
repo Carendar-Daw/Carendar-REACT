@@ -88,7 +88,7 @@ export const WrapperContentMenu = styled.div`
     if (hamburger) {
       return 'transform: translateY(55px);';
     }
-    return 'transform: translateY(0); visibility:hidden;';
+    return 'transform: translateY(20px); opacity:0;visibility:hidden;';
   }}
   }
 `;
