@@ -146,7 +146,7 @@
     "PleaseEnterState": "Por favor, introduce un estado",
     "PleaseSelectService": "Por favor, escoge al menos un servicio"
   },
-  "Config": {
+  "UserConfig": {
     "Title": "Configuración",
     "ConfigEdit": "Configuración modificada correctamente",
     "StartDate": "Error al modificar la configuración",
@@ -192,5 +192,10 @@
     "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",
     "PrivacyPolitics": "politicas de privacidad",
     "Accept": "Aceptar"
+  },
+  "NoPermission": {
+    "Explanation": "Para acceder a la aplicación antes debes aceptar el email que deberia haber recibido.",
+    "Help": "Si se ha equivocado de email, haga click en el botón y vuelva a realizar el registro.",
+    "Button": "Volver"
   }
 }

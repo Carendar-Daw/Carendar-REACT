@@ -13,7 +13,13 @@ import {
   faTrash,
   faBox,
   faChartPie,
+  faEdit,
+  faUserTag,
+  faHistory,
+  faSearch,
+  faSave,
   faShoppingCart,
+
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -30,6 +36,10 @@ library.add(
   faTrash,
   faBox,
   faChartPie,
+  faEdit,
+  faUserTag,
+  faHistory,
+  faSearch,
+  faSave,
   faShoppingCart,
-
 );

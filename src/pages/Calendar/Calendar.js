@@ -9,7 +9,6 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
   const [customers, setCustomers] = useState([]);
   const [services, setServices] = useState([]);
-  const [aspectRatio, setAspectRatio] = useState(1.3);
 
   useEffect(async () => {
     const allEvents = [];
@@ -35,14 +34,13 @@ const Calendar = () => {
   }, []);
 
   return (
-    <WrapperMenu setAspectRatio={setAspectRatio}>
+    <WrapperMenu>
       <Calendarapp
         className="calendar"
         events={events}
         setEvents={setEvents}
         customers={customers}
         services={services}
-        aspectRatio={aspectRatio}
       />
       <List
         className="calendar-list"

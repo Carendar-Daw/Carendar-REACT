@@ -165,7 +165,7 @@
     "PleaseEnterState": "Per favor, introdueix un estat",
     "PleaseSelectService": "Per favor, escull almenys un servei"
   },
-  "Config": {
+  "UserConfig": {
     "Title": "Configuració",
     "ConfigEdit": "Configuració modificada correctament",
     "ErrorEdit": "Error al modificar la configuració"
@@ -188,5 +188,10 @@
     "Explanation": "Aquesta pàgina web només utilitza cookies per millorar la experiència d'usuari. Si tens algun dubte consulta les nostres",
     "PrivacyPolitics": "polítiques de privacitat",
     "Accept": "Acceptar"
+  },
+  "NoPermission": {
+    "Explanation": "Per accedir a l'aplicació abans has d'acceptar l'email que hauria d'haver rebut.",
+    "Help": "Si s'ha equivocat de correu electrònic, feu clic al botó i torni a realitzar el registre.",
+    "Button": "Tornar"
   }
 }
