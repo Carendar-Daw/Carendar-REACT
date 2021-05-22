@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { device, deviceMax } from '@Commons/styles/breakpoints';
 import { Heading4, Item } from '@Commons/components/domain/Styles/Style.styled';
-
+import Fonts from '@Commons/styles/fonts';
+/* ${Fonts.montserrat}
+${Fonts.poppins} */
 /*
 * Colors
 * FEE995
@@ -19,10 +21,10 @@ export const Container = styled.div`
     justify-content: center;
     
   }
-  }
 `;
 
 export const Heading = styled(Heading4)`
+  font-size: 18px;
   padding-left: 10px;
   margin: auto 0;
 `;
@@ -72,6 +74,7 @@ export const Card = styled.div`
 `;
 
 export const Title = styled.h5`
+  ${Fonts.poppins}
   text-align: center;
   margin-top: 50px;
   font-weight: 600;
@@ -80,6 +83,7 @@ export const Title = styled.h5`
 `;
 
 export const SubTitle = styled.p`
+${Fonts.poppins}
   text-align: center;
   font-size: 20px;
 `;

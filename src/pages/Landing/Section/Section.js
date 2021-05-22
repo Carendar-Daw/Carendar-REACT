@@ -10,7 +10,7 @@ const Section = () => {
   return (
     <Container>
       <Card>
-        <WrapperText>
+        <WrapperText className="left">
           <Title>{messages[language].Section.Title_Left}</Title>
           <SubTitle>{messages[language].Section.Subtitle_Left}</SubTitle>
           <Text>{messages[language].Section.Subtitle_Left_2}</Text>
@@ -20,7 +20,7 @@ const Section = () => {
         </WrapperImg>
       </Card>
       <Card reverse>
-        <WrapperText>
+        <WrapperText className="right">
           <Title>{messages[language].Section.Title_Right}</Title>
           <SubTitle>{messages[language].Section.Subtitle_Right}</SubTitle>
         </WrapperText>

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-
 import { deviceMax } from '@Commons/styles/breakpoints';
 import { ButtonDefault } from '@Commons/components/domain/Styles/Style.styled';
+import Fonts from '@Commons/styles/fonts';
+/* ${Fonts.montserrat}
+${Fonts.poppins} */
 
 /*
 * Colors
@@ -13,6 +15,7 @@ import { ButtonDefault } from '@Commons/components/domain/Styles/Style.styled';
 * */
 
 export const Button = styled(ButtonDefault)`
+${Fonts.montserrat}
   padding: 1em;
   background-color: #8265A7;
   color: white;
@@ -62,6 +65,7 @@ export const Header = styled.div`
     justify-content: space-around;
   }
   .titulo, .subtitulo{
+    ${Fonts.montserrat}
     color: white;
     text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
    

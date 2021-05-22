@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import Fonts from '@Commons/styles/fonts';
+/* ${Fonts.montserrat}
+${Fonts.poppins} */
 /*
 * Colors
 * FEE995
@@ -18,7 +21,7 @@ export const Container = styled.div`
 `;
 
 export const Copy = styled.p`
-  font-family: ${'Montserrat-Regular'};;
+  ${Fonts.montserrat}
   color: white;
   margin-bottom: 0px;
 `;
