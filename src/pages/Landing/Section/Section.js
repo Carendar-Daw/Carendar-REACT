@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import image from '@Assets/images/logos/logo-carendar.png';
+import image from '@Assets/images/images/calendar.png';
 import { I18nContext } from '@Application/lang/language';
 import {
   Container, Card, Title, SubTitle, Text, WrapperText, WrapperImg,
@@ -25,7 +25,7 @@ const Section = () => {
           <SubTitle>{messages[language].Section.Subtitle_Right}</SubTitle>
         </WrapperText>
         <WrapperImg>
-          <img src={image} alt="" />
+          <img src={messages[language].Section.StockPhoto} alt="" />
         </WrapperImg>
       </Card>
     </Container>

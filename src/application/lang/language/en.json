@@ -29,7 +29,8 @@
     "Subtitle_Left" : "Appointments made easy",
     "Subtitle_Left_2": "The schedule allows you to have a complete view of all the appointments.",
     "Title_Right": "Stock & Cash Management",
-    "Subtitle_Right": "Your business is always safe with our stock and cash management" 
+    "Subtitle_Right": "Your business is always safe with our stock and cash management" ,
+    "StockPhoto":"public/assets/images/images/invEN.png"
   },
   
   "Footer" :{

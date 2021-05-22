@@ -29,7 +29,8 @@
     "Subtitle_Left" : "Gestiona las citas fácilmente",
     "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
     "Title_Right": "Gestión de inventario y caja",
-    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
+    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja",
+    "StockPhoto":"public/assets/images/images/invES.png"
     
   },
   "Footer" :{

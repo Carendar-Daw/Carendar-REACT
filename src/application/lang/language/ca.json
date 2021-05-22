@@ -28,7 +28,8 @@
     "Subtitle_Left": "Gestiona les cites fàcilment",
     "Subtitle_Left_2": "L'agenda permet tenir una visió completa de totes les visites del dia amb informació relativa a cada pacient.",
     "Title_Right": "Gestió d'inventari i caixa",
-    "Subtitle_Right": "L'apartat econòmic de la teva empresa estarà sempre sota control gràcies a la nostra gestió de caixa i inventari"
+    "Subtitle_Right": "L'apartat econòmic de la teva empresa estarà sempre sota control gràcies a la nostra gestió de caixa i inventari",
+    "StockPhoto":"public/assets/images/images/invCA.png"
   },
   "Footer": {
     "Contact": "Contacte",
