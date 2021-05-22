@@ -43,7 +43,6 @@
     "Clients": "Clients",
     "Statistics": "Estadístiques",
     "Cash": "Caixa registradora",
-    "Statistics": "Estadistiques",
     "Settings": "Configuració",
     "Products": "Productes",
     "Tour": "Fés el tour de nou",
@@ -129,6 +128,26 @@
     "UploadFail": "Error al pujar el fitxer",
     "ShowHistory": "Historial"
   },
+
+  "Statistics": {
+    "DateRange": "Selecciona un rang de dates",
+    "DateRangeSubtitle": "Consulta les dades del teu saló en un rang de temps",
+    "ErrorEdit": "Error al modificar la configuració",
+    "ClientStatistics":"Les estadístiques dels teus clients",
+    "ChooseDate": "Escill un interval de dates",
+    "ThisPeriodClients": "Has registrat ", 
+    "ThisPeriodClients2": " clients!",
+    "ThisPeriodProducts": "Has gastat",
+    "ThisPeriodProducts2": "€ en productes",
+    "ProductsStatistics": "Les estadístiques del teu stock",
+    "LookThePercentatge": "Mira el % de serveis fets per cada cita",
+    "Earnings": "Ingressos",
+    "SuccessStats": "Estadístiques obtingudes correctament",
+    "ErrorStats": "Error al obtenir l'historial",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    
+  },
+
   "Appointments": {
     "EditAppointment": "Edita la cita",
     "CreateAppointment": "Crea una nova cita",

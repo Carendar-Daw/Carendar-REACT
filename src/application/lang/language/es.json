@@ -156,18 +156,18 @@
     "DateRange": "Selecciona un rango de fechas",
     "DateRangeSubtitle": "Consulta los datos de tu salón en un rango de tiempo",
     "ErrorEdit": "Error al modificar la configuración",
-    "Clients":"Clientes",
     "ClientStatistics":"Las estadísticas de tus clientes",
-    "Products": "Productos",
-    "Services": "Servicios",
-    "ThisPeriodClients": "Este mes has registrado ", 
-    "Clients": " clientes!",
+    "ChooseDate": "Escoge un intervalo de fechas",
+    "ThisPeriodClients": "Has registrado ", 
+    "ThisPeriodClients2": " clientes!",
     "ThisPeriodProducts": "Has gastado",
-    "Products": "€ en productos",
+    "ThisPeriodProducts2": "€ en productos",
     "ProductsStatistics": "Las estadísticas de tu stock",
     "LookThePercentatge": "Mira el % de servicios hechos por cada cita",
     "Earnings": "Ingresos",
-    ""
+    "SuccessStats": "Estadisticas obtenidas correctamente",
+    "ErrorStats": "Error al obtener historial",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
     
   },
 
@@ -183,7 +183,8 @@
     "CustomerAdd":"Para añadir clientes, servicios o productos pulsamos en el botón y rellenamos los campos",
     "Cash": "Caja xd",
     "Statistics": "Consulta las estadísticas de tu salón según el rango de tiempo que establezcas",
-    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido" 
+    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido",
+    "Done": "Empieza a usar Carendar!"
 
   },
   "Cookies": {

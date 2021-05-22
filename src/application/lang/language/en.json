@@ -47,7 +47,6 @@
     "Settings": "Settings",
     "Products": "Products",
     "Tour": "Tour",
-    "Statistics": "Statistics",
     "Logout": "Logout"
   },
   "Stock": {
@@ -150,6 +149,24 @@
     "Title": "Configuration",
     "ConfigEdit": "Configuration modified successfully",
     "ErrorEdit": "Error modifying configuration"
+  },
+  "Statistics": {
+    "DateRange": "Select date range",
+    "DateRangeSubtitle": "Consult the saloon data in a range of time",
+    "ErrorEdit": "Error at modifying the configuration",
+    "ClientStatistics":"Your customer statistics",
+    "ChooseDate": "Select a date interval",
+    "ThisPeriodClients": "You registered ", 
+    "ThisPeriodClients2": " customers!",
+    "ThisPeriodProducts": "You spent",
+    "ThisPeriodProducts2": "€ in stock",
+    "ProductsStatistics": "Your stock statistics",
+    "LookThePercentatge": "Look at the service % done by appointment",
+    "Earnings": "Earnings",
+    "SuccessStats": "Statistics data loaded successfully",
+    "ErrorStats": "Error loading history",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    
   },
 "Tour":{
   "Dashboard": "Here is where the app functionalities are. We can access to them with a simple click",

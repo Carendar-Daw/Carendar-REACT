@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { DatePicker } from 'antd';
 import axios from '@Commons/http';
+import { I18nContext } from '@Application/lang/language';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
 import {
@@ -14,6 +15,7 @@ import ProductsStatistics from './products/ProductStatistics';
 const dateFormat = 'YYYY/MM/DD HH:mm:ss';
 
 const Statistics = () => {
+  const { messages, language } = useContext(I18nContext);
   const [servicesByAppointment, setServicesByAppointment] = useState(null);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [clients, setClients] = useState(null);
@@ -39,10 +41,10 @@ const Statistics = () => {
         }
         setProducts(statistics.data.products.Total);
         setClients(statistics.data.customer.numTotal);
-        success('Estadisticas obtenidas correctamente');
+        success(messages[language].Statistics.SuccessStats);
       }
     } catch (errors) {
-      error('Error al obtener historial');
+      error(messages[language].Statistics.ErrorStats);
     } finally {
       setLoadingSpinner(false);
     }
@@ -53,8 +55,8 @@ const Statistics = () => {
       {loadingSpinner && <Spinner />}
       <FlexWrapper>
         <WrapperDateRange>
-          <Title>Select a Range date</Title>
-          <SubTitle>See your saloon data from some dates</SubTitle>
+          <Title>{messages[language].Statistics.DateRange}</Title>
+          <SubTitle>{messages[language].Statistics.DateRangeSubtitle}</SubTitle>
           <RangePicker
             format={dateFormat}
             onChange={handleDateRange}

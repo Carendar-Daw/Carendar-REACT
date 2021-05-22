@@ -138,7 +138,8 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       // nextStep
         onRequestClose={setTourOff}
         closeWithMask={false}
-        lastStepNextButton={<button>Done! Let's start playing</button>}
+        // eslint-disable-next-line react/button-has-type
+        lastStepNextButton={<button>messages[language].Tour.Done</button>}
         accentColor="blue"
         startAt={0}
       />
