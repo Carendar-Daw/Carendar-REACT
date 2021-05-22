@@ -10,9 +10,9 @@ import axios from '@Commons/http';
 import moment from 'moment';
 import states from '@Pages/Calendar/helpers';
 import { Popover } from 'antd';
-import { log10 } from 'chart.js/helpers';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
+import {month} from "react-big-calendar";
 
 const Calendarapp = ({
   customers, events, setEvents, services,
@@ -90,7 +90,6 @@ const Calendarapp = ({
         right: 'dayGridMonth,timeGridWeek,timeGridDay',
       },
     };
-
   } else {
     config = {
       headerToolbar: {
@@ -131,6 +130,7 @@ const Calendarapp = ({
     </>
   );
 
+
   return (
     <>
       <Container className="calendar">
@@ -138,6 +138,11 @@ const Calendarapp = ({
           locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           {...config}
+          titleFormat={{ // will produce something like "Tuesday, September 18, 2018"
+            month: 'numeric',
+            year: 'numeric',
+            day: 'numeric',
+          }}
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
@@ -145,6 +150,7 @@ const Calendarapp = ({
           events={events}
           selectable
           selectMirror
+          stickyHeaderDates={false}
           dayMaxEvents
           height="auto"
           allDaySlot={false}
