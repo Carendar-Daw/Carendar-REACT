@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { deviceMax } from '@Commons/styles/breakpoints';
 import { ButtonDefault } from '@Commons/components/domain/Styles/Style.styled';
-
+import Fonts from '@Commons/styles/fonts';
+/* ${Fonts.montserrat}
+${Fonts.poppins} */
 /*
 * Colors
 * FEE995
@@ -21,6 +23,7 @@ export const Button = styled(ButtonDefault)`
   }
 
   span {
+    ${Fonts.montserrat}
     position: relative;
     display: inline-block;
     font-size: 12px;
@@ -36,8 +39,7 @@ export const Button = styled(ButtonDefault)`
     transition: 0.2s 0.1s;
 
     }
-    @media ${deviceMax.tablet} {}
-  }
+    /*@media ${deviceMax.tablet} {*/
 
   span:hover {
     color: rgb(28, 31, 30);
@@ -86,7 +88,7 @@ export const WrapperContentMenu = styled.div`
     if (hamburger) {
       return 'transform: translateY(55px);';
     }
-    return 'transform: translateY(0); visibility:hidden;';
+    return 'transform: translateY(20px); opacity:0;visibility:hidden;';
   }}
   }
 `;
@@ -167,6 +169,7 @@ export const StyledA = styled.a`
 `;
 
 export const SubA = styled.div`
+${Fonts.montserrat}
   color: black;
   padding: 12px 16px;
   text-decoration: none;

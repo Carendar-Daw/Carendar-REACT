@@ -16,6 +16,7 @@ import { Container, Badge } from './Calendarapp.styled';
 
 const Calendarapp = ({
   customers, events, setEvents, services,
+
 }) => {
   const { language } = useContext(I18nContext);
   const [view, setView] = useState(false);

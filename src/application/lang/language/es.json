@@ -29,7 +29,8 @@
     "Subtitle_Left" : "Gestiona las citas fácilmente",
     "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
     "Title_Right": "Gestión de inventario y caja",
-    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
+    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja",
+    "StockPhoto":"public/assets/images/images/invES.png"
     
   },
   "Footer" :{
@@ -148,7 +149,27 @@
   "UserConfig": {
     "Title": "Configuración",
     "ConfigEdit": "Configuración modificada correctamente",
-    "ErrorEdit": "Error al modificar la configuración"
+    "StartDate": "Error al modificar la configuración",
+    "EndDate": "Error al modificar la configuración"
+  },
+
+  "Statistics": {
+    "DateRange": "Selecciona un rango de fechas",
+    "DateRangeSubtitle": "Consulta los datos de tu salón en un rango de tiempo",
+    "ErrorEdit": "Error al modificar la configuración",
+    "ClientStatistics":"Las estadísticas de tus clientes",
+    "ChooseDate": "Escoge un intervalo de fechas",
+    "ThisPeriodClients": "Has registrado ", 
+    "ThisPeriodClients2": " clientes!",
+    "ThisPeriodProducts": "Has gastado",
+    "ThisPeriodProducts2": "€ en productos",
+    "ProductsStatistics": "Las estadísticas de tu stock",
+    "LookThePercentatge": "Mira el % de servicios hechos por cada cita",
+    "Earnings": "Ingresos",
+    "SuccessStats": "Estadisticas obtenidas correctamente",
+    "ErrorStats": "Error al obtener historial",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    
   },
 
   "Tour":{
@@ -162,8 +183,9 @@
     "CustomerInfo":"Aquí nos saldrá la información del cliente, servicio o producto seleccionado",
     "CustomerAdd":"Para añadir clientes, servicios o productos pulsamos en el botón y rellenamos los campos",
     "Cash": "Caja xd",
-    "Statistics": "Estadísticas xd",
-    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido" 
+    "Statistics": "Consulta las estadísticas de tu salón según el rango de tiempo que establezcas",
+    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido",
+    "Done": "Empieza a usar Carendar!"
 
   },
   "Cookies": {

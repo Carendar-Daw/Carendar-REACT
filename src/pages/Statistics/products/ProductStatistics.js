@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { WrapperPie, Title, SubTitle } from './ProductStadistics.styled';
 
 const productsStatiscs = ({ products, loadingSpinner }) => {
@@ -7,23 +8,24 @@ const productsStatiscs = ({ products, loadingSpinner }) => {
   useEffect(() => {
     if (products) setIsData(true);
   }, [loadingSpinner]);
+  const { messages, language } = useContext(I18nContext);
 
   return (
     <WrapperPie>
-      <Title>Products</Title>
+      <Title>{messages[language].Stock.Title}</Title>
       {isData
         ? (
           <>
-            <SubTitle>Your products stadistics</SubTitle>
+            <SubTitle>{messages[language].Statistics.ProductsStatistics}</SubTitle>
             <p>
-              Has gastado
-              {products}
+              {messages[language].Statistics.ThisPeriodProducts}
               {' '}
-              $ en productos.
+              {products}
+              {messages[language].Statistics.ThisPeriodProducts2}
             </p>
           </>
         ) : (
-          <p>Choose some date...</p>
+          <p>{messages[language].Statistics.ChooseDate}</p>
         )}
 
     </WrapperPie>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { Bar } from 'react-chartjs-2';
 import { WrapperVerticalBar, Title } from './VerticalStatistics.styled';
 
@@ -41,13 +42,15 @@ const options = {
   },
 };
 
-const VerticalBar = () => (
-  <WrapperVerticalBar>
-    <div className="header">
-      <Title className="title">Vertical Bar Chart</Title>
-    </div>
-    <Bar data={data} options={options} />
-  </WrapperVerticalBar>
-);
-
+const VerticalBar = () => {
+  const { messages, language } = useContext(I18nContext);
+  return (
+    <WrapperVerticalBar>
+      <div className="header">
+        <Title className="title">{messages[language].Statistics.VerticalBar}</Title>
+      </div>
+      <Bar data={data} options={options} />
+    </WrapperVerticalBar>
+  );
+};
 export default VerticalBar;

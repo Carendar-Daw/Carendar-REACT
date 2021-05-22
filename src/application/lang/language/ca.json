@@ -28,7 +28,8 @@
     "Subtitle_Left": "Gestiona les cites fàcilment",
     "Subtitle_Left_2": "L'agenda permet tenir una visió completa de totes les visites del dia amb informació relativa a cada pacient.",
     "Title_Right": "Gestió d'inventari i caixa",
-    "Subtitle_Right": "L'apartat econòmic de la teva empresa estarà sempre sota control gràcies a la nostra gestió de caixa i inventari"
+    "Subtitle_Right": "L'apartat econòmic de la teva empresa estarà sempre sota control gràcies a la nostra gestió de caixa i inventari",
+    "StockPhoto":"public/assets/images/images/invCA.png"
   },
   "Footer": {
     "Contact": "Contacte",
@@ -43,7 +44,6 @@
     "Clients": "Clients",
     "Statistics": "Estadístiques",
     "Cash": "Caixa registradora",
-    "Statistics": "Estadistiques",
     "Settings": "Configuració",
     "Products": "Productes",
     "Tour": "Fés el tour de nou",
@@ -129,6 +129,26 @@
     "UploadFail": "Error al pujar el fitxer",
     "ShowHistory": "Historial"
   },
+
+  "Statistics": {
+    "DateRange": "Selecciona un rang de dates",
+    "DateRangeSubtitle": "Consulta les dades del teu saló en un rang de temps",
+    "ErrorEdit": "Error al modificar la configuració",
+    "ClientStatistics":"Les estadístiques dels teus clients",
+    "ChooseDate": "Escill un interval de dates",
+    "ThisPeriodClients": "Has registrat ", 
+    "ThisPeriodClients2": " clients!",
+    "ThisPeriodProducts": "Has gastat",
+    "ThisPeriodProducts2": "€ en productes",
+    "ProductsStatistics": "Les estadístiques del teu stock",
+    "LookThePercentatge": "Mira el % de serveis fets per cada cita",
+    "Earnings": "Ingressos",
+    "SuccessStats": "Estadístiques obtingudes correctament",
+    "ErrorStats": "Error al obtenir l'historial",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    
+  },
+
   "Appointments": {
     "EditAppointment": "Edita la cita",
     "CreateAppointment": "Crea una nova cita",
@@ -160,7 +180,7 @@
     "CustomersHistory": "Aquesta vista només es veura en l'apartat de clients. Aquí veurem l'historial de citas de cada client",
     "CustomerInfo":"Aquí ens sortirà la informació del client, servei o producte seleccionat",
     "CustomerAdd":"Per a afegir clients, serveis o productes, pulsem en el botó i omplim els camps",
-    "Cash": "Caja xd",
+    "Cash": "Consulta les estadístiques del teu saló segons el rang de temps que estableixis",
     "Statistics": "Estadísticas xd",
     "Configuration": "En aquesta vista pots editar els camps del teu saló i canviar l'idioma del mateix seleccionant la bandera del teu idioma preferit" 
   },

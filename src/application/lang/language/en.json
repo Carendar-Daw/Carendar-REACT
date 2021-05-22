@@ -29,7 +29,8 @@
     "Subtitle_Left" : "Appointments made easy",
     "Subtitle_Left_2": "The schedule allows you to have a complete view of all the appointments.",
     "Title_Right": "Stock & Cash Management",
-    "Subtitle_Right": "Your business is always safe with our stock and cash management" 
+    "Subtitle_Right": "Your business is always safe with our stock and cash management" ,
+    "StockPhoto":"public/assets/images/images/invEN.png"
   },
   
   "Footer" :{
@@ -47,7 +48,6 @@
     "Settings": "Settings",
     "Products": "Products",
     "Tour": "Tour",
-    "Statistics": "Statistics",
     "Logout": "Logout"
   },
   "Stock": {
@@ -151,6 +151,24 @@
     "ConfigEdit": "Configuration modified successfully",
     "ErrorEdit": "Error modifying configuration"
   },
+  "Statistics": {
+    "DateRange": "Select date range",
+    "DateRangeSubtitle": "Consult the saloon data in a range of time",
+    "ErrorEdit": "Error at modifying the configuration",
+    "ClientStatistics":"Your customer statistics",
+    "ChooseDate": "Select a date interval",
+    "ThisPeriodClients": "You registered ", 
+    "ThisPeriodClients2": " customers!",
+    "ThisPeriodProducts": "You spent",
+    "ThisPeriodProducts2": "€ in stock",
+    "ProductsStatistics": "Your stock statistics",
+    "LookThePercentatge": "Look at the service % done by appointment",
+    "Earnings": "Earnings",
+    "SuccessStats": "Statistics data loaded successfully",
+    "ErrorStats": "Error loading history",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    
+  },
 "Tour":{
   "Dashboard": "Here is where the app functionalities are. We can access to them with a simple click",
   "Sidebar": "The same way as dashboard, we have the different app functionalities in our sidebar, but we added 'Statistics'",
@@ -162,7 +180,7 @@
   "CustomerInfo":"Here we will see the customer, service or product information that is selected",
   "CustomerAdd":"To add costumers, services or products, we click on that button and fill the inputs",
   "Cash": "Caja xd",
-  "Statistics": "Estadísticas xd",
+  "Statistics": "See your saloon statistics according to the time range that you should specify",
   "Configuration": "In this view you can edit the characteristics of your saloon and change to your favourite language" 
 },
   "Cookies": {

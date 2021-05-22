@@ -1,7 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useContext } from 'react';
 import { I18nContext } from '@Application/lang/language';
-import video from '@Assets/video/test.mp4';
 import ffu from '@Assets/images/images/test.jpg';
 import DynamicTitle from './DynamicTitle/DynamicTitle';
 import { Header, Button, WrapperContent } from './Banner.styled';
@@ -13,9 +12,6 @@ const Banner = () => {
   return (
     <Header>
       <WrapperContent>
-        <video autoPlay muted loop id="myVideo">
-          <source src={video} type="video/mp4" />
-        </video>
         <img src={ffu} alt="test" />
         <div className="texto">
           <div>
