@@ -11,7 +11,7 @@ import { ButtonAccept, ButtonRefuse, WrapperButtonsModal } from '@Pages/Cash/Tab
 import Modal from 'antd/es/modal/Modal';
 import Table from '../Table/Table';
 
-const List = ({ filteredAppointments }) => {
+const List = ({ filteredAppointments, getAppointmentsCash }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [actualStateCash, setActualStateCash] = useState(false);
@@ -120,7 +120,7 @@ const List = ({ filteredAppointments }) => {
           )}
 
         </Modal>
-        <Table appointments={filteredAppointments} setLoadingSpinner={setLoadingSpinner} setActualMoney={setActualMoney} />
+        <Table getAppointmentsCash={getAppointmentsCash} appointments={filteredAppointments} setLoadingSpinner={setLoadingSpinner} setActualMoney={setActualMoney} />
         <WrapperActualMoney>
           <WrapperMoneyCash>
             <strong>Open Cash</strong>
