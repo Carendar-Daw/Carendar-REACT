@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import esLocale from '@fullcalendar/core/locales/es';
+import { useSelector } from "react-redux";
 import { I18nContext } from '@Application/lang/language';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -10,8 +11,9 @@ import axios from '@Commons/http';
 import moment from 'moment';
 import states from '@Pages/Calendar/helpers';
 import { Popover } from 'antd';
+import { getSaloonName } from '@Application/store/user/reducer';
 import CalendarDrawer from './Drawer/CalendarDrawer';
-import { Container, Badge } from './Calendarapp.styled';
+import { Container, Badge, Greetings } from './Calendarapp.styled';
 
 const Calendarapp = ({
   customers, events, setEvents, services,
@@ -21,6 +23,7 @@ const Calendarapp = ({
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
+  const saloonName = useSelector(getSaloonName);
 
   const [event, setEvent] = useState({
     state: 'Aprobado',
@@ -41,7 +44,6 @@ const Calendarapp = ({
       app_color: event.color,
     };
     await axios.post('/appointment', appointment);
-
   };
   const putAppointment = async () => {
     const d = event.app_date;
@@ -132,10 +134,22 @@ const Calendarapp = ({
     </>
   );
 
+  // eslint-disable-next-line consistent-return
+  const greetings = () => {
+    const hour = Number(moment().format('HH:mm').split(':')[0]);
+
+    if (hour >= 6 && hour < 14) {
+      return (<Greetings>Buenos dias, {saloonName}</Greetings>);
+    } if (hour > 14 && hour < 20) {
+      return (<Greetings>Buenas tardes, {saloonName}</Greetings>);
+    }
+    return (<Greetings>Buenas noches, {saloonName}</Greetings>);
+  };
 
   return (
     <>
       <Container className="calendar">
+        {greetings()}
         <FullCalendar
           locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}

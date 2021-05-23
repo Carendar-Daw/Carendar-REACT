@@ -7,7 +7,7 @@ import { getSaloonPicture } from '@Application/store/user/reducer';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import {ButtonDetails, ButtonUpdate} from '@Pages/Clients/Clients.styled';
-import { Space } from 'antd';
+
 import {
   WrapperConfiguration,
   WrapperTitle,
