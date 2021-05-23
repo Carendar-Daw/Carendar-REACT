@@ -8,7 +8,7 @@ import {
   WrapperButtonBuy, ButtonAccept, ButtonRefuse, WrapperButtonsModal,
 } from './Table.styled';
 
-const TableCash = ({ appointments }) => {
+const TableCash = ({ appointments, setActualMoney }) => {
   const [visible, setVisible] = useState(false);
   const [appointmentPaying, setAppointmentPaying] = useState(null);
   const [price, setPrice] = useState(0);
@@ -32,12 +32,13 @@ const TableCash = ({ appointments }) => {
         tra_total: appointmentPaying.ser_price,
         tra_received: priceRecived,
       };
-      const paidAppointment = await axios.post('transaction', buildAppointment);
+      await axios.post('transaction', buildAppointment);
+
       const cash = {
-        cas_current: appointmentPaying.ser_price ,
+        cas_current: appointmentPaying.ser_price,
       };
-      await axios.put('cashregister', cash);
-      console.log(paidAppointment.data);
+      const actualCash = await axios.put('cashregister', cash);
+      setActualMoney(actualCash.data.cashRegister.cas_current);
       success('Cita pagada correctamente');
     } catch (errors) {
       error('Error al pagar cita');
@@ -49,7 +50,7 @@ const TableCash = ({ appointments }) => {
   const closeModal = () => {
     setPrice(0);
     setVisible(false);
-  }
+  };
 
   const columns = [
     {
@@ -107,7 +108,7 @@ const TableCash = ({ appointments }) => {
       <Modal
         title="Confirm the payment of this appoitnment"
         visible={visible}
-        destroyOnClose={true}
+        destroyOnClose
         footer={[
           <WrapperButtonsModal>
             <ButtonAccept onClick={handleClickPayAppointment}>Pay</ButtonAccept>

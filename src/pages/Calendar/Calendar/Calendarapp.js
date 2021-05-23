@@ -12,7 +12,6 @@ import states from '@Pages/Calendar/helpers';
 import { Popover } from 'antd';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
-import {month} from "react-big-calendar";
 
 const Calendarapp = ({
   customers, events, setEvents, services,
@@ -28,6 +27,7 @@ const Calendarapp = ({
   });
 
   const postAppointment = async () => {
+    const calendarApi = info.view.calendar;
     const d = event.app_date
       ? moment(event.app_date)
       : moment(info.startStr);
@@ -40,6 +40,7 @@ const Calendarapp = ({
       app_color: event.color,
     };
     await axios.post('/appointment', appointment);
+
   };
   const putAppointment = async () => {
     const d = event.app_date;

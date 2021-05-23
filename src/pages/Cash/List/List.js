@@ -17,6 +17,7 @@ const List = ({ filteredAppointments }) => {
   const [actualStateCash, setActualStateCash] = useState(false);
   const [visible, setVisible] = useState(false);
   const [startMoney, setStartMoney] = useState(false);
+  const [actualMoney, setActualMoney] = useState(null);
 
   useEffect(async () => {
     try {
@@ -24,6 +25,7 @@ const List = ({ filteredAppointments }) => {
       const isCashOpen = await axios.get('cashregister');
       if (isCashOpen.data.cashRegister) {
         setActualStateCash(isCashOpen.data.cashRegister);
+        setActualMoney(isCashOpen.data.cashRegister.cas_current);
         setIsOpen(true);
       } else {
         setIsOpen(false);
@@ -64,6 +66,7 @@ const List = ({ filteredAppointments }) => {
       };
       const cashOpened = await axios.post('cashregister', cash);
       setActualStateCash(cashOpened.data.cashRegister);
+      setActualMoney(cashOpened.data.cashRegister.cas_current);
       success('Datos obtenidos correctamente');
       setVisible(false);
       setIsOpen(disabled);
@@ -117,7 +120,7 @@ const List = ({ filteredAppointments }) => {
           )}
 
         </Modal>
-        <Table appointments={filteredAppointments} setLoadingSpinner={setLoadingSpinner} />
+        <Table appointments={filteredAppointments} setLoadingSpinner={setLoadingSpinner} setActualMoney={setActualMoney} />
         <WrapperActualMoney>
           <WrapperMoneyCash>
             <strong>Open Cash</strong>
@@ -132,7 +135,7 @@ const List = ({ filteredAppointments }) => {
           <WrapperStateCash>
             <strong>
               Total:
-              {actualStateCash.cas_current}
+              {actualMoney}
             </strong>
           </WrapperStateCash>
           )}
