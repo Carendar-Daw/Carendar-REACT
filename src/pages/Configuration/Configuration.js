@@ -81,7 +81,7 @@ const Configuration = () => {
               <input type="text" required value={config.sal_name} onChange={(e) => buildConfig('sal_name', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Nombre</label>
+              <label>{messages[language].Stock.Name}</label>
             </div>
             <div className="group">
               <input type="text" value={config.sal_email} disabled />
@@ -93,19 +93,19 @@ const Configuration = () => {
               <input type="text" value={config.sal_brand} onChange={(e) => buildConfig('sal_brand', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Brand</label>
+              <label>{messages[language].Config.Brand}</label>
             </div>
             <div className="group">
               <input type="text" value={config.sal_location} onChange={(e) => buildConfig('sal_location', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Location</label>
+              <label>{messages[language].Config.Location}</label>
             </div>
             <div className="group">
-              <input type="text" xd value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
+              <input type="text" value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Phone</label>
+              <label>{messages[language].Customers.Phone}</label>
             </div>
             <ButtonUpdate type="submit">
               <FontAwesomeIcon className="icon" icon="save" />

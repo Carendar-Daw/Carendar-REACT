@@ -98,8 +98,18 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
     },
 
     {
-      selector: '.cash',
+      selector: '.cash-list',
       content: messages[language].Tour.Cash,
+      action: () => {
+        if (!navChanged.cash) {
+          history.push('/cash');
+          setNavChanged({ ...initialStateRoutes, cash: true });
+        }
+      },
+    },
+    {
+      selector: '.cash-filters',
+      content: messages[language].Tour.CashFilters,
       action: () => {
         if (!navChanged.cash) {
           history.push('/cash');
@@ -139,7 +149,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
         onRequestClose={setTourOff}
         closeWithMask={false}
         // eslint-disable-next-line react/button-has-type
-        lastStepNextButton={<button>messages[language].Tour.Done</button>}
+        lastStepNextButton={<button>{messages[language].Tour.Done}</button>}
         accentColor="blue"
         startAt={0}
       />

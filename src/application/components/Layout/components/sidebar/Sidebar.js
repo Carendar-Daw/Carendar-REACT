@@ -25,7 +25,7 @@ const Sidebar = ({ hamburger, setBackgorund, background }) => {
       </Logo>
       <WrapperMenu>
         <div>
-          <Tooltip placement="right" color={color} title={messages[language].Dashboard.Dashboard}>
+          <Tooltip placement="right" color={color} title={messages[language].Dashboard.Title}>
             <NavLink to="/dashboard">
               <IteamMenuWrapper background={background.dashboard} onClick={() => setNavBackgroundColor('dashboard')}>
                 <FontAwesomeIcon className="icon" icon="home" />
