@@ -102,7 +102,7 @@ const Configuration = () => {
               <label>Location</label>
             </div>
             <div className="group">
-              <input type="text" xd value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
+              <input type="text" value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
               <span className="highlight" />
               <span className="bar" />
               <label>Phone</label>

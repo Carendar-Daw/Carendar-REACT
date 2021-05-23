@@ -1,34 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { I18nContext } from '@Application/lang/language';
 import { Bar } from 'react-chartjs-2';
+import { ImgEmpty } from '@Pages/Statistics/pie/PieStatistics.styled';
+import empty from '@Assets/images/images/empty.svg';
 import { WrapperVerticalBar, Title } from './VerticalStatistics.styled';
-
-const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
 
 const options = {
   scales: {
@@ -42,14 +17,60 @@ const options = {
   },
 };
 
-const VerticalBar = () => {
+const VerticalBar = ({ earnings, isDataVertical }) => {
   const { messages, language } = useContext(I18nContext);
+
+  const data = {
+    labels: earnings ? earnings.month : ['default'],
+    datasets: [
+      {
+        label: 'Earning x month',
+        data: earnings ? earnings.earning : [1],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <WrapperVerticalBar>
       <div className="header">
         <Title className="title">{messages[language].Statistics.VerticalBar}</Title>
       </div>
-      <Bar data={data} options={options} />
+      {isDataVertical ? (
+        <Bar data={data} options={options} />
+      ) : (
+        <ImgEmpty src={empty} />
+      )}
+
     </WrapperVerticalBar>
   );
 };
