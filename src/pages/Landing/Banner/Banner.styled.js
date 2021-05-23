@@ -71,7 +71,6 @@ export const Header = styled.div`
 export const WrapperContent = styled.div`
   width: 100%;
   height: 500px;
-  background-color: aqua;
   position: relative;
   top: 0;
   display: flex;
