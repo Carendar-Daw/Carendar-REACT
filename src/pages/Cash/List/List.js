@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { InputNumber, Switch } from 'antd';
 import Confirm from '@Commons/components/presentational/Modal/Confirm';
 import axios from '@Commons/http';
@@ -11,7 +12,9 @@ import { ButtonAccept, ButtonRefuse, WrapperButtonsModal } from '@Pages/Cash/Tab
 import Modal from 'antd/es/modal/Modal';
 import Table from '../Table/Table';
 
-const List = ({ filteredAppointments }) => {
+const List = ({ filteredAppointments, getAppointmentsCash }) => {
+  const { messages, language } = useContext(I18nContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [actualStateCash, setActualStateCash] = useState(false);
@@ -31,7 +34,7 @@ const List = ({ filteredAppointments }) => {
         setIsOpen(false);
       }
     } catch (errors) {
-      error('Error al obtener Datos');
+      error(messages[language].Cash.DataFail);
     } finally {
       setLoadingSpinner(false);
     }
@@ -50,7 +53,7 @@ const List = ({ filteredAppointments }) => {
       await axios.put('cashregister', cash);
       setActualStateCash(isCash.data.cashRegister);
       setIsOpen(true);
-      success('La caja de hoy se a abierto nuevamente');
+      success(messages[language].Cash.CashOpenedAgain);
     } else {
       setVisible(true);
     }
@@ -67,11 +70,11 @@ const List = ({ filteredAppointments }) => {
       const cashOpened = await axios.post('cashregister', cash);
       setActualStateCash(cashOpened.data.cashRegister);
       setActualMoney(cashOpened.data.cashRegister.cas_current);
-      success('Datos obtenidos correctamente');
+      success(messages[language].Cash.DataSuccessful);
       setVisible(false);
       setIsOpen(disabled);
     } catch (errors) {
-      error('Error al obtener Datos');
+      error(messages[language].Cash.DataFail);
     } finally {
       setLoadingSpinner(false);
     }
@@ -84,9 +87,9 @@ const List = ({ filteredAppointments }) => {
         cas_state: 'close',
       };
       await axios.put('cashregister', cash);
-      success('Caja cerrada correctamente');
+      success(messages[language].Cash.CashClosed);
     } catch (errors) {
-      error('Error al cerrar caja');
+      error(messages[language].Cash.CloseFail);
     } finally {
       setLoadingSpinner(false);
       setIsOpen(false);
@@ -96,16 +99,16 @@ const List = ({ filteredAppointments }) => {
 
   return (
     <>
-      <WrapperList>
+      <WrapperList className="cash-list">
         {loadingSpinner && <Spinner />}
         <Modal
-          title="How match money do you watn to start? mother fucker"
+          title={messages[language].Cash.MoneyStart}
           visible={visible}
           destroyOnClose
           footer={[
             <WrapperButtonsModal>
-              <ButtonAccept onClick={openedCash}>Oc.</ButtonAccept>
-              <ButtonRefuse onClick={() => setVisible(false)}>bah</ButtonRefuse>
+              <ButtonAccept onClick={openedCash}>{messages[language].Cookies.Accept}</ButtonAccept>
+              <ButtonRefuse onClick={() => setVisible(false)}>{messages[language].Stock.Cancel}</ButtonRefuse>
             </WrapperButtonsModal>,
           ]}
         >
@@ -120,12 +123,12 @@ const List = ({ filteredAppointments }) => {
           )}
 
         </Modal>
-        <Table appointments={filteredAppointments} setLoadingSpinner={setLoadingSpinner} setActualMoney={setActualMoney} />
+        <Table getAppointmentsCash={getAppointmentsCash} appointments={filteredAppointments} setLoadingSpinner={setLoadingSpinner} setActualMoney={setActualMoney} />
         <WrapperActualMoney>
           <WrapperMoneyCash>
-            <strong>Open Cash</strong>
+            <strong>{messages[language].Cash.OpenCash}</strong>
             {isOpen ? (
-              <Confirm text="Do you want to close the cash with money?" confirmDelete={closeCash}>
+              <Confirm text={messages[language].Cash.CloseCashMoney} confirmDelete={closeCash}>
                 <Switch size="big" checked={isOpen} />
               </Confirm>
             ) : <Switch size="big" checked={isOpen} onChange={modalOpenCash} />}

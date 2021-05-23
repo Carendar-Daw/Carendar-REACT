@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { Table, InputNumber } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from 'antd/es/modal/Modal';
@@ -8,7 +9,8 @@ import {
   WrapperButtonBuy, ButtonAccept, ButtonRefuse, WrapperButtonsModal,
 } from './Table.styled';
 
-const TableCash = ({ appointments, setActualMoney }) => {
+const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
+  const { messages, language } = useContext(I18nContext);
   const [visible, setVisible] = useState(false);
   const [appointmentPaying, setAppointmentPaying] = useState(null);
   const [price, setPrice] = useState(0);
@@ -21,6 +23,7 @@ const TableCash = ({ appointments, setActualMoney }) => {
 
   const calculPrice = (number) => {
     setPriceRecived(number);
+    // eslint-disable-next-line no-unused-expressions
     number ? setPrice(number - appointmentPaying.ser_price) : setPrice(0);
   };
 
@@ -33,15 +36,19 @@ const TableCash = ({ appointments, setActualMoney }) => {
         tra_received: priceRecived,
       };
       await axios.post('transaction', buildAppointment);
-
+      const appState = {
+        app_state: 'facturado',
+      };
+      await axios.put(`appointmentState/${appointmentPaying.app_id}`, appState);
       const cash = {
         cas_current: appointmentPaying.ser_price,
       };
+      getAppointmentsCash();
       const actualCash = await axios.put('cashregister', cash);
       setActualMoney(actualCash.data.cashRegister.cas_current);
-      success('Cita pagada correctamente');
+      success(messages[language].Cash.AppoinmentPayed);
     } catch (errors) {
-      error('Error al pagar cita');
+      error(messages[language].Cash.FailPayment);
     } finally {
       setVisible(false);
     }
@@ -54,19 +61,20 @@ const TableCash = ({ appointments, setActualMoney }) => {
 
   const columns = [
     {
-      title: 'Status',
+      title: messages[language].Customers.State,
+
       dataIndex: 'status',
       width: 90,
     },
     {
-      title: 'Customer',
+      title: messages[language].Customers.Title,
       className: 'customer',
       dataIndex: 'customer',
       align: 'right',
       width: 90,
     },
     {
-      title: 'Price',
+      title: messages[language].Services.Price,
       dataIndex: 'price',
       align: 'center',
       width: 60,
@@ -78,16 +86,16 @@ const TableCash = ({ appointments, setActualMoney }) => {
       ),
     },
     {
-      title: 'Date',
+      title: messages[language].Cash.Date,
       dataIndex: 'date',
       width: 200,
     },
     {
-      title: 'Services',
+      title: messages[language].Services.Title,
       dataIndex: 'services',
     },
     {
-      title: 'Cobrar',
+      title: messages[language].Cash.Receive,
       dataIndex: 'payment',
       align: 'center',
       fixed: 'right',
@@ -108,16 +116,16 @@ const TableCash = ({ appointments, setActualMoney }) => {
         size="middle"
         scroll={{ x: 'calc(700px + 50%)', y: 240 }}
         dataSource={appointments}
-        title={() => <p>La madre del miquel es una putita</p>}
+        title={() => <p>{messages[language].Cash.Header}</p>}
       />
       <Modal
-        title="Confirm the payment of this appoitnment"
+        title={messages[language].Cash.ConfirmPayment}
         visible={visible}
         destroyOnClose
         footer={[
           <WrapperButtonsModal>
-            <ButtonAccept onClick={handleClickPayAppointment}>Pay</ButtonAccept>
-            <ButtonRefuse onClick={closeModal}>Refuse</ButtonRefuse>
+            <ButtonAccept onClick={handleClickPayAppointment}>{messages[language].Cash.DataSuccessful}</ButtonAccept>
+            <ButtonRefuse onClick={closeModal}>{messages[language].Stock.Cancel}</ButtonRefuse>
           </WrapperButtonsModal>,
         ]}
       >
