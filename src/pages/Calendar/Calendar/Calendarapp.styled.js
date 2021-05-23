@@ -28,3 +28,9 @@ export const Badge = styled.div`
 export const WrapperCalendarApp = styled.div`
   width: 70%;
 `;
+
+export const Greetings = styled.h1`
+  margin-bottom: 40px;
+  font-size: 24px;
+  font-weight: 500;
+`;
