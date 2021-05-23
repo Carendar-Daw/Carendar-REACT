@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import esLocale from '@fullcalendar/core/locales/es';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import { I18nContext } from '@Application/lang/language';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -19,7 +19,7 @@ const Calendarapp = ({
   customers, events, setEvents, services,
 
 }) => {
-  const { language } = useContext(I18nContext);
+  const { messages, language } = useContext(I18nContext);
   const [view, setView] = useState(false);
   const [info, setInfo] = useState('');
   const [edit, isEdit] = useState(false);
@@ -139,11 +139,29 @@ const Calendarapp = ({
     const hour = Number(moment().format('HH:mm').split(':')[0]);
 
     if (hour >= 6 && hour < 14) {
-      return (<Greetings>Buenos dias, {saloonName}</Greetings>);
+      return (
+        <Greetings>
+          {messages[language].Calendar.GoodMorning}
+          ,
+          {saloonName}
+        </Greetings>
+      );
     } if (hour > 14 && hour < 20) {
-      return (<Greetings>Buenas tardes, {saloonName}</Greetings>);
+      return (
+        <Greetings>
+          {messages[language].Calendar.GoodAfternoon}
+          ,
+          {saloonName}
+        </Greetings>
+      );
     }
-    return (<Greetings>Buenas noches, {saloonName}</Greetings>);
+    return (
+      <Greetings>
+        {messages[language].Calendar.GoodNight}
+        ,
+        {saloonName}
+      </Greetings>
+    );
   };
 
   return (

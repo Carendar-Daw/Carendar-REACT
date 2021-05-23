@@ -145,6 +145,11 @@
     "PleaseEnterState": "Per favor, introdueix un estat",
     "PleaseSelectService": "Per favor, escull almenys un servei"
   },
+  "Calendar":{
+    "GoodMorning": "Bon dia",
+    "GoodAfternoon":"Bona tarda",
+    "GoodNight":"Bona nit"
+    },
   "UserConfig": {
     "Title": "Configuració",
     "ConfigEdit": "Configuració modificada correctament",

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import axios from '@Commons/http/index';
+import Spinner from '@Commons/components/presentational/Spinner/Spinner';
+import { WrapperServices } from '@Pages/Services/Services.styled';
 import List from './List/List';
 import Calendarapp from './Calendar/Calendarapp';
 import { WrapperMenu } from './Calendar.styled';
-import Spinner from '@Commons/components/presentational/Spinner/Spinner';
-import {WrapperServices} from "@Pages/Services/Services.styled";
 
 const Calendar = () => {
   const [events, setEvents] = useState([]);

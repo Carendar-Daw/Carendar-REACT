@@ -146,6 +146,11 @@
     "PleaseEnterState": "Por favor, introduce un estado",
     "PleaseSelectService": "Por favor, escoge al menos un servicio"
   },
+  "Calendar":{
+  "GoodMorning": "Buenos días",
+  "GoodAfternoon":"Buenas tardes",
+  "GoodNight":"Buenas noches"
+  },
   "UserConfig": {
     "Title": "Configuración",
     "ConfigEdit": "Configuración modificada correctamente",
@@ -210,8 +215,8 @@
     "Footer": "Pie de página",
     "ConfirmPayment": "Confirma el pagamiento de esta cita",
     "Pay": "Pagar",
-    "FilterState":"Filtrar per estat",
-    "FilterDate": "Filtrar per data"
+    "FilterState":"Filtrar por estado",
+    "FilterDate": "Filtrar por fecha"
   },
   "Cookies": {
     "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",
