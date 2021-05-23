@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { I18nContext } from '@Application/lang/language';
 import { Pie } from 'react-chartjs-2';
 import empty from '@Assets/images/images/empty.svg';

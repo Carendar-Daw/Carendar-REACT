@@ -20,7 +20,9 @@ const Statistics = () => {
   const [loadingSpinner, setLoadingSpinner] = useState(false);
   const [clients, setClients] = useState(null);
   const [products, setProducts] = useState(null);
+  const [earnings, setEarnings] = useState(null);
   const [isDataPie, setIsDataPie] = useState(false);
+  const [isDataVertical, setIsDataVertical] = useState(false);
   const { RangePicker } = DatePicker;
 
   const handleDateRange = async (dateString) => {
@@ -38,6 +40,15 @@ const Statistics = () => {
           setIsDataPie(true);
         } else {
           setIsDataPie(false);
+        }
+        if (statistics.data.earningsByMonth.length !== 0) {
+          setEarnings({
+            earning: statistics.data.earningsByMonth.map((earning) => earning.earning),
+            month: statistics.data.earningsByMonth.map((earning) => earning.month),
+          });
+          setIsDataVertical(true);
+        } else {
+          setIsDataVertical(false);
         }
         setProducts(statistics.data.products.Total);
         setClients(statistics.data.customer.numTotal);
@@ -72,7 +83,7 @@ const Statistics = () => {
         />
       </FlexWrapper>
       <FlexWrapper>
-        <VerticalBar />
+        <VerticalBar earnings={earnings} isDataVertical={isDataVertical}/>
         <PieStatistics
           servicesByAppointment={servicesByAppointment}
           loadingSpinner={loadingSpinner}
