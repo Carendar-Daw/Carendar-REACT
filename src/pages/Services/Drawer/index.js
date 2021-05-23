@@ -22,13 +22,16 @@ const DrawerServices = ({
       visible={getDrawer}
       destroyOnClose
       bodyStyle={{ paddingBottom: 80 }}
-      initialValues={{
-        name: theService.ser_description,
-        price: theService.ser_price,
-        time: theService.ser_time,
-      }}
+
     >
-      <Form layout="vertical" hideRequiredMark onFinish={onFinish}>
+      <Form layout="vertical"
+            hideRequiredMark
+            onFinish={onFinish}
+            initialValues={{
+              name: theService.ser_description,
+              price: theService.ser_price,
+              time: theService.ser_time,
+            }}>
         <Row gutter={16}>
           <Col span={22}>
             <Form.Item

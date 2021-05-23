@@ -44,6 +44,7 @@ const Calendarapp = ({
       app_color: event.color,
     };
     await axios.post('/appointment', appointment);
+    window.location.reload();
   };
   const putAppointment = async () => {
     const d = event.app_date;
@@ -56,6 +57,7 @@ const Calendarapp = ({
       app_color: event.color,
     };
     await axios.put(`/appointment/${info.event.id}`, appointment);
+    window.location.reload();
   };
 
   const showDrawer = (selectInfo) => {
