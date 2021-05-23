@@ -9,7 +9,7 @@ import {
   WrapperButtonBuy, ButtonAccept, ButtonRefuse, WrapperButtonsModal,
 } from './Table.styled';
 
-const TableCash = ({ appointments, setActualMoney }) => {
+const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
   const { messages, language } = useContext(I18nContext);
   const [visible, setVisible] = useState(false);
   const [appointmentPaying, setAppointmentPaying] = useState(null);
@@ -36,10 +36,14 @@ const TableCash = ({ appointments, setActualMoney }) => {
         tra_received: priceRecived,
       };
       await axios.post('transaction', buildAppointment);
-
+      const appState = {
+        app_state: 'facturado',
+      };
+      await axios.put(`appointmentState/${appointmentPaying.app_id}`, appState);
       const cash = {
         cas_current: appointmentPaying.ser_price,
       };
+      getAppointmentsCash();
       const actualCash = await axios.put('cashregister', cash);
       setActualMoney(actualCash.data.cashRegister.cas_current);
       success(messages[language].Cash.AppoinmentPayed);

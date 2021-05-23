@@ -10,6 +10,10 @@ const Cash = () => {
   const [filteredAppointments, setFilteredAppointments] = useState([]);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
 
+  useEffect(async () => {
+    await getAppointmentsCash();
+  }, []);
+
   const hasServices = (app) => {
     const sad = app.map((appointment) => {
       const x = app.filter((a) => a.app_id === appointment.app_id);
@@ -30,7 +34,8 @@ const Cash = () => {
       (v, i, a) => a.findIndex((t) => t.app_id === v.app_id) === i,
     );
   };
-  useEffect(async () => {
+
+  const getAppointmentsCash = async () => {
     const allEvents = [];
     const response = await axios.get('/appointment/cash');
     const allAppointments = hasServices(response.data.appointments);
@@ -48,14 +53,14 @@ const Cash = () => {
     });
     setAppointments(allEvents);
     setFilteredAppointments(allEvents);
-  }, []);
+  };
 
   return (
     <>
       {loadingSpinner && <Spinner />}
       <WrapperComponents>
         <Filters appointments={appointments} setAppointments={setAppointments} filteredAppointments={filteredAppointments} setFilteredAppointments={setFilteredAppointments} />
-        <List setLoadingSpinner={setLoadingSpinner} appointments={appointments} filteredAppointments={filteredAppointments} />
+        <List setLoadingSpinner={setLoadingSpinner} appointments={appointments} filteredAppointments={filteredAppointments} getAppointmentsCash={getAppointmentsCash}/>
       </WrapperComponents>
     </>
 
