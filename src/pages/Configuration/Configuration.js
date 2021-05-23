@@ -82,6 +82,7 @@ const Configuration = () => {
               <span className="highlight" />
               <span className="bar" />
               <label>{messages[language].Stock.Name}</label>
+
             </div>
             <div className="group">
               <input type="text" value={config.sal_email} disabled />

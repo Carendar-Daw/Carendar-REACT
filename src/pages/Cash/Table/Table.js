@@ -61,28 +61,34 @@ const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
 
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'key',
-      render: (text) => <a>{text}</a>,
-    },
-    {
       title: messages[language].Customers.State,
+
       dataIndex: 'status',
-      render: (text) => <a>{text}</a>,
+      width: 90,
     },
     {
       title: messages[language].Customers.Title,
       className: 'customer',
       dataIndex: 'customer',
       align: 'right',
+      width: 90,
     },
     {
       title: messages[language].Services.Price,
       dataIndex: 'price',
+      align: 'center',
+      width: 60,
+      render: (text) => (
+        <span>
+          {text}
+          €
+        </span>
+      ),
     },
     {
       title: messages[language].Cash.Date,
       dataIndex: 'date',
+      width: 200,
     },
     {
       title: messages[language].Services.Title,
@@ -93,6 +99,7 @@ const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
       dataIndex: 'payment',
       align: 'center',
       fixed: 'right',
+      width: 70,
       render: (appointment) => (
         <WrapperButtonBuy onClick={() => renderModal(appointment)}>
           <FontAwesomeIcon className="icon" icon="shopping-cart" />
@@ -110,7 +117,6 @@ const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
         scroll={{ x: 'calc(700px + 50%)', y: 240 }}
         dataSource={appointments}
         title={() => <p>{messages[language].Cash.Header}</p>}
-        footer={() => messages[language].Cash.Footer}
       />
       <Modal
         title={messages[language].Cash.ConfirmPayment}
