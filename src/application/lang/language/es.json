@@ -188,6 +188,26 @@
     "Done": "Empieza a usar Carendar!"
 
   },
+
+  "Cash":{
+    "Filters": "Filtros",
+    "DataSuccessful": "Datos obtenidos correctamente",
+    "DataFail": "Error al obtener los datos",
+    "CashClosed": "Caja cerrada correctamente",
+    "CloseFail":"Error al cerrar caja",
+    "MoneyStart": "Con cuanto efectivo deseas empezar?",
+    "OpenCash": "Abrir caja",
+    "CloseCashMoney": "Quieres cerrar la caja con dinero?",
+    "CashOpenedAgain":"La caja de hoy se ha abierto de nuevo",
+    "AppointmentPayed": "Cita pagada correctamente",
+    "FailPayment": "Error al pagar cita",
+    "Date":"Fecha",
+    "Receive":"Cobrar",
+    "Header": "Cabecera",
+    "Footer": "Pie de página",
+    "ConfirmPayment": "Confirma el pagamiento de esta cita",
+    "Pay": "Pagar"
+  },
   "Cookies": {
     "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",
     "PrivacyPolitics": "politicas de privacidad",
