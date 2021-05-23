@@ -59,7 +59,7 @@ const DrawerServices = ({
           Email: theClients.cus_email,
           ColorPreference: theClients.cus_color_preference,
           Phone: theClients.cus_phone,
-          'date-picker': theClients.cus_born_date,
+          Born: moment(theClients.cus_born_date),
         }}
       >
         <Row gutter={16}>
