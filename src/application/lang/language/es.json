@@ -209,7 +209,9 @@
     "Header": "Cabecera",
     "Footer": "Pie de página",
     "ConfirmPayment": "Confirma el pagamiento de esta cita",
-    "Pay": "Pagar"
+    "Pay": "Pagar",
+    "FilterState":"Filtrar per estat",
+    "FilterDate": "Filtrar per data"
   },
   "Cookies": {
     "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",

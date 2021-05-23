@@ -210,7 +210,9 @@
   "Header": "Header",
   "Footer": "Footer",
   "ConfirmPayment": "Confirm the payment of this appointment",
-  "Pay": "Pay"
+  "Pay": "Pay",
+  "FilterState":"Filtrar per estat",
+  "FilterDate": "Filtrar per data"
 },
   "Cookies": {
     "Explanation": "This website only uses cookies to improve the user experience. If you have any questions, consult our",
