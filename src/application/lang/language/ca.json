@@ -38,7 +38,7 @@
     "Conditions": "Condicions d'ús"
   },
   "Dashboard": {
-    "Dashboard": "Pàgina principal",
+    "Title": "Pàgina principal",
     "Calendar": "Calendari",
     "Services": "Serveis",
     "Clients": "Clients",
@@ -129,26 +129,6 @@
     "UploadFail": "Error al pujar el fitxer",
     "ShowHistory": "Historial"
   },
-
-  "Statistics": {
-    "DateRange": "Selecciona un rang de dates",
-    "DateRangeSubtitle": "Consulta les dades del teu saló en un rang de temps",
-    "ErrorEdit": "Error al modificar la configuració",
-    "ClientStatistics":"Les estadístiques dels teus clients",
-    "ChooseDate": "Escill un interval de dates",
-    "ThisPeriodClients": "Has registrat ", 
-    "ThisPeriodClients2": " clients!",
-    "ThisPeriodProducts": "Has gastat",
-    "ThisPeriodProducts2": "€ en productes",
-    "ProductsStatistics": "Les estadístiques del teu stock",
-    "LookThePercentatge": "Mira el % de serveis fets per cada cita",
-    "Earnings": "Ingressos",
-    "SuccessStats": "Estadístiques obtingudes correctament",
-    "ErrorStats": "Error al obtenir l'historial",
-    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
-    
-  },
-
   "Appointments": {
     "EditAppointment": "Edita la cita",
     "CreateAppointment": "Crea una nova cita",
@@ -168,21 +148,65 @@
   "UserConfig": {
     "Title": "Configuració",
     "ConfigEdit": "Configuració modificada correctament",
-    "ErrorEdit": "Error al modificar la configuració"
+    "ErrorEdit": "Error al modificar la configuració",
+    "SuccessLanguage":"Llenguatge obtingut correctament",
+    "ErrorLanguage":"Error al obtenir llenguatge",
+    "EditLanguage":"Llenguatge modificat correctament",
+    "ErrorEditLanguage": "Error al modificar llenguatge",
+    "Brand":"Marca",
+    "Location": "Localització"
+  },
+  "Statistics": {
+    "DateRange": "Selecciona un rang de dates",
+    "DateRangeSubtitle": "Consulta les dades del teu saló en un rang de temps",
+    "ErrorEdit": "Error al modificar la configuració",
+    "ClientStatistics":"Les estadístiques dels teus clients",
+    "ChooseDate": "Escill un interval de dates",
+    "ThisPeriodClients": "Has registrat ", 
+    "ThisPeriodClients2": " clients!",
+    "ThisPeriodProducts": "Has gastat",
+    "ThisPeriodProducts2": "€ en productes",
+    "ProductsStatistics": "Les estadístiques del teu stock",
+    "LookThePercentatge": "Mira el % de serveis fets per cada cita",
+    "Earnings": "Ingressos",
+    "SuccessStats": "Estadístiques obtingudes correctament",
+    "ErrorStats": "Error al obtenir l'historial",
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
   },
   "Tour":{
     "Dashboard": "Aquí es situen les diferents funcionalitats de l'aplicació, a las quals podem accedir amb un simple clic",
     "Sidebar": "De la mateixa manera que en el menú principal, tenim les diferents funcions en la nostra barra lateral, però s'afegeix l'apartat 'Estadístiques'",
     "Profile": "Des d'aquí podrem accedir a les nostres dades personals, fer un altre cop el tour o tancar la sessió del nostre saló",
     "Calendar": "Aquí podrem visualitzar, afegir i editar les cites que tenim en el nostre saló. \nEstà disponible la vista del calendario segons el dia, la setmana o el mes. \nPer a afegir una cita hi ha prou amb arrossegar des de l'hora d'inici a l'hora de finalització. \nPer a editar una cita ja existent hi ha prou amb fer clic i editar els camps\nPer eliminar-la, clic sobre la cita i seleccionar el botó 'eliminar'",
-    "CalendarList": "En esta ventana podremos visualizar las citas que hay programadas en el día seleccionado",
+    "CalendarList": "En aquesta finestra podrem visualitzar les cites que hi ha programades en el dia seleccionat",
     "Customers": "Aquí podrem accedir a les dades dels nostres clients, serveis o productes, així com editar-los, mostrar els seus detalls, el seu historial (en cas dels clients) o eliminar-los de la base de dades",
     "CustomersHistory": "Aquesta vista només es veura en l'apartat de clients. Aquí veurem l'historial de citas de cada client",
     "CustomerInfo":"Aquí ens sortirà la informació del client, servei o producte seleccionat",
     "CustomerAdd":"Per a afegir clients, serveis o productes, pulsem en el botó i omplim els camps",
-    "Cash": "Consulta les estadístiques del teu saló segons el rang de temps que estableixis",
-    "Statistics": "Estadísticas xd",
-    "Configuration": "En aquesta vista pots editar els camps del teu saló i canviar l'idioma del mateix seleccionant la bandera del teu idioma preferit" 
+    "Cash": "Aquí podrem realitzar el cobro de les diferents cites, així como obrir o tancar la caixa",
+    "CashFilters": "Fent servir aquesta funcionalitat podem filtrar les diferents citas",
+    "Statistics": "Consulta les estadístiques del teu saló segons el rang de temps que estableixis",
+    "Configuration": "En aquesta vista pots editar els camps del teu saló i canviar l'idioma del mateix seleccionant la bandera del teu idioma preferit", 
+    "Done": "Comença a fer servir Carendar!"
+  },
+  "Cash":{
+    "Filters": "Filtres",
+    "DataSuccessful": "Dades obtingudes correctament",
+    "DataFail": "Error al obtenir les dades",
+    "CashClosed": "Caixa tancada correctament",
+    "CloseFail":"Error al tancar la caixa",
+    "MoneyStart": "Amb quant efectiu desitjes començar?",
+    "OpenCash": "Obrir caixa",
+    "CloseCashMoney": "Vols tancar la caixa amb diners?",
+    "CashOpenedAgain":"La caixa d'avui s'ha obert de nou",
+    "AppointmentPayed": "Cita pagada correctament",
+    "FailPayment": "Error al pagar cita",
+    "Date":"Data",
+    "Receive":"Cobrar",
+    "Header": "Capçalera",
+    "Footer": "Peu de pàgina",
+    "ConfirmPayment": "Confirma el pagament d'aquesta cita",
+    "Pay": "Pagar"
   },
   "Cookies": {
     "Explanation": "Aquesta pàgina web només utilitza cookies per millorar la experiència d'usuari. Si tens algun dubte consulta les nostres",

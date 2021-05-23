@@ -40,6 +40,7 @@
     "Conditions": "Use Conditions" 
     },
   "Dashboard": {
+    "Title":"Dashboard",
     "Calendar": "Calendar",
     "Services": "Services",
     "Clients": "Customers",
@@ -149,7 +150,13 @@
   "UserConfig": {
     "Title": "Configuration",
     "ConfigEdit": "Configuration modified successfully",
-    "ErrorEdit": "Error modifying configuration"
+    "ErrorEdit": "Error modifying configuration",
+    "SuccessLanguage":"Language loaded successfully",
+    "ErrorLanguage":"Error loading language",
+    "EditLanguage":"Lenguage modified successfully",
+    "ErrorEditLanguage": "Error editing lenguage",
+    "Brand":"Brand",
+    "Location": "Location"
   },
   "Statistics": {
     "DateRange": "Select date range",
@@ -166,8 +173,7 @@
     "Earnings": "Earnings",
     "SuccessStats": "Statistics data loaded successfully",
     "ErrorStats": "Error loading history",
-    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
-    
+    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"  
   },
 "Tour":{
   "Dashboard": "Here is where the app functionalities are. We can access to them with a simple click",
@@ -179,9 +185,30 @@
   "CustomersHistory": "This view is exclusive to the customer section. From here we will see the history of the customer appointments",
   "CustomerInfo":"Here we will see the customer, service or product information that is selected",
   "CustomerAdd":"To add costumers, services or products, we click on that button and fill the inputs",
-  "Cash": "Caja xd",
+  "Cash": "Here we can do the appointments payments and open/close the cash register",
+  "CashFilters": "Using this functionality we can filter the appointments",
   "Statistics": "See your saloon statistics according to the time range that you should specify",
-  "Configuration": "In this view you can edit the characteristics of your saloon and change to your favourite language" 
+  "Configuration": "In this view you can edit the characteristics of your saloon and change to your favourite language",
+  "Done": "Start using Carendar!"
+},
+"Cash":{
+  "Filters": "Filters",
+  "DataSuccessful": "Data loaded successfully",
+  "DataFail": "Error loading data",
+  "CashClosed": "Cash register closed successfully",
+  "CloseFail":"Error closing cash register",
+  "MoneyStart": "With how many cash you want to start?",
+  "OpenCash": "Open cash register",
+  "CloseCashMoney": "You want to close the cash register with cash?",
+  "CashOpenedAgain":"Today's cash register has opened again",
+  "AppointmentPayed": "Appointment payed successfully",
+  "FailPayment": "Error paying the appointment",
+  "Date":"Date",
+  "Receive":"Receive",
+  "Header": "Header",
+  "Footer": "Footer",
+  "ConfirmPayment": "Confirm the payment of this appointment",
+  "Pay": "Pay"
 },
   "Cookies": {
     "Explanation": "This website only uses cookies to improve the user experience. If you have any questions, consult our",

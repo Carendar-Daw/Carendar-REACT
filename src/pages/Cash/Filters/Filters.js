@@ -36,7 +36,7 @@ const Filter = ({ appointments, setFilteredAppointments }) => {
   }, [filters]);
   return (
     <>
-      <WrapperFilters>
+      <WrapperFilters className="cash-filters">
         <h1>{messages[language].Cash.Filters}</h1>
         <WrapperComponents>
           <Checkbox.Group onChange={(e) => setFilters({ ...filters, status: e })} style={{ width: '100%' }}>

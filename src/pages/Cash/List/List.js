@@ -98,7 +98,7 @@ const List = ({ filteredAppointments }) => {
 
   return (
     <>
-      <WrapperList>
+      <WrapperList className="cash-list">
         {loadingSpinner && <Spinner />}
         <Modal
           title={messages[language].Cash.MoneyStart}

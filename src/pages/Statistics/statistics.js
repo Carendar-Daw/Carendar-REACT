@@ -51,7 +51,7 @@ const Statistics = () => {
   };
 
   return (
-    <WrapperStatistics>
+    <WrapperStatistics className="statistics">
       {loadingSpinner && <Spinner />}
       <FlexWrapper>
         <WrapperDateRange>
