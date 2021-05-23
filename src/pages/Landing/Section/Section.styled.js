@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { deviceMax } from '@Commons/styles/breakpoints';
-/* font-family: montserrat, sans-serif;
-font-family: poppins, sans-serif; */
+import Fonts from '@Commons/styles/fonts';
+/* ${Fonts.montserrat}
+${Fonts.poppins} */
 /*
 * Colors
 * FEE995
@@ -12,7 +13,7 @@ font-family: poppins, sans-serif; */
 * */
 
 export const Title = styled.div` 
-   font-family: poppins, sans-serif;
+   ${Fonts.poppins}
    color:#8265a7;
    font-size: 25px;
    border-bottom:3px solid #8265a7;
@@ -28,7 +29,7 @@ export const Title = styled.div`
 `;
 
 export const SubTitle = styled.div`
-   font-family: poppins, sans-serif;
+   ${Fonts.poppins}
   color:#6B74A1;
   font-weight: bold;
   font-size: 15px;
@@ -39,7 +40,7 @@ export const SubTitle = styled.div`
 `;
 
 export const Text = styled.p` 
-   font-family: montserrat, sans-serif;
+   ${Fonts.montserrat}
    font-size: 15px;
   line-height: 25px;
    color: gray;

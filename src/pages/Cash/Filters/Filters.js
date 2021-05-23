@@ -41,7 +41,7 @@ const Filter = ({ appointments, setFilteredAppointments }) => {
         <WrapperComponents>
 
           <Checkbox.Group onChange={(e) => setFilters({ ...filters, status: e })} style={{ width: '100%' }}>
-            <h3>Filtrar por estado</h3>
+            <h3>{messages[language].Cash.FilterState}</h3>
             <Col span={8}>
               <Checkbox value="Pendiente">{messages[language].Appointments.ToConfirm}</Checkbox>
             </Col>
@@ -59,7 +59,7 @@ const Filter = ({ appointments, setFilteredAppointments }) => {
             </Col>
           </Checkbox.Group>
           <div>
-            <h3>Filtrar por fecha</h3>
+            <h3>{messages[language].Cash.FilterDate}</h3>
             <RangePicker showTime onChange={(e) => (e ? setFilters({ ...filters, date: e }) : setFilters({ ...filters, date: [] }))} />
           </div>
         </WrapperComponents>

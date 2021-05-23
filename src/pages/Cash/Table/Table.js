@@ -124,7 +124,7 @@ const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
         destroyOnClose
         footer={[
           <WrapperButtonsModal>
-            <ButtonAccept onClick={handleClickPayAppointment}>{messages[language].Cash.DataSuccessful}</ButtonAccept>
+            <ButtonAccept onClick={handleClickPayAppointment}>{messages[language].Cash.Pay}</ButtonAccept>
             <ButtonRefuse onClick={closeModal}>{messages[language].Stock.Cancel}</ButtonRefuse>
           </WrapperButtonsModal>,
         ]}

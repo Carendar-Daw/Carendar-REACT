@@ -173,7 +173,9 @@
     "Earnings": "Earnings",
     "SuccessStats": "Statistics data loaded successfully",
     "ErrorStats": "Error loading history",
-    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"  
+    "VerticalBar":"Earnings per month",
+    "FilterState":"Filter by state",
+    "FilterDate": "Filter by date"  
   },
 "Tour":{
   "Dashboard": "Here is where the app functionalities are. We can access to them with a simple click",

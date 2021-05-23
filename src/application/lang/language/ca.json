@@ -171,7 +171,7 @@
     "Earnings": "Ingressos",
     "SuccessStats": "Estadístiques obtingudes correctament",
     "ErrorStats": "Error al obtenir l'historial",
-    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    "VerticalBar":"Ingressos per mes"
   },
   "Tour":{
     "Dashboard": "Aquí es situen les diferents funcionalitats de l'aplicació, a las quals podem accedir amb un simple clic",
@@ -206,7 +206,9 @@
     "Header": "Capçalera",
     "Footer": "Peu de pàgina",
     "ConfirmPayment": "Confirma el pagament d'aquesta cita",
-    "Pay": "Pagar"
+    "Pay": "Pagar",
+    "FilterState":"Filtrar per estat",
+    "FilterDate": "Filtrar per data"
   },
   "Cookies": {
     "Explanation": "Aquesta pàgina web només utilitza cookies per millorar la experiència d'usuari. Si tens algun dubte consulta les nostres",

@@ -27,8 +27,9 @@
     "Title_Left" : "Agenda",
     "Subtitle_Left" : "Gestiona las citas fácilmente",
     "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
-    "Title_Right": "Gestión de inventario y caja",
-    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja",
+    "Title_Right": "Inventario/Caja",
+    "Subtitle_Right": "Gestión de inventario y caja registradora",
+    "Subtitle_Right_2": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja",
     "StockPhoto":"public/assets/images/images/invES.png" 
   },
   "Footer" :{
@@ -171,7 +172,9 @@
     "Earnings": "Ingresos",
     "SuccessStats": "Estadisticas obtenidas correctamente",
     "ErrorStats": "Error al obtener historial",
-    "VerticalBar":"Barra vertical (no sabemos que poner aqui kekw)"
+    "VerticalBar":"Ingresos por mes",
+    "FilterState":"Filtrar por estado",
+    "FilterDate": "Filtrar por fecha"
   },
   "Tour":{
     "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
