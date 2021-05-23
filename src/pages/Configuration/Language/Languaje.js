@@ -16,17 +16,17 @@ import {
 } from './Language.styled';
 
 const Languaje = () => {
-  const { language, setLanguage } = useContext(I18nContext);
+  const { messages, language, setLanguage } = useContext(I18nContext);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
 
   useEffect(async () => {
     try {
       setLoadingSpinner(true);
-      const language = await axios.get('language');
-      setLanguage(language.data.language);
-      success('Lenguage obtenido correctamente');
+      const lan = await axios.get('language');
+      setLanguage(lan.data.language);
+      success(messages[language].UserConfig.SuccessLanguage);
     } catch (errors) {
-      error('Error al obtener lenguagje un producto');
+      error(messages[language].UserConfig.ErrorLanguage);
     } finally {
       setLoadingSpinner(false);
     }
@@ -37,9 +37,9 @@ const Languaje = () => {
       setLoadingSpinner(true);
       await axios.put('language', { lan_preference: lang });
       setLanguage(lang);
-      success('Lenguage modificado correctamente');
+      success(messages[language].UserConfig.EditLanguage);
     } catch (errors) {
-      error('Error al modificar lenguaje');
+      error(messages[language].UserConfig.ErrorEditLanguage);
     } finally {
       setLoadingSpinner(false);
     }

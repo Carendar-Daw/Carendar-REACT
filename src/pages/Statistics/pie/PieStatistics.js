@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { Pie } from 'react-chartjs-2';
 import empty from '@Assets/images/images/empty.svg';
 import {
@@ -32,15 +33,16 @@ const PieStatistics = ({ servicesByAppointment, isDataPie }) => {
       },
     ],
   };
+  const { messages, language } = useContext(I18nContext);
 
   return (
     <WrapperPie>
       <div className="header">
-        <Title>Services</Title>
+        <Title>{messages[language].Services.Title}</Title>
       </div>
       {isDataPie ? (
         <>
-          <SubTitle>Look the % of services made by appointment</SubTitle>
+          <SubTitle>{messages[language].Statistics.LookThePercentatge}</SubTitle>
           <Pie
             data={data}
           />

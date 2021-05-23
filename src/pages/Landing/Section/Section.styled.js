@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import { deviceMax } from '@Commons/styles/breakpoints';
+import Fonts from '@Commons/styles/fonts';
+/* ${Fonts.montserrat}
+${Fonts.poppins} */
 /*
 * Colors
 * FEE995
@@ -10,6 +13,7 @@ import { deviceMax } from '@Commons/styles/breakpoints';
 * */
 
 export const Title = styled.div` 
+   ${Fonts.poppins}
    color:#8265a7;
    font-size: 25px;
    border-bottom:3px solid #8265a7;
@@ -25,6 +29,7 @@ export const Title = styled.div`
 `;
 
 export const SubTitle = styled.div`
+   ${Fonts.poppins}
   color:#6B74A1;
   font-weight: bold;
   font-size: 15px;
@@ -35,6 +40,7 @@ export const SubTitle = styled.div`
 `;
 
 export const Text = styled.p` 
+   ${Fonts.montserrat}
    font-size: 15px;
   line-height: 25px;
    color: gray;
@@ -49,19 +55,29 @@ export const Container = styled.div`
   line-height: 40px;
 `;
 export const Card = styled.div`
- 
   padding: 5em;
   display: flex;
   max-width: 1000px;
   margin: auto;
   justify-content: space-around;
   flex-direction: ${(props) => (props.reverse ? 'row-reverse' : '')};
+  .right{
+  margin-left: 4vw !important;
+}
+.left{
+  margin-right: 4vw !important;
+}
   @media ${deviceMax.tablet} {
     flex-direction: column;
     align-items: center;
   }
   @media ${deviceMax.tablet} {
     padding: 2em;
+  }
+  @media ${deviceMax.mobileS} {
+    .right{
+  margin-left: 0;
+}
   }
 `;
 
@@ -70,11 +86,13 @@ export const WrapperText = styled.div`
   @media ${deviceMax.tablet} {
     width: 90%;
   }
+
 `;
 
 export const WrapperImg = styled.div`
-  width: 30%;
+  width: 50%;
   img {
+    width: 100%;
     margin: auto;
     display: block;
   }

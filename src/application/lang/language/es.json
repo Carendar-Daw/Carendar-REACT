@@ -23,14 +23,14 @@
     "Caja" : "Gestión de caja",
     "Caja_Info" : "No pierdas tiempo cerrando caja gracias a nuestro software"
   },
-  
   "Section": {
     "Title_Left" : "Agenda",
     "Subtitle_Left" : "Gestiona las citas fácilmente",
     "Subtitle_Left_2": "La agenda permite tener una visión completa de todas las visitas del día con información relativa a cada paciente.",
-    "Title_Right": "Gestión de inventario y caja",
-    "Subtitle_Right": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja"
-    
+    "Title_Right": "Inventario/Caja",
+    "Subtitle_Right": "Gestión de inventario y caja registradora",
+    "Subtitle_Right_2": "El apartado económico de tu empresa estará siempre bajo control gracias a nuestra gestión de caja",
+    "StockPhoto":"public/assets/images/images/invES.png" 
   },
   "Footer" :{
   "Contact": "Contacto",
@@ -39,6 +39,7 @@
   "Conditions": "Condiciones de uso" 
   },
   "Dashboard": {
+    "Title": "Página principal",
     "Calendar": "Calendario",
     "Services": "Servicios",
     "Clients": "Clientes",
@@ -148,9 +149,33 @@
   "UserConfig": {
     "Title": "Configuración",
     "ConfigEdit": "Configuración modificada correctamente",
-    "ErrorEdit": "Error al modificar la configuración"
+    "ErrorEdit": "Error al modificar la configuración",
+    "SuccessLanguage":"Lenguaje obtenido correctamente",
+    "ErrorLanguage":"Error al obtener lenguaje",
+    "EditLanguage":"Lenguaje modificado correctamente",
+    "ErrorEditLanguage": "Error al modificar lenguaje",
+    "Brand":"Marca",
+    "Location": "Localización"
   },
-
+  "Statistics": {
+    "DateRange": "Selecciona un rango de fechas",
+    "DateRangeSubtitle": "Consulta los datos de tu salón en un rango de tiempo",
+    "ErrorEdit": "Error al modificar la configuración",
+    "ClientStatistics":"Las estadísticas de tus clientes",
+    "ChooseDate": "Escoge un intervalo de fechas",
+    "ThisPeriodClients": "Has registrado ", 
+    "ThisPeriodClients2": " clientes!",
+    "ThisPeriodProducts": "Has gastado",
+    "ThisPeriodProducts2": "€ en productos",
+    "ProductsStatistics": "Las estadísticas de tu stock",
+    "LookThePercentatge": "Mira el % de servicios hechos por cada cita",
+    "Earnings": "Ingresos",
+    "SuccessStats": "Estadisticas obtenidas correctamente",
+    "ErrorStats": "Error al obtener historial",
+    "VerticalBar":"Ingresos por mes",
+    "FilterState":"Filtrar por estado",
+    "FilterDate": "Filtrar por fecha"
+  },
   "Tour":{
     "Dashboard": "Aquí se situan las diferentes funcionalidades de la aplicación, a las cuales podemos acceder con un simple click",
     "Sidebar": "De la misma forma que en el menú principal, tenemos las diferentes funciones en nuestra barra lateral, pero se añade el apartado 'Estadísticas'",
@@ -161,10 +186,30 @@
     "CustomersHistory": "Esta vista solo se verá en el apartado de clientes. Aquí veremos el historial de citas de cada cliente",
     "CustomerInfo":"Aquí nos saldrá la información del cliente, servicio o producto seleccionado",
     "CustomerAdd":"Para añadir clientes, servicios o productos pulsamos en el botón y rellenamos los campos",
-    "Cash": "Caja xd",
-    "Statistics": "Estadísticas xd",
-    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido" 
-
+    "Cash": "Aquí podremos realizar el cobro de las diferentes citas, así como abrir o cerrar la caja",
+    "CashFilters": "Usando esta funcionalidad podemos filtrar las diferentes citas",
+    "Statistics": "Consulta las estadísticas de tu salón según el rango de tiempo que establezcas",
+    "Configuration": "En esta vista puedes editar los campos de tu salón y cambiar el idioma del mismo seleccionando la bandera de tu idioma preferido",
+    "Done": "Empieza a usar Carendar!"
+  },
+  "Cash":{
+    "Filters": "Filtros",
+    "DataSuccessful": "Datos obtenidos correctamente",
+    "DataFail": "Error al obtener los datos",
+    "CashClosed": "Caja cerrada correctamente",
+    "CloseFail":"Error al cerrar caja",
+    "MoneyStart": "Con cuanto efectivo deseas empezar?",
+    "OpenCash": "Abrir caja",
+    "CloseCashMoney": "Quieres cerrar la caja con dinero?",
+    "CashOpenedAgain":"La caja de hoy se ha abierto de nuevo",
+    "AppointmentPayed": "Cita pagada correctamente",
+    "FailPayment": "Error al pagar cita",
+    "Date":"Fecha",
+    "Receive":"Cobrar",
+    "Header": "Cabecera",
+    "Footer": "Pie de página",
+    "ConfirmPayment": "Confirma el pagamiento de esta cita",
+    "Pay": "Pagar"
   },
   "Cookies": {
     "Explanation": "Esta pagina web solo utiliza cookies para mejorar la experienca de usuario. Si tienes alguna duda consulta nuestras",

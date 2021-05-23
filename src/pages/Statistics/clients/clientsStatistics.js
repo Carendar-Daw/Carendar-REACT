@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { I18nContext } from '@Application/lang/language';
 import { WrapperPie, Title, SubTitle } from './clientsStatistics.styled';
 
 const ClientsStatistics = ({ clients, loadingSpinner }) => {
   const [isData, setIsData] = useState(false);
+
+  const { messages, language } = useContext(I18nContext);
 
   useEffect(() => {
     if (clients) setIsData(true);
@@ -10,20 +13,20 @@ const ClientsStatistics = ({ clients, loadingSpinner }) => {
 
   return (
     <WrapperPie>
-      <Title>Clients</Title>
+      <Title>{messages[language].Customers.Title}</Title>
       {isData
         ? (
           <>
-            <SubTitle>Your client stadistics</SubTitle>
+            <SubTitle>{messages[language].Statistics.ClientStatistics}</SubTitle>
             <p>
-              Este mes has registrado
+              {messages[language].Statistics.ThisPeriodClients}
               {clients}
               {' '}
-              clientes!
+              {messages[language].Statistics.ThisPeriodClients2}
             </p>
           </>
         ) : (
-          <p>Choose some date...</p>
+          <p>{messages[language].Statistics.ChooseDate}</p>
         )}
 
     </WrapperPie>

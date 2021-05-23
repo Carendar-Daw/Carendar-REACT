@@ -18,3 +18,5 @@ export default reducer;
 export const getSaloonId = (store) => store.sal_id;
 
 export const getSaloonPicture = (store) => store.picture;
+
+export const getSaloonName = (store) => store.sal_name;

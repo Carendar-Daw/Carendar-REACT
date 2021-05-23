@@ -7,7 +7,7 @@ import { getSaloonPicture } from '@Application/store/user/reducer';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
 import {ButtonDetails, ButtonUpdate} from '@Pages/Clients/Clients.styled';
-import { Space } from 'antd';
+
 import {
   WrapperConfiguration,
   WrapperTitle,
@@ -81,7 +81,8 @@ const Configuration = () => {
               <input type="text" required value={config.sal_name} onChange={(e) => buildConfig('sal_name', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Nombre</label>
+              <label>{messages[language].Stock.Name}</label>
+
             </div>
             <div className="group">
               <input type="text" value={config.sal_email} disabled />
@@ -93,19 +94,19 @@ const Configuration = () => {
               <input type="text" value={config.sal_brand} onChange={(e) => buildConfig('sal_brand', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Brand</label>
+              <label>{messages[language].UserConfig.Brand}</label>
             </div>
             <div className="group">
               <input type="text" value={config.sal_location} onChange={(e) => buildConfig('sal_location', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Location</label>
+              <label>{messages[language].UserConfig.Location}</label>
             </div>
             <div className="group">
-              <input type="text" xd value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
+              <input type="text" value={config.sal_phone} onChange={(e) => buildConfig('sal_phone', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Phone</label>
+              <label>{messages[language].Customers.Phone}</label>
             </div>
             <ButtonUpdate type="submit">
               <FontAwesomeIcon className="icon" icon="save" />

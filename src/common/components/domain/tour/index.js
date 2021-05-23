@@ -98,8 +98,18 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
     },
 
     {
-      selector: '.cash',
+      selector: '.cash-list',
       content: messages[language].Tour.Cash,
+      action: () => {
+        if (!navChanged.cash) {
+          history.push('/cash');
+          setNavChanged({ ...initialStateRoutes, cash: true });
+        }
+      },
+    },
+    {
+      selector: '.cash-filters',
+      content: messages[language].Tour.CashFilters,
       action: () => {
         if (!navChanged.cash) {
           history.push('/cash');
@@ -112,7 +122,7 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       content: messages[language].Tour.Statistics,
       action: () => {
         if (!navChanged.statistics) {
-          history.push('/configuration');
+          history.push('/statistics');
           setNavChanged({ ...initialStateRoutes, statistics: true });
         }
       },
@@ -138,7 +148,8 @@ const TourApp = ({ isTourOpen, setIsTourOpen }) => {
       // nextStep
         onRequestClose={setTourOff}
         closeWithMask={false}
-        lastStepNextButton={<button>Done! Let's start playing</button>}
+        // eslint-disable-next-line react/button-has-type
+        lastStepNextButton={<button>{messages[language].Tour.Done}</button>}
         accentColor="blue"
         startAt={0}
       />
