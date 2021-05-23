@@ -10,7 +10,6 @@ import axios from '@Commons/http';
 import moment from 'moment';
 import states from '@Pages/Calendar/helpers';
 import { Popover } from 'antd';
-import { log10 } from 'chart.js/helpers';
 import CalendarDrawer from './Drawer/CalendarDrawer';
 import { Container, Badge } from './Calendarapp.styled';
 
@@ -29,6 +28,7 @@ const Calendarapp = ({
   });
 
   const postAppointment = async () => {
+    const calendarApi = info.view.calendar;
     const d = event.app_date
       ? moment(event.app_date)
       : moment(info.startStr);
@@ -41,6 +41,7 @@ const Calendarapp = ({
       app_color: event.color,
     };
     await axios.post('/appointment', appointment);
+
   };
   const putAppointment = async () => {
     const d = event.app_date;
@@ -91,7 +92,6 @@ const Calendarapp = ({
         right: 'dayGridMonth,timeGridWeek,timeGridDay',
       },
     };
-
   } else {
     config = {
       headerToolbar: {
@@ -132,6 +132,7 @@ const Calendarapp = ({
     </>
   );
 
+
   return (
     <>
       <Container className="calendar">
@@ -139,6 +140,11 @@ const Calendarapp = ({
           locale={language === 'en' ? null : esLocale}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           {...config}
+          titleFormat={{ // will produce something like "Tuesday, September 18, 2018"
+            month: 'numeric',
+            year: 'numeric',
+            day: 'numeric',
+          }}
           eventBackgroundColor="#7759a0"
           eventBorderColor="#7759a0"
           initialView="timeGridDay"
@@ -146,6 +152,7 @@ const Calendarapp = ({
           events={events}
           selectable
           selectMirror
+          stickyHeaderDates={false}
           dayMaxEvents
           height="auto"
           allDaySlot={false}

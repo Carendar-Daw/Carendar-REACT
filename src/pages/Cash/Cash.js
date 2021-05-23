@@ -10,6 +10,7 @@ const Cash = () => {
   const [filteredAppointments, setFilteredAppointments] = useState([]);
   const [loadingSpinner, setLoadingSpinner] = useState(false);
 
+
   const hasServices = (app) => {
     const sad = app.map((appointment) => {
       const x = app.filter((a) => a.app_id === appointment.app_id);
