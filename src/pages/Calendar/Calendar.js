@@ -20,7 +20,7 @@ const Calendar = () => {
     const servicesRes = await axios.get('/services');
     const customersRes = await axios.get('/customer');
     setServices(servicesRes.data.services);
-
+    setCustomers(customersRes.data.customers);
     response.data.appointments.forEach((app) => {
       const event = {
         id: app.app_id,
