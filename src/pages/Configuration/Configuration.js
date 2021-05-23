@@ -81,7 +81,7 @@ const Configuration = () => {
               <input type="text" required value={config.sal_name} onChange={(e) => buildConfig('sal_name', e)} />
               <span className="highlight" />
               <span className="bar" />
-              <label>Nombre</label>
+              <label>{messages[language].UserConfig.ConfigEdit}</label>
             </div>
             <div className="group">
               <input type="text" value={config.sal_email} disabled />

@@ -54,28 +54,33 @@ const TableCash = ({ appointments, setActualMoney }) => {
 
   const columns = [
     {
-      title: 'PK',
-      dataIndex: 'key',
-      render: (text) => <a>{text}</a>,
-    },
-    {
       title: 'Status',
       dataIndex: 'status',
-      render: (text) => <a>{text}</a>,
+      width: 90,
     },
     {
       title: 'Customer',
       className: 'customer',
       dataIndex: 'customer',
       align: 'right',
+      width: 90,
     },
     {
       title: 'Price',
       dataIndex: 'price',
+      align: 'center',
+      width: 60,
+      render: (text) => (
+        <span>
+          {text}
+          €
+        </span>
+      ),
     },
     {
       title: 'Date',
       dataIndex: 'date',
+      width: 200,
     },
     {
       title: 'Services',
@@ -86,6 +91,7 @@ const TableCash = ({ appointments, setActualMoney }) => {
       dataIndex: 'payment',
       align: 'center',
       fixed: 'right',
+      width: 70,
       render: (appointment) => (
         <WrapperButtonBuy onClick={() => renderModal(appointment)}>
           <FontAwesomeIcon className="icon" icon="shopping-cart" />
@@ -102,8 +108,7 @@ const TableCash = ({ appointments, setActualMoney }) => {
         size="middle"
         scroll={{ x: 'calc(700px + 50%)', y: 240 }}
         dataSource={appointments}
-        title={() => <p>Header</p>}
-        footer={() => 'Footer'}
+        title={() => <p>La madre del miquel es una putita</p>}
       />
       <Modal
         title="Confirm the payment of this appoitnment"

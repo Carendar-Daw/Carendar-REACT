@@ -22,8 +22,8 @@ const Languaje = () => {
   useEffect(async () => {
     try {
       setLoadingSpinner(true);
-      const language = await axios.get('language');
-      setLanguage(language.data.language);
+      const lan = await axios.get('language');
+      setLanguage(lan.data.language);
       success('Lenguage obtenido correctamente');
     } catch (errors) {
       error('Error al obtener lenguagje un producto');
