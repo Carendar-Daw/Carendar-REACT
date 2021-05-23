@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPLv3",
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
     "@auth0/auth0-react": "^1.4.0",
