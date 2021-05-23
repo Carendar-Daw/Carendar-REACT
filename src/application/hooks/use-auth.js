@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react';
+import {useContext, useEffect, useState} from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useDispatch } from 'react-redux';
 import { error } from '@Commons/components/presentational/MessagesApp/Messages';
 import axios from '@Commons/http';
 import { saveSalon, savePhotoSaloon } from '../store/user/actions';
+import { I18nContext } from "@Application/lang/language";
 
 const useAuth = () => {
   const [verified, setVerified] = useState(true);
   const [ready, setReady] = useState(false);
+  const { setLanguage } = useContext(I18nContext);
   const { user, getIdTokenClaims, isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
 
@@ -26,6 +28,8 @@ const useAuth = () => {
         const newSaloon = await axios.post('saloon', saloon);
         dispatch(saveSalon(newSaloon.data.saloon));
         dispatch(savePhotoSaloon(user.picture));
+        const lan = await axios.get('language');
+        setLanguage(lan.data.language);
         setReady(true);
       } catch (errors) {
         error('Error en la app');

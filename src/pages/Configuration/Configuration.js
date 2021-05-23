@@ -6,7 +6,7 @@ import axios from '@Commons/http';
 import { getSaloonPicture } from '@Application/store/user/reducer';
 import { error, success } from '@Commons/components/presentational/MessagesApp/Messages';
 import Spinner from '@Commons/components/presentational/Spinner/Spinner';
-import {ButtonDetails, ButtonUpdate} from '@Pages/Clients/Clients.styled';
+import { ButtonUpdate } from '@Pages/Clients/Clients.styled';
 
 import {
   WrapperConfiguration,
