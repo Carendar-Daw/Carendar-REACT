@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { deviceMax } from '@Commons/styles/breakpoints';
 import { ButtonDefault } from '@Commons/components/domain/Styles/Style.styled';
 import Fonts from '@Commons/styles/fonts';
-/* ${Fonts.montserrat}
-${Fonts.poppins} */
+/* font-family: montserrat, sans-serif;
+font-family: poppins, sans-serif; */
 /*
 * Colors
 * FEE995
@@ -23,7 +23,7 @@ export const Button = styled(ButtonDefault)`
   }
 
   span {
-    ${Fonts.montserrat}
+    font-family: montserrat, sans-serif;
     position: relative;
     display: inline-block;
     font-size: 12px;
@@ -169,7 +169,7 @@ export const StyledA = styled.a`
 `;
 
 export const SubA = styled.div`
-${Fonts.montserrat}
+font-family: montserrat, sans-serif;
   color: black;
   padding: 12px 16px;
   text-decoration: none;

@@ -66,7 +66,7 @@ export const WrapperButtonsDrawer = styled.div`
 
 export const Link = styled.a`
 
-  ${Fonts.montserrat}
+  font-family: montserrat, sans-serif;
 
   text-decoration: none;
   color: black;
@@ -78,13 +78,13 @@ export const Link = styled.a`
 `;
 
 export const Heading4 = styled.h4`
-  ${Fonts.poppins}
+  font-family: poppins, sans-serif;
 `;
 
 export const Item = styled.li`
-  ${Fonts.montserrat}
+  font-family: montserrat, sans-serif;
 `;
 
 export const Paragraph = styled.p`
-  ${Fonts.montserrat}
+  font-family: montserrat, sans-serif;
 `;

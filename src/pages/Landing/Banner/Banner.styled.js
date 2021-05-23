@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { deviceMax } from '@Commons/styles/breakpoints';
 import { ButtonDefault } from '@Commons/components/domain/Styles/Style.styled';
 import Fonts from '@Commons/styles/fonts';
-/* ${Fonts.montserrat}
-${Fonts.poppins} */
+/* font-family: montserrat, sans-serif;
+font-family: poppins, sans-serif; */
 
 /*
 * Colors
@@ -15,7 +15,7 @@ ${Fonts.poppins} */
 * */
 
 export const Button = styled(ButtonDefault)`
-${Fonts.montserrat}
+font-family: montserrat, sans-serif;
   padding: 1em;
   background-color: #8265A7;
   color: white;
@@ -56,7 +56,7 @@ export const Header = styled.div`
     justify-content: space-around;
   }
   .titulo, .subtitulo{
-    ${Fonts.montserrat}
+    font-family: montserrat, sans-serif;
     color: white;
     text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
    
