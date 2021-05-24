@@ -8,7 +8,7 @@ import { success, error } from '@Commons/components/presentational/MessagesApp/M
 import { WrapperButtonsDrawer } from '@Commons/components/domain/Styles/Style.styled';
 import moment from 'moment';
 
-const URLIMG = 'http://localhost/proyectoDAW/Carendar-LARAVEL/storage/app/public/images/avatar/';
+const URLIMG = process.env.API_KEY;
 
 const DrawerServices = ({
   onClose, getDrawer, createClients, updateClients, buildClients, isUpdating, theClients, setClients, insertDate,
@@ -59,7 +59,7 @@ const DrawerServices = ({
           Email: theClients.cus_email,
           ColorPreference: theClients.cus_color_preference,
           Phone: theClients.cus_phone,
-          Born: moment(theClients.cus_born_date),
+          Born: theClients.cus_born_date ? moment(theClients.cus_born_date) : moment('2000-09-07'),
         }}
       >
         <Row gutter={16}>
