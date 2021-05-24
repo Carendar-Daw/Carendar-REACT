@@ -37,7 +37,7 @@ const TableCash = ({ appointments, setActualMoney, getAppointmentsCash }) => {
       };
       await axios.post('transaction', buildAppointment);
       const appState = {
-        app_state: 'facturado',
+        app_state: 'Facturado',
       };
       await axios.put(`appointmentState/${appointmentPaying.app_id}`, appState);
       const cash = {
