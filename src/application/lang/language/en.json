@@ -211,8 +211,8 @@
   "Footer": "Footer",
   "ConfirmPayment": "Confirm the payment of this appointment",
   "Pay": "Pay",
-  "FilterState":"Filtrar per estat",
-  "FilterDate": "Filtrar per data"
+  "FilterState":"Filter by state",
+  "FilterDate": "Filter by date"
 },
   "Cookies": {
     "Explanation": "This website only uses cookies to improve the user experience. If you have any questions, consult our",
